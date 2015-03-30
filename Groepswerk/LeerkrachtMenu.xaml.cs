@@ -10,44 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Groepswerk
 {
     /// <summary>
-    /// Interaction logic for LeerkrachtMenu.xaml
+    /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class LeerkrachtMenu : Page
+    public partial class Window1 : Window
     {
-        public LeerkrachtMenu()
+        public Window1()
         {
             InitializeComponent();
-        }
-
-        private void btnLlnBeheer_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnIndOv_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnKlOv_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnOpgBew_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnTerug_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("Login.xaml", UriKind.Relative));
         }
     }
 }
