@@ -11,6 +11,15 @@
         </Grid.Background>
         <Label Content="Testje: zet hieronder een label met je naam, dan &#xD;&#xA;weten we of dit voor iedereen werkt&#xD;&#xA;" HorizontalAlignment="Left" Height="62" Margin="111,48,0,0" VerticalAlignment="Top" Width="284" Foreground="#FFF7F7F7"/>
         <Label Content="WoopWoopWoop" HorizontalAlignment="Left" Margin="297,190,0,0" VerticalAlignment="Top" Height="40" Width="149"/>
+        <Label Content="seppe vandezande" HorizontalAlignment="Left" Margin="111,110,0,0" VerticalAlignment="Top"/>
+        <TabControl HorizontalAlignment="Left" Height="23" Margin="231,286,0,0" VerticalAlignment="Top" Width="76">
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>
