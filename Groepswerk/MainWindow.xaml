@@ -21,6 +21,7 @@
             </TabItem>
         </TabControl>
         <Label Content="Vincent" HorizontalAlignment="Left" Margin="111,207,0,0" VerticalAlignment="Top" Width="144"/>
+        <Label Content="Thomas de Grote" HorizontalAlignment="Left" Margin="337,136,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
