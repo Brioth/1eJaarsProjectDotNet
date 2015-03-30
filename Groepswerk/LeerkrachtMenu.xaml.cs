@@ -46,7 +46,8 @@ namespace Groepswerk
 
         private void btnTerug_Click(object sender, RoutedEventArgs e)
         {
-
+            Login login = new Login();
+            this.NavigationService.Navigate(login);
         }
 
 

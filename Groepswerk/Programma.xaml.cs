@@ -25,7 +25,6 @@ namespace Groepswerk
             InitializeComponent();
             windowProgramma.WindowState = WindowState.Maximized;
             gebruiker = "standaard";
-            Login loginMenu = new Login();
         }
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
@@ -51,7 +50,8 @@ namespace Groepswerk
                 case MessageBoxResult.No:
                     break;
                 case MessageBoxResult.Yes:
-                    framePages.NavigationService.Navigate(new Uri("Login.xaml", UriKind.Relative));
+                    Login login = new Login();
+                    framePages.NavigationService.Navigate(login);
                     break;
                 default:
                     break;
