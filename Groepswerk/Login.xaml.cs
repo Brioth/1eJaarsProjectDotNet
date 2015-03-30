@@ -30,35 +30,50 @@ namespace Groepswerk
         {
             InitializeComponent();
             maakAccountLijst(leerkracht);
-            listbLogin.ItemsSource = accountLijst;
+            boxLogin.ItemsSource = accountLijst;
         }
             
 
         //Events
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            //lees naam, check type
-
-            if (gebruikerLogin.Type == "leerkracht")
+            bool pswOk = checkPsw(boxLogin.SelectedIndex, pswBox.Password);
+            if (pswOk ==true)
             {
-                
-                LeerkrachtMenu lkMenu = new LeerkrachtMenu();
-                lkMenu.GebruikerLk = new Gebruiker();//("naam")
-                this.NavigationService.Navigate(lkMenu);
-            }
+                if (leerkracht)
+                {
+                    LeerkrachtMenu lkMenu = new LeerkrachtMenu();
+                    lkMenu.GebruikerLk = new Gebruiker();//("naam")
+                    this.NavigationService.Navigate(lkMenu);
+                }
+                else
+                {
+                    LeerlingMenu llnMenu = new LeerlingMenu();
+                    llnMenu.GebruikerLln = new Gebruiker();//("naam")
+                    this.NavigationService.Navigate(llnMenu);
+                }
+            } 
             else
             {
-              
-                LeerlingMenu llnMenu = new LeerlingMenu();
-                llnMenu.GebruikerLln = new Gebruiker();//("naam")
-                this.NavigationService.Navigate(llnMenu);
+                MessageBox.Show("Het wachtwoord is foutief","Foutief wachtwoord",MessageBoxButton.OK, MessageBoxImage.Stop);
             }
 
         }
         private void chkLk_Checked(object sender, RoutedEventArgs e)
         {
             leerkracht = true;
+            accountLijst.Clear();
+            maakAccountLijst(leerkracht);
+            boxLogin.ItemsSource = accountLijst;
         }
+        private void chkLk_Unchecked(object sender, RoutedEventArgs e)
+        {
+            leerkracht = false;
+            accountLijst.Clear();
+            maakAccountLijst(leerkracht);
+            boxLogin.ItemsSource = accountLijst;
+        }
+        
        //Methods
         private void maakAccountLijst(bool lk)
         {
@@ -71,14 +86,33 @@ namespace Groepswerk
             while (regel != null)
             {
                 string[] woorden = regel.Split(scheiding);
-                accountLijst.Add(woorden[1].Trim());
+                string type = woorden[0];
+                if (leerkracht == true && type == "lk")
+                {
+                    accountLijst.Add(woorden[1].Trim());
+                    pswLijst.Add(woorden[2].Trim());
+                }
+                else if (leerkracht == false && type == "lln"){
+                    accountLijst.Add(woorden[1].Trim());
+                    pswLijst.Add(woorden[2].Trim());
+                }
                 regel = bestand.ReadLine();
             }
-            bestand.Close();
-
-            
+            bestand.Close();            
         }
 
+        private bool checkPsw(int nrPersoon, string gok)
+        {
+            string psw = pswLijst[nrPersoon];
+            if (psw == gok)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 
        //Properties
@@ -87,6 +121,8 @@ namespace Groepswerk
             get { return gebruikerLogin; }
             set { gebruikerLogin = value; }
         }
+
+
 
         
     }
