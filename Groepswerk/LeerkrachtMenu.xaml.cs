@@ -17,11 +17,38 @@ namespace Groepswerk
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class LeerkrachtMenu : Page
     {
-        public Window1()
+        public LeerkrachtMenu()
         {
             InitializeComponent();
         }
+
+        private void btnLlnBeheer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnIndOv_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnKlOv_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnOpgBew_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnTerug_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
     }
 }
