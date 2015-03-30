@@ -19,10 +19,13 @@ namespace Groepswerk
     /// </summary>
     public partial class Programma : Window
     {
+        private String gebruiker;
         public Programma()
         {
             InitializeComponent();
             windowProgramma.WindowState = WindowState.Maximized;
+            gebruiker = "standaard";
+            Login loginMenu = new Login();
         }
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
@@ -54,5 +57,42 @@ namespace Groepswerk
                     break;
             }
         }
+
+        private void menuAanpassen(String gebruiker)
+        {
+            if (gebruiker.Equals("leerling"))
+            {
+
+            }
+            else if (gebruiker.Equals("leerkracht"))
+            {
+                MenuItem beheerAcc = new MenuItem();
+                MenuItem overzichtInd = new MenuItem();
+                MenuItem overzichtKlas = new MenuItem();
+                MenuItem opgAanp = new MenuItem();
+                beheerAcc.Header = "AccountBeheer";
+                overzichtInd.Header = "Individueel overzicht";
+                overzichtKlas.Header = "Klassikaal overzicht";
+                opgAanp.Header = "Opgaven aanpassen";
+
+                menuDefault.Items.Add(beheerAcc);
+                menuDefault.Items.Add(overzichtKlas);
+                menuDefault.Items.Add(overzichtInd);
+                menuDefault.Items.Add(opgAanp);
+
+            }
+            else
+	        {
+
+	        }
+        }
+
+
+        public String Gebruiker
+        {
+            get { return gebruiker;}
+            set { gebruiker = value; }
+        }
+
     }
 }

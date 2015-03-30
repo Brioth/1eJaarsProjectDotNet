@@ -23,17 +23,20 @@ namespace Groepswerk
         public Login()
         {
             InitializeComponent();
+
         }
 
         private void btnLlnLogin_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("LeerlingMenu.xaml", UriKind.Relative));
+            LeerlingMenu llnMenu = new LeerlingMenu();
+            this.NavigationService.Navigate(llnMenu);
+            
         }
 
         private void btnLkLogin_Click(object sender, RoutedEventArgs e)
         {
-            
-            this.NavigationService.Navigate(new Uri("LeerkrachtMenu.xaml", UriKind.Relative));
+            LeerkrachtMenu lkMenu = new LeerkrachtMenu();
+            this.NavigationService.Navigate(lkMenu);
         }
     }
 }

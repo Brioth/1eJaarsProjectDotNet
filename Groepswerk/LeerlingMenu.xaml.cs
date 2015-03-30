@@ -27,7 +27,8 @@ namespace Groepswerk
 
         private void btnTerug_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Login.xaml", UriKind.Relative));
+            Login login = new Login();
+            this.NavigationService.Navigate(login);
         }
     }
 }

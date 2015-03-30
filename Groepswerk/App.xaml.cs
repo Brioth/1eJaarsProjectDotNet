@@ -13,6 +13,10 @@ namespace Groepswerk
     /// </summary>
     public partial class App : Application
     {
-        
+        private void Application_startup(object sender, StartupEventArgs e)
+        {
+            Programma programma = new Programma();
+            programma.Show();
+        }
     }
 }
