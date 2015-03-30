@@ -79,7 +79,7 @@ namespace Groepswerk
         {
             accountLijst = new List<string>();
             pswLijst = new List<String>();
-            StreamReader bestand = File.OpenText(@"C:\Users\11400938\Source\Repos\Groepswerk\Groepswerk\Accounts.txt");
+            StreamReader bestand = File.OpenText("Accounts.txt");
             string regel = bestand.ReadLine();
             char[] scheiding={';', ','};
 
