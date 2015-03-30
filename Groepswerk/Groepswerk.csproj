@@ -68,9 +68,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Gebruiker.cs" />
     <Compile Include="LeerkrachtMenu.xaml.cs">
       <DependentUpon>LeerkrachtMenu.xaml</DependentUpon>
     </Compile>
+    <Page Include="LeerlingenBeheer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LeerlingMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -86,6 +91,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LeerlingenBeheer.xaml.cs">
+      <DependentUpon>LeerlingenBeheer.xaml</DependentUpon>
     </Compile>
     <Compile Include="LeerlingMenu.xaml.cs">
       <DependentUpon>LeerlingMenu.xaml</DependentUpon>
@@ -152,6 +160,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Accounts.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

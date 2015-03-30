@@ -1,0 +1,18 @@
+﻿<Page x:Class="Groepswerk.LeerlingenBeheer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="332" d:DesignWidth="528"
+	Title="LeerlingenBeheer">
+
+    <Grid>
+        <ListBox Name="lboxAccounts" HorizontalAlignment="Left" Height="201" Margin="36,97,0,0" VerticalAlignment="Top" Width="147"/>
+        <ComboBox HorizontalAlignment="Left" Height="32" Margin="36,43,0,0" VerticalAlignment="Top" Width="147">
+
+            
+        </ComboBox>
+
+    </Grid>
+</Page>

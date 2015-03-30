@@ -14,6 +14,6 @@
         <Grid Background="LemonChiffon" DockPanel.Dock="Bottom" MinHeight="50"/>
         <Grid Background="LemonChiffon" DockPanel.Dock="Left" MinWidth="50"/>
         <Grid Background="LemonChiffon" DockPanel.Dock="Right" MinWidth="50"/>
-        <Frame Name="framePages" Source="Login.xaml" Background="Azure" NavigationUIVisibility="Hidden"/>       
+        <Frame Name="framePages" Background="Azure" NavigationUIVisibility="Hidden"/>       
     </DockPanel>
 </Window>

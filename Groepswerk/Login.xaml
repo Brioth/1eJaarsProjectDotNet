@@ -8,16 +8,12 @@
 	Title="Login">
 
     <Grid>
-        <Button x:Name="btnLkLogin" Click="btnLkLogin_Click" Content="Login als leerkracht" HorizontalAlignment="Left" Height="24" Margin="384,10,-209,0" VerticalAlignment="Top" Width="125"/>
-        <ListBox x:Name="listbLlnLogin" HorizontalAlignment="Left" Height="25" Margin="161,131,0,0" VerticalAlignment="Top" Width="122">
-            <ListBoxItem Content="Jantje"/>
-            <ListBoxItem Content="Mieke"/>
-            <ListBoxItem Content="Jefke"/>
-        </ListBox>
+        <ListBox x:Name="listbLogin" HorizontalAlignment="Left" Height="30" Margin="161,131,0,0" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.5,0.5"/>
         <PasswordBox HorizontalAlignment="Left" Height="24" Margin="161,173,0,0" VerticalAlignment="Top" Width="122"/>
         <Label Content="Paswoord" HorizontalAlignment="Left" Height="24" Margin="40,173,0,0" VerticalAlignment="Top" Width="92"/>
         <Label Content="Gebuikersnaam" HorizontalAlignment="Left" Height="25" Margin="40,131,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button x:Name="btnLlnLogin" Click="btnLlnLogin_Click" Content="Login" HorizontalAlignment="Left" Height="35" Margin="161,226,0,0" VerticalAlignment="Top" Width="122"/>
+        <Button x:Name="btnLogin" Click="btnLogin_Click" Content="Login" HorizontalAlignment="Left" Height="35" Margin="161,226,0,0" VerticalAlignment="Top" Width="122"/>
+        <CheckBox Name="chkLk" Content="Login als leerkracht" HorizontalAlignment="Left" Height="21" Margin="379,10,0,0" VerticalAlignment="Top" Width="149" Checked="chkLk_Checked"/>
 
     </Grid>
 </Page>

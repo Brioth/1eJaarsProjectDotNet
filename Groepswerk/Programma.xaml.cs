@@ -19,14 +19,17 @@ namespace Groepswerk
     /// </summary>
     public partial class Programma : Window
     {
-        private String gebruiker;
+        private Gebruiker gebruikerProg;
         public Programma()
         {
             InitializeComponent();
             windowProgramma.WindowState = WindowState.Maximized;
-            gebruiker = "standaard";
+            gebruikerProg = new Gebruiker();//("standaard");
+            Login login = new Login();
+            login.GebruikerLogin=gebruikerProg;
+            framePages.Navigate(login);
         }
-
+        
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult stoppen = MessageBox.Show("Ben je zeker dat je wilt stoppen?","Stop", MessageBoxButton.YesNo);
@@ -58,7 +61,8 @@ namespace Groepswerk
             }
         }
 
-        private void menuAanpassen(String gebruiker)
+
+        public void menuAanpassen(String gebruiker)
         {
             if (gebruiker.Equals("leerling"))
             {
@@ -82,17 +86,14 @@ namespace Groepswerk
 
             }
             else
-	        {
+            {
 
-	        }
+            }
         }
 
 
-        public String Gebruiker
-        {
-            get { return gebruiker;}
-            set { gebruiker = value; }
-        }
+
+        
 
     }
 }

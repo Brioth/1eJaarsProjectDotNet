@@ -19,6 +19,7 @@ namespace Groepswerk
     /// </summary>
     public partial class LeerkrachtMenu : Page
     {
+        private Gebruiker gebruikerLk;
         public LeerkrachtMenu()
         {
             InitializeComponent();
@@ -49,6 +50,8 @@ namespace Groepswerk
             Login login = new Login();
             this.NavigationService.Navigate(login);
         }
+
+        public Gebruiker GebruikerLk { get; set; }
 
 
     }

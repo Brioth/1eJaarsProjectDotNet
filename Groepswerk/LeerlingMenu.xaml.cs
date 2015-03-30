@@ -20,6 +20,7 @@ namespace Groepswerk
     /// </summary>
     public partial class LeerlingMenu : Page
     {
+        private Gebruiker gebruikerLln;
         public LeerlingMenu()
         {
             InitializeComponent();
@@ -30,5 +31,7 @@ namespace Groepswerk
             Login login = new Login();
             this.NavigationService.Navigate(login);
         }
+
+        public Gebruiker GebruikerLln { get; set; }
     }
 }

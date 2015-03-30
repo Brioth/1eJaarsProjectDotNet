@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,23 +21,73 @@ namespace Groepswerk
     /// </summary>
     public partial class Login : Page
     {
+        private Gebruiker gebruikerLogin;
+        private bool leerkracht = false;
+        private List<String> accountLijst;
+        private List<String> pswLijst;
+       //Constructors
         public Login()
         {
             InitializeComponent();
+            maakAccountLijst(leerkracht);
+            listbLogin.ItemsSource = accountLijst;
+        }
+            
+
+        //Events
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            //lees naam, check type
+
+            if (gebruikerLogin.Type == "leerkracht")
+            {
+                
+                LeerkrachtMenu lkMenu = new LeerkrachtMenu();
+                lkMenu.GebruikerLk = new Gebruiker();//("naam")
+                this.NavigationService.Navigate(lkMenu);
+            }
+            else
+            {
+              
+                LeerlingMenu llnMenu = new LeerlingMenu();
+                llnMenu.GebruikerLln = new Gebruiker();//("naam")
+                this.NavigationService.Navigate(llnMenu);
+            }
 
         }
-
-        private void btnLlnLogin_Click(object sender, RoutedEventArgs e)
+        private void chkLk_Checked(object sender, RoutedEventArgs e)
         {
-            LeerlingMenu llnMenu = new LeerlingMenu();
-            this.NavigationService.Navigate(llnMenu);
+            leerkracht = true;
+        }
+       //Methods
+        private void maakAccountLijst(bool lk)
+        {
+            accountLijst = new List<string>();
+            pswLijst = new List<String>();
+            StreamReader bestand = File.OpenText(@"C:\Users\11400938\Source\Repos\Groepswerk\Groepswerk\Accounts.txt");
+            string regel = bestand.ReadLine();
+            char[] scheiding={';', ','};
+
+            while (regel != null)
+            {
+                string[] woorden = regel.Split(scheiding);
+                accountLijst.Add(woorden[1].Trim());
+                regel = bestand.ReadLine();
+            }
+            bestand.Close();
+
             
         }
 
-        private void btnLkLogin_Click(object sender, RoutedEventArgs e)
+
+
+       //Properties
+        public Gebruiker GebruikerLogin
         {
-            LeerkrachtMenu lkMenu = new LeerkrachtMenu();
-            this.NavigationService.Navigate(lkMenu);
+            get { return gebruikerLogin; }
+            set { gebruikerLogin = value; }
         }
+
+        
     }
 }
