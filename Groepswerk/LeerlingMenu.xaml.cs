@@ -21,16 +21,25 @@ namespace Groepswerk
     public partial class LeerlingMenu : Page
     {
         private Gebruiker gebruikerLln;
+
+        //Constructors
+
         public LeerlingMenu()
         {
             InitializeComponent();
         }
+
+        //Events
 
         private void btnTerug_Click(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
             this.NavigationService.Navigate(login);
         }
+
+        //Methods
+
+        //Properties
 
         public Gebruiker GebruikerLln { get; set; }
     }

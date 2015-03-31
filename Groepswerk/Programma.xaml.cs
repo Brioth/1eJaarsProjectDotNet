@@ -20,6 +20,9 @@ namespace Groepswerk
     public partial class Programma : Window
     {
         private Gebruiker gebruikerProg;
+
+        //Constructors
+
         public Programma()
         {
             InitializeComponent();
@@ -29,6 +32,8 @@ namespace Groepswerk
             login.GebruikerLogin=gebruikerProg;
             framePages.Navigate(login);
         }
+
+        //Events
         
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
@@ -61,6 +66,7 @@ namespace Groepswerk
             }
         }
 
+        //Methods
 
         public void menuAanpassen(String gebruiker)
         {
@@ -90,6 +96,8 @@ namespace Groepswerk
 
             }
         }
+
+        //Properties
 
 
 

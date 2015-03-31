@@ -23,13 +23,22 @@ namespace Groepswerk
     {
         private String persoonType, persoonNaam, persoonPsw;
         private List<String> accountLijst;
+
+        //Constructors
+
         public LeerlingenBeheer()
         {
             InitializeComponent();
-            accountLijst = new List<string>();
+            
             
             
         }
+
+        //Events
+
+        //Methods
+
+        //Properties
 
     }
 }

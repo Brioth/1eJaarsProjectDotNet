@@ -68,6 +68,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AanpasbaarMenu.cs" />
     <Compile Include="Gebruiker.cs" />
     <Compile Include="LeerkrachtMenu.xaml.cs">
       <DependentUpon>LeerkrachtMenu.xaml</DependentUpon>
@@ -163,6 +164,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Accounts.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Klassen.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

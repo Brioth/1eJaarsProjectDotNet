@@ -20,10 +20,15 @@ namespace Groepswerk
     public partial class LeerkrachtMenu : Page
     {
         private Gebruiker gebruikerLk;
+
+        //Constructors
+
         public LeerkrachtMenu()
         {
             InitializeComponent();
         }
+
+        //Events
 
         private void btnLlnBeheer_Click(object sender, RoutedEventArgs e)
         {
@@ -50,6 +55,10 @@ namespace Groepswerk
             Login login = new Login();
             this.NavigationService.Navigate(login);
         }
+
+        //Methods
+
+        //Properties
 
         public Gebruiker GebruikerLk { get; set; }
 
