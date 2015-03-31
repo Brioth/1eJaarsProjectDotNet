@@ -1,7 +1,0 @@
-﻿lk; Jef; pxl;'\r\n''
-lln; klas1; Loes; psw1;'\r\n'
-lln; klas2; kim, psw2; '\r\n'
-lk; Chris; psw; '\r\n'
-lln; klas1; Mieke; psw3; '\r\n'
-lln; klas1; Jan; psw4; '\r\n'
-lln; klas2; Jef; psw1; '\r\n'

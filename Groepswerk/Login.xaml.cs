@@ -107,28 +107,28 @@ namespace Groepswerk
 
         private void maakAccountLijst(bool lk)
         {
-            accountLijst = new List<string>();
+            accountLijst = new List<String>();
             pswLijst = new List<String>();
-            StreamReader bestandAcc = File.OpenText("Accounts.txt");
+            StreamReader bestandAcc = File.OpenText(@"C:\Users\11400938\Source\Repos\Groepswerk\Groepswerk\bin\Debug\Accounts.txt");
             string regel = bestandAcc.ReadLine();
             char[] scheiding = { ';', ',' };
 
             while (regel != null)
             {
                 string[] woorden = regel.Split(scheiding);
-                string type = woorden[0];
+                string type = woorden[0].Trim();
 
-                if (leerkracht == true && type == "lk")
+                if (leerkracht == true && type.Equals("lk"))
                 {
-                    accountLijst.Add(woorden[2].Trim());
-                    pswLijst.Add(woorden[3].Trim());
+                    accountLijst.Add(woorden[1].Trim());
+                    pswLijst.Add(woorden[2].Trim());
                 }
-                else if (leerkracht == false && type == "lln")
+                else if (leerkracht == false && type.Equals("lln"))
                 {
                     selectedKlas = Convert.ToString(boxKlas.SelectedItem);
-                    string klasLln = woorden[1];
+                    string klasLln = woorden[1].Trim();
 
-                    if (selectedKlas == klasLln)
+                    if (selectedKlas.Equals(klasLln))
                     {
                         accountLijst.Add(woorden[2].Trim());
                         pswLijst.Add(woorden[3].Trim());
@@ -141,8 +141,8 @@ namespace Groepswerk
 
         private void maakKlasLijst()
         {
-            klasLijst = new List<string>();
-            StreamReader bestandKlas = File.OpenText("Klassen.txt");
+            klasLijst = new List<String>();
+            StreamReader bestandKlas = File.OpenText(@"C:\Users\11400938\Source\Repos\Groepswerk\Groepswerk\bin\Debug\Klassen.txt");
             string regel = bestandKlas.ReadLine();
 
             while (regel != null)
@@ -156,7 +156,7 @@ namespace Groepswerk
         private bool checkPsw(int nrPersoon, string gok)
         {
             string psw = pswLijst[nrPersoon];
-            if (psw == gok)
+            if (psw.Equals(gok))
             {
                 return true;
             }
