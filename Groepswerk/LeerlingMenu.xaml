@@ -7,8 +7,5 @@
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="LeerlingMenu">
 
-    <Grid>
-        <Button Content="Terug" Name="btnTerug" Click="btnTerug_Click" HorizontalAlignment="Left" Height="34" Margin="179,35,0,0" VerticalAlignment="Top" Width="92"/>
-
-    </Grid>
+    <Grid/>
 </Page>

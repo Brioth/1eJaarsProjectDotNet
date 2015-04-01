@@ -21,13 +21,12 @@ namespace Groepswerk
     /// </summary>
     public partial class Login : Page
     {
-        private Gebruiker gebruikerLogin;
         private bool leerkracht = false;
-        private string selectedKlas;
-        private List<String> accountLijst;
-        private List<String> pswLijst;
+        private List<Gebruiker> accountLijst;
         private List<String> klasLijst;
-        
+        private MenuItem aangepastMenu;
+        private string selectedKlas;
+        private Gebruiker actieveGebruiker;
         //Constructors
 
         public Login()
@@ -37,6 +36,7 @@ namespace Groepswerk
             boxKlas.ItemsSource = klasLijst;
             maakAccountLijst(leerkracht);
             boxLogin.ItemsSource = accountLijst;
+            aangepastMenu = new AanpasbaarMenu("standaard");
         }
 
         //Events
@@ -79,25 +79,28 @@ namespace Groepswerk
             boxLogin.ItemsSource = accountLijst;
         }
 
+        
         //Methods
 
         private void loginHandler()
         {
-            bool pswOk = checkPsw(boxLogin.SelectedIndex, pswBox.Password);
+            Gebruiker selectedGebruiker = checkSelectedGebruiker();
+            bool pswOk = checkPsw(selectedGebruiker);
             if (pswOk == true)
             {
+                actieveGebruiker = new Gebruiker(selectedGebruiker);
                 if (leerkracht)
                 {
-                    LeerkrachtMenu lkMenu = new LeerkrachtMenu();
-                    lkMenu.GebruikerLk = new Gebruiker();//("naam")
+                    LeerkrachtMenu lkMenu = new LeerkrachtMenu(actieveGebruiker);
                     this.NavigationService.Navigate(lkMenu);
                 }
                 else
                 {
-                    LeerlingMenu llnMenu = new LeerlingMenu();
-                    llnMenu.GebruikerLln = new Gebruiker();//("naam")
+                    LeerlingMenu llnMenu = new LeerlingMenu(actieveGebruiker);
                     this.NavigationService.Navigate(llnMenu);
+                    
                 }
+
             }
             else
             {
@@ -107,8 +110,7 @@ namespace Groepswerk
 
         private void maakAccountLijst(bool lk)
         {
-            accountLijst = new List<String>();
-            pswLijst = new List<String>();
+            accountLijst = new List<Gebruiker>();
             StreamReader bestandAcc = File.OpenText(@"C:\Users\11400938\Source\Repos\Groepswerk\Groepswerk\bin\Debug\Accounts.txt");
             string regel = bestandAcc.ReadLine();
             char[] scheiding = { ';', ',' };
@@ -116,22 +118,24 @@ namespace Groepswerk
             while (regel != null)
             {
                 string[] woorden = regel.Split(scheiding);
-                string type = woorden[0].Trim();
-
-                if (leerkracht == true && type.Equals("lk"))
+                for (int i = 0; i < woorden.Length; i++)
                 {
-                    accountLijst.Add(woorden[1].Trim());
-                    pswLijst.Add(woorden[2].Trim());
+                    woorden[i] = woorden[i].Trim();
                 }
-                else if (leerkracht == false && type.Equals("lln"))
+
+                Gebruiker gebruiker = new Gebruiker(woorden[0], woorden[1], woorden[2], woorden[3]);
+
+                if (leerkracht == true && (gebruiker.Type).Equals("lk"))
+                {
+                    accountLijst.Add(gebruiker);
+                }
+                else if (leerkracht == false)
                 {
                     selectedKlas = Convert.ToString(boxKlas.SelectedItem);
-                    string klasLln = woorden[1].Trim();
 
-                    if (selectedKlas.Equals(klasLln))
+                    if ((gebruiker.Klas).Equals(selectedKlas))
                     {
-                        accountLijst.Add(woorden[2].Trim());
-                        pswLijst.Add(woorden[3].Trim());
+                        accountLijst.Add(gebruiker);
                     }
                 }
                 regel = bestandAcc.ReadLine();
@@ -150,13 +154,13 @@ namespace Groepswerk
                 klasLijst.Add(regel.Trim());
                 regel = bestandKlas.ReadLine();
             }
-            bestandKlas.Close();            
+            bestandKlas.Close();
         }
 
-        private bool checkPsw(int nrPersoon, string gok)
+        private bool checkPsw(Gebruiker selectedGebruiker)
         {
-            string psw = pswLijst[nrPersoon];
-            if (psw.Equals(gok))
+            string gok = pswBox.Password;
+            if (selectedGebruiker.Psw.Equals(gok))
             {
                 return true;
             }
@@ -166,21 +170,18 @@ namespace Groepswerk
             }
         }
 
+        private Gebruiker checkSelectedGebruiker()
+        {
+            Gebruiker selectedGebruiker = new Gebruiker((Gebruiker)boxLogin.SelectedItem);
+            return selectedGebruiker;
+        }
 
         //Properties
 
-        public Gebruiker GebruikerLogin
+        public MenuItem AangepastMenu
         {
-            get { return gebruikerLogin; }
-            set { gebruikerLogin = value; }
+            get { return aangepastMenu; }
         }
-
-
-
-
-
-
-
 
     }
 }

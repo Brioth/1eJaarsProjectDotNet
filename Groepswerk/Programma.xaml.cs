@@ -19,7 +19,6 @@ namespace Groepswerk
     /// </summary>
     public partial class Programma : Window
     {
-        private Gebruiker gebruikerProg;
 
         //Constructors
 
@@ -27,10 +26,9 @@ namespace Groepswerk
         {
             InitializeComponent();
             windowProgramma.WindowState = WindowState.Maximized;
-            gebruikerProg = new Gebruiker();//("standaard");
             Login login = new Login();
-            login.GebruikerLogin=gebruikerProg;
             framePages.Navigate(login);
+            mainMenu.Items.Add(login.AangepastMenu);
         }
 
         //Events
@@ -66,38 +64,21 @@ namespace Groepswerk
             }
         }
 
+        private void framePages_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+
+        }
         //Methods
 
-        public void menuAanpassen(String gebruiker)
-        {
-            if (gebruiker.Equals("leerling"))
-            {
 
-            }
-            else if (gebruiker.Equals("leerkracht"))
-            {
-                MenuItem beheerAcc = new MenuItem();
-                MenuItem overzichtInd = new MenuItem();
-                MenuItem overzichtKlas = new MenuItem();
-                MenuItem opgAanp = new MenuItem();
-                beheerAcc.Header = "AccountBeheer";
-                overzichtInd.Header = "Individueel overzicht";
-                overzichtKlas.Header = "Klassikaal overzicht";
-                opgAanp.Header = "Opgaven aanpassen";
-
-                menuDefault.Items.Add(beheerAcc);
-                menuDefault.Items.Add(overzichtKlas);
-                menuDefault.Items.Add(overzichtInd);
-                menuDefault.Items.Add(opgAanp);
-
-            }
-            else
-            {
-
-            }
-        }
 
         //Properties
+
+
+
+
+
+
 
 
 

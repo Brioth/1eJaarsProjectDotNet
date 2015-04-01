@@ -19,20 +19,23 @@ namespace Groepswerk
     /// </summary>
     public partial class LeerkrachtMenu : Page
     {
-        private Gebruiker gebruikerLk;
+        private MenuItem aangepastMenu;
 
         //Constructors
 
-        public LeerkrachtMenu()
+        public LeerkrachtMenu(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
+            ActieveGebruiker = actieveGebruiker;
+            aangepastMenu = new AanpasbaarMenu(actieveGebruiker.Type);
         }
 
         //Events
 
         private void btnLlnBeheer_Click(object sender, RoutedEventArgs e)
         {
-
+            LeerlingenBeheer beheerMenu = new LeerlingenBeheer(ActieveGebruiker);
+            this.NavigationService.Navigate(beheerMenu);
         }
 
         private void btnIndOv_Click(object sender, RoutedEventArgs e)
@@ -50,17 +53,17 @@ namespace Groepswerk
 
         }
 
-        private void btnTerug_Click(object sender, RoutedEventArgs e)
-        {
-            Login login = new Login();
-            this.NavigationService.Navigate(login);
-        }
 
         //Methods
 
         //Properties
 
-        public Gebruiker GebruikerLk { get; set; }
+        public Gebruiker ActieveGebruiker { get; set; }
+
+        public MenuItem AangepastMenu
+        {
+            get { return aangepastMenu; }
+        }
 
 
     }

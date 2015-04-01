@@ -12,7 +12,6 @@
         <Button x:Name="btnIndOv" Click="btnIndOv_Click" Content="Individueel overzicht" HorizontalAlignment="Left" Height="41" Margin="31,97,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnKlOv" Click="btnKlOv_Click" Content="Klasikaal overzicht" HorizontalAlignment="Left" Height="46" Margin="31,154,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnOpgBew" Click="btnOpgBew_Click" Content="Opgaven bewerken" HorizontalAlignment="Left" Height="44" Margin="31,226,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnTerug" Click="btnTerug_Click" Content="Terug" HorizontalAlignment="Left" Height="38" Margin="377,10,-181,0" VerticalAlignment="Top" Width="104"/>
 
     </Grid>
     </Page>

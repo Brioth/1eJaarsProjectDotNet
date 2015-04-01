@@ -8,11 +8,16 @@
 	Title="LeerlingenBeheer">
 
     <Grid>
-        <ListBox Name="lboxAccounts" HorizontalAlignment="Left" Height="201" Margin="36,97,0,0" VerticalAlignment="Top" Width="147"/>
-        <ComboBox HorizontalAlignment="Left" Height="32" Margin="36,43,0,0" VerticalAlignment="Top" Width="147">
-
-            
+        <ComboBox Name="boxKlas" HorizontalAlignment="Left" Height="32" Margin="25,113,0,0" VerticalAlignment="Top" Width="147" SelectionChanged="boxKlas_Changed" Visibility="Hidden"/>
+        <ListBox Name="boxAccounts" HorizontalAlignment="Left" Height="129" Margin="25,161,0,0" VerticalAlignment="Top" Width="147" Visibility="Hidden"/>
+        <ComboBox Name="boxCommands" HorizontalAlignment="Left" Margin="25,24,0,0" VerticalAlignment="Top" Width="209" Height="30" SelectionChanged="boxCommands_Changed">
+            <ComboBoxItem>Nieuwe leerling aanmaken</ComboBoxItem>
+            <ComboBoxItem>Gebruiker wijzigen</ComboBoxItem>
         </ComboBox>
-
+            <Label Content="Naam" HorizontalAlignment="Left" Height="32" Margin="222,113,0,0" VerticalAlignment="Top" Width="100"/>
+            <TextBox Name="txtbNaam" HorizontalAlignment="Left" Height="32" Margin="335,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="108"/>
+            <Label Content="Wachtwoord" HorizontalAlignment="Left" Height="28" Margin="222,171,0,0" VerticalAlignment="Top" Width="100"/>
+            <PasswordBox Name="pswBox" HorizontalAlignment="Left" Height="28" Margin="335,171,0,0" VerticalAlignment="Top" Width="108"/>
+        <Button Name="btnVoegToe" Click="btnVoegToe_Click" Content="Voeg toe" HorizontalAlignment="Left" Height="30" Margin="275,227,0,0" VerticalAlignment="Top" Width="133"/>
     </Grid>
 </Page>

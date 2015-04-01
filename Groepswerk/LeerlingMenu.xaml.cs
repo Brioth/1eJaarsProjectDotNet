@@ -20,27 +20,27 @@ namespace Groepswerk
     /// </summary>
     public partial class LeerlingMenu : Page
     {
-        private Gebruiker gebruikerLln;
 
+        private MenuItem aangepastMenu;
         //Constructors
 
-        public LeerlingMenu()
+        public LeerlingMenu(Gebruiker actievegebruiker)
         {
             InitializeComponent();
+            ActieveGebruiker = actievegebruiker;
+            aangepastMenu = new AanpasbaarMenu(ActieveGebruiker.Type);
         }
 
         //Events
-
-        private void btnTerug_Click(object sender, RoutedEventArgs e)
-        {
-            Login login = new Login();
-            this.NavigationService.Navigate(login);
-        }
 
         //Methods
 
         //Properties
 
-        public Gebruiker GebruikerLln { get; set; }
+        public Gebruiker ActieveGebruiker { get; set; }
+        public MenuItem AangepastMenu
+        {
+            get { return aangepastMenu; }
+        }
     }
 }
