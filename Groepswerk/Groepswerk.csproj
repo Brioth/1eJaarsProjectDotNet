@@ -70,9 +70,16 @@
     </ApplicationDefinition>
     <Compile Include="AanpasbaarMenu.cs" />
     <Compile Include="Gebruiker.cs" />
+    <Compile Include="gebruikerdetails.xaml.cs">
+      <DependentUpon>gebruikerdetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LeerkrachtMenu.xaml.cs">
       <DependentUpon>LeerkrachtMenu.xaml</DependentUpon>
     </Compile>
+    <Page Include="gebruikerdetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LeerlingenBeheer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

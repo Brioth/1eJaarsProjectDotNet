@@ -111,7 +111,7 @@ namespace Groepswerk
         private void maakAccountLijst(bool lk)
         {
             accountLijst = new List<Gebruiker>();
-            StreamReader bestandAcc = File.OpenText(@"C:\Users\11400938\Source\Repos\Groepswerk\Groepswerk\bin\Debug\Accounts.txt");
+            StreamReader bestandAcc = File.OpenText(@"C:\Users\Vincent\Source\Repos\Groepswerk\Groepswerk\bin\Debug\Accounts.txt");
             string regel = bestandAcc.ReadLine();
             char[] scheiding = {';'};
 
@@ -146,7 +146,7 @@ namespace Groepswerk
         private void maakKlasLijst()
         {
             klasLijst = new List<String>();
-            StreamReader bestandKlas = File.OpenText(@"C:\Users\11400938\Source\Repos\Groepswerk\Groepswerk\bin\Debug\Klassen.txt");
+            StreamReader bestandKlas = File.OpenText(@"C:\Users\Vincent\Source\Repos\Groepswerk\Groepswerk\bin\Debug\Klassen.txt");
             string regel = bestandKlas.ReadLine();
 
             while (regel != null)

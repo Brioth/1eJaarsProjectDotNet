@@ -40,7 +40,8 @@ namespace Groepswerk
 
         private void btnIndOv_Click(object sender, RoutedEventArgs e)
         {
-
+            gebruikerdetails detailsMenu = new gebruikerdetails(ActieveGebruiker);
+            this.NavigationService.Navigate(detailsMenu);
         }
 
         private void btnKlOv_Click(object sender, RoutedEventArgs e)
