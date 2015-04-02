@@ -5,7 +5,10 @@
         Title="Programma" Height="600" Width="600">
     <DockPanel Name="dock">
         <Menu Name="mainMenu" DockPanel.Dock="Top" />
-        <Grid Background="LemonChiffon" DockPanel.Dock="Top" MinHeight="100"/>
+        <Grid Background="LemonChiffon" DockPanel.Dock="Top" MinHeight="100">
+            <Button Name="btnLogUit" Click="btnHome_Click" Content="Uitloggen" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" VerticalAlignment="Top" Width="56"/>
+            <Button Name="btnExit" Click="btnStop_Click" Content="Stop" HorizontalAlignment="Right" Height="29" Margin="504,10,0,0" VerticalAlignment="Top" Width="63"/>
+        </Grid>
         <Grid Background="LemonChiffon" DockPanel.Dock="Bottom" MinHeight="100"/>
         <Grid Background="LemonChiffon" DockPanel.Dock="Left" MinWidth="100"/>
         <Grid Background="LemonChiffon" DockPanel.Dock="Right" MinWidth="100"/>

@@ -113,7 +113,7 @@ namespace Groepswerk
             accountLijst = new List<Gebruiker>();
             StreamReader bestandAcc = File.OpenText(@"C:\Users\11400938\Source\Repos\Groepswerk\Groepswerk\bin\Debug\Accounts.txt");
             string regel = bestandAcc.ReadLine();
-            char[] scheiding = { ';', ',' };
+            char[] scheiding = {';'};
 
             while (regel != null)
             {

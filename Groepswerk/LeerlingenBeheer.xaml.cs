@@ -67,7 +67,7 @@ namespace Groepswerk
             bestandLezer.Close();
             string nieuweGebruiker = String.Format("lln; {0}; {1}; {2}; ", Convert.ToString(boxKlas.SelectedItem), txtbNaam.Text, pswBox.Password);
             StreamWriter schrijfBestand = File.AppendText(@"C:\Users\11400938\Source\Repos\Groepswerk\Groepswerk\bin\Debug\Accounts.txt");
-            schrijfBestand.WriteLine(Environment.NewLine + nieuweGebruiker);
+            schrijfBestand.WriteLine(nieuweGebruiker);
             schrijfBestand.Close();
         }
         //Methods
