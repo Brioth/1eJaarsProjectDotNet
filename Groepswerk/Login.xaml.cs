@@ -146,6 +146,7 @@ namespace Groepswerk
         private void maakKlasLijst()
         {
             klasLijst = new List<String>();
+            string locatieProgramma=Environment.GetFolderPath(Envi)
             StreamReader bestandKlas = File.OpenText(@"C:\Users\Vincent\Source\Repos\Groepswerk\Groepswerk\bin\Debug\Klassen.txt");
             string regel = bestandKlas.ReadLine();
 
