@@ -8,11 +8,25 @@
 	Title="gebruikerdetails">
 
     <Grid>
-        
-        
-        <ComboBox HorizontalAlignment="Left" Margin="-884,-2174,0,0" VerticalAlignment="Top" Width="120" Name="klasKeuze" IsEditable="False"/>
-        <TextBlock HorizontalAlignment="Left" Margin="-979,-2174,0,0" TextWrapping="Wrap" Text="klas" VerticalAlignment="Top"/>
-        <Button Content="toon keuze" Name="keuzeBtn" HorizontalAlignment="Left" Margin="-604,-2172,0,0" VerticalAlignment="Top" Width="75" Click="keuzeBtn_Click"/>
+
+
+        <ComboBox HorizontalAlignment="Left" Margin="-1128,-2346,0,0" VerticalAlignment="Top" Width="120" Name="klasKeuze" IsEditable="False" SelectionChanged="klasKeuze_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="-1228,-2346,0,0" TextWrapping="Wrap" Text="klas" VerticalAlignment="Top" Width="44"/>
+        <Button Content="toon keuze" Name="keuzeBtn" HorizontalAlignment="Left" Margin="-1083,-2197,0,0" VerticalAlignment="Top" Width="75" Click="keuzeBtn_Click"/>
+        <TextBlock Text="Voornaam"  HorizontalAlignment="Left" Margin="-1228,-2306,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="-1228,-2257,0,0" TextWrapping="Wrap" Text="Naam" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="-1128,-2306,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Name="voornaambox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="-1128,-2257,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Name="naambox"/>
+        <TextBlock HorizontalAlignment="Left" Margin="-903,-2306,0,0" TextWrapping="Wrap" Text="Leerling ID" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="-765,-2313,0,0" TextWrapping="Wrap" Name="leerlingId" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="-903,-2280,0,0" TextWrapping="Wrap" Text="paswoord" VerticalAlignment="Top" Height="17" Width="70"/>
+        <TextBlock HorizontalAlignment="Left" Margin="-903,-2247,0,0" TextWrapping="Wrap" Text="gemiddelde wiskunde" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="-765,-2280,0,0" TextWrapping="Wrap" Name="paswoordGeg" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="-765,-2247,0,0" TextWrapping="Wrap" Name="gemWiskGeg" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="-903,-2210,0,0" TextWrapping="Wrap" Text="gemiddelde Nederlands" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="-765,-2210,0,0" TextWrapping="Wrap" Name="gemNedGeg" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="-903,-2180,0,0" TextWrapping="Wrap" Text="gemiddelde WO" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="-765,-2178,0,0" TextWrapping="Wrap" Name="gemWoGeg" VerticalAlignment="Top" Width="120"/>
 
 
     </Grid>
