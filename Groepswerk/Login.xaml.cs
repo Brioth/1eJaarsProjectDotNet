@@ -183,5 +183,10 @@ namespace Groepswerk
             get { return aangepastMenu; }
         }
 
+        private void boxLogin_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
     }
 }
