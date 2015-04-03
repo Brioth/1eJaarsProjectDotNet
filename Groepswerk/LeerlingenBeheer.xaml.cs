@@ -62,11 +62,11 @@ namespace Groepswerk
 
         private void btnVoegToe_Click(object sender, RoutedEventArgs e)
         {
-            StreamReader bestandLezer = File.OpenText(@"C:\Users\11400938\Source\Repos\Groepswerk\Groepswerk\bin\Debug\Accounts.txt");
+            StreamReader bestandLezer = File.OpenText(@"Accounts.txt");
             string oudBestand = bestandLezer.ReadToEnd();
             bestandLezer.Close();
             string nieuweGebruiker = String.Format("lln; {0}; {1}; {2}; ", Convert.ToString(boxKlas.SelectedItem), txtbNaam.Text, pswBox.Password);
-            StreamWriter schrijfBestand = File.AppendText(@"C:\Users\11400938\Source\Repos\Groepswerk\Groepswerk\bin\Debug\Accounts.txt");
+            StreamWriter schrijfBestand = File.AppendText(@"Accounts.txt");
             schrijfBestand.WriteLine(nieuweGebruiker);
             schrijfBestand.Close();
         }
@@ -75,7 +75,7 @@ namespace Groepswerk
         private void maakKlasLijst()
         {
             klasLijst = new List<String>();
-            StreamReader bestandKlas = File.OpenText(@"C:\Users\11400938\Source\Repos\Groepswerk\Groepswerk\bin\Debug\Klassen.txt");
+            StreamReader bestandKlas = File.OpenText(@"Klassen.txt");
             string regel = bestandKlas.ReadLine();
 
             while (regel != null)
@@ -89,7 +89,7 @@ namespace Groepswerk
         private void maakGebruikersLijst()
         {
             gebruikersLijst = new List<Gebruiker>();
-            StreamReader bestandAcc = File.OpenText(@"C:\Users\11400938\Source\Repos\Groepswerk\Groepswerk\bin\Debug\Accounts.txt");
+            StreamReader bestandAcc = File.OpenText(@"Accounts.txt");
             string regel = bestandAcc.ReadLine();
             char[] scheiding = { ';', ',' };
 

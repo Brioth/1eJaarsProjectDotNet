@@ -28,7 +28,6 @@ namespace Groepswerk
             windowProgramma.WindowState = WindowState.Maximized;
             Login login = new Login();
             framePages.Navigate(login);
-            mainMenu.Items.Add(login.AangepastMenu);
         }
 
         //Events
@@ -64,25 +63,9 @@ namespace Groepswerk
             }
         }
 
-        private void framePages_SourceUpdated(object sender, DataTransferEventArgs e)
-        {
-
-        }
         //Methods
 
-
-
         //Properties
-
-
-
-
-
-
-
-
-
-        
-
+      
     }
 }

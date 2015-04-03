@@ -1,0 +1,10 @@
+﻿lk; Leerkracht; 1; Meester Jef; Jansens; pxl; 0; 0; 0; 100;
+lln; klas1; 2; Loes; Lavaerts; psw1; 60; 70; 60; 250;
+lln; klas2; 3; kim; Klijsters; psw2; 80; 90; 80; 400;
+lk; Leerkracht; 4; Meester Chris; Martens; psw; 60; 80; 55; 300;
+lln; klas1; 5; Mieke; Maes; psw3; 50; 40; 30; 200;
+lln; klas1; 6; Jan; Jambers; psw4; 90; 60; 80; 300;
+lln; klas2; 7; Jef; Jansens; psw1; 80; 50; 60; 240;
+lln; klas3; 8; Lieve; Lauwers; psw; 60; 80; 75; 300;
+lln; klas2; 9; Guido; Gezelle; Guido; 20; 50; 60; 400;
+lln; klas3; 10; Jommeke; Jozefs; Flip; 10; 10; 10; 50;

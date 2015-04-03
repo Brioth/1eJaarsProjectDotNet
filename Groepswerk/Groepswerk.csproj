@@ -69,10 +69,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AanpasbaarMenu.cs" />
+    <Compile Include="Accountlijst.cs" />
     <Compile Include="Gebruiker.cs" />
     <Compile Include="gebruikerdetails.xaml.cs">
       <DependentUpon>gebruikerdetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Klaslijst.cs" />
     <Compile Include="LeerkrachtMenu.xaml.cs">
       <DependentUpon>LeerkrachtMenu.xaml</DependentUpon>
     </Compile>
@@ -92,10 +94,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -108,10 +106,6 @@
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Page Include="Programma.xaml">
       <SubType>Designer</SubType>
@@ -168,6 +162,16 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Accounts.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Klassen.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

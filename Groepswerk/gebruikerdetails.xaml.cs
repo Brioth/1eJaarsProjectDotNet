@@ -39,10 +39,10 @@ namespace Groepswerk
             selectedKlas = Convert.ToString(klasKeuze.SelectedItem);
         }
 
-         private void maakAccountLijst(bool lk)
+        private void maakAccountLijst(bool lk)
         {
             accountLijst = new List<Gebruiker>();
-            StreamReader bestandAcc = File.OpenText(@"C:\Users\Vincent\Source\Repos\Groepswerk\Groepswerk\bin\Debug\Accounts.txt");
+            StreamReader bestandAcc = File.OpenText(@"Accounts.txt");
             string regel = bestandAcc.ReadLine();
             char[] scheiding = {';'};
 
@@ -78,7 +78,7 @@ namespace Groepswerk
         private void maakKlasLijst()
         {
             klasLijst = new List<String>();
-            StreamReader bestandKlas = File.OpenText(@"C:\Users\Vincent\Source\Repos\Groepswerk\Groepswerk\bin\Debug\Klassen.txt");
+            StreamReader bestandKlas = File.OpenText(@"Klassen.txt");
             string regel = bestandKlas.ReadLine();
 
             while (regel != null)
@@ -92,12 +92,12 @@ namespace Groepswerk
         private String derdeWaarde(String naam,string voornaam)
         {
             // 3rde waarde van string opvragen
-            StreamReader regel = File.OpenText(@"C:\Users\Vincent\Source\Repos\Groepswerk\Groepswerk\bin\Debug\Klassen.txt");
+            StreamReader regel = File.OpenText(@"Klassen.txt");
             string derde = regel.ReadLine();
 
             while (regel != null)
             {
-                regel = .ReadLine();
+               regel = .ReadLine();
             }
             return regel;
            regel.Close();
@@ -114,7 +114,7 @@ namespace Groepswerk
 
 
         }
-
+        }
                    
         
 
