@@ -24,19 +24,15 @@ namespace Groepswerk
     {
         private Accountlijst accountLijst;
         private Klaslijst klasLijst;
-        private string selectedKlas;
         private Gebruiker actieveGebruiker;
         //Constructors
 
         public Login()
         {
             InitializeComponent();
-            Klaslijst klasLijst = new Klaslijst();
+            klasLijst = new Klaslijst();
             boxKlas.ItemsSource = klasLijst;
-            boxKlas.SetBinding(Selector.SelectedItemProperty, new Binding(selectedKlas) {Source = boxKlas.SelectedItem});
-            boxKlas.SelectedIndex=0;
-            accountLijst = new Accountlijst(selectedKlas);
-            boxLogin.SetBinding(ItemsControl.ItemsSourceProperty, new Binding {Source = accountLijst});
+            boxKlas.SelectedIndex = 0;
         }
 
         //Events
@@ -57,11 +53,17 @@ namespace Groepswerk
 
         private void boxKlas_Changed(object sender, SelectionChangedEventArgs e)
         {
-            accountLijst.Clear();
-            accountLijst = new Accountlijst(selectedKlas);
+            SelectedKlas =Convert.ToString(boxKlas.SelectedItem);
+            if (accountLijst != null)
+            {
+                accountLijst.Clear();
+            }
+            accountLijst = new Accountlijst(SelectedKlas);
+            boxLogin.ItemsSource = accountLijst;
+            boxLogin.SelectedIndex = 0;
         }
 
-        
+
         //Methods
 
         private void loginHandler()
@@ -79,7 +81,7 @@ namespace Groepswerk
                 else
                 {
                     LeerlingMenu llnMenu = new LeerlingMenu(actieveGebruiker);
-                    this.NavigationService.Navigate(llnMenu);                    
+                    this.NavigationService.Navigate(llnMenu);
                 }
             }
             else
@@ -102,6 +104,6 @@ namespace Groepswerk
         }
 
         //Properties
-
+        public string SelectedKlas { get; set; }
     }
 }

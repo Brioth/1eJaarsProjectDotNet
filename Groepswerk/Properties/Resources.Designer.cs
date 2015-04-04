@@ -59,36 +59,5 @@ namespace Groepswerk.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to lk; Leerkracht; Meester Jef; pxl;
-        ///lln; klas1; Loes; psw1;
-        ///lln; klas2; kim, psw2;
-        ///lk; Leerkracht; Meester Chris; psw;
-        ///lln; klas1; Mieke; psw3;
-        ///lln; klas1; Jan; psw4;
-        ///lln; klas2; Jef; psw1;
-        ///lln; klas3; Lieve; psw; 
-        ///lln; klas2; Guido; Guido; 
-        ///lln; klas3; Jommeke; Flip; 
-        ///.
-        /// </summary>
-        internal static string Accounts {
-            get {
-                return ResourceManager.GetString("Accounts", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to klas1
-        ///klas2
-        ///klas3
-        ///Leerkracht.
-        /// </summary>
-        internal static string Klassen {
-            get {
-                return ResourceManager.GetString("Klassen", resourceCulture);
-            }
-        }
     }
 }

@@ -20,15 +20,12 @@ namespace Groepswerk
     /// </summary>
     public partial class LeerlingMenu : Page
     {
-
-        private MenuItem aangepastMenu;
         //Constructors
 
         public LeerlingMenu(Gebruiker actievegebruiker)
         {
             InitializeComponent();
             ActieveGebruiker = actievegebruiker;
-            aangepastMenu = new AanpasbaarMenu(ActieveGebruiker.Type);
         }
 
         //Events
@@ -38,9 +35,5 @@ namespace Groepswerk
         //Properties
 
         public Gebruiker ActieveGebruiker { get; set; }
-        public MenuItem AangepastMenu
-        {
-            get { return aangepastMenu; }
-        }
     }
 }

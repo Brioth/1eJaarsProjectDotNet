@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Groepswerk.Properties;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -14,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Groepswerk
 {
     /// <summary>
@@ -21,27 +24,30 @@ namespace Groepswerk
     /// </summary>
     public partial class LeerlingenBeheer : Page
     {
-        private List<String> klasLijst;
-        private List<Gebruiker> gebruikersLijst;
-
+        private Klaslijst klasLijst;
+        private Accountlijst accountlijst;
+        private string selectedKlas;
         //Constructors
 
         public LeerlingenBeheer(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
             ActieveGebruiker = actieveGebruiker;
-            maakKlasLijst();
+            klasLijst = new Klaslijst();
             boxKlas.ItemsSource = klasLijst;
-            maakGebruikersLijst();
-            boxAccounts.ItemsSource = gebruikersLijst;
+            boxKlas.SelectedIndex = 0;
         }
 
         //Events
         private void boxKlas_Changed(object sender, SelectionChangedEventArgs e)
         {
-            gebruikersLijst.Clear();
-            maakGebruikersLijst();
-            boxAccounts.ItemsSource = gebruikersLijst;
+            if (accountlijst != null)
+            {
+                accountlijst.Clear();
+            }
+            selectedKlas = Convert.ToString(boxKlas.SelectedItem);
+            accountlijst = new Accountlijst(selectedKlas);
+            boxAccounts.SelectedIndex = 0;
         }
 
         private void boxCommands_Changed(object sender, SelectionChangedEventArgs e)
@@ -62,68 +68,29 @@ namespace Groepswerk
 
         private void btnVoegToe_Click(object sender, RoutedEventArgs e)
         {
-            StreamReader bestandLezer = File.OpenText(@"Accounts.txt");
-            string oudBestand = bestandLezer.ReadToEnd();
-            bestandLezer.Close();
-            string nieuweGebruiker = String.Format("lln; {0}; {1}; {2}; ", Convert.ToString(boxKlas.SelectedItem), txtbNaam.Text, pswBox.Password);
+            string type;
+            if (selectedKlas.Equals("Leerkracht"))
+            {
+                type = "lk";
+            }
+            else
+        	{
+                type = "lln";
+        	}
+
+            Gebruiker nieuweGebruiker = new Gebruiker(type, selectedKlas, txtbVoornaam.Text, txtboxAchternaam.Text, pswBox.Password);
+            string stringGebruiker = nieuweGebruiker.SchrijfString();
             StreamWriter schrijfBestand = File.AppendText(@"Accounts.txt");
-            schrijfBestand.WriteLine(nieuweGebruiker);
+            schrijfBestand.WriteLine();
+            schrijfBestand.Write(stringGebruiker);
             schrijfBestand.Close();
+            MessageBox.Show(String.Format("{0} {1} is toegevoegd aan {2}", nieuweGebruiker.Type, nieuweGebruiker, nieuweGebruiker.Klas));
         }
         //Methods
-
-        private void maakKlasLijst()
-        {
-            klasLijst = new List<String>();
-            StreamReader bestandKlas = File.OpenText(@"Klassen.txt");
-            string regel = bestandKlas.ReadLine();
-
-            while (regel != null)
-            {
-                klasLijst.Add(regel.Trim());
-                regel = bestandKlas.ReadLine();
-            }
-            bestandKlas.Close();
-        }
-
-        private void maakGebruikersLijst()
-        {
-            gebruikersLijst = new List<Gebruiker>();
-            StreamReader bestandAcc = File.OpenText(@"Accounts.txt");
-            string regel = bestandAcc.ReadLine();
-            char[] scheiding = { ';', ',' };
-
-            while (regel != null)
-            {
-                string[] woorden = regel.Split(scheiding);
-                for (int i = 0; i < woorden.Length; i++)
-                {
-                    woorden[i] = woorden[i].Trim();
-                }
-
-                Gebruiker gebruiker = new Gebruiker(woorden[0], woorden[1], woorden[2], woorden[3]);
-
-                string selectedKlas = Convert.ToString(boxKlas.SelectedItem);
-
-                if ((gebruiker.Klas).Equals(selectedKlas))
-                {
-                    gebruikersLijst.Add(gebruiker);
-                }
-
-                regel = bestandAcc.ReadLine();
-            }
-            bestandAcc.Close();
-        }
 
         //Properties
 
         public Gebruiker ActieveGebruiker { get; set; }
-
-
-
-
-
-
 
     }
 }

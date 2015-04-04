@@ -12,6 +12,6 @@
         <Grid Background="LemonChiffon" DockPanel.Dock="Bottom" MinHeight="100"/>
         <Grid Background="LemonChiffon" DockPanel.Dock="Left" MinWidth="100"/>
         <Grid Background="LemonChiffon" DockPanel.Dock="Right" MinWidth="100"/>
-        <Frame Name="framePages" Background="Azure" NavigationUIVisibility="Hidden" SourceUpdated="framePages_SourceUpdated"/>       
+        <Frame Name="framePages" Background="Azure" NavigationUIVisibility="Hidden"/>       
     </DockPanel>
 </Window>

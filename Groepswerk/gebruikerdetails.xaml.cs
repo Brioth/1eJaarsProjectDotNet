@@ -28,18 +28,23 @@ namespace Groepswerk
         private bool leerkracht = false;
 
         //Constructors
+        public gebruikerdetails(Gebruiker ActieveGebruiker)
+        {
+            // TODO: Complete member initialization
+            this.ActieveGebruiker = ActieveGebruiker;
+        }
 
-
-        public void gebruikerkeuze()
+       /* public void gebruikerkeuze() 
         {
             InitializeComponent();
             maakKlasLijst();
             //accountLijst.Clear();
             klasKeuze.ItemsSource = klasLijst;
             selectedKlas = Convert.ToString(klasKeuze.SelectedItem);
-        }
+        }*/
 
-        private void maakAccountLijst(bool lk)
+
+  /*      private void maakAccountLijst(bool lk)
         {
             accountLijst = new List<Gebruiker>();
             StreamReader bestandAcc = File.OpenText(@"Accounts.txt");
@@ -72,7 +77,7 @@ namespace Groepswerk
                 regel = bestandAcc.ReadLine();
             }
             bestandAcc.Close();
-        }
+        }*/
         
       
         private void maakKlasLijst()
@@ -89,7 +94,7 @@ namespace Groepswerk
             bestandKlas.Close();
         }
 
-        private String derdeWaarde(String naam,string voornaam)
+/*        private String derdeWaarde(String naam,string voornaam)
         {
             // 3rde waarde van string opvragen
             StreamReader regel = File.OpenText(@"Klassen.txt");
@@ -101,28 +106,24 @@ namespace Groepswerk
             }
             return regel;
            regel.Close();
-        }
+        }*/
 
-        private void keuzeBtn_Click(object sender, RoutedEventArgs e)
+       private void keuzeBtn_Click(object sender, RoutedEventArgs e)
         {
-          leerlingId.Text= //3de locatie van textfilelezen?
+        /*  leerlingId.Text= //3de locatie van textfilelezen?
                             derdeWaarde (String naambox.Text,string voornaambox.text);
           paswoordGeg.Text =
           gemWiskGeg.Text =
           gemNedGeg.Text =
           gemWoGeg.Text =
-
+*/
 
         }
-        }
+        
                    
         
 
-        public gebruikerdetails(Gebruiker ActieveGebruiker)
-        {
-            // TODO: Complete member initialization
-            this.ActieveGebruiker = ActieveGebruiker;
-        }
+
 
         public gebruikerdetails()
         {
@@ -132,9 +133,6 @@ namespace Groepswerk
       
 
         public Gebruiker ActieveGebruiker { get; set; }
-
-
-
 
         private void klasKeuze_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
