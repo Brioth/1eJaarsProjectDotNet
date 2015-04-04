@@ -8,18 +8,22 @@
 	Title="LeerlingenBeheer">
 
     <Grid>
-        <ComboBox Name="boxKlas" HorizontalAlignment="Left" Height="32" Margin="25,113,0,0" VerticalAlignment="Top" Width="147" SelectionChanged="boxKlas_Changed" Visibility="Hidden"/>
-        <ListBox Name="boxAccounts" HorizontalAlignment="Left" Height="129" Margin="25,161,0,0" VerticalAlignment="Top" Width="147" Visibility="Hidden"/>
-        <ComboBox Name="boxCommands" HorizontalAlignment="Left" Margin="25,24,0,0" VerticalAlignment="Top" Width="209" Height="30" SelectionChanged="boxCommands_Changed">
-            <ComboBoxItem>Nieuwe leerling aanmaken</ComboBoxItem>
+        <ComboBox Name="boxKlas" HorizontalAlignment="Left" Height="32" Margin="25,113,0,0" VerticalAlignment="Top" Width="147" SelectionChanged="boxKlas_Changed"/>
+        <ListBox Name="boxAccounts" HorizontalAlignment="Left" Height="129" Margin="25,161,0,0" VerticalAlignment="Top" Width="147" SelectionChanged="boxAccounts_SelectionChanged"/>
+        <ComboBox Name="boxCommands" HorizontalAlignment="Left" Margin="25,24,0,0" VerticalAlignment="Top" Width="209" Height="30" SelectionChanged="boxCommands_Changed" SelectedIndex="0">
+            <ComboBoxItem>Nieuwe gebruiker aanmaken</ComboBoxItem>
             <ComboBoxItem>Gebruiker wijzigen</ComboBoxItem>
         </ComboBox>
-        <Label Content="Voornaam" HorizontalAlignment="Left" Height="32" Margin="222,76,0,0" VerticalAlignment="Top" Width="100"/>
-        <TextBox Name="txtbVoornaam" HorizontalAlignment="Left" Height="32" Margin="335,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="108"/>
-        <Label Content="Wachtwoord" HorizontalAlignment="Left" Height="28" Margin="222,171,0,0" VerticalAlignment="Top" Width="100"/>
-        <PasswordBox Name="pswBox" HorizontalAlignment="Left" Height="28" Margin="335,171,0,0" VerticalAlignment="Top" Width="108"/>
-        <Button Name="btnVoegToe" Click="btnVoegToe_Click" Content="Voeg toe" HorizontalAlignment="Left" Height="30" Margin="275,227,0,0" VerticalAlignment="Top" Width="133"/>
-        <Label Content="Achternaam" HorizontalAlignment="Left" Height="28" Margin="222,128,0,0" VerticalAlignment="Top" Width="100"/>
-        <TextBox Name="txtboxAchternaam" HorizontalAlignment="Left" Height="28" Margin="335,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="108"/>
+        <Label Content="Voornaam" HorizontalAlignment="Left" Height="32" Margin="199,76,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBox Name="txtbVoornaam" HorizontalAlignment="Left" Height="32" Margin="322,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="108"/>
+        <Label Content="Wachtwoord" HorizontalAlignment="Left" Height="28" Margin="199,161,0,0" VerticalAlignment="Top" Width="100"/>
+        <PasswordBox Name="pswBox" HorizontalAlignment="Left" Height="28" Margin="322,161,0,0" VerticalAlignment="Top" Width="108"/>
+        <Button Name="btnVoegToe" Click="btnVoegToe_Click" Content="Voeg toe" HorizontalAlignment="Left" Height="30" Margin="369,279,0,0" VerticalAlignment="Top" Width="133"/>
+        <Label Content="Achternaam" HorizontalAlignment="Left" Height="28" Margin="199,117,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBox Name="txtboxAchternaam" HorizontalAlignment="Left" Height="28" Margin="322,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="108"/>
+        <Label Content="Klas" HorizontalAlignment="Left" Height="28" Margin="199,225,0,0" VerticalAlignment="Top" Width="100"/>
+        <ComboBox Name="boxNieuweKlas" HorizontalAlignment="Left" Height="31" Margin="322,225,0,0" VerticalAlignment="Top" Width="108"/>
+        <Button Name="btnPasAan" Click="btnPasAan_Click" Content="Pas aan" HorizontalAlignment="Left" Height="30" Margin="208,279,0,0" VerticalAlignment="Top" Width="126"/>
+        <Button Name="btnVerwijder" Click="btnVerwijder_Click" Content="Verwijder account" HorizontalAlignment="Left" Height="30" Margin="322,24,0,0" VerticalAlignment="Top" Width="107"/>
     </Grid>
 </Page>

@@ -24,7 +24,8 @@ namespace Groepswerk
     {
         private Accountlijst accountLijst;
         private Klaslijst klasLijst;
-        private Gebruiker actieveGebruiker;
+        private Gebruiker selectedGebruiker;
+        private string selectedKlas;
         //Constructors
 
         public Login()
@@ -53,12 +54,12 @@ namespace Groepswerk
 
         private void boxKlas_Changed(object sender, SelectionChangedEventArgs e)
         {
-            SelectedKlas =Convert.ToString(boxKlas.SelectedItem);
+           selectedKlas =Convert.ToString(boxKlas.SelectedItem);
             if (accountLijst != null)
             {
                 accountLijst.Clear();
             }
-            accountLijst = new Accountlijst(SelectedKlas);
+            accountLijst = new Accountlijst(selectedKlas);
             boxLogin.ItemsSource = accountLijst;
             boxLogin.SelectedIndex = 0;
         }
@@ -68,19 +69,19 @@ namespace Groepswerk
 
         private void loginHandler()
         {
-            Gebruiker selectedGebruiker = (Gebruiker)boxLogin.SelectedItem;
+            selectedGebruiker = (Gebruiker)boxLogin.SelectedItem;
             bool pswOk = checkPsw(selectedGebruiker);
             if (pswOk == true)
             {
-                actieveGebruiker = selectedGebruiker;
-                if (actieveGebruiker.Type.Equals("lk"))
+               
+                if (selectedGebruiker.Type.Equals("lk"))
                 {
-                    LeerkrachtMenu lkMenu = new LeerkrachtMenu(actieveGebruiker);
+                    LeerkrachtMenu lkMenu = new LeerkrachtMenu(selectedGebruiker);
                     this.NavigationService.Navigate(lkMenu);
                 }
                 else
                 {
-                    LeerlingMenu llnMenu = new LeerlingMenu(actieveGebruiker);
+                    LeerlingMenu llnMenu = new LeerlingMenu(selectedGebruiker);
                     this.NavigationService.Navigate(llnMenu);
                 }
             }
@@ -104,6 +105,5 @@ namespace Groepswerk
         }
 
         //Properties
-        public string SelectedKlas { get; set; }
     }
 }

@@ -25,7 +25,7 @@ namespace Groepswerk
         public Programma()
         {
             InitializeComponent();
-            windowProgramma.WindowState = WindowState.Maximized;
+            programma.WindowState = WindowState.Maximized;
             Login login = new Login();
             framePages.Navigate(login);
         }
@@ -65,7 +65,9 @@ namespace Groepswerk
 
         //Methods
 
+        
+
         //Properties
-      
+        public Gebruiker ActieveGebruiker { get; set; }
     }
 }
