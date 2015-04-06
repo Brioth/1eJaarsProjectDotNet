@@ -75,7 +75,7 @@ namespace Groepswerk
                 alleGebruikersLijst = new AlleGebruikersLijst();
             }
         }
-        private void boxAccounts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void boxAccounts_SelectionChanged(object sender, SelectionChangedEventArgs e)//Vincent
         {
             if (boxAccounts.SelectedIndex!=-1)
             {

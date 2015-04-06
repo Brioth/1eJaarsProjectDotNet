@@ -36,12 +36,17 @@ namespace Groepswerk
 
         private void selecteerKlas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+           //labels clearen
             geselecteerdeKlas=Convert.ToString(selecteerKlas.SelectedItem);
-            
+           
+           
            // Gebruiker[i]=Accountlijst(string geselecteerdeKlas); 
-           // While loop: Accountlijst zet een boolean naar false zodra de while loop moet stoppen?
-           // While loop: Naam en punten leerling1 in labels zetten
+           // For each loop
+           // Accountlijst zet een boolean naar false zodra de while loop moet stoppen?
+           // Naam en punten leerling1 in labels zetten
            // vb: naamLeerling1=Gebruiker[i].getNaam; gemiddeldeW1=Gebruiker[i].getGemiddeldeWiskunde
+           // TextBLock ipv labels gebruiken
+           
         }
 
 
