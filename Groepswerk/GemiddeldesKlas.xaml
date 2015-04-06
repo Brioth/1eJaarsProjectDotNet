@@ -1,0 +1,35 @@
+﻿<Window x:Class="Groepswerk.GemiddeldesKlas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d"
+	Title="GemiddeldesKlas" Height="425.696" Width="602.287">
+    <Grid>
+        <ComboBox Name="selecteerKlas" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="selecteerKlas_SelectionChanged"/>
+        <Label Name="leerlingNamen" Content="Leerling" HorizontalAlignment="Left" Margin="88,50,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="naamLeerling1" Content="" HorizontalAlignment="Left" Margin="88,100,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="naamLeerling2" Content="" HorizontalAlignment="Left" Margin="88,150,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="naamLeerling3" Content="" HorizontalAlignment="Left" Margin="88,200,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="naamLeerling4" Content="" HorizontalAlignment="Left" Margin="88,250,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="naamLeerling5" Content="" HorizontalAlignment="Left" Margin="88,300,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="wiskundeGemiddelde" Content="Wiskunde" HorizontalAlignment="Left" Margin="188,50,0,0" VerticalAlignment="Top" Height="45" Width="70"/>
+        <Label Name="gemiddeldeW1" Content="" HorizontalAlignment="Left" Margin="188,100,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="gemiddeldeW2" Content="" HorizontalAlignment="Left" Margin="188,150,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="gemiddeldeW3" Content="" HorizontalAlignment="Left" Margin="188,200,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="gemiddeldeW4" Content="" HorizontalAlignment="Left" Margin="188,250,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="gemiddeldeW5" Content="" HorizontalAlignment="Left" Margin="188,300,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="nederlandsGemiddelde" Content="Nederlands" HorizontalAlignment="Left" Margin="288,50,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="gemiddeldeN1" Content="" HorizontalAlignment="Left" Margin="288,100,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="gemiddeldeN2" Content="" HorizontalAlignment="Left" Margin="288,150,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="gemiddeldeN3" Content="" HorizontalAlignment="Left" Margin="288,200,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="gemiddeldeN4" Content="" HorizontalAlignment="Left" Margin="288,250,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="gemiddeldeN5" Content="" HorizontalAlignment="Left" Margin="288,300,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="woGemiddelde" Content="WO" HorizontalAlignment="Left" Margin="388,50,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="gemiddeldeWO1" Content="" HorizontalAlignment="Left" Margin="388,100,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="gemiddeldeWO2" Content="" HorizontalAlignment="Left" Margin="388,150,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="gemiddeldeWO3" Content="" HorizontalAlignment="Left" Margin="388,200,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="gemiddeldeWO4" Content="" HorizontalAlignment="Left" Margin="388,250,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+        <Label Name="gemiddeldeWO5" Content="" HorizontalAlignment="Left" Margin="388,300,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
+    </Grid>
+</Window>
