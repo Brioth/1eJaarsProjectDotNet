@@ -17,6 +17,7 @@ namespace Groepswerk
         {
             Voornaam = voornaam;
             Id = KenIDToe()+1;
+            //???
             Achternaam = achternaam;
             Klas = klas;
             Type = type;

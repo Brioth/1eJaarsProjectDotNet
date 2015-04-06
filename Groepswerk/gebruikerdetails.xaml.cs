@@ -26,6 +26,7 @@ namespace Groepswerk
         private List<String> klasLijst;
         private string selectedKlas;
         private bool leerkracht = false;
+        private AlleGebruikersLijst accounts = new AlleGebruikersLijst();
 
         //Constructors
         public gebruikerdetails(Gebruiker ActieveGebruiker)
