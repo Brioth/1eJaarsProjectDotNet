@@ -19,64 +19,69 @@ namespace Groepswerk
     /// <summary>
     /// Interaction logic for gebruikerdetails.xaml
     /// </summary>
-    public partial class gebruikerdetails : Page
+    public partial class Gebruikerdetails : Page
     {
-        private Gebruiker actieveGebruiker;
+        //variabelen
         private List<Gebruiker> accountLijst;
         private List<String> klasLijst;
         private string selectedKlas;
-        private bool leerkracht = false;
-        private AlleGebruikersLijst accounts = new AlleGebruikersLijst();
+        private Gebruiker selectedGebruiker;
 
         //Constructors
-        public gebruikerdetails(Gebruiker ActieveGebruiker)
+        public Gebruikerdetails(Gebruiker actieveGebruiker)
         {
-            // TODO: Complete member initialization
-            this.ActieveGebruiker = ActieveGebruiker;
-        }
-
-       /* public void gebruikerkeuze() 
-        {
-            InitializeComponent();
-            maakKlasLijst();
-            //accountLijst.Clear();
+            InitializeComponent(); // laad u formulier
+            ActieveGebruiker = actieveGebruiker;
+            klasLijst = new Klaslijst();
             klasKeuze.ItemsSource = klasLijst;
+            // de bron van deze box is de lijst
+            klasKeuze.SelectedIndex = 0;
+
+
+        }
+
+        //events
+        private void klasKeuze_Changed(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (accountLijst != null)
+            {
+                accountLijst.Clear();
+            }
             selectedKlas = Convert.ToString(klasKeuze.SelectedItem);
-        }*/
-
-
-  /*      private void maakAccountLijst(bool lk)
-        {
-            accountLijst = new List<Gebruiker>();
-           
-        
-      
-        private void maakKlasLijst()
-        {
-            klasLijst = new List<String>();
-          
-
-       private void keuzeBtn_Click(object sender, RoutedEventArgs e)
-        {
-        /* 
-          listbox.sourceitem(accountlijst)
-          
-*/
-
-        }
-   
-        public gebruikerdetails()
-        {
-            // TODO: Complete member initialization
+            accountLijst = new Accountlijst(selectedKlas);
+            listBox_llnLijst.ItemsSource = accountLijst;
+            // elke student in de lijst is nu zchtbaar want de hele lijst is de source
+            listBox_llnLijst.SelectedIndex = 0;
+            // om het netjes te houden begin je bij de eerste al als geselecteerde waarde
         }
 
-      
+        private void listBox_llnLijst_Changed(object sender, SelectionChangedEventArgs e)
+        // als je in de listbox nu een andere waarde selecteerd wordt deze event aangeroepen.
+        {
+            selectedGebruiker = (Gebruiker)listBox_llnLijst.SelectedItem;
+                                // casten naar gebruiker
+         
+            VakjesVullen();
 
+        }
+
+
+
+        // methodes
+        private void VakjesVullen (){
+            voornaambox.Text = selectedGebruiker.Voornaam;
+            naambox.Text = selectedGebruiker.Achternaam;
+            leerlingId.Text = Convert.ToString(selectedGebruiker.Id);
+            gemNedGeg.Text = Convert.ToString(selectedGebruiker.GemNed);
+            gemWiskGeg.Text = Convert.ToString(selectedGebruiker.GemWisk);
+            gemWoGeg.Text = Convert.ToString(selectedGebruiker.GemWO);
+         
+        }
+       
+        //propertys
         public Gebruiker ActieveGebruiker { get; set; }
 
-        private void klasKeuze_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
     } 
 }

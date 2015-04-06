@@ -37,7 +37,7 @@ namespace Groepswerk
 
         private void btnIndOv_Click(object sender, RoutedEventArgs e)
         {
-            gebruikerdetails detailsMenu = new gebruikerdetails(ActieveGebruiker);
+            Gebruikerdetails detailsMenu = new Gebruikerdetails(ActieveGebruiker);
             this.NavigationService.Navigate(detailsMenu);
         }
 

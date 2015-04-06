@@ -73,8 +73,8 @@
     <Compile Include="Accountlijst.cs" />
     <Compile Include="AlleGebruikersLijst.cs" />
     <Compile Include="Gebruiker.cs" />
-    <Compile Include="gebruikerdetails.xaml.cs">
-      <DependentUpon>gebruikerdetails.xaml</DependentUpon>
+    <Compile Include="Gebruikerdetails.xaml.cs">
+      <DependentUpon>Gebruikerdetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="GemiddeldesKlas.xaml.cs">
       <DependentUpon>GemiddeldesKlas.xaml</DependentUpon>
@@ -83,7 +83,7 @@
     <Compile Include="LeerkrachtMenu.xaml.cs">
       <DependentUpon>LeerkrachtMenu.xaml</DependentUpon>
     </Compile>
-    <Page Include="gebruikerdetails.xaml">
+    <Page Include="Gebruikerdetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

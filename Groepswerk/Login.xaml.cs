@@ -69,39 +69,39 @@ namespace Groepswerk
 
 
         //Methods
-        public static class StringCipher
-        {
-            //encrypteren van het wachtwoord
-            private static readonly byte[] initVectorBytes = Encoding.ASCII.GetBytes("tu89geji340t89u2");
+        //public static class StringCipher
+        //{
+        //    //encrypteren van het wachtwoord
+        //    private static readonly byte[] initVectorBytes = Encoding.ASCII.GetBytes("tu89geji340t89u2");
 
-            // This constant is used to determine the keysize of the encryption algorithm.
-            private const int keysize = 256;
-            public static string Encrypt(string plainText, string passPhrase)
-            {
-                byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
-                using (PasswordDeriveBytes password = new PasswordDeriveBytes(passPhrase, null))
-                {
-                    byte[] keyBytes = password.GetBytes(keysize / 8);
-                    using (RijndaelManaged symmetricKey = new RijndaelManaged())
-                    {
-                        symmetricKey.Mode = CipherMode.CBC;
-                        using (ICryptoTransform encryptor = symmetricKey.CreateEncryptor(keyBytes, initVectorBytes))
-                        {
-                            using (MemoryStream memoryStream = new MemoryStream())
-                            {
-                                using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
-                                {
-                                    cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
-                                    cryptoStream.FlushFinalBlock();
-                                    byte[] cipherTextBytes = memoryStream.ToArray();
-                                    return Convert.ToBase64String(cipherTextBytes);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        //    // This constant is used to determine the keysize of the encryption algorithm.
+        //    private const int keysize = 256;
+        //    public static string Encrypt(string plainText, string passPhrase)
+        //    {
+        //        byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
+        //        using (PasswordDeriveBytes password = new PasswordDeriveBytes(passPhrase, null))
+        //        {
+        //            byte[] keyBytes = password.GetBytes(keysize / 8);
+        //            using (RijndaelManaged symmetricKey = new RijndaelManaged())
+        //            {
+        //                symmetricKey.Mode = CipherMode.CBC;
+        //                using (ICryptoTransform encryptor = symmetricKey.CreateEncryptor(keyBytes, initVectorBytes))
+        //                {
+        //                    using (MemoryStream memoryStream = new MemoryStream())
+        //                    {
+        //                        using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
+        //                        {
+        //                            cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
+        //                            cryptoStream.FlushFinalBlock();
+        //                            byte[] cipherTextBytes = memoryStream.ToArray();
+        //                            return Convert.ToBase64String(cipherTextBytes);
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
         private void loginHandler()
         {
 
@@ -133,10 +133,10 @@ namespace Groepswerk
         private bool checkPsw(Gebruiker selectedGebruiker)
         {
             string gok = pswBox.Password;
-            string plaintext = "encryptie";
-            string encryptedstring = StringCipher.Encrypt(plaintext, gok);
-            MessageBox.Show(encryptedstring);
-            if (selectedGebruiker.Psw.Equals(encryptedstring))
+           // string plaintext = "encryptie";
+           // string encryptedstring = StringCipher.Encrypt(plaintext, gok);
+           // MessageBox.Show(encryptedstring);
+           if (selectedGebruiker.Psw.Equals(gok))
             {
                 return true;
             }
