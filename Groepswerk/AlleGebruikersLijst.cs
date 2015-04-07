@@ -29,5 +29,15 @@ namespace Groepswerk
             }
             bestandAcc.Close();
         }
+        public void SchrijfLijst()
+        {
+            File.WriteAllText(@"Accounts.txt", String.Empty);
+            StreamWriter schrijver = File.AppendText(@"Accounts.txt");
+            foreach (Gebruiker item in this)
+            {
+                schrijver.WriteLine(item.SchrijfString());
+            }
+            schrijver.Close();
+        }
     }
 }

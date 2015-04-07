@@ -80,9 +80,6 @@
       <DependentUpon>GemiddeldesKlas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Klaslijst.cs" />
-    <Compile Include="LeerkrachtMenu.xaml.cs">
-      <DependentUpon>LeerkrachtMenu.xaml</DependentUpon>
-    </Compile>
     <Page Include="Gebruikerdetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -91,7 +88,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LeerlingenBeheer.xaml">
+    <Page Include="AccountBeheer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -107,8 +104,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="LeerlingenBeheer.xaml.cs">
-      <DependentUpon>LeerlingenBeheer.xaml</DependentUpon>
+    <Compile Include="AccountBeheer.xaml.cs">
+      <DependentUpon>AccountBeheer.xaml</DependentUpon>
     </Compile>
     <Compile Include="LeerlingMenu.xaml.cs">
       <DependentUpon>LeerlingMenu.xaml</DependentUpon>
@@ -116,16 +113,19 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Page Include="Programma.xaml">
+    <Page Include="NieuweGebruiker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LeerkrachtMenu.xaml">
+    <Page Include="Programma.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NieuweGebruiker.xaml.cs">
+      <DependentUpon>NieuweGebruiker.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Programma.xaml.cs">
       <DependentUpon>Programma.xaml</DependentUpon>
     </Compile>

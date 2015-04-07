@@ -67,15 +67,15 @@ namespace Groepswerk
 
         private void MnuRekenen_Click(object sender, RoutedEventArgs e)
         {
-
+            //Vincent
         }
         private void MnuTaal_Click(object sender, RoutedEventArgs e)
         {
-
+            //Thomas
         }
         private void MnuWO_Click(object sender, RoutedEventArgs e)
         {
-
+            //Seppe
         }
         private void MnuIndOv_Click(object sender, RoutedEventArgs e)
         {
@@ -84,15 +84,18 @@ namespace Groepswerk
         }
         private void MnuKlasOver_Click(object sender, RoutedEventArgs e)
         {
-
+            GemiddeldesKlas klasGemMenu = new GemiddeldesKlas();
+            framePages.Navigate(klasGemMenu);
         }
         private void MnuNieuweGebr_Click(object sender, RoutedEventArgs e)
         {
-
+            NieuweGebruiker nieuweGebruikerMenu = new NieuweGebruiker();
+            framePages.Navigate(nieuweGebruikerMenu);
         }
         private void MnuAccBewerk_Click(object sender, RoutedEventArgs e)
         {
-
+            AccountBeheer accountBeheerMenu = new AccountBeheer(ActieveGebruiker);
+            framePages.Navigate(accountBeheerMenu);
         }
         private void MnuKlaslijstBewerk_Click(object sender, RoutedEventArgs e)
         {

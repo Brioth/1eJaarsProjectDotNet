@@ -13,10 +13,10 @@ namespace Groepswerk
         //Constructors
 
         //Constructor om nieuwe gebruiker met nieuw id te maken
-        public Gebruiker(string type, string klas, string voornaam, string achternaam, string psw, int gemWisk=0, int gemNed=0, int gemWO=0, int gameTijdSec=0)
+        public Gebruiker(string type, string klas, string voornaam, string achternaam, string psw, int gemWisk = 0, int gemNed = 0, int gemWO = 0, int gameTijdSec = 0)
         {
             Voornaam = voornaam;
-            Id = KenIDToe()+1;
+            Id = KenIDToe() + 1;
             //???
             Achternaam = achternaam;
             Klas = klas;
@@ -43,13 +43,13 @@ namespace Groepswerk
             GameTijdSec = gameTijdSec;
         }
 
-     /*   public Gebruiker(Gebruiker oudeGebruiker)             --> copy constructor nodig?
-        {
-            Naam = oudeGebruiker.Naam;
-            Klas = oudeGebruiker.Klas;
-            Type = oudeGebruiker.Type;
-            Psw = oudeGebruiker.Psw;
-        }*/                     
+        /*   public Gebruiker(Gebruiker oudeGebruiker)             --> copy constructor nodig?
+           {
+               Naam = oudeGebruiker.Naam;
+               Klas = oudeGebruiker.Klas;
+               Type = oudeGebruiker.Type;
+               Psw = oudeGebruiker.Psw;
+           }*/
 
         //Events
 
@@ -57,21 +57,16 @@ namespace Groepswerk
 
         public override string ToString()
         {
-            return Voornaam+" "+Achternaam;
+            return Voornaam + " " + Achternaam;
         }
 
         private int KenIDToe()
         {
-            int aantalAccounts = 0;
-            StreamReader bestandslezer = File.OpenText(@"Accounts.txt");
-            string regel = bestandslezer.ReadLine();
-            while (regel != null)
-            {
-                aantalAccounts = aantalAccounts++;
-                regel = bestandslezer.ReadLine();
-            }
-            bestandslezer.Close();
-            return aantalAccounts;
+            int laatsteID;
+            AlleGebruikersLijst lijst = new AlleGebruikersLijst();
+            Gebruiker laatsteGebruiker = lijst[lijst.Count - 1];
+            laatsteID = laatsteGebruiker.Id;
+            return laatsteID;
         }
 
         public string SchrijfString()

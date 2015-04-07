@@ -1,4 +1,4 @@
-﻿<Window x:Class="Groepswerk.GemiddeldesKlas"
+﻿<Page x:Class="Groepswerk.GemiddeldesKlas"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -32,4 +32,4 @@
         <Label Name="gemiddeldeWO4" Content="" HorizontalAlignment="Left" Margin="388,250,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
         <Label Name="gemiddeldeWO5" Content="" HorizontalAlignment="Left" Margin="388,300,0,0" VerticalAlignment="Top" Height="27" Width="70"/>
     </Grid>
-</Window>
+</Page>

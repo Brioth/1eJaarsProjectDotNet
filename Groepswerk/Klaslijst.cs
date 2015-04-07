@@ -25,6 +25,16 @@ namespace Groepswerk
                 bestandKlas.Close();
             }
         }
+        public void SchrijfLijst()
+        {
+            File.WriteAllText(@"Klassen.txt", String.Empty);
+            StreamWriter schrijver = File.AppendText(@"Klassen.txt");
+            foreach (string item in this)
+            {
+                schrijver.WriteLine(item);
+            }
+            schrijver.Close();
+        }
 
     }
 }

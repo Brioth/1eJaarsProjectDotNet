@@ -115,10 +115,10 @@ namespace Groepswerk
                 Programma basisScherm = (Programma)Application.Current.MainWindow;
                 basisScherm.ActieveGebruiker = selectedGebruiker;
 
-                if (selectedGebruiker.Type.Equals("lk")) //naar klasikaal overzicht als thomas dit af heeft
+                if (selectedGebruiker.Type.Equals("lk"))
                 {
-                    LeerkrachtMenu lkMenu = new LeerkrachtMenu(selectedGebruiker);
-                    this.NavigationService.Navigate(lkMenu);                    
+                    GemiddeldesKlas gemKlasMenu = new GemiddeldesKlas();
+                    this.NavigationService.Navigate(gemKlasMenu);
                 }
                 else
                 {

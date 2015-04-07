@@ -11,10 +11,11 @@ namespace Groepswerk
 {
     public class Accountlijst : List<Gebruiker> //Lijst met Gebruikers per klas
     {
-        public Accountlijst(string klas){
+        public Accountlijst(string klas)
+        {
             StreamReader bestandAcc = File.OpenText(@"Accounts.txt");
             string regel = bestandAcc.ReadLine();
-            char[] scheiding = {';'};
+            char[] scheiding = { ';' };
 
             while (regel != null)
             {
@@ -27,7 +28,7 @@ namespace Groepswerk
                 Gebruiker gebruiker = new Gebruiker(woorden[0], woorden[1], Convert.ToInt32(woorden[2]), woorden[3], woorden[4], woorden[5], Convert.ToInt32(woorden[6]), Convert.ToInt32(woorden[7]), Convert.ToInt32(woorden[8]), Convert.ToInt32(woorden[9]));
 
                 if ((gebruiker.Klas).Equals(klas))
-                    //???
+                //???
                 {
                     this.Add(gebruiker);
                 }
@@ -36,6 +37,17 @@ namespace Groepswerk
             }
             bestandAcc.Close();
         }
-        
+
+        public void SchrijfLijst()
+        {
+            File.WriteAllText(@"Accounts.txt", String.Empty);
+            StreamWriter schrijver = File.AppendText(@"Accounts.txt");
+            foreach (Gebruiker item in this)
+            {
+                schrijver.WriteLine(item.SchrijfString());
+            }
+            schrijver.Close();
+        }
+
     }
 }

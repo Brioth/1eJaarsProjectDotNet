@@ -20,7 +20,7 @@ namespace Groepswerk
     /* Author: Thomas Cox
      * Date: 5/04/2015
     */
-    public partial class GemiddeldesKlas : Window
+    public partial class GemiddeldesKlas : Page
     {
         private Klaslijst klasLijst;
         private String geselecteerdeKlas;
