@@ -112,11 +112,13 @@ namespace Groepswerk
 
             if (pswOk == true)
             {
-               
-                if (selectedGebruiker.Type.Equals("lk"))
+                Programma basisScherm = (Programma)Application.Current.MainWindow;
+                basisScherm.ActieveGebruiker = selectedGebruiker;
+
+                if (selectedGebruiker.Type.Equals("lk")) //naar klasikaal overzicht als thomas dit af heeft
                 {
                     LeerkrachtMenu lkMenu = new LeerkrachtMenu(selectedGebruiker);
-                    this.NavigationService.Navigate(lkMenu);
+                    this.NavigationService.Navigate(lkMenu);                    
                 }
                 else
                 {

@@ -43,7 +43,7 @@ namespace Groepswerk
 
         private void btnKlOv_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void btnOpgBew_Click(object sender, RoutedEventArgs e)

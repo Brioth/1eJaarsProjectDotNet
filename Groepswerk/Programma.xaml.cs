@@ -19,7 +19,7 @@ namespace Groepswerk
     /// </summary>
     public partial class Programma : Window
     {
-
+        private Gebruiker actieveGebruiker;
         //Constructors
 
         public Programma()
@@ -28,13 +28,14 @@ namespace Groepswerk
             programma.WindowState = WindowState.Maximized;
             Login login = new Login();
             framePages.Navigate(login);
+            maakMenuLeeg();
         }
 
         //Events
-        
-        private void btnStop_Click(object sender, RoutedEventArgs e)
+
+        private void MnuStop_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult stoppen = MessageBox.Show("Ben je zeker dat je wilt stoppen?","Stop", MessageBoxButton.YesNo);
+            MessageBoxResult stoppen = MessageBox.Show("Ben je zeker dat je wilt stoppen?", "Stop", MessageBoxButton.YesNo);
             switch (stoppen)
             {
                 case MessageBoxResult.No:
@@ -47,7 +48,7 @@ namespace Groepswerk
             }
         }
 
-        private void btnHome_Click(object sender, RoutedEventArgs e)
+        private void MnuHome_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult home = MessageBox.Show("Wil je terug naar het login scherm gaan?", "Home", MessageBoxButton.YesNo);
             switch (home)
@@ -56,18 +57,105 @@ namespace Groepswerk
                     break;
                 case MessageBoxResult.Yes:
                     Login login = new Login();
-                    framePages.NavigationService.Navigate(login);
+                    framePages.Navigate(login);
+                    this.ActieveGebruiker = null;
                     break;
                 default:
                     break;
             }
         }
 
-        //Methods
+        private void MnuRekenen_Click(object sender, RoutedEventArgs e)
+        {
 
-        
+        }
+        private void MnuTaal_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void MnuWO_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void MnuIndOv_Click(object sender, RoutedEventArgs e)
+        {
+            Gebruikerdetails detailsMenu = new Gebruikerdetails(ActieveGebruiker);
+            framePages.Navigate(detailsMenu);
+        }
+        private void MnuKlasOver_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void MnuNieuweGebr_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void MnuAccBewerk_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void MnuKlaslijstBewerk_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        //Methods
+        private void pasBalkAan()
+        {
+            if (ActieveGebruiker!=null)
+            {
+                switch (ActieveGebruiker.Type)
+                {
+                    case "lln":
+                        maakMenuLeeg();
+                        mnuAcc.IsEnabled = false;
+                        mnuOefBew.IsEnabled = false;
+                        mnuOefeningen.IsEnabled = true;
+                        mnuStat.IsEnabled = false;
+                        break;
+                    case "lk":
+                        maakMenuLeeg();
+                        mnuAcc.IsEnabled = true;
+                        mnuOefBew.IsEnabled = true;
+                        mnuOefeningen.IsEnabled = false;
+                        mnuStat.IsEnabled = true;
+                        break;
+                    default:
+                        maakMenuLeeg();
+                        break;
+                }
+            }
+            else
+            {
+                maakMenuLeeg();
+            }
+
+        }
+
+        private void maakMenuLeeg()
+        {
+            mnuBasis.IsEnabled = true;
+            mnuAcc.IsEnabled = false;
+            mnuOefBew.IsEnabled = false;
+            mnuOefeningen.IsEnabled = false;
+            mnuStat.IsEnabled = false;
+        }
 
         //Properties
-        public Gebruiker ActieveGebruiker { get; set; }
+        public Gebruiker ActieveGebruiker
+        {
+            get 
+            {
+                return actieveGebruiker;
+            }
+            set
+            {
+                actieveGebruiker = value;
+                this.Title = Convert.ToString(ActieveGebruiker);
+                pasBalkAan();
+            }
+        }
+
+
+
     }
 }

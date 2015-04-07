@@ -15,8 +15,8 @@ namespace Groepswerk
     {
         private void Application_startup(object sender, StartupEventArgs e)
         {
-            Window programma = new Programma();
-            programma.Show();
+            //Window programma = new Programma();
+            //programma.Show();
         }
     }
 }

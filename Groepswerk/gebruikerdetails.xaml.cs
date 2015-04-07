@@ -46,22 +46,27 @@ namespace Groepswerk
 
             if (accountLijst != null)
             {
-                accountLijst.Clear();
+                accountLijst = null;
             }
+
             selectedKlas = Convert.ToString(klasKeuze.SelectedItem);
             accountLijst = new Accountlijst(selectedKlas);
             listBox_llnLijst.ItemsSource = accountLijst;
             // elke student in de lijst is nu zchtbaar want de hele lijst is de source
             listBox_llnLijst.SelectedIndex = 0;
             // om het netjes te houden begin je bij de eerste al als geselecteerde waarde
+            
         }
 
         private void listBox_llnLijst_Changed(object sender, SelectionChangedEventArgs e)
         // als je in de listbox nu een andere waarde selecteerd wordt deze event aangeroepen.
         {
+            if (listBox_llnLijst.SelectedIndex==-1)
+            {
+                listBox_llnLijst.SelectedIndex = 0;
+            }
             selectedGebruiker = (Gebruiker)listBox_llnLijst.SelectedItem;
-                                // casten naar gebruiker
-         
+                                // casten naar gebruiker         
             VakjesVullen();
 
         }
@@ -69,7 +74,7 @@ namespace Groepswerk
 
 
         // methodes
-        private void VakjesVullen (){
+        private void VakjesVullen(){
             voornaambox.Text = selectedGebruiker.Voornaam;
             naambox.Text = selectedGebruiker.Achternaam;
             leerlingId.Text = Convert.ToString(selectedGebruiker.Id);

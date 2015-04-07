@@ -4,15 +4,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Programma" Height="600" Width="600">
     <DockPanel Name="dock">
-        <Menu Name="mainMenu" DockPanel.Dock="Top" />
-        <Grid Background="LemonChiffon" DockPanel.Dock="Top" MinHeight="100">
-            <Button Name="btnLogUit" Click="btnHome_Click" Content="Uitloggen" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" VerticalAlignment="Top" Width="56"/>
-            <Button Name="btnExit" Click="btnStop_Click" Content="Stop" HorizontalAlignment="Right" Height="29" Margin="504,10,0,0" VerticalAlignment="Top" Width="63"/>
-            <Label Name="lblGebruiker" Content="{Binding Path=ActieveGebruiker}" HorizontalAlignment="Left" Height="45" Margin="162,25,0,0" VerticalAlignment="Top" Width="205"/>
-        </Grid>
-        <Grid Background="LemonChiffon" DockPanel.Dock="Bottom" MinHeight="100"/>
-        <Grid Background="LemonChiffon" DockPanel.Dock="Left" MinWidth="100"/>
-        <Grid Background="LemonChiffon" DockPanel.Dock="Right" MinWidth="100"/>
-        <Frame Name="framePages" Background="Azure" NavigationUIVisibility="Hidden"/>       
+        <Menu Name="mainMenu" DockPanel.Dock="Top">
+            <MenuItem Name="mnuBasis" Header="Menu">
+                <MenuItem Header="Log uit" Click="MnuHome_Click"/>
+                <MenuItem Header="Exit" Click="MnuStop_Click"/>
+            </MenuItem>
+            <MenuItem Name="mnuOefeningen" Header="Oefeningen">
+                <MenuItem Header="Rekenen" Click="MnuRekenen_Click"/>
+                <MenuItem Header="Taal" Click="MnuTaal_Click"/>
+                <MenuItem Header="WO" Click="MnuWO_Click"/>
+            </MenuItem>
+            <MenuItem Name="mnuOefBew" Header="Oefeningen Bewerken"/>
+            <MenuItem Name="mnuStat" Header="Statistieken">
+                <MenuItem Header="Individueel Overzicht" Click="MnuIndOv_Click"/>
+                <MenuItem Header="Klassikaal Overzicht" Click="MnuKlasOver_Click"/>
+            </MenuItem>
+            <MenuItem Name="mnuAcc" Header="AccountBeheer">
+                <MenuItem Header="Nieuwe Gebruiker" Click="MnuNieuweGebr_Click"/>
+                <MenuItem Header="Account Bewerken" Click="MnuAccBewerk_Click"/>
+                <MenuItem Header="Klaslijst Bewerken" Click="MnuKlaslijstBewerk_Click"/>
+            </MenuItem>            
+        </Menu>
+        <Frame Name="framePages" NavigationUIVisibility="Hidden" /> 
     </DockPanel>
 </Window>

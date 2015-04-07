@@ -38,6 +38,14 @@ namespace Groepswerk
             klasLijst = new Klaslijst();
             boxKlas.ItemsSource = klasLijst;
             boxKlas.SelectedIndex = 0;
+            boxCommands.SelectedIndex = 0;
+
+           /* Window mainWindow = Application.Current.MainWindow;
+            Menu mainMenu = (Menu) mainWindow.FindName("mainMenu");
+            MenuItem i = new MenuItem();
+            i.Header = "test";
+            mainMenu.Items.Add(i);*/
+            
         }
 
         //Events
@@ -57,11 +65,11 @@ namespace Groepswerk
         {
             if (boxCommands.SelectedIndex == 0)//Nieuwe gebruiker
             {
-                btnPasAan.Visibility = Visibility.Hidden;
+               /* btnPasAan.Visibility = Visibility.Hidden;
                 btnVerwijder.Visibility = Visibility.Hidden;
                 boxNieuweKlas.Visibility = Visibility.Hidden;
                 boxAccounts.Visibility = Visibility.Hidden;
-                btnVoegToe.Visibility = Visibility.Visible;
+                btnVoegToe.Visibility = Visibility.Visible;*/
             }
             else if (boxCommands.SelectedIndex == 1)//Verwijderen en aanpassen
             {

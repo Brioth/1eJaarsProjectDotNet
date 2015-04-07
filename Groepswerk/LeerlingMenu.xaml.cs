@@ -26,11 +26,25 @@ namespace Groepswerk
         {
             InitializeComponent();
             ActieveGebruiker = actievegebruiker;
+            lblBegroeting.Content = String.Format("Dag {0}", ActieveGebruiker.Voornaam);
+            checkButton();
         }
 
         //Events
 
         //Methods
+
+        private void checkButton() //check of gebruiker afgelopen week alles 1 maal gespeeld heeft
+        {
+            if (true)
+            {
+                //zet button aan
+            }
+            else
+            {
+                //zet button disabled
+            }
+        }
 
         //Properties
 

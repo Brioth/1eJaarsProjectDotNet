@@ -7,5 +7,8 @@
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="LeerlingMenu">
 
-    <Grid/>
+    <Grid>
+        <Label Name="lblBegroeting" Content="" HorizontalAlignment="Left" Height="40" Margin="59,119,0,0" VerticalAlignment="Top" Width="165"/>
+        <Button Name="btnSpel" Content="Speel bolletjesSpel" HorizontalAlignment="Left" Height="41" Margin="87,203,0,0" VerticalAlignment="Top" Width="137"/>
+    </Grid>
 </Page>
