@@ -42,12 +42,12 @@ namespace Groepswerk
             geselecteerdeKlas = Convert.ToString(selecteerKlas.SelectedItem);
            lijstAccount = new Accountlijst(geselecteerdeKlas);
         
-          for(int i=0; i<(lijstAccountCount); i++){
+          for(int i=0; i<(lijstAccount.Count); i++){
             string gemiddeldesText=gemiddeldes.Text;
             gemiddeldesText=gemiddeldesText+lijstAccount[i].Voornaam + " " + lijstAccount[i].Achternaam + '\t' +  lijstAccount[i].GemWisk + '\t' + lijstAccount[i].GemNed + '\t' + lijstAccount[i].GemWO;
           }
         
     }
     } //was je vergeten
-}
+
 }
