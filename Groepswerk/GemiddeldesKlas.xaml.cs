@@ -37,17 +37,18 @@ namespace Groepswerk
 
         private void selecteerKlas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
             gemiddeldes.Text = "Naam leerling" + '\t' + "Gemiddelde Wiskunde" + '\t' + "Gemiddelde Nederlands" + '\t' + "Gemiddelde WO";
             geselecteerdeKlas = Convert.ToString(selecteerKlas.SelectedItem);
-           lijstAccount = new Accountlijst(geselecteerdeKlas);
-        
-          for(int i=0; i<(lijstAccountCount); i++){
-            string gemiddeldesText=gemiddeldes.Text;
-            gemiddeldesText=gemiddeldesText+lijstAccount[i].Voornaam + " " + lijstAccount[i].Achternaam + '\t' +  lijstAccount[i].GemWisk + '\t' + lijstAccount[i].GemNed + '\t' + lijstAccount[i].GemWO;
-          }
-        
+            lijstAccount = new Accountlijst(geselecteerdeKlas);
+
+            for (int i = 0; i < (lijstAccount.Count); i++)
+            {
+                string gemiddeldesText = gemiddeldes.Text;
+                gemiddeldesText = gemiddeldesText + lijstAccount[i].Voornaam + " " + lijstAccount[i].Achternaam + '\t' + lijstAccount[i].GemWisk + '\t' + lijstAccount[i].GemNed + '\t' + lijstAccount[i].GemWO;
+            }
+
+        }
+
     }
-    } //was je vergeten
-}
 }
