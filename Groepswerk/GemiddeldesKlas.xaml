@@ -7,7 +7,7 @@
 	Title="GemiddeldesKlas" Height="425.696" Width="602.287">
     <Grid>
         <ComboBox Name="selecteerKlas" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="selecteerKlas_SelectionChanged"/>
-        <TextBlock Name="gemiddeldes" HorizontalAlignment="Left" Height="299" Margin="74,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="440"/>
+        <TextBlock Name="gemiddeldes" HorizontalAlignment="Left" Height="366" Margin="10,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="582"/>
 
     </Grid>
 </Page>
