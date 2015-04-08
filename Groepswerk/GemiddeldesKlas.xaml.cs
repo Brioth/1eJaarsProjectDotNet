@@ -22,33 +22,29 @@ namespace Groepswerk
     */
     public partial class GemiddeldesKlas : Page
     {
-        private Klaslijst klasLijst;
+        private Klaslijst lijstKlas;
+        private Accountlijst lijstAccount;
         private String geselecteerdeKlas;
         private Gebruiker[] naamGemiddelde;
 
         public GemiddeldesKlas()
         {
             InitializeComponent();
-            klasLijst = new Klaslijst();
-            selecteerKlas.ItemsSource = klasLijst;
+            lijstKlas=new Klaslijst();
+            selecteerKlas.ItemsSource = lijstKlas;
             selecteerKlas.SelectedIndex = 0;
         }
 
         private void selecteerKlas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           //labels clearen
+            
+           gemiddeldes.Text="Naam leerling" + '\t' + "Gemiddelde Wiskunde" + '\t' + "Gemiddelde Nederlands" + '\t' + "Gemiddelde WO";
             geselecteerdeKlas=Convert.ToString(selecteerKlas.SelectedItem);
-           
-           
-           // Gebruiker[i]=Accountlijst(string geselecteerdeKlas); 
-           // For each loop
-           // Accountlijst zet een boolean naar false zodra de while loop moet stoppen?
-           // Naam en punten leerling1 in labels zetten
-           // vb: naamLeerling1=Gebruiker[i].getNaam; gemiddeldeW1=Gebruiker[i].getGemiddeldeWiskunde
-           // TextBLock ipv labels gebruiken
-           
-        }
-
-
-    }
+           lijstAccount = new Accountlijst(geselecteerdeKlas);
+        
+          for(int i=1; i<=(lijstAccount.Items.Count); i++){
+            string gemiddeldesText=gemiddeldes.Text;
+            gemiddeldesText=gemiddeldesText+lijstAccount[i].Voornaam + " " + lijstAccount[i].Achternaam + '\t' +  lijstAccount[i].GemWisk + '\t' + lijstAccount[i].GemNed + '\t' + lijstAccount[i].GemWO;
+          }
+        
 }
