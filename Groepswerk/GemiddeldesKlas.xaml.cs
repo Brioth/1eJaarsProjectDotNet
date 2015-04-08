@@ -45,7 +45,7 @@ namespace Groepswerk
         
           for(int i=0; i<(lijstAccount.Count); i++){
             gemiddeldesText=gemiddeldes.Text;
-            gemiddeldesText='\n'+ gemiddeldesText+lijstAccount[i].Voornaam + " " + lijstAccount[i].Achternaam + '\t' +  lijstAccount[i].GemWisk + '\t' + lijstAccount[i].GemNed + '\t' + lijstAccount[i].GemWO;
+            gemiddeldesText = gemiddeldesText + '\n' + lijstAccount[i].Voornaam + " " + lijstAccount[i].Achternaam + '\t' + '\t' + lijstAccount[i].GemWisk + '\t' + '\t' + '\t' + lijstAccount[i].GemNed + '\t' + '\t' + '\t' + lijstAccount[i].GemWO;
           }
         gemiddeldes.Text=gemiddeldesText;
     }
