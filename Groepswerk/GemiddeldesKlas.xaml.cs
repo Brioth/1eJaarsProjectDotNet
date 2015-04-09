@@ -35,19 +35,21 @@ namespace Groepswerk
             selecteerKlas.ItemsSource = lijstKlas;
             selecteerKlas.SelectedIndex = 0;
         }
-
+        /* Author: Thomas Cox
+        * Date: 8/04/2015
+        */
         private void selecteerKlas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string gemiddeldesText=gemiddeldes.Text;
-            gemiddeldes.Text = "Naam leerling" + '\t' + "Gemiddelde Wiskunde" + '\t' + "Gemiddelde Nederlands" + '\t' + "Gemiddelde WO";
             geselecteerdeKlas = Convert.ToString(selecteerKlas.SelectedItem);
            lijstAccount = new Accountlijst(geselecteerdeKlas);
         
           for(int i=0; i<(lijstAccount.Count); i++){
             gemiddeldesText=gemiddeldes.Text;
             gemiddeldesText = gemiddeldesText + '\n' + lijstAccount[i].Voornaam + " " + lijstAccount[i].Achternaam + '\t' + '\t' + lijstAccount[i].GemWisk + '\t' + '\t' + '\t' + lijstAccount[i].GemNed + '\t' + '\t' + '\t' + lijstAccount[i].GemWO;
+            gemiddeldes.Text = gemiddeldesText;
           }
-        gemiddeldes.Text=gemiddeldesText;
     }
+
     } //was je vergeten
 }
