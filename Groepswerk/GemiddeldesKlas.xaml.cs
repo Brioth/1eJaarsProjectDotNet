@@ -25,7 +25,6 @@ namespace Groepswerk
         private Klaslijst lijstKlas;
         private Accountlijst lijstAccount;
         private String geselecteerdeKlas;
-        private Gebruiker[] naamGemiddelde;
 
 
         public GemiddeldesKlas()
@@ -47,8 +46,9 @@ namespace Groepswerk
             {
                 gemiddeldesText = gemiddeldes.Text;
                 gemiddeldesText = gemiddeldesText + '\n' + lijstAccount[i].Voornaam + " " + lijstAccount[i].Achternaam + '\t' + '\t' + lijstAccount[i].GemWisk + '\t' + '\t' + '\t' + lijstAccount[i].GemNed + '\t' + '\t' + '\t' + lijstAccount[i].GemWO;
+                gemiddeldes.Text = gemiddeldesText;
             }
-            gemiddeldes.Text = gemiddeldesText;
+            
         }
     } //was je vergeten
 }
