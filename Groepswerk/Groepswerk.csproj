@@ -117,14 +117,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="OefNederlands1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OefNederlands1Navigatie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Programma.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OefeningLijst.cs" />
     <Compile Include="NieuweGebruiker.xaml.cs">
       <DependentUpon>NieuweGebruiker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Oefening.cs" />
+    <Compile Include="OefNederlands1.xaml.cs">
+      <DependentUpon>OefNederlands1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OefNederlands1Navigatie.xaml.cs">
+      <DependentUpon>OefNederlands1Navigatie.xaml</DependentUpon>
     </Compile>
     <Compile Include="Programma.xaml.cs">
       <DependentUpon>Programma.xaml</DependentUpon>

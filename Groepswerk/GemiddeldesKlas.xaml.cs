@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace Groepswerk
 {
-    /// <summary>
-    /// Interaction logic for GemiddeldesKlas.xaml
-    /// </summary>
     /* Author: Thomas Cox
      * Date: 5/04/2015
     */
@@ -50,5 +47,5 @@ namespace Groepswerk
             }
             
         }
-    } //was je vergeten
+    } 
 }
