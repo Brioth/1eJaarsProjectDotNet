@@ -1,0 +1,40 @@
+﻿<Page x:Class="Groepswerk.oefnWisk1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" d:DesignWidth="300"
+	Title="oefnWisk1" Height="625" Width="721">
+
+    <Grid Height="606" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Name="titel" Content="Oefening Wiskunde" HorizontalAlignment="Left" Margin="61,10,0,0" VerticalAlignment="Top" Height="79" Width="492" FontSize="36" Grid.ColumnSpan="2"/>
+        <Label Content="Sleep het juiste cijfer op de juiste plaats. (achter de opgave)" HorizontalAlignment="Left" Margin="62,70,0,0" VerticalAlignment="Top" Height="47" Width="356" Grid.ColumnSpan="2"/>
+        <Label Content="1" HorizontalAlignment="Left" Name="sleepLabel1" Margin="61,108,0,0" DragLeave="sleepLabel1_DragLeave" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="32"/>
+        <Label Content="2" HorizontalAlignment="Left" Name="sleepLabel2" Margin="124,108,0,0" DragLeave="sleepLabel1_DragLeave" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="32"/>
+        <Label Content="3" HorizontalAlignment="Left" Name="sleepLabel3" Margin="258,108,0,0" DragLeave="sleepLabel1_DragLeave" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="32"/>
+        <Label Content="4" HorizontalAlignment="Left" Name="sleepLabel4" Margin="189,108,0,0" DragLeave="sleepLabel1_DragLeave" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="32"/>
+        <Label Content="5" HorizontalAlignment="Left" Name="sleepLabel5" Margin="330,108,0,0" DragLeave="sleepLabel1_DragLeave" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="32"/>
+        <Label Content="6" HorizontalAlignment="Left" Name="sleepLabel6" Margin="400,108,0,0" DragLeave="sleepLabel1_DragLeave" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="32"/>
+        <Label Content="7" HorizontalAlignment="Left" Name="sleepLabel7" Margin="468,108,0,0" DragLeave="sleepLabel1_DragLeave" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="32"/>
+        <Label Content="8" HorizontalAlignment="Left" Name="sleepLabel8" Margin="538,108,0,0" DragLeave="sleepLabel1_DragLeave" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="32"/>
+        <Label Content="9" HorizontalAlignment="Left" Name="sleepLabel9" Margin="598,108,0,0" DragLeave="sleepLabel1_DragLeave" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="32"/>
+        <Label Content="10" HorizontalAlignment="Left" Name="sleepLabel10" Margin="652,108,0,0" DragLeave="sleepLabel1_DragLeave" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="32"/>
+
+        <TextBlock Name="opgave1"  HorizontalAlignment="Left" Margin="61,191,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="177" Grid.ColumnSpan="2"/>
+        <TextBlock Name="opgave2"  HorizontalAlignment="Left" Margin="62,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="176" Grid.ColumnSpan="2"/>
+        <TextBlock Name="opgave3"  HorizontalAlignment="Left" Margin="61,274,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="177" Grid.ColumnSpan="2"/>
+        <TextBlock Name="opgave4"  HorizontalAlignment="Left" Margin="62,318,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="176" Grid.ColumnSpan="2"/>
+        <TextBlock Name="opgave5"  HorizontalAlignment="Left" Margin="62,367,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="176" Grid.ColumnSpan="2"/>
+        <TextBlock Name="opgave6"  HorizontalAlignment="Left" Margin="410,191,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="165" Grid.ColumnSpan="2"/>
+        <TextBlock Name="opgave7"  HorizontalAlignment="Left" Margin="410,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="165" Grid.ColumnSpan="2"/>
+        <TextBlock Name="opgave8"  HorizontalAlignment="Left" Margin="410,274,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="165" Grid.ColumnSpan="2"/>
+        <TextBlock Name="opgave9"  HorizontalAlignment="Left" Margin="410,318,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="165" Grid.ColumnSpan="2"/>
+        <TextBlock Name="opgave10"  HorizontalAlignment="Left" Margin="410,367,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="165" Grid.ColumnSpan="2"/>
+        <Button Name="verbeterButton" Content="Verbeter" HorizontalAlignment="Left" Margin="541,513,0,-170" VerticalAlignment="Top" Width="99" Height="64" Click="verbeterButton_Click" Grid.ColumnSpan="2"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="85,476,0,0" TextWrapping="Wrap" Text="uitkomst" Name="uitkomstBox" VerticalAlignment="Top" Width="443"/>
+    </Grid>
+</Page>
