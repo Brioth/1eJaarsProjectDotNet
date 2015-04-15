@@ -59,31 +59,33 @@ namespace Groepswerk
             BolletjesRood = 0;
             VierkantjesBlauw = 0;
             VierkantjesRood = 0;
-
+            
         }
         private void animationTimer_Tick(object sender, EventArgs e)
         {
             entiteitenRood.Move();
             entiteitenBlauw.Move();
-            entiteitenRood.CheckHit();
-            entiteitenBlauw.CheckHit();
+            entiteitenRood.CheckHit(entiteitenBlauw);
+            entiteitenBlauw.CheckHit(entiteitenRood);
+            //entiteitenRood.DisplayOn(drawingCanvas);
+            //entiteitenBlauw.DisplayOn(drawingCanvas);
         }
         private void roodTimer_Tick(object sender, EventArgs e)
         {
-            if (LijstRood.Count <= 20)
+            if (entiteitenRood.Count <= 20)
             {
-                HoofdSpelBolletje bolletje = new HoofdSpelBolletje(Colors.Red);
-                LijstRood.Add(bolletje);
+                HoofdSpelBolletje bolletje = new HoofdSpelBolletje(entiteitenRood);
+                entiteitenRood.Add(bolletje);
                 bolletje.DisplayOn(drawingCanvas);
             }
 
         }
         private void blauwTimer_Tick(object sender, EventArgs e)
         {
-            if (LijstBlauw.Count <= 20)
+            if (entiteitenBlauw.Count <= 20)
             {
-                HoofdSpelBolletje bolletje = new HoofdSpelBolletje(Colors.Blue);
-                LijstBlauw.Add(bolletje);
+                HoofdSpelBolletje bolletje = new HoofdSpelBolletje(entiteitenBlauw);
+                entiteitenBlauw.Add(bolletje);
                 bolletje.DisplayOn(drawingCanvas);
             }
 
@@ -158,5 +160,6 @@ namespace Groepswerk
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
             }
         }
+        
     }
 }

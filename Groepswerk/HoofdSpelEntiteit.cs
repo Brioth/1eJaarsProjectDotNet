@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace Groepswerk
 {
     //Author: Carmen Celen
     //Date: 13/04/2015
-    public abstract class HoofdSpelEntiteit
+    public abstract class HoofdSpelEntiteit : UIElement
     {
         int x, y, width=5, height=5, stepSize=5;
+        Color kleur;
         static Random randomBeweging = new Random(3);
         public int X
         {
@@ -34,14 +37,18 @@ namespace Groepswerk
             get { return height; }
             set { height = value; UpdateElement(); } 
         }
+        public Color Kleur
+        {
+            get { return kleur; }
+            set { kleur = value; UpdateElement(); }
+        }
         public abstract void DisplayOn(Canvas drawingCanvas);
         protected abstract void UpdateElement();
-        public bool Move(List<HoofdSpelEntiteit> lijst)
+        public void Move(List<HoofdSpelEntiteit> lijst)
         {
             if (X < 0 || X > 150 || Y < 0 || Y > 150)
             {
-                lijst.Remove(this);
-                return true;
+                lijst.Remove(this);                
             }
             else
             {
@@ -73,10 +80,9 @@ namespace Groepswerk
                     default:
                         break;
                 }
-                return false;
             }
         }
-        public abstract void CheckHit();
+        public abstract void CheckHit(List<HoofdSpelEntiteit> lijstTegenstander);
 
     }
 }

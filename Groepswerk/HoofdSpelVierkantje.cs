@@ -11,24 +11,34 @@ namespace Groepswerk
 {
     public class HoofdSpelVierkantje : HoofdSpelEntiteit
     {
-       private List<HoofdSpelEntiteit> lijstEntiteiten;
        private Rectangle vierkant;
-       private Canvas canvas;
        private static Random randomPlaats = new Random(151);
+       private List<HoofdSpelEntiteit> lijst;
 
-       public HoofdSpelVierkantje(List<HoofdSpelEntiteit> lijst, Color kleur)
+       public HoofdSpelVierkantje(List<HoofdSpelEntiteit> lijst)
        {
+           this.lijst = lijst;
+           CheckKleur();
            vierkant = new Rectangle();
-           vierkant.Fill = new SolidColorBrush(kleur);
+           vierkant.Fill = new SolidColorBrush(Kleur);
            X = randomPlaats.Next(151);
            Y = randomPlaats.Next(151);
-           lijstEntiteiten = lijst;
-           lijstEntiteiten.Add(this);
+           lijst.Add(this);
        }
+
+        public HoofdSpelVierkantje(List<HoofdSpelEntiteit> lijst, int x, int y)
+        {
+            this.lijst = lijst;
+            CheckKleur();
+            vierkant = new Rectangle();
+            vierkant.Fill=new SolidColorBrush(Kleur);
+            X=x;
+            Y=y;
+            lijst.Add(this);
+        }
        public override void DisplayOn(Canvas drawingCanvas)
        {
            drawingCanvas.Children.Add(vierkant);
-           canvas = drawingCanvas;
        }
        protected override void UpdateElement()
        {
@@ -37,9 +47,21 @@ namespace Groepswerk
            vierkant.Margin = new System.Windows.Thickness(X, Y, 0, 0);
        }
 
-       public override void CheckHit()
+       public override void CheckHit(List<HoofdSpelEntiteit> lijstTegenstander)
        {
-
+           //als geraakt door eigen bolletje dan bolletje
+           //als geraakt door tegenstander dan dood
+       }
+       private void CheckKleur()
+       {
+           if (lijst is HoofdSpelLijstBlauw)
+           {
+               Kleur = Colors.Blue;
+           }
+           if (lijst is HoofdSpelLijstRood)
+           {
+              Kleur = Colors.Red;
+           }
        }
     }
 }
