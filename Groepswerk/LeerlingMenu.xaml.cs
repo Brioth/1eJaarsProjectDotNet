@@ -49,5 +49,11 @@ namespace Groepswerk
         //Properties
 
         public Gebruiker ActieveGebruiker { get; set; }
+
+        private void btnSpel_Click(object sender, RoutedEventArgs e)
+        {
+            HoofdSpel hoofdSpel = new HoofdSpel();
+            this.NavigationService.Navigate(hoofdSpel);
+        }
     }
 }

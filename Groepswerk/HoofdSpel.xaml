@@ -1,0 +1,22 @@
+﻿<Page x:Class="Groepswerk.HoofdSpel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="HoofdSpel">
+
+    <Grid>
+        <Canvas Name="drawingCanvas" Background="LightYellow" HorizontalAlignment="Left" Height="150" Margin="73,127,0,0" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Rood" HorizontalAlignment="Left" Height="25" Margin="95,25,0,0" VerticalAlignment="Top" Width="59"/>
+        <Label Content="Blauw" HorizontalAlignment="Left" Height="25" Margin="194,25,0,0" VerticalAlignment="Top" Width="69"/>
+        <TextBlock Name="txtbRoodB" Text="{Binding BolletjesRood}" HorizontalAlignment="Left" Height="19" Margin="95,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="42"/>
+        <TextBlock x:Name="txtbBlauwB" Text="{Binding Path=BolletjesBlauw, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="19" Margin="194,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="42"/>
+        <TextBlock x:Name="txtbRoodV" HorizontalAlignment="Left" Height="19" Margin="95,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="42"/>
+        <TextBlock x:Name="txtbBlauwV" HorizontalAlignment="Left" Height="19" Margin="194,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="42"/>
+        <Ellipse Fill="Black" HorizontalAlignment="Left" Height="11" Margin="38,55,0,0" Stroke="Black" VerticalAlignment="Top" Width="11"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="11" Margin="38,89,0,0" Stroke="Black" VerticalAlignment="Top" Width="11"/>
+
+    </Grid>
+</Page>
