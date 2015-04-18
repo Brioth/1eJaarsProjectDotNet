@@ -128,7 +128,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="OefNederlands1.xaml">
+    <Page Include="OefNederlands1Gemiddeld.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OefNederlands1Makkelijk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OefNederlands1Moeilijk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,8 +159,14 @@
       <DependentUpon>NieuweGebruiker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Oefening.cs" />
-    <Compile Include="OefNederlands1.xaml.cs">
-      <DependentUpon>OefNederlands1.xaml</DependentUpon>
+    <Compile Include="OefNederlands1Gemiddeld.xaml.cs">
+      <DependentUpon>OefNederlands1Gemiddeld.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OefNederlands1Makkelijk.xaml.cs">
+      <DependentUpon>OefNederlands1Makkelijk.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OefNederlands1Moeilijk.xaml.cs">
+      <DependentUpon>OefNederlands1Moeilijk.xaml</DependentUpon>
     </Compile>
     <Compile Include="OefNederlands1Navigatie.xaml.cs">
       <DependentUpon>OefNederlands1Navigatie.xaml</DependentUpon>
