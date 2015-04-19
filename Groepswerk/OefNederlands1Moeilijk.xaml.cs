@@ -25,21 +25,25 @@ namespace Groepswerk
         private Random oefeningenNummer = new Random();
         private int oefeningenNummerOpslag, oefCorrect;
         private IList<string> oefLijst;
+        private IList<int> oefeningNummerLijst;
         public OefNederlands1Moeilijk()
         {
-            oefCorrect = 0;
             InitializeComponent();
-            lijstOefeningen = new OefeningLijst("makkelijk");
+            lijstOefeningen = new OefeningLijst("moeilijk");
             for (int i = 0; i > lijstOefeningen.Count; i++)
             {
-                tempOpgave[i] = lijstOefeningen[i].opgave;
-                tempOplossing1[i] = lijstOefeningen[i].oplossing1;
-                tempOplossing2[i] = lijstOefeningen[i].oplossing2;
-                tempOplossing3[i] = lijstOefeningen[i].oplossing3;
+                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
+                if (!(oefeningNummerLijst.Contains(oefeningenNummerOpslag)))
+                {
+                    tempOpgave[oefeningenNummerOpslag] = lijstOefeningen[oefeningenNummerOpslag].opgave;
+                    tempOplossing1[oefeningenNummerOpslag] = lijstOefeningen[oefeningenNummerOpslag].oplossing1;
+                    tempOplossing2[oefeningenNummerOpslag] = lijstOefeningen[oefeningenNummerOpslag].oplossing2;
+                    tempOplossing3[oefeningenNummerOpslag] = lijstOefeningen[oefeningenNummerOpslag].oplossing3;
+                }
             }
 
             oefeningenNummerOpslag = oefeningenNummer.Next(1, lijstOefeningen.Count);
-            //oefeningenNummerOpslag in list zetten zodat je kan checken of dit nummer al genomen is?
+            
             opgave1.Text = tempOpgave[1];
 
             opgave2.Text = tempOpgave[2];
@@ -54,6 +58,7 @@ namespace Groepswerk
 
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
+            oefCorrect = 0;
             if (!(Convert.ToString(Oplossing1.Text).Equals(lijstOefeningen[1].correcteOplossing)))
             {
                 opgave1.Text = lijstOefeningen[1].juisteAntwoordCompleet;
