@@ -52,6 +52,11 @@ namespace Groepswerk
             writer.Close();
         }
 
+        private void TerugKnop_Click(object sender, RoutedEventArgs e)
+        {
+            //navigation. Ik snap da dus echt nie eh... this.Frame.Navigate(typeof(Programma));
+        }
+
         
     }
     }

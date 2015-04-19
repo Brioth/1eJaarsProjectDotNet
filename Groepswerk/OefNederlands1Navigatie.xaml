@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d"
-	Title="OefNederlands" Height="588.511" Width="1005.958">
+	Title="OefNederlands1Navigatie" Height="588.511" Width="1005.958">
 
     <Grid>
         <Label Content="Oefeningen Nederlands" HorizontalAlignment="Left" Margin="140,10,0,0" VerticalAlignment="Top" Height="119" Width="778" FontSize="72"/>

@@ -13,7 +13,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="30,152,0,0" TextWrapping="Wrap" Text="Opgave" VerticalAlignment="Top" Height="27" Width="114"/>
         <TextBox Name="Opgave" HorizontalAlignment="Left" Height="77" Margin="149,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" TextChanged="TextBox_TextChanged"/>
         <Button Name="AanpasKnop" Content="Aanpassen" HorizontalAlignment="Left" Margin="149,274,0,0" VerticalAlignment="Top" Width="150" Height="59" Click="AanpasKnop_Click"/>
-        <Button Name="TerugKnop" Content="Terug naar hoofdmenu" HorizontalAlignment="Left" Margin="547,274,0,0" VerticalAlignment="Top" Width="150" Height="59"/>
+        <Button Name="TerugKnop" Content="Terug naar hoofdmenu" HorizontalAlignment="Left" Margin="547,274,0,0" VerticalAlignment="Top" Width="150" Height="59" Click="TerugKnop_Click"/>
         <TextBox Name="CorrecteOplossing" HorizontalAlignment="Left" Height="36" Margin="149,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="30,216,0,0" TextWrapping="Wrap" Text="Correcte Oplossing" VerticalAlignment="Top" Height="36" Width="114"/>
     </Grid>

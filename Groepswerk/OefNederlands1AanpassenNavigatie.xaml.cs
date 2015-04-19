@@ -18,9 +18,9 @@ namespace Groepswerk
     /// <summary>
     /// Interaction logic for OefNederlandsMakkelijkAanpassen.xaml
     /// </summary>
-    public partial class OefNederlandsMakkelijkAanpassen : Page
+    public partial class OefNederlands1AanpassenNavigatie : Page
     {
-        public OefNederlandsMakkelijkAanpassen()
+        public OefNederlands1AanpassenNavigatie()
         {
             InitializeComponent();
         }

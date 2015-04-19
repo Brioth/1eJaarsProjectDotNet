@@ -156,7 +156,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="OefNederlandsAanpassenNavigatie.xaml">
+    <Page Include="OefNederlands1AanpassenNavigatie.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -196,8 +196,8 @@
     <Compile Include="OefNederlands1Navigatie.xaml.cs">
       <DependentUpon>OefNederlands1Navigatie.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OefNederlandsAanpassenNavigatie.xaml.cs">
-      <DependentUpon>OefNederlandsAanpassenNavigatie.xaml</DependentUpon>
+    <Compile Include="OefNederlands1AanpassenNavigatie.xaml.cs">
+      <DependentUpon>OefNederlands1AanpassenNavigatie.xaml</DependentUpon>
     </Compile>
     <Compile Include="oefnWisk1.xaml.cs">
       <DependentUpon>oefnWisk1.xaml</DependentUpon>

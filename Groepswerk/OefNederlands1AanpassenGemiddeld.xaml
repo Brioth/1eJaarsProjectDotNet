@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d"
-	Title="OefNederlands1AanpassenMakkelijk" Height="452" Width="720">
+	Title="OefNederlands1AanpassenGemiddeld" Height="452" Width="720">
 
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="10,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="701" TextAlignment="Center"><Run Text="Selecteer de opgave"/><Run Text=" en de oplossingen"/><Run Text=" die u wil "/><Run Text="aanpassen of bijvoegen"/><Run Text=". Druk hierna op de 'aanpassen' knop."/></TextBlock>
