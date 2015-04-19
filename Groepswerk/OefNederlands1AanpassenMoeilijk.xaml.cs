@@ -16,23 +16,20 @@ using System.Windows.Shapes;
 
 namespace Groepswerk
 {
-    //author:Thomas Cox
-    //Date: 19/04/2015
-    public partial class OefNederlands1AanpassenMakkelijk : Page
+    // Author: Thomas Cox
+    // Date: 19/04/2015
+    public partial class OefNederlands1AanpassenMoeilijk : Page
     {
         private OefeningLijst lijstOefeningen;
-        private IList<string> opgaves, oplossing1, oplossing2, oplossing3, correcteOplossing;
+        private IList<string> opgaves, correcteOplossing;
         private int geselecteerdeIndex;
-        public OefNederlands1AanpassenMakkelijk()
+        public OefNederlands1AanpassenMoeilijk()
         {
             InitializeComponent();
-            lijstOefeningen = new OefeningLijst("makkelijk");
+            lijstOefeningen = new OefeningLijst("moeilijk");
             for (int i = 0; i > lijstOefeningen.Count; i++)
             {
                 opgaves.Add(lijstOefeningen[i].opgave);
-                oplossing1.Add(lijstOefeningen[i].oplossing1);
-                oplossing2.Add(lijstOefeningen[i].oplossing2);
-                oplossing3.Add(lijstOefeningen[i].oplossing3);
                 correcteOplossing.Add(lijstOefeningen[i].correcteOplossing);
             }
             OpgaveSelecteren.ItemsSource = opgaves;
@@ -41,23 +38,21 @@ namespace Groepswerk
         {
             geselecteerdeIndex = OpgaveSelecteren.SelectedIndex;
             Opgave.Text = opgaves[geselecteerdeIndex];
-            Oplossing1.Text = oplossing1[geselecteerdeIndex];
-            Oplossing2.Text = oplossing2[geselecteerdeIndex];
-            Oplossing3.Text = oplossing3[geselecteerdeIndex];
             CorrecteOplossing.Text = correcteOplossing[geselecteerdeIndex];
         }
 
         private void AanpasKnop_Click(object sender, RoutedEventArgs e)
         {
-            File.WriteAllText(@"OefNederlands1Makkelijk.txt", String.Empty);
-            StreamWriter writer= File.AppendText(@"OefNederlands1Makkelijk.txt");
+            File.WriteAllText(@"OefNederlands1Moeilijk.txt", String.Empty);
+            StreamWriter writer= File.AppendText(@"OefNederlands1Moeilijk.txt");
             foreach (Oefening oef in lijstOefeningen){
             
-                writer.WriteLine(oef.opgave + ";" + oef.oplossing1 + ";" + oef.oplossing2 + ";" +oef.oplossing3 + ";" + oef.correcteOplossing);
+                writer.WriteLine(oef.opgave + ";" + oef.correcteOplossing);
             }
             writer.Close();
         }
 
         
+    }
     }
 }

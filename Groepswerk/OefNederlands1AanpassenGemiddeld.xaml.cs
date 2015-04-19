@@ -16,17 +16,17 @@ using System.Windows.Shapes;
 
 namespace Groepswerk
 {
-    //author:Thomas Cox
-    //Date: 19/04/2015
-    public partial class OefNederlands1AanpassenMakkelijk : Page
+    // Author: Thomas Cox
+    // Date: 19/04/2015
+    public partial class OefNederlands1AanpassenGemiddeld : Page
     {
         private OefeningLijst lijstOefeningen;
         private IList<string> opgaves, oplossing1, oplossing2, oplossing3, correcteOplossing;
         private int geselecteerdeIndex;
-        public OefNederlands1AanpassenMakkelijk()
+        public OefNederlands1AanpassenGemiddeld()
         {
             InitializeComponent();
-            lijstOefeningen = new OefeningLijst("makkelijk");
+            lijstOefeningen = new OefeningLijst("gemiddeld");
             for (int i = 0; i > lijstOefeningen.Count; i++)
             {
                 opgaves.Add(lijstOefeningen[i].opgave);
@@ -49,8 +49,8 @@ namespace Groepswerk
 
         private void AanpasKnop_Click(object sender, RoutedEventArgs e)
         {
-            File.WriteAllText(@"OefNederlands1Makkelijk.txt", String.Empty);
-            StreamWriter writer= File.AppendText(@"OefNederlands1Makkelijk.txt");
+            File.WriteAllText(@"OefNederlands1Gemiddeld.txt", String.Empty);
+            StreamWriter writer= File.AppendText(@"OefNederlands1Gemiddeld.txt");
             foreach (Oefening oef in lijstOefeningen){
             
                 writer.WriteLine(oef.opgave + ";" + oef.oplossing1 + ";" + oef.oplossing2 + ";" +oef.oplossing3 + ";" + oef.correcteOplossing);
