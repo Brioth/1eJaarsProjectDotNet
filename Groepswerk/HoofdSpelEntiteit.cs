@@ -20,6 +20,7 @@ namespace Groepswerk
         int x, y, width=5, height=5, stepSize=5;
         Color kleur;
         Canvas drawingCanvas;
+        List<HoofdSpelEntiteit> lijst;
         static Random randomBeweging = new Random(3);
         public int X
         {
@@ -50,16 +51,17 @@ namespace Groepswerk
         {
             get;
         }
-        public abstract ObservableCollection<HoofdSpelEntiteit> Lijst
+        public List<HoofdSpelEntiteit> Lijst
         {
-            get;
+            get { return lijst; }
+            set { lijst = value; }
         }
         public Canvas DrawingCanvas
         {
             get { return drawingCanvas; }
             set { drawingCanvas = value; }
         }
-        public abstract void DisplayOn(Canvas drawingCanvas);
+        public abstract void DisplayOn();
         protected abstract void UpdateElement();
         public void Move()
         {
@@ -99,7 +101,7 @@ namespace Groepswerk
                 }
             }
         }
-        public abstract void CheckHit(ObservableCollection<HoofdSpelEntiteit> lijstTegenstander);
+        public abstract void CheckHit(List<HoofdSpelEntiteit> lijstTegenstander);
         public abstract void CheckHit();
         public abstract void Dood();
 

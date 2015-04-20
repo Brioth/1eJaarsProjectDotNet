@@ -101,7 +101,7 @@ namespace Groepswerk
         {
             if (!(Convert.ToString(Oplossing1.SelectionBoxItem).Equals(lijstOefeningen[1].correcteOplossing)))
             {
-                opgave1.Text = lijstOefeningen[1].juisteAntwoordCompleet;
+                Opgave1.Text = lijstOefeningen[1].juisteAntwoordCompleet;
             }
             else
             {
@@ -110,7 +110,7 @@ namespace Groepswerk
 
             if (!(Convert.ToString(Oplossing2.SelectionBoxItem).Equals(lijstOefeningen[2].correcteOplossing)))
                 {
-                    opgave2.Text = lijstOefeningen[2].juisteAntwoordCompleet;
+                    Opgave2.Text = lijstOefeningen[2].juisteAntwoordCompleet;
                 }
             else
                 {
@@ -119,7 +119,7 @@ namespace Groepswerk
 
             if (!(Convert.ToString(Oplossing3.SelectionBoxItem).Equals(lijstOefeningen[3].correcteOplossing)))
                 {
-                    opgave3.Text = lijstOefeningen[3].juisteAntwoordCompleet;
+                    Opgave3.Text = lijstOefeningen[3].juisteAntwoordCompleet;
                 }
             else
                 {
@@ -128,7 +128,7 @@ namespace Groepswerk
 
             if (!(Convert.ToString(Oplossing4.SelectionBoxItem).Equals(lijstOefeningen[4].correcteOplossing)))
                 {
-                    opgave3.Text = lijstOefeningen[4].juisteAntwoordCompleet;
+                    Opgave3.Text = lijstOefeningen[4].juisteAntwoordCompleet;
                 }
             else
                 {
@@ -137,7 +137,7 @@ namespace Groepswerk
 
             if (!(Convert.ToString(Oplossing5.SelectionBoxItem).Equals(lijstOefeningen[5].correcteOplossing)))
                 {
-                    opgave3.Text = lijstOefeningen[5].juisteAntwoordCompleet;
+                    Opgave3.Text = lijstOefeningen[5].juisteAntwoordCompleet;
                 }
             else
                 {

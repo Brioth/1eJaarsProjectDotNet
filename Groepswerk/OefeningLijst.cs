@@ -56,7 +56,7 @@ namespace Groepswerk
                 {
                     string[] deel = regel.Split(scheiding);
 
-                    Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2]);
+                    Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3],deel[4],deel[5]);
                     this.Add(oefeningNederlands);
                     regel = bestandOefening.ReadLine();
                 }

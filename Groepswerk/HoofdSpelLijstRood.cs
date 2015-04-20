@@ -12,7 +12,7 @@ namespace Groepswerk
      * Date: 10/04/2015
       * Inspired by: Cyber Invaders uit handboek
     */
-    public class HoofdSpelLijstRood : ObservableCollection<HoofdSpelEntiteit>, INotifyPropertyChanged
+    public class HoofdSpelLijstRood : List<HoofdSpelEntiteit>, INotifyPropertyChanged
     {
         private int bolletjes = 0;
         private int vierkantjes = 0;
@@ -36,11 +36,11 @@ namespace Groepswerk
 
         }
 
-        public void DisplayOn(Canvas drawingCanvas)
+        public void DisplayOn()
         {
             for (int i = 0; i < this.Count; i++)
             {
-                this[i].DisplayOn(drawingCanvas);
+                this[i].DisplayOn();
             }
 
         }

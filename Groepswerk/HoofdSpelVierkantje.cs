@@ -15,12 +15,11 @@ namespace Groepswerk
     {
        private Rectangle vierkant;
        private static Random randomPlaats = new Random(151);
-       private ObservableCollection<HoofdSpelEntiteit> lijst;
        private Rect doelVierkant;
 
-       public HoofdSpelVierkantje(ObservableCollection<HoofdSpelEntiteit> lijst, Canvas drawingCanvas)
+       public HoofdSpelVierkantje(List<HoofdSpelEntiteit> lijst, Canvas drawingCanvas)
        {
-           this.lijst = lijst;
+           Lijst = lijst;
            CheckKleur();
            vierkant = new Rectangle();
            vierkant.Fill = new SolidColorBrush(Kleur);
@@ -28,13 +27,13 @@ namespace Groepswerk
            Y = randomPlaats.Next(151);
            doelVierkant = new Rect();
            DrawingCanvas = drawingCanvas;
-           DisplayOn(this.DrawingCanvas);
+           DisplayOn();
            
        }
 
-       public override void DisplayOn(Canvas drawingCanvas)
+       public override void DisplayOn()
        {
-           drawingCanvas.Children.Add(vierkant);
+           DrawingCanvas.Children.Add(vierkant);
        }
        protected override void UpdateElement()
        {
@@ -47,40 +46,40 @@ namespace Groepswerk
            doelVierkant.Y = Y;
        }
 
-       public override void CheckHit(ObservableCollection<HoofdSpelEntiteit> lijstTegenstander)
+       public override void CheckHit(List<HoofdSpelEntiteit> lijstTegenstander)
        {
            for (int i = 0; i < lijstTegenstander.Count; i++)
            {
 
-               if (lijstTegenstander[i].DoelVierkant.IntersectsWith(this.DoelVierkant))
+               if (lijstTegenstander[i].DoelVierkant.IntersectsWith(DoelVierkant))
                {
-                   this.Dood();
-                   lijstTegenstander[i].CheckHit();
+                   Dood();
+                   lijstTegenstander[i].CheckHit(); //Tegenstander moet vierkantje worden of doodgaan
                }
 
            }
-           for (int i = 0; i < lijst.Count; i++)
+           for (int i = 0; i < Lijst.Count; i++) //Als je je eigen bolletje raakt
            {
-               if (lijst[i] is HoofdSpelBolletje && lijst[i].DoelVierkant.IntersectsWith(this.DoelVierkant))
+               if (Lijst[i] is HoofdSpelBolletje && Lijst[i].DoelVierkant.IntersectsWith(DoelVierkant))
                {
-                       HoofdSpelBolletje bolletje = new HoofdSpelBolletje(lijst, this.X, this.Y, this.DrawingCanvas);
+                       HoofdSpelBolletje bolletje = new HoofdSpelBolletje(Lijst, X, Y, DrawingCanvas);
                        Lijst.Add(bolletje);
-                       this.Dood();                  
+                       Dood();                  
                }
            }
 
        }
-       public override void CheckHit()
+       public override void CheckHit() //Als tegenstander vierkantje was is die nu dood
        {
-           this.Dood();
+           Dood();
        }
        private void CheckKleur()
        {
-           if (lijst is HoofdSpelLijstBlauw)
+           if (Lijst is HoofdSpelLijstBlauw)
            {
                Kleur = Colors.Blue;               
            }
-           if (lijst is HoofdSpelLijstRood)
+           if (Lijst is HoofdSpelLijstRood)
            {
               Kleur = Colors.Red;
            }
@@ -89,14 +88,10 @@ namespace Groepswerk
        {
            get { return doelVierkant; }
        }
-       public override ObservableCollection<HoofdSpelEntiteit> Lijst
-       {
-           get { return lijst; }
-       }
        public override void Dood()
        {
-           this.Lijst.Remove(this);
-           this.DrawingCanvas.Children.Remove(vierkant);
+           Lijst.Remove(this);
+           DrawingCanvas.Children.Remove(vierkant);
        }
     }
 }

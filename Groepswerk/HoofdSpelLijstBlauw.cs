@@ -9,7 +9,7 @@ using System.Windows.Controls;
 
 namespace Groepswerk
 {
-    public class HoofdSpelLijstBlauw : ObservableCollection<HoofdSpelEntiteit>, INotifyPropertyChanged
+    public class HoofdSpelLijstBlauw : List<HoofdSpelEntiteit>, INotifyPropertyChanged
     {
         private int bolletjes = 0;
         private int vierkantjes = 0;
@@ -32,11 +32,11 @@ namespace Groepswerk
             }
 
         }
-        public void DisplayOn(Canvas drawingCanvas)
+        public void DisplayOn()
         {
             for (int i = 0; i < this.Count; i++)
             {
-                this[i].DisplayOn(drawingCanvas);
+                this[i].DisplayOn();
             }
         }
         public int Bolletjes

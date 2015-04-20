@@ -16,94 +16,89 @@ namespace Groepswerk
     {
        private Ellipse ellipse;
        private static Random randomPlaats = new Random(151);
-       private ObservableCollection<HoofdSpelEntiteit> lijst;
-       private Rect doelvierkant;
+       private Rect doelVierkant;
        
-       public HoofdSpelBolletje(ObservableCollection<HoofdSpelEntiteit> lijst, Canvas drawingCanvas)
+       public HoofdSpelBolletje(List<HoofdSpelEntiteit> lijst, Canvas drawingCanvas)
        {
-           this.lijst = lijst;
-           CheckKleur();
            ellipse = new Ellipse();
-           doelvierkant = new Rect();
+           doelVierkant = new Rect();
+           DrawingCanvas = drawingCanvas;
+           Lijst = lijst;
+           CheckKleur();
            ellipse.Fill = new SolidColorBrush(Kleur);
            X = randomPlaats.Next(151);
            Y = randomPlaats.Next(151);
-           DrawingCanvas = drawingCanvas;
-           DisplayOn(this.DrawingCanvas);
+           DisplayOn();
        }
-       public HoofdSpelBolletje(ObservableCollection<HoofdSpelEntiteit> lijst, int x, int y, Canvas drawingCanvas)
+       public HoofdSpelBolletje(List<HoofdSpelEntiteit> lijst, int x, int y, Canvas drawingCanvas)
        {
-           this.lijst = lijst;
+           DrawingCanvas = drawingCanvas;
+           Lijst = lijst;
            CheckKleur();
            ellipse = new Ellipse();
-           doelvierkant = new Rect();
            ellipse.Fill = new SolidColorBrush(Kleur);
            X = x;
            Y = y;
-           DrawingCanvas = drawingCanvas;
+           DisplayOn();
        }
 
-       public override void DisplayOn(Canvas drawingCanvas)
+       public override void DisplayOn()
        {
-           drawingCanvas.Children.Add(ellipse);
+           DrawingCanvas.Children.Add(ellipse);
        }
        protected override void UpdateElement()
        {
            ellipse.Width = Width;
            ellipse.Height = Height;
            ellipse.Margin = new System.Windows.Thickness(X, Y, 0, 0);
-           doelvierkant.Width = Width;
-           doelvierkant.Height = Height;
-           doelvierkant.X = X;
-           doelvierkant.Y = Y;
+           doelVierkant.Width = Width;
+           doelVierkant.Height = Height;
+           doelVierkant.X = X;
+           doelVierkant.Y = Y;
        }
 
-       public override void CheckHit(ObservableCollection<HoofdSpelEntiteit> lijstTegenstander)
+       public override void CheckHit(List<HoofdSpelEntiteit> lijstTegenstander)
        {
            for (int i = 0; i < lijstTegenstander.Count; i++)
            {
                
-               if (lijstTegenstander[i].DoelVierkant.IntersectsWith(this.DoelVierkant))
+               if (lijstTegenstander[i].DoelVierkant.IntersectsWith(DoelVierkant))
                {
-                   HoofdSpelVierkantje vierkantje = new HoofdSpelVierkantje(Lijst,this.DrawingCanvas);
-                   this.Lijst.Add(vierkantje);
-                   this.Dood();
-                   lijstTegenstander[i].CheckHit();
+                   HoofdSpelVierkantje vierkantje = new HoofdSpelVierkantje(Lijst,DrawingCanvas);
+                   Lijst.Add(vierkantje);
+                   Dood();
+                   lijstTegenstander[i].CheckHit(); //Tegenstander moet ook vierkantje worden/dood gaan
                }
                
            }
            
        }
-       public override  void CheckHit()
+       public override  void CheckHit() //Als tegenstander bolletje is kom je hier terecht, zijn tegenstander is reeds gechecked
        {
-           HoofdSpelVierkantje vierkantje =  new HoofdSpelVierkantje(lijst,this.DrawingCanvas);
+           HoofdSpelVierkantje vierkantje =  new HoofdSpelVierkantje(Lijst,DrawingCanvas);
            Lijst.Add(vierkantje);
-           this.Dood();
+           Dood();
        }
        private void CheckKleur()
        {
-           if (lijst is HoofdSpelLijstBlauw)
+           if (Lijst is HoofdSpelLijstBlauw)
            {
                Kleur = Colors.Blue;
            }
-           if (lijst is HoofdSpelLijstRood)
+           if (Lijst is HoofdSpelLijstRood)
            {
                Kleur = Colors.Red;
            }
        }
-       public override Rect DoelVierkant
-       {
-           get { return doelvierkant; }
-       }
 
-       public override ObservableCollection<HoofdSpelEntiteit> Lijst
-       {
-           get { return lijst; }
-       }
        public override void Dood()
        {
-           this.Lijst.Remove(this);
-           this.DrawingCanvas.Children.Remove(ellipse);
+           Lijst.Remove(this);
+           DrawingCanvas.Children.Remove(ellipse);
+       }
+       public override Rect DoelVierkant
+       {
+           get { return doelVierkant; }
        }
 
 
