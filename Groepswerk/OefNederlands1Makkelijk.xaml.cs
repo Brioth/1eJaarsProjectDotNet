@@ -26,6 +26,7 @@ namespace Groepswerk
         private IList<string> oefLijst;
         private int oefCorrect = 0;
         private IList<int> oefeningNummerLijst;
+
         public OefNederlands1Makkelijk()
         {
             InitializeComponent();
@@ -45,7 +46,7 @@ namespace Groepswerk
                 }
             }
 
-            opgave1.Text = tempOpgave[1];
+            Opgave1.Text = tempOpgave[1];
             oefLijst.Add(tempOplossing1[1]);
             oefLijst.Add(tempOplossing2[1]);
             oefLijst.Add(tempOplossing3[1]);
@@ -55,7 +56,7 @@ namespace Groepswerk
                 oefLijst.RemoveAt(i);
             }
 
-            opgave2.Text = tempOpgave[2];
+            Opgave2.Text = tempOpgave[2];
             oefLijst.Add(tempOplossing1[2]);
             oefLijst.Add(tempOplossing2[2]);
             oefLijst.Add(tempOplossing3[2]);
@@ -65,21 +66,21 @@ namespace Groepswerk
                 oefLijst.RemoveAt(i);
             }
 
-            opgave3.Text = tempOpgave[3];
+            Opgave3.Text = tempOpgave[3];
             oefLijst.Add(tempOplossing1[3]);
             oefLijst.Add(tempOplossing2[3]);
             oefLijst.Add(tempOplossing3[3]);
-            Oplossing2.ItemsSource = oefLijst;
+            Oplossing3.ItemsSource = oefLijst;
             for (int i = 0; i > 3; i++)
             {
                 oefLijst.RemoveAt(i);
             }
 
-            opgave4.Text = tempOpgave[4];
+            Opgave4.Text = tempOpgave[4];
             oefLijst.Add(tempOplossing1[4]);
             oefLijst.Add(tempOplossing2[4]);
             oefLijst.Add(tempOplossing3[4]);
-            Oplossing2.ItemsSource = oefLijst;
+            Oplossing4.ItemsSource = oefLijst;
             for (int i = 0; i > 3; i++)
             {
                 oefLijst.RemoveAt(i);
@@ -88,7 +89,7 @@ namespace Groepswerk
             oefLijst.Add(tempOplossing1[5]);
             oefLijst.Add(tempOplossing2[5]);
             oefLijst.Add(tempOplossing3[5]);
-            Oplossing2.ItemsSource = oefLijst;
+            Oplossing5.ItemsSource = oefLijst;
             for (int i = 0; i > 3; i++)
             {
                 oefLijst.RemoveAt(i);
@@ -147,4 +148,4 @@ namespace Groepswerk
 
         }
     }
-}
+

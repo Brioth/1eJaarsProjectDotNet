@@ -29,6 +29,7 @@ namespace Groepswerk
         public OefNederlands1Moeilijk()
         {
             InitializeComponent();
+            
             lijstOefeningen = new OefeningLijst("moeilijk");
             for (int i = 0; i > lijstOefeningen.Count; i++)
             {
