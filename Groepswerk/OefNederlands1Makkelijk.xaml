@@ -1,0 +1,26 @@
+﻿<Page x:Class="Groepswerk.OefNederlands1Makkelijk"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d"
+	Title="OefNederlands1Makkelijk" Height="407" Width="721">
+
+    <Grid>
+        <Label Name="titel" Content="Oefeningen Nederlands: Gemakkelijk" HorizontalAlignment="Left" Margin="60,10,0,0" VerticalAlignment="Top" Height="54" Width="601" FontSize="36"/>
+        <Label Content="Vul de volgende werkwoorden aan." HorizontalAlignment="Left" Margin="60,69,0,0" VerticalAlignment="Top" Height="32" Width="356"/>
+        <TextBlock Name="opgave1"  HorizontalAlignment="Left" Margin="74,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="446"/>
+        <ComboBox Name="Oplossing1" HorizontalAlignment="Left" Margin="541,106,-13,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock Name="opgave2"  HorizontalAlignment="Left" Margin="74,156,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="446"/>
+        <ComboBox Name="Oplossing2" HorizontalAlignment="Left" Margin="541,156,-13,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock Name="opgave3"  HorizontalAlignment="Left" Margin="74,206,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="446"/>
+        <ComboBox Name="Oplossing3" HorizontalAlignment="Left" Margin="541,206,-13,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock Name="opgave4"  HorizontalAlignment="Left" Margin="74,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="446"/>
+        <ComboBox Name="Oplossing4" HorizontalAlignment="Left" Margin="541,256,-13,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock Name="opgave5"  HorizontalAlignment="Left" Margin="74,306,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="446"/>
+        <ComboBox Name="Oplossing5" HorizontalAlignment="Left" Margin="541,306,-13,0" VerticalAlignment="Top" Width="120"/>
+        <Button Name="verbeterButton" Content="Verbeter" HorizontalAlignment="Left" Margin="541,353,0,0" VerticalAlignment="Top" Width="99" Height="44" Click="verbeterButton_Click"/>
+        <TextBlock Name="Punten" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="74,367,0,0" Height="19" Width="94"/>
+        
+    </Grid>
+</Page>
