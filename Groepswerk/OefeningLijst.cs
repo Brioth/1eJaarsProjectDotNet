@@ -65,5 +65,23 @@ namespace Groepswerk
 
 
         }
+        public OefeningLijst()
+        {
+
+            StreamReader bestandOefening = File.OpenText(@"oefnWiskunde1");
+            string regel = bestandOefening.ReadLine();
+            char[] scheiding = { ';' };
+
+            while (regel != null)
+            {
+                string[] deel = regel.Split(scheiding);
+
+                Oefening oefeningWiskunde = new Oefening(deel[0], deel[1]);
+                this.Add(oefeningWiskunde);
+                regel = bestandOefening.ReadLine();
+            }
+            bestandOefening.Close();
+        }
     }
+     
 }

@@ -26,7 +26,6 @@ namespace Groepswerk
         private IList<string> oefLijst;
         private int oefCorrect = 0;
         private IList<int> oefeningNummerLijst;
-
         public OefNederlands1Makkelijk()
         {
             InitializeComponent();
@@ -36,17 +35,17 @@ namespace Groepswerk
 
             for (int i = 0; i > lijstOefeningen.Count; i++)
             {
-                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
+                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, lijstOefeningen.Count));
                 if (!(oefeningNummerLijst.Contains(oefeningenNummerOpslag)))
                 {
-                    tempOpgave[oefeningenNummerOpslag] = lijstOefeningen[oefeningenNummerOpslag].opgave;
-                    tempOplossing1[oefeningenNummerOpslag] = lijstOefeningen[oefeningenNummerOpslag].oplossing1;
-                    tempOplossing2[oefeningenNummerOpslag] = lijstOefeningen[oefeningenNummerOpslag].oplossing2;
-                    tempOplossing3[oefeningenNummerOpslag] = lijstOefeningen[oefeningenNummerOpslag].oplossing3;
+                    tempOpgave[i] = lijstOefeningen[oefeningenNummerOpslag].opgave;
+                    tempOplossing1[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing1;
+                    tempOplossing2[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing2;
+                    tempOplossing3[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing3;
                 }
             }
 
-            Opgave1.Text = tempOpgave[1];
+            opgave1.Text = tempOpgave[1];
             oefLijst.Add(tempOplossing1[1]);
             oefLijst.Add(tempOplossing2[1]);
             oefLijst.Add(tempOplossing3[1]);
@@ -56,7 +55,7 @@ namespace Groepswerk
                 oefLijst.RemoveAt(i);
             }
 
-            Opgave2.Text = tempOpgave[2];
+            opgave2.Text = tempOpgave[2];
             oefLijst.Add(tempOplossing1[2]);
             oefLijst.Add(tempOplossing2[2]);
             oefLijst.Add(tempOplossing3[2]);
@@ -66,21 +65,21 @@ namespace Groepswerk
                 oefLijst.RemoveAt(i);
             }
 
-            Opgave3.Text = tempOpgave[3];
+            opgave3.Text = tempOpgave[3];
             oefLijst.Add(tempOplossing1[3]);
             oefLijst.Add(tempOplossing2[3]);
             oefLijst.Add(tempOplossing3[3]);
-            Oplossing3.ItemsSource = oefLijst;
+            Oplossing2.ItemsSource = oefLijst;
             for (int i = 0; i > 3; i++)
             {
                 oefLijst.RemoveAt(i);
             }
 
-            Opgave4.Text = tempOpgave[4];
+            opgave4.Text = tempOpgave[4];
             oefLijst.Add(tempOplossing1[4]);
             oefLijst.Add(tempOplossing2[4]);
             oefLijst.Add(tempOplossing3[4]);
-            Oplossing4.ItemsSource = oefLijst;
+            Oplossing2.ItemsSource = oefLijst;
             for (int i = 0; i > 3; i++)
             {
                 oefLijst.RemoveAt(i);
@@ -89,7 +88,7 @@ namespace Groepswerk
             oefLijst.Add(tempOplossing1[5]);
             oefLijst.Add(tempOplossing2[5]);
             oefLijst.Add(tempOplossing3[5]);
-            Oplossing5.ItemsSource = oefLijst;
+            Oplossing2.ItemsSource = oefLijst;
             for (int i = 0; i > 3; i++)
             {
                 oefLijst.RemoveAt(i);
@@ -147,5 +146,5 @@ namespace Groepswerk
 
 
         }
-    
-}
+    }
+

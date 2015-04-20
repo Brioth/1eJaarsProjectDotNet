@@ -128,6 +128,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="oefeningWiskundeMakkelijk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="OefNederlands1AanpassenGemiddeld.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -167,6 +171,9 @@
       <DependentUpon>NieuweGebruiker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Oefening.cs" />
+    <Compile Include="oefeningWiskundeMakkelijk.xaml.cs">
+      <DependentUpon>oefeningWiskundeMakkelijk.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OefNederlands1AanpassenGemiddeld.xaml.cs">
       <DependentUpon>OefNederlands1AanpassenGemiddeld.xaml</DependentUpon>
     </Compile>
