@@ -32,24 +32,26 @@ namespace Groepswerk
             lijstOefeningen = new OefeningLijst("makkelijk");
 
 
-
-            for (int i = 0; i > lijstOefeningen.Count; i++)
+            for (int i = 0; i > 5; i++)
             {
-                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, lijstOefeningen.Count));
-                if (!(oefeningNummerLijst.Contains(oefeningenNummerOpslag)))
-                {
+                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count-1)));
+             
+                    while (oefeningNummerLijst.Contains(oefeningenNummerOpslag))
+                    {
+                        oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
+                    }
                     tempOpgave[i] = lijstOefeningen[oefeningenNummerOpslag].opgave;
                     tempOplossing1[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing1;
                     tempOplossing2[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing2;
-                    tempOplossing3[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing3;
-                }
+                    tempOplossing3[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing3;  
+                oefeningNummerLijst.Add(oefeningenNummerOpslag);
             }
-
-           Opgave1.Text = tempOpgave[1];
+            Opgave1.Text = tempOpgave[1];
             oefLijst.Add(tempOplossing1[1]);
             oefLijst.Add(tempOplossing2[1]);
             oefLijst.Add(tempOplossing3[1]);
             Oplossing1.ItemsSource = oefLijst;
+            
             for (int i = 0; i > 3; i++)
             {
                 oefLijst.RemoveAt(i);

@@ -24,7 +24,7 @@ namespace Groepswerk
         private Random oefeningenNummer = new Random();
         private int oefeningenNummerOpslag;
         private IList<string> oefLijst;
-        private int oefCorrect = 0;
+        private int oefCorrect;
         private IList<int> oefeningNummerLijst;
         public OefNederlands1Gemiddeld()
         {
@@ -33,22 +33,22 @@ namespace Groepswerk
 
 
 
-            for (int i = 0; i > lijstOefeningen.Count; i++)
+            for (int i = 0; i > 5; i++)
             {
-                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
-                if (!(oefeningNummerLijst.Contains(oefeningenNummerOpslag)))
-                {
+                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count-1)));
+             
+                    while (oefeningNummerLijst.Contains(oefeningenNummerOpslag))
+                    {
+                        oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
+                    }
                     tempOpgave[i] = lijstOefeningen[oefeningenNummerOpslag].opgave;
                     tempOplossing1[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing1;
                     tempOplossing2[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing2;
-                    tempOplossing3[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing3;
-                }
+                    tempOplossing3[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing3;  
                 oefeningNummerLijst.Add(oefeningenNummerOpslag);
             }
 
 
-
-            //oefeningenNummerOpslag in list zetten zodat je kan checken of dit nummer al genomen is?
             opgave1.Text = tempOpgave[1];
             oefLijst.Add(tempOplossing1[1]);
             oefLijst.Add(tempOplossing2[1]);
@@ -101,6 +101,7 @@ namespace Groepswerk
 
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
+            oefCorrect = 0;
             if (!(Convert.ToString(Oplossing1.SelectionBoxItem).Equals(lijstOefeningen[1].correcteOplossing)))
             {
                 opgave1.Text = lijstOefeningen[1].juisteAntwoordCompleet;

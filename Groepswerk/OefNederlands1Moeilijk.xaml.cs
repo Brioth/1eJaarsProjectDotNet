@@ -21,7 +21,7 @@ namespace Groepswerk
     public partial class OefNederlands1Moeilijk : Page
     {
         private OefeningLijst lijstOefeningen;
-        private string[] tempOpgave, tempOplossing1, tempOplossing2, tempOplossing3;
+        private string[] tempOpgave;
         private Random oefeningenNummer = new Random();
         private int oefeningenNummerOpslag, oefCorrect;
         private IList<string> oefLijst;
@@ -31,16 +31,16 @@ namespace Groepswerk
             InitializeComponent();
             
             lijstOefeningen = new OefeningLijst("moeilijk");
-            for (int i = 0; i > lijstOefeningen.Count; i++)
+            for (int i = 0; i > 5; i++)
             {
-                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
-                if (!(oefeningNummerLijst.Contains(oefeningenNummerOpslag)))
+                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count - 1)));
+
+                while (oefeningNummerLijst.Contains(oefeningenNummerOpslag))
                 {
-                    tempOpgave[oefeningenNummerOpslag] = lijstOefeningen[oefeningenNummerOpslag].opgave;
-                    tempOplossing1[oefeningenNummerOpslag] = lijstOefeningen[oefeningenNummerOpslag].oplossing1;
-                    tempOplossing2[oefeningenNummerOpslag] = lijstOefeningen[oefeningenNummerOpslag].oplossing2;
-                    tempOplossing3[oefeningenNummerOpslag] = lijstOefeningen[oefeningenNummerOpslag].oplossing3;
+                    oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
                 }
+                tempOpgave[i] = lijstOefeningen[oefeningenNummerOpslag].opgave;
+                oefeningNummerLijst.Add(oefeningenNummerOpslag);
             }
 
             oefeningenNummerOpslag = oefeningenNummer.Next(1, lijstOefeningen.Count);
