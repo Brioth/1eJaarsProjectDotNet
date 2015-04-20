@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,6 +8,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
 
 namespace Groepswerk
 {
@@ -16,6 +19,7 @@ namespace Groepswerk
     {
         int x, y, width=5, height=5, stepSize=5;
         Color kleur;
+        Canvas drawingCanvas;
         static Random randomBeweging = new Random(3);
         public int X
         {
@@ -40,15 +44,28 @@ namespace Groepswerk
         public Color Kleur
         {
             get { return kleur; }
-            set { kleur = value; UpdateElement(); }
+            set { kleur = value;}
+        }
+        public abstract Rect DoelVierkant
+        {
+            get;
+        }
+        public abstract ObservableCollection<HoofdSpelEntiteit> Lijst
+        {
+            get;
+        }
+        public Canvas DrawingCanvas
+        {
+            get { return drawingCanvas; }
+            set { drawingCanvas = value; }
         }
         public abstract void DisplayOn(Canvas drawingCanvas);
         protected abstract void UpdateElement();
-        public void Move(List<HoofdSpelEntiteit> lijst)
+        public void Move()
         {
             if (X < 0 || X > 150 || Y < 0 || Y > 150)
             {
-                lijst.Remove(this);                
+                this.Dood();               
             }
             else
             {
@@ -82,7 +99,9 @@ namespace Groepswerk
                 }
             }
         }
-        public abstract void CheckHit(List<HoofdSpelEntiteit> lijstTegenstander);
+        public abstract void CheckHit(ObservableCollection<HoofdSpelEntiteit> lijstTegenstander);
+        public abstract void CheckHit();
+        public abstract void Dood();
 
     }
 }

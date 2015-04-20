@@ -8,13 +8,13 @@
 	Title="HoofdSpel">
 
     <Grid>
-        <Canvas Name="drawingCanvas" Background="LightYellow" HorizontalAlignment="Left" Height="150" Margin="73,127,0,0" VerticalAlignment="Top" Width="150"/>
+        <Canvas Name="drawingCanvas" Background="LightYellow" HorizontalAlignment="Left" Height="150" Margin="73,127,0,0" VerticalAlignment="Top" Width="150" ClipToBounds="True"/>
         <Label Content="Rood" HorizontalAlignment="Left" Height="25" Margin="95,25,0,0" VerticalAlignment="Top" Width="59"/>
         <Label Content="Blauw" HorizontalAlignment="Left" Height="25" Margin="194,25,0,0" VerticalAlignment="Top" Width="69"/>
-        <TextBlock Name="txtbRoodB" Text="{Binding BolletjesRood}" HorizontalAlignment="Left" Height="19" Margin="95,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="42"/>
-        <TextBlock x:Name="txtbBlauwB" Text="{Binding Path=BolletjesBlauw, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="19" Margin="194,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="42"/>
-        <TextBlock x:Name="txtbRoodV" HorizontalAlignment="Left" Height="19" Margin="95,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="42"/>
-        <TextBlock x:Name="txtbBlauwV" HorizontalAlignment="Left" Height="19" Margin="194,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="42"/>
+        <TextBlock Name="txtbRoodB" Text="{Binding Path=HoofdSpelLijstRood.BolletjesRood }" HorizontalAlignment="Left" Height="19" Margin="95,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="42"/>
+        <TextBlock x:Name="txtbBlauwB" Text="{Binding Path=HoofdSpelLijstBlauw.BolletjesBlauw}" HorizontalAlignment="Left" Height="19" Margin="194,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="42"/>
+        <TextBlock x:Name="txtbRoodV" HorizontalAlignment="Left" Height="19" Margin="95,89,0,0" TextWrapping="Wrap" Text="{Binding Path=HoofdSpelLijstRood.VierkantjesRood}" VerticalAlignment="Top" Width="42"/>
+        <TextBlock x:Name="txtbBlauwV" HorizontalAlignment="Left" Height="19" Margin="194,89,0,0" TextWrapping="Wrap" Text="{Binding Path=HoofdSpelLijstBlauw.VierkantjesBlauw}" VerticalAlignment="Top" Width="42"/>
         <Ellipse Fill="Black" HorizontalAlignment="Left" Height="11" Margin="38,55,0,0" Stroke="Black" VerticalAlignment="Top" Width="11"/>
         <Rectangle Fill="Black" HorizontalAlignment="Left" Height="11" Margin="38,89,0,0" Stroke="Black" VerticalAlignment="Top" Width="11"/>
 
