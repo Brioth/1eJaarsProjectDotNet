@@ -56,14 +56,12 @@ namespace Groepswerk
                     string[] deel = regel.Split(scheiding);
 
                     Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2]);
-                    this.Add(oefeningNederlands);
-                    regel = bestandOefening.ReadLine();
+                this.Add(oefeningNederlands);
+                regel = bestandOefening.ReadLine();
             }
-                bestandOefening.Close();
+            bestandOefening.Close();
         }
-        
 
-    }
         
     }
 }
