@@ -8,9 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Groepswerk
-{
+{    /* --AccountLijst--
+      * Klasse die lijst van alle klassen
+      * Methode SchrijfLijst() om (aangepaste) lijst naar txtbestand te schrijven
+      * Author: Carmen Celen
+      * Date: 03/04/2015
+      */
     public class Klaslijst : List<string>
     {
+        //Lokale variabelen
+
+        //Constructors
         public Klaslijst()
         {
             {
@@ -25,6 +33,9 @@ namespace Groepswerk
                 bestandKlas.Close();
             }
         }
+        //Events
+
+        //Methods
         public void SchrijfLijst()
         {
             File.WriteAllText(@"Klassen.txt", String.Empty);
@@ -35,6 +46,7 @@ namespace Groepswerk
             }
             schrijver.Close();
         }
+        //Properties
 
     }
 }

@@ -7,8 +7,17 @@ using System.Threading.Tasks;
 
 namespace Groepswerk
 {
+    /* --AlleGebruikersLijst--
+     * Klasse die lijst van alle gebruikers maakt
+     * Methode SchrijfLijst() om (aangepaste) lijst naar txtbestand te schrijven
+     * Author: Carmen Celen
+     * Date: 03/04/2015
+     */
     public class AlleGebruikersLijst : List<Gebruiker> //Alle gebruikers in 1 lijst (om gegevens aan te passen)
     {
+        //Lokale variabelen
+
+        //Constructors
         public AlleGebruikersLijst()
         {
             StreamReader bestandAcc = File.OpenText(@"Accounts.txt");
@@ -29,6 +38,10 @@ namespace Groepswerk
             }
             bestandAcc.Close();
         }
+
+        //Events
+
+        //Methods
         public void SchrijfLijst()
         {
             File.WriteAllText(@"Accounts.txt", String.Empty);
@@ -39,5 +52,6 @@ namespace Groepswerk
             }
             schrijver.Close();
         }
+        //Properties
     }
 }

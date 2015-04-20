@@ -8,16 +8,20 @@ using System.Threading.Tasks;
 
 namespace Groepswerk
 {
-    public class Gebruiker //Gebruikers staan in formaat: type(lln of lk);klas;ID;voornaam;achternaam;psw;gemWisk;gemNed;gemWO;tijdVoorSpelInSec
+    /* --Gebruiker--
+     * Klasse Gebruiker om makkelijk om te gaan met de gegevens van diverse lln en lk
+     * Formaat Accounts: type(lln of lk);klas;ID;voornaam;achternaam;psw;gemWisk;gemNed;gemWO;tijdVoorSpelInSec
+     * Author: Carmen Celen
+     * Date: 30/03/2015
+     */
+    public class Gebruiker
     {
         //Constructors
-
-        //Constructor om nieuwe gebruiker met nieuw id te maken
         public Gebruiker(string type, string klas, string voornaam, string achternaam, string psw, int gemWisk = 0, int gemNed = 0, int gemWO = 0, int gameTijdSec = 0)
         {
+            //Constructor om nieuwe gebruiker met nieuw id te maken
             Voornaam = voornaam;
             Id = KenIDToe() + 1;
-            //???
             Achternaam = achternaam;
             Klas = klas;
             Type = type;
@@ -27,10 +31,9 @@ namespace Groepswerk
             GemWO = gemWO;
             GameTijdSec = gameTijdSec;
         }
-
-        //Constructor om te lezen met id
         public Gebruiker(string type, string klas, int id, string voornaam, string achternaam, string psw, int gemWisk = 0, int gemNed = 0, int gemWO = 0, int gameTijdSec = 0)
         {
+            //Constructor om bestaande gebruiker te lezen (met id)
             Voornaam = voornaam;
             Id = id;
             Achternaam = achternaam;
@@ -43,23 +46,13 @@ namespace Groepswerk
             GameTijdSec = gameTijdSec;
         }
 
-        /*   public Gebruiker(Gebruiker oudeGebruiker)             --> copy constructor nodig?
-           {
-               Naam = oudeGebruiker.Naam;
-               Klas = oudeGebruiker.Klas;
-               Type = oudeGebruiker.Type;
-               Psw = oudeGebruiker.Psw;
-           }*/
-
         //Events
 
         //Methods
-
         public override string ToString()
         {
             return Voornaam + " " + Achternaam;
         }
-
         private int KenIDToe()
         {
             int laatsteID;
@@ -68,7 +61,6 @@ namespace Groepswerk
             laatsteID = laatsteGebruiker.Id;
             return laatsteID;
         }
-
         public string SchrijfString()
         {
             return (Type + ";" + Klas + ";" + Id + ";" + Voornaam + ";" + Achternaam + ";" + Psw + ";" + GemWisk + ";" + GemNed + ";" + GemWO + ";" + GameTijdSec);

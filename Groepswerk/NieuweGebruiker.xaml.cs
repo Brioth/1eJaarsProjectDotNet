@@ -15,14 +15,19 @@ using System.Windows.Shapes;
 
 namespace Groepswerk
 {
-    /// <summary>
-    /// Interaction logic for NieuweGebruiker.xaml
-    /// </summary>
+    /* --NieuweGebruiker--
+     * Nieuwe gebruiker aanmaken
+     * Author: Carmen Celen
+     * Date: 01/04/2015
+     */
     public partial class NieuweGebruiker : Page
     {
+
+        //Lokale variabelen
         private List<string> klaslijst;
         private Gebruiker nieuweGebruiker;
         private AlleGebruikersLijst accountlijst;
+
         //Constructors
         public NieuweGebruiker()
         {
@@ -39,6 +44,7 @@ namespace Groepswerk
             accountlijst.SchrijfLijst();
             MessageBox.Show(String.Format("{0} {1} is toegevoegd aan {2}", nieuweGebruiker.Type, nieuweGebruiker, nieuweGebruiker.Klas));
         }
+
         //Methods
         private void maakGebruiker()
         {
@@ -63,6 +69,7 @@ namespace Groepswerk
             accountlijst = new AlleGebruikersLijst();
             accountlijst.Add(nieuweGebruiker);
         }
+
         //Properties
     }
 }

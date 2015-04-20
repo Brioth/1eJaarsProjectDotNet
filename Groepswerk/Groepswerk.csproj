@@ -71,6 +71,9 @@
     </ApplicationDefinition>
     <Compile Include="Accountlijst.cs" />
     <Compile Include="AlleGebruikersLijst.cs" />
+    <Compile Include="BewerkKlasLijst.xaml.cs">
+      <DependentUpon>BewerkKlasLijst.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gebruiker.cs" />
     <Compile Include="Gebruikerdetails.xaml.cs">
       <DependentUpon>Gebruikerdetails.xaml</DependentUpon>
@@ -87,6 +90,10 @@
     <Compile Include="HoofdSpelLijstRood.cs" />
     <Compile Include="HoofdSpelEntiteit.cs" />
     <Compile Include="Klaslijst.cs" />
+    <Page Include="BewerkKlasLijst.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Gebruikerdetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

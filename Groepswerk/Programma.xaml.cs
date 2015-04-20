@@ -14,14 +14,21 @@ using System.Windows.Shapes;
 
 namespace Groepswerk
 {
-    /// <summary>
-    /// Interaction logic for Programma.xaml
-    /// </summary>
+    /* --Programma--
+     * MainWindow voor de hele toepassing
+     * In het frame wordt de gekozen page weergegeven
+     * In XAML de menuItems toevoegen en in code deze al dan niet zichtbaar maken afhankelijk of de gebruiker lln of lk is
+     * In Code ook de click_events voor de menuItems
+     * Programma heeft ook een actieve gebruiker propertie, deze wordt weergegeven in de titelbalk
+     * Author: Carmen Celen
+     * Date: 27/03/2015
+     */
     public partial class Programma : Window
     {
+        //Lokale variabelen
         private Gebruiker actieveGebruiker;
-        //Constructors
 
+        //Constructors
         public Programma()
         {
             InitializeComponent();
@@ -32,7 +39,6 @@ namespace Groepswerk
         }
 
         //Events
-
         private void MnuStop_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult stoppen = MessageBox.Show("Ben je zeker dat je wilt stoppen?", "Stop", MessageBoxButton.YesNo);
@@ -47,7 +53,6 @@ namespace Groepswerk
                     break;
             }
         }
-
         private void MnuHome_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult home = MessageBox.Show("Wil je terug naar het login scherm gaan?", "Home", MessageBoxButton.YesNo);
@@ -58,13 +63,12 @@ namespace Groepswerk
                 case MessageBoxResult.Yes:
                     Login login = new Login();
                     framePages.Navigate(login);
-                    this.ActieveGebruiker = null;
+                    this.ActieveGebruiker = null; //uitloggen
                     break;
                 default:
                     break;
             }
         }
-
         private void MnuRekenen_Click(object sender, RoutedEventArgs e)
         {
             //Vincent
@@ -99,28 +103,30 @@ namespace Groepswerk
         }
         private void MnuKlaslijstBewerk_Click(object sender, RoutedEventArgs e)
         {
-
+            BewerkKlasLijst bewerkKlasMenu = new BewerkKlasLijst();
+            framePages.Navigate(bewerkKlasMenu);
         }
+
         //Methods
-        private void pasBalkAan()
+        private void pasBalkAan() //hier beschikbaarheid menu's aanpassen
         {
-            if (ActieveGebruiker!=null)
+            if (ActieveGebruiker != null)
             {
                 switch (ActieveGebruiker.Type)
                 {
                     case "lln":
                         maakMenuLeeg();
-                        mnuAcc.IsEnabled = false;
-                        mnuOefBew.IsEnabled = false;
-                        mnuOefeningen.IsEnabled = true;
-                        mnuStat.IsEnabled = false;
+                        mnuAcc.Visibility = Visibility.Collapsed;
+                        mnuOefBew.Visibility = Visibility.Collapsed;
+                        mnuOefeningen.Visibility = Visibility.Visible;
+                        mnuStat.Visibility = Visibility.Collapsed;
                         break;
                     case "lk":
                         maakMenuLeeg();
-                        mnuAcc.IsEnabled = true;
-                        mnuOefBew.IsEnabled = true;
-                        mnuOefeningen.IsEnabled = false;
-                        mnuStat.IsEnabled = true;
+                        mnuAcc.Visibility = Visibility.Visible;
+                        mnuOefBew.Visibility = Visibility.Visible;
+                        mnuOefeningen.Visibility = Visibility.Collapsed;
+                        mnuStat.Visibility = Visibility.Visible;
                         break;
                     default:
                         maakMenuLeeg();
@@ -131,22 +137,20 @@ namespace Groepswerk
             {
                 maakMenuLeeg();
             }
-
         }
-
-        private void maakMenuLeeg()
+        private void maakMenuLeeg() //Standaard menu zonder gebruiker
         {
-            mnuBasis.IsEnabled = true;
-            mnuAcc.IsEnabled = false;
-            mnuOefBew.IsEnabled = false;
-            mnuOefeningen.IsEnabled = false;
-            mnuStat.IsEnabled = false;
+            mnuBasis.Visibility = Visibility.Visible;
+            mnuAcc.Visibility = Visibility.Collapsed;
+            mnuOefBew.Visibility = Visibility.Collapsed;
+            mnuOefeningen.Visibility = Visibility.Collapsed;
+            mnuStat.Visibility = Visibility.Collapsed;
         }
 
         //Properties
         public Gebruiker ActieveGebruiker
         {
-            get 
+            get
             {
                 return actieveGebruiker;
             }
@@ -157,8 +161,5 @@ namespace Groepswerk
                 pasBalkAan();
             }
         }
-
-
-
     }
 }

@@ -19,18 +19,21 @@ using System.Windows.Shapes;
 
 namespace Groepswerk
 {
-    /// <summary>
-    /// Interaction logic for LeerlingenBeheer.xaml
-    /// </summary>
+    /* --AccountBeheer--
+     * Gebruiker aanpassen of verwijderen
+     * Author: Carmen Celen
+     * Date: 01/04/2015
+     */
     public partial class AccountBeheer : Page
     {
+        //Lokale variablen
         private Klaslijst klasLijst;
         private Accountlijst accountlijst;
         private string selectedKlas;
         private Gebruiker selectedGebruiker;
         private AlleGebruikersLijst alleGebruikersLijst;
-        //Constructors
 
+        //Constructors
         public AccountBeheer(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
@@ -53,7 +56,6 @@ namespace Groepswerk
             boxAccounts.ItemsSource = accountlijst;
             boxAccounts.SelectedIndex = 0;
         }
-
         private void boxAccounts_SelectionChanged(object sender, SelectionChangedEventArgs e)//Vincent
         {
             if (boxAccounts.SelectedIndex!=-1)
@@ -64,8 +66,7 @@ namespace Groepswerk
                 pswBox.Password = selectedGebruiker.Psw;
                 boxNieuweKlas.SelectedItem = selectedGebruiker.Klas;
             }
-        }
-        
+        }       
         private void btnVerwijder_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult verwijderen = MessageBox.Show(String.Format("Ben je zeker dat je {0} wilt verwijderen?",selectedGebruiker), "Delete", MessageBoxButton.YesNo);
@@ -82,7 +83,6 @@ namespace Groepswerk
                     break;
             }
         }
-
         private void btnPasAan_Click(object sender, RoutedEventArgs e)
         {
             selectedGebruiker.Voornaam = txtbVoornaam.Text;
@@ -93,6 +93,7 @@ namespace Groepswerk
             MessageBox.Show(String.Format("U hebt gebruiker {0} aangepast", selectedGebruiker));
             updateListbox();
         }
+
         //Methods
         private void VerwijderGebruiker()
         {
@@ -125,10 +126,7 @@ namespace Groepswerk
             boxAccounts.ItemsSource = accountlijst;
         }
 
-
         //Properties
-
         public Gebruiker ActieveGebruiker { get; set; }
-
     }
 }

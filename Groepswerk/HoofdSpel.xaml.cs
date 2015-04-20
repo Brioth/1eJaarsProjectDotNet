@@ -17,17 +17,24 @@ using System.Windows.Threading;
 
 namespace Groepswerk
 {
-    /// <summary>
-    /// Interaction logic for HoofdSpel.xaml
-    /// </summary>
+    /* --BolletjesSpel--
+     * 2 tegenstanders met lijst pionnen worden aangemaakt, elk met eigen timer om pionnen te spawnen
+     * Timer om bewegingen te controleren
+     * Basisverloop spel wordt hier gecontroleerd
+     * Author: Carmen Celen
+     * 10/04/2015
+     */
     public partial class HoofdSpel : Page
     {
+        //Lokale variabelen
         private HoofdSpelLijstRood entiteitenRood;
         private HoofdSpelLijstBlauw entiteitenBlauw;
 
         private DispatcherTimer animationTimer;//Wnr alles beweegt
         private DispatcherTimer roodTimer;//Wnr nieuw bolletje user spawnt
         private DispatcherTimer blauwTimer;//Wnr nieuw bolletje tegenstander spawnt
+
+        //Constructors
         public HoofdSpel()
         {
             InitializeComponent();
@@ -59,6 +66,7 @@ namespace Groepswerk
 
             this.DataContext = this;           
         }
+        //Events
         private void animationTimer_Tick(object sender, EventArgs e)
         {
             entiteitenRood.Move();
@@ -74,7 +82,6 @@ namespace Groepswerk
                 entiteitenRood.Add(bolletje);
 
             }
-
         }
         private void blauwTimer_Tick(object sender, EventArgs e)
         {
@@ -86,6 +93,8 @@ namespace Groepswerk
             }
 
         }
+        //Methods
+        //Properties
                
     }
 }

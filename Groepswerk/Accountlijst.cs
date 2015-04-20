@@ -9,8 +9,17 @@ using System.Threading.Tasks;
 
 namespace Groepswerk
 {
-    public class Accountlijst : List<Gebruiker> //Lijst met Gebruikers per klas
+    /* --AccountLijst--
+     * Klasse die lijst van gebruikers van meegegeven klas maakt
+     * Methode SchrijfLijst() om (aangepaste) lijst naar txtbestand te schrijven
+     * Author: Carmen Celen
+     * Date: 03/04/2015
+     */
+    public class Accountlijst : List<Gebruiker>
     {
+        //Lokale variablen
+
+        //Constructors
         public Accountlijst(string klas)
         {
             StreamReader bestandAcc = File.OpenText(@"Accounts.txt");
@@ -27,8 +36,7 @@ namespace Groepswerk
 
                 Gebruiker gebruiker = new Gebruiker(woorden[0], woorden[1], Convert.ToInt32(woorden[2]), woorden[3], woorden[4], woorden[5], Convert.ToInt32(woorden[6]), Convert.ToInt32(woorden[7]), Convert.ToInt32(woorden[8]), Convert.ToInt32(woorden[9]));
 
-                if ((gebruiker.Klas).Equals(klas))
-                //???
+                if ((gebruiker.Klas).Equals(klas)) //filter op gebruikers in meegegeven klas
                 {
                     this.Add(gebruiker);
                 }
@@ -38,6 +46,9 @@ namespace Groepswerk
             bestandAcc.Close();
         }
 
+        //Events
+
+        //Methods
         public void SchrijfLijst()
         {
             File.WriteAllText(@"Accounts.txt", String.Empty);
@@ -48,6 +59,6 @@ namespace Groepswerk
             }
             schrijver.Close();
         }
-
+        //Properties
     }
 }

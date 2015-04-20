@@ -1,0 +1,21 @@
+﻿<Page x:Class="Groepswerk.BewerkKlasLijst"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="435" d:DesignWidth="551.2"
+	Title="BewerkKlasLijst">
+
+    <Grid>
+        <ListBox Name="lboxKlasLijst" HorizontalAlignment="Left" Height="227" Margin="26,43,0,0" VerticalAlignment="Top" Width="141" SelectionChanged="KlasLijst_Changed"/>
+        <TextBox Name="txtbOmschr" HorizontalAlignment="Left" Height="34" Margin="290,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Name="btnNieuw" Content="Voeg als nieuwe klas toe" HorizontalAlignment="Left" Height="24" Margin="321,231,0,0" VerticalAlignment="Top" Width="141" Click="btnNieuw_Click"/>
+        <Button Name ="btnPasAan" Content="Pas Aan" HorizontalAlignment="Left" Height="26" Margin="186,229,0,0" VerticalAlignment="Top" Width="78" Click="btnPasAan_Click"/>
+        <TextBox Name="txtbIndex" HorizontalAlignment="Left" Height="29" Margin="290,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="36"/>
+        <Label Content="Omschrijving" HorizontalAlignment="Left" Height="34" Margin="186,97,0,0" VerticalAlignment="Top" Width="93"/>
+        <Label Content="Index" HorizontalAlignment="Left" Height="29" Margin="186,165,0,0" VerticalAlignment="Top" Width="77"/>
+        <Button Name="btnVerwijder" Content="Button" HorizontalAlignment="Left" Height="26" Margin="186,284,0,0" VerticalAlignment="Top" Width="78" Click="btnVerwijder_Click"/>
+
+    </Grid>
+</Page>
