@@ -35,13 +35,13 @@ namespace Groepswerk
 
             for (int i = 0; i > lijstOefeningen.Count; i++)
             {
-                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
+                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, lijstOefeningen.Count));
                 if (!(oefeningNummerLijst.Contains(oefeningenNummerOpslag)))
                 {
-                    tempOpgave[oefeningenNummerOpslag] = lijstOefeningen[oefeningenNummerOpslag].opgave;
-                    tempOplossing1[oefeningenNummerOpslag] = lijstOefeningen[oefeningenNummerOpslag].oplossing1;
-                    tempOplossing2[oefeningenNummerOpslag] = lijstOefeningen[oefeningenNummerOpslag].oplossing2;
-                    tempOplossing3[oefeningenNummerOpslag] = lijstOefeningen[oefeningenNummerOpslag].oplossing3;
+                    tempOpgave[i] = lijstOefeningen[oefeningenNummerOpslag].opgave;
+                    tempOplossing1[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing1;
+                    tempOplossing2[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing2;
+                    tempOplossing3[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing3;
                 }
             }
 
@@ -147,4 +147,4 @@ namespace Groepswerk
 
         }
     }
-}
+
