@@ -30,6 +30,7 @@ namespace Groepswerk
         private int oefeningenNummerOpslag;
         private IList<int> oefeningenNummerLijst;
         private string[] lijstOpgaves;
+        private int oefeningPunten;
 
         public oefeningWiskundeMakkelijk()
         {
@@ -53,16 +54,16 @@ namespace Groepswerk
                 tempOplossing[i] = lijstOefeningenWiskunde1[i].oplossing;
                
             }
-            opgaveblock1.Text = tempOpgaveWiskunde1[1];
-            opgaveblock2.Text = tempOpgaveWiskunde1[2];
-            opgaveblock3.Text = tempOpgaveWiskunde1[3];
-            opgaveblock4.Text = tempOpgaveWiskunde1[4];
-            opgaveblock5.Text = tempOpgaveWiskunde1[5];
-            opgaveblock6.Text = tempOpgaveWiskunde1[6];
-            opgaveblock7.Text = tempOpgaveWiskunde1[7];
-            opgaveblock8.Text = tempOpgaveWiskunde1[8];
-            opgaveblock9.Text = tempOpgaveWiskunde1[9];
-            opgaveblock10.Text = tempOpgaveWiskunde1[10];
+            opgaveblock1.Text = tempOpgaveWiskunde1[0];
+            opgaveblock2.Text = tempOpgaveWiskunde1[1];
+            opgaveblock3.Text = tempOpgaveWiskunde1[2];
+            opgaveblock4.Text = tempOpgaveWiskunde1[3];
+            opgaveblock5.Text = tempOpgaveWiskunde1[4];
+            opgaveblock6.Text = tempOpgaveWiskunde1[5];
+            opgaveblock7.Text = tempOpgaveWiskunde1[6];
+            opgaveblock8.Text = tempOpgaveWiskunde1[7];
+            opgaveblock9.Text = tempOpgaveWiskunde1[8];
+            opgaveblock10.Text = tempOpgaveWiskunde1[9];
 
             
             
@@ -84,16 +85,16 @@ namespace Groepswerk
                 //}
             }
 
-            antwoordlabel1.Text = lijstOpgaves[1];
-            antwoordlabel2.Text = lijstOpgaves[2];
-            antwoordlabel3.Text = lijstOpgaves[3];
-            antwoordlabel4.Text = lijstOpgaves[4];
-            antwoordlabel5.Text = lijstOpgaves[5];
-            antwoordlabel6.Text = lijstOpgaves[6];
-            antwoordlabel7.Text = lijstOpgaves[7];
-            antwoordlabel8.Text = lijstOpgaves[8];
-            antwoordlabel9.Text = lijstOpgaves[9];
-            antwoordlabel10.Text = lijstOpgaves[10];
+            antwoordlabel1.Text = lijstOpgaves[0];
+            antwoordlabel2.Text = lijstOpgaves[1];
+            antwoordlabel3.Text = lijstOpgaves[2];
+            antwoordlabel4.Text = lijstOpgaves[3];
+            antwoordlabel5.Text = lijstOpgaves[4];
+            antwoordlabel6.Text = lijstOpgaves[5];
+            antwoordlabel7.Text = lijstOpgaves[6];
+            antwoordlabel8.Text = lijstOpgaves[7];
+            antwoordlabel9.Text = lijstOpgaves[8];
+            antwoordlabel10.Text = lijstOpgaves[9];
 
                 //if (!(oefeningenNummerLijst.Contains(oefeningenNummerOpslag)))
                 //{
@@ -124,7 +125,11 @@ namespace Groepswerk
         }
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
-            //gesleepte uitkomst vergelijken met de uitkomst van de bijhorende oefn.
+            //oefeningPunten=0;
+            //if ((lijstOefeningenWiskunde1[1].correcteOplossing).Equals(het erbij gesleepte))
+            //{
+            //     oefeningPunten++;
+            //}
         }
 
         private void sleepLabel1_DragLeave(object sender, DragEventArgs e)
