@@ -156,10 +156,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="oefnWisk1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Programma.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -191,9 +187,6 @@
     </Compile>
     <Compile Include="OefNederlands1Navigatie.xaml.cs">
       <DependentUpon>OefNederlands1Navigatie.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="oefnWisk1.xaml.cs">
-      <DependentUpon>oefnWisk1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Programma.xaml.cs">
       <DependentUpon>Programma.xaml</DependentUpon>
