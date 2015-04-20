@@ -17,9 +17,9 @@ namespace Groepswerk
 {
     /// Author: Thomas Cox
     /// Date: 14/04/2015
-    public partial class OefNederlands : Page
+    public partial class OefNederlands1Navigatie : Page
     {
-        public OefNederlands()
+        public OefNederlands1Navigatie()
         {
             InitializeComponent();  
         }
