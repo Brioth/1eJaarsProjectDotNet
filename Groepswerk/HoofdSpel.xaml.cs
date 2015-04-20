@@ -20,22 +20,17 @@ namespace Groepswerk
     /// <summary>
     /// Interaction logic for HoofdSpel.xaml
     /// </summary>
-    public partial class HoofdSpel : Page, INotifyPropertyChanged
+    public partial class HoofdSpel : Page
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private HoofdSpelLijstRood entiteitenRood;
         private HoofdSpelLijstBlauw entiteitenBlauw;
 
         private DispatcherTimer animationTimer;//Wnr alles beweegt
         private DispatcherTimer roodTimer;//Wnr nieuw bolletje user spawnt
         private DispatcherTimer blauwTimer;//Wnr nieuw bolletje tegenstander spawnt
-
-        private int bolletjesRood, bolletjesBlauw, vierkantjesRood, vierkantjesBlauw;
         public HoofdSpel()
         {
             InitializeComponent();
-            this.DataContext = this;
 
             entiteitenRood = new HoofdSpelLijstRood();
             entiteitenBlauw = new HoofdSpelLijstBlauw();
@@ -55,108 +50,42 @@ namespace Groepswerk
             blauwTimer.Tick += blauwTimer_Tick;
             blauwTimer.IsEnabled = true;
 
-            BolletjesBlauw = 0;
-            BolletjesRood = 0;
-            VierkantjesBlauw = 0;
-            VierkantjesRood = 0;
+            HoofdSpelBolletje bolletjeRood = new HoofdSpelBolletje(entiteitenRood, drawingCanvas);
+            entiteitenRood.Add(bolletjeRood);
 
+            HoofdSpelBolletje bolletjeBlauw = new HoofdSpelBolletje(entiteitenBlauw, drawingCanvas);
+            entiteitenBlauw.Add(bolletjeBlauw);
+
+
+            this.DataContext = this;           
         }
         private void animationTimer_Tick(object sender, EventArgs e)
         {
             entiteitenRood.Move();
             entiteitenBlauw.Move();
-            entiteitenRood.CheckHit();
-            entiteitenBlauw.CheckHit();
+            entiteitenRood.CheckHit(entiteitenBlauw);
+            entiteitenBlauw.CheckHit(entiteitenRood);
         }
         private void roodTimer_Tick(object sender, EventArgs e)
         {
-            if (LijstRood.Count <= 20)
+            if (entiteitenRood.Count <= 20)
             {
-                HoofdSpelBolletje bolletje = new HoofdSpelBolletje(Colors.Red);
-                LijstRood.Add(bolletje);
-                bolletje.DisplayOn(drawingCanvas);
+                HoofdSpelBolletje bolletje = new HoofdSpelBolletje(entiteitenRood, drawingCanvas);
+                entiteitenRood.Add(bolletje);
+
             }
 
         }
         private void blauwTimer_Tick(object sender, EventArgs e)
         {
-            if (LijstBlauw.Count <= 20)
+            if (entiteitenBlauw.Count <= 20)
             {
-                HoofdSpelBolletje bolletje = new HoofdSpelBolletje(Colors.Blue);
-                LijstBlauw.Add(bolletje);
-                bolletje.DisplayOn(drawingCanvas);
+                HoofdSpelBolletje bolletje = new HoofdSpelBolletje(entiteitenBlauw, drawingCanvas);
+                entiteitenBlauw.Add(bolletje);
+
             }
 
         }
-        public HoofdSpelLijstBlauw LijstBlauw
-        {
-            get { return entiteitenBlauw; }
-            set
-            {
-                entiteitenBlauw = value;
-                BolletjesBlauw = 0;
-                VierkantjesBlauw = 0;
-                foreach (HoofdSpelEntiteit entiteit in entiteitenBlauw)
-                {
-                    if (entiteit is HoofdSpelBolletje)
-                    {
-                        BolletjesBlauw = BolletjesBlauw++;
-                    }
-                    if (entiteit is HoofdSpelVierkantje)
-                    {
-                        VierkantjesBlauw = VierkantjesBlauw++;
-                    }
-                }
-            }
-        }
-        public HoofdSpelLijstRood LijstRood
-        {
-            get { return entiteitenRood; }
-            set
-            {
-                entiteitenRood = value;
-                BolletjesRood = 0;
-                VierkantjesRood = 0;
-                foreach (HoofdSpelEntiteit entiteit in entiteitenRood)
-                {
-                    if (entiteit is HoofdSpelBolletje)
-                    {
-                        BolletjesRood = BolletjesRood++;
-                    }
-                    if (entiteit is HoofdSpelVierkantje)
-                    {
-                        VierkantjesRood = VierkantjesRood++;
-                    }
-                }
-            }
-        }
-        public int BolletjesRood
-        {
-            get { return bolletjesRood; }
-            set { bolletjesRood = value; NotifyPropertyChanged("BolletjesRood"); }
-        }
-        public int VierkantjesRood
-        {
-            get { return vierkantjesRood; }
-            set { vierkantjesRood = value; NotifyPropertyChanged("VierkantjesRood"); }
-        }
-        public int BolletjesBlauw
-        {
-            get { return bolletjesBlauw; }
-            set { bolletjesBlauw = value; NotifyPropertyChanged("BolletjesBlauw"); }
-        }
-        public int VierkantjesBlauw
-        {
-            get { return vierkantjesBlauw; }
-            set { vierkantjesBlauw = value; NotifyPropertyChanged("VierkantjesBlauw"); }
-        }
-
-        private void NotifyPropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
-        }
+               
     }
 }
