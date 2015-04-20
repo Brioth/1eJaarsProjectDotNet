@@ -28,6 +28,24 @@ namespace Groepswerk
             bestandOefening.Close();
         }
 
+        public void OefeningLijstWiskunde1()
+        //Author: vincent vandoninck
+        //Date: 19/04/2015
+        {
+            StreamReader bestandOefening = File.OpenText(@"oefnWiskunde1.txt");
+            string regel = bestandOefening.ReadLine();
+            char[] scheiding = { ';' };
+
+            while (regel != null)
+            {
+                string[] deel = regel.Split(scheiding);
+
+                Oefening oefeningWiskunde = new Oefening(deel[0], deel[1]);
+                this.Add(oefeningWiskunde);
+                regel = bestandOefening.ReadLine();
+            }
+            bestandOefening.Close();
+        }
         
     }
 }
