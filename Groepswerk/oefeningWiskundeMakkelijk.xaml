@@ -8,8 +8,8 @@
 
     <Grid>
         <Label Content="sleep de juiste oplossing naar de juiste opgave." HorizontalAlignment="Left" Margin="60,69,0,0" VerticalAlignment="Top" Height="32" Width="356"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="60,120,0,0" TextWrapping="Wrap" Text="1" Name="antwoordlabel1" VerticalAlignment="Top" Width="23"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="109,120,0,0" TextWrapping="Wrap" Text="2" Name="antwoordlabel2" VerticalAlignment="Top" Width="23"/>
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="60,120,0,0" TextWrapping="Wrap" Text="1" Name="antwoordlabel1" VerticalAlignment="Top" Width="23"/>
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="109,120,0,0" TextWrapping="Wrap" Text="2" Name="antwoordlabel2" VerticalAlignment="Top" Width="23"/>
         <TextBlock HorizontalAlignment="Left" Height="23" Margin="153,120,0,0" TextWrapping="Wrap" Text="3" Name="antwoordlabel3" VerticalAlignment="Top" Width="23"/>
         <TextBlock HorizontalAlignment="Left" Height="23" Margin="197,120,0,0" TextWrapping="Wrap" Text="4" Name="antwoordlabel4" VerticalAlignment="Top" Width="22"/>
         <TextBlock HorizontalAlignment="Left" Height="23" Margin="243,120,0,0" TextWrapping="Wrap" Text="5" Name="antwoordlabel5" VerticalAlignment="Top" Width="22"/>
@@ -19,7 +19,7 @@
         <TextBlock HorizontalAlignment="Left" Height="23" Margin="438,120,0,0" TextWrapping="Wrap" Text="9" Name="antwoordlabel9" VerticalAlignment="Top" Width="23"/>
         <TextBlock HorizontalAlignment="Left" Height="23" Margin="488,120,0,0" TextWrapping="Wrap" Text="10" Name="antwoordlabel10" VerticalAlignment="Top" Width="22"/>
 
-        <TextBlock Name="test1" HorizontalAlignment="Left" Margin="60,187,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
+        <TextBlock Name="opgaveblock1" HorizontalAlignment="Left" Margin="60,187,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="60,222,0,0" TextWrapping="Wrap" Name="opgaveblock2" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="60,258,0,0" TextWrapping="Wrap" Name="opgaveblock3" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="60,298,0,0" TextWrapping="Wrap" Name="opgaveblock4" VerticalAlignment="Top"/>
