@@ -13,21 +13,22 @@ namespace Groepswerk
     {
         public OefeningLijst(string moeilijkheid)
         {
-            if(moeilijkheid.Equals("makkelijk")){
-            StreamReader bestandOefening = File.OpenText(@"OefNederlands1Makkelijk.txt");
-            string regel = bestandOefening.ReadLine();
-            char[] scheiding = { ';' };
-
-            while (regel != null)
+            if (moeilijkheid.Equals("makkelijk"))
             {
-                string[] deel= regel.Split(scheiding);
+                StreamReader bestandOefening = File.OpenText(@"OefNederlands1Makkelijk.txt");
+                string regel = bestandOefening.ReadLine();
+                char[] scheiding = { ';' };
 
-                Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3], deel[4], deel[5]);
-                this.Add(oefeningNederlands);
-                regel = bestandOefening.ReadLine();
+                while (regel != null)
+                {
+                    string[] deel = regel.Split(scheiding);
+
+                    Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3], deel[4], deel[5]);
+                    this.Add(oefeningNederlands);
+                    regel = bestandOefening.ReadLine();
+                }
+                bestandOefening.Close();
             }
-            bestandOefening.Close();
-        }
             if (moeilijkheid.Equals("gemiddeld"))
             {
                 StreamReader bestandOefening = File.OpenText(@"OefNederlands1Gemiddeld.txt");
@@ -45,7 +46,7 @@ namespace Groepswerk
                 bestandOefening.Close();
             }
 
-                if (moeilijkheid.Equals("moeilijk"))
+            if (moeilijkheid.Equals("moeilijk"))
             {
                 StreamReader bestandOefening = File.OpenText(@"OefNederlands1Moeilijk.txt");
                 string regel = bestandOefening.ReadLine();
@@ -56,12 +57,13 @@ namespace Groepswerk
                     string[] deel = regel.Split(scheiding);
 
                     Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2]);
-                this.Add(oefeningNederlands);
-                regel = bestandOefening.ReadLine();
+                    this.Add(oefeningNederlands);
+                    regel = bestandOefening.ReadLine();
+                }
+                bestandOefening.Close();
             }
-            bestandOefening.Close();
-        }
 
-        
+
+        }
     }
 }
