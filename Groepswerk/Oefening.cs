@@ -12,10 +12,8 @@ namespace Groepswerk
         //date: 14/04/2015
         
 
-        public Oefening(int randomNummer, string opgave, string oplossing1, string oplossing2, string oplossing3, string correcteOplossing,
-            string juisteAntwoordCompleet)
+        public Oefening(int randomNummer, string opgave, string oplossing1, string oplossing2, string oplossing3, string correcteOplossing, string juisteAntwoordCompleet)
         {
-            this.randomNummer = randomNummer;
             this.opgave = opgave;
             this.oplossing1 = oplossing1;
             this.oplossing2 = oplossing2;
@@ -23,15 +21,6 @@ namespace Groepswerk
             this.correcteOplossing = correcteOplossing;
             this.juisteAntwoordCompleet = juisteAntwoordCompleet;
         }
-
-        public Oefening(string opgave, string correcteOplossing)
-   {
-
-            this.opgave = opgave;
-            this.correcteOplossing = correcteOplossing;
-            
-   }
-
         public string opgave { get; set; }
         
 
@@ -42,7 +31,7 @@ namespace Groepswerk
        
         public string correcteOplossing { get; set; }
         public string juisteAntwoordCompleet { get; set; }
-        public int randomNummer { get; set; }
+        
 
         
     }

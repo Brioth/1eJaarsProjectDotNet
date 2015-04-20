@@ -11,9 +11,10 @@ namespace Groepswerk
     //Date: 14/04/2015
     class OefeningLijst : List<Oefening> //alle oefeningen in een lijst gooien!
     {
-        public OefeningLijst()
+        public OefeningLijst(string moeilijkheid)
         {
-            StreamReader bestandOefening = File.OpenText(@"OefNederlands1.txt");
+            if(moeilijkheid.Equals("makkelijk")){
+            StreamReader bestandOefening = File.OpenText(@"OefNederlands1Makkelijk.txt");
             string regel = bestandOefening.ReadLine();
             char[] scheiding = { ';' };
 
@@ -21,31 +22,46 @@ namespace Groepswerk
             {
                 string[] deel= regel.Split(scheiding);
 
-                Oefening oefeningNederlands = new Oefening(Convert.ToInt32(deel[0]), deel[1], deel[2], deel[3], deel[4], deel[5],deel[6]);
+                Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3], deel[4], deel[5]);
+                this.Add(oefeningNederlands);
+                regel = bestandOefening.ReadLine();
+            }
+            bestandOefening.Close();
+        }
+            if (moeilijkheid.Equals("gemiddeld"))
+            {
+                StreamReader bestandOefening = File.OpenText(@"OefNederlands1Gemiddeld.txt");
+                string regel = bestandOefening.ReadLine();
+                char[] scheiding = { ';' };
+
+                while (regel != null)
+                {
+                    string[] deel = regel.Split(scheiding);
+
+                    Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3], deel[4], deel[5]);
+                    this.Add(oefeningNederlands);
+                    regel = bestandOefening.ReadLine();
+                }
+                bestandOefening.Close();
+            }
+
+                if (moeilijkheid.Equals("moeilijk"))
+            {
+                StreamReader bestandOefening = File.OpenText(@"OefNederlands1Moeilijk.txt");
+                string regel = bestandOefening.ReadLine();
+                char[] scheiding = { ';' };
+
+                while (regel != null)
+                {
+                    string[] deel = regel.Split(scheiding);
+
+                    Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2]);
                 this.Add(oefeningNederlands);
                 regel = bestandOefening.ReadLine();
             }
             bestandOefening.Close();
         }
 
-        public void OefeningLijstWiskunde1()
-        //Author: vincent vandoninck
-        //Date: 19/04/2015
-        {
-            StreamReader bestandOefening = File.OpenText(@"oefnWiskunde1.txt");
-            string regel = bestandOefening.ReadLine();
-            char[] scheiding = { ';' };
-
-            while (regel != null)
-            {
-                string[] deel = regel.Split(scheiding);
-
-                Oefening oefeningWiskunde = new Oefening(deel[0], deel[1]);
-                this.Add(oefeningWiskunde);
-                regel = bestandOefening.ReadLine();
-            }
-            bestandOefening.Close();
-        }
         
     }
 }

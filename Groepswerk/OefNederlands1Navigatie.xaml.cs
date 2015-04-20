@@ -19,32 +19,25 @@ namespace Groepswerk
     /// Date: 14/04/2015
     public partial class OefNederlands : Page
     {
-        private Boolean makkelijkFlag { get; set; }
-        private Boolean gemiddeldFlag { get; set; }
-        private Boolean moeilijkFlag { get; set; }
         public OefNederlands()
         {
-            InitializeComponent();
-            makkelijkFlag = false;
-            gemiddeldFlag = false;
-            moeilijkFlag = false;
+            InitializeComponent();  
         }
 
         private void Gemakkelijk_Click(object sender, RoutedEventArgs e)
         {
-            makkelijkFlag = true;
-            //navigation naar oefeningNederlands1
+                //navigation naar oefeningNederlands1
         }
 
         private void Gemiddeld_Click(object sender, RoutedEventArgs e)
         {
-            gemiddeldFlag = true;
+            
             //navigation naar oefeningNederlands1
         }
 
         private void Moeilijk_Click(object sender, RoutedEventArgs e)
         {
-            moeilijkFlag = true;
+            
             //navigation naar oefeningNederlands1
         }
 
