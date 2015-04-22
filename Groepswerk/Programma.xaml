@@ -11,10 +11,21 @@
             </MenuItem>
             <MenuItem Name="mnuOefeningen" Header="Oefeningen">
                 <MenuItem Header="Rekenen" Click="MnuRekenen_Click"/>
-                <MenuItem Header="Taal" Click="MnuTaal_Click"/>
+                <MenuItem Header="Taal">
+                    <MenuItem Header ="Taal - Makkelijk" Click="MnuTaalMakkelijk_Click"/>
+                    <MenuItem Header="Taal - Gemmiddeld" Click="MnuTaalGemiddeld_Click"/>
+                    <MenuItem Header="Taal - Moeilijk" Click="MnuTaalMoeilijk_Click"/>
+                </MenuItem>
                 <MenuItem Header="WO" Click="MnuWO_Click"/>
             </MenuItem>
-            <MenuItem Name="mnuOefBew" Header="Oefeningen Bewerken"/>
+            <MenuItem Name="mnuOefBew" Header="Oefeningen Bewerken">
+                <MenuItem Header="Taal">
+                    <MenuItem Header="Taal - Gemakkelijk" Click="MnuBewerkenMakkelijk_Click"/>
+                    <MenuItem Header="Taal - Gemiddeld" Click="MnuBewerkenGemiddeld_Click"/>
+                    <MenuItem Header="Taal - Moeilijk" Click="MnuBewerkenMoeilijk_Click"/>
+                </MenuItem>
+            </MenuItem>
+
             <MenuItem Name="mnuStat" Header="Statistieken">
                 <MenuItem Header="Individueel Overzicht" Click="MnuIndOv_Click"/>
                 <MenuItem Header="Klassikaal Overzicht" Click="MnuKlasOver_Click"/>

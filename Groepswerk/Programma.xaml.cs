@@ -69,17 +69,46 @@ namespace Groepswerk
                     break;
             }
         }
+        //aanpassen oefeningen
         private void MnuRekenen_Click(object sender, RoutedEventArgs e)
         {
             //Vincent
         }
-        private void MnuTaal_Click(object sender, RoutedEventArgs e)
+
+        //Author: Thomas Cox
+        //Date: 22/04/2015
+        private void MnuTaalMakkelijk_Click(object sender, RoutedEventArgs e)
         {
-            //Thomas
+            framePages.Navigate("OefNederlands1Makkelijk");
         }
+        private void MnuTaalGemiddeld_Click(object sender, RoutedEventArgs e)
+        {
+            framePages.Navigate("OefNederlands1Gemiddeld");
+        }
+        private void MnuTaalMoeilijk_Click(object sender, RoutedEventArgs e)
+        {
+            framePages.Navigate("OefNederlands1Moeilijk");
+        }
+        //Author: Seppe
         private void MnuWO_Click(object sender, RoutedEventArgs e)
         {
             //Seppe
+        }
+
+        //aanpassen oefening
+        //Author: Thomas Cox
+        //Date: 22/04/2015
+        private void MnuBewerkenMakkelijk_Click(object sender, RoutedEventArgs e)
+        {
+            framePages.Navigate("OefNederlands1AanpassenMakkelijk");
+        }
+        private void MnuBewerkenGemiddeld_Click(object sender, RoutedEventArgs e)
+        {
+            framePages.Navigate("OefNederlands1AanpassenGemiddeld");
+        }
+        private void MnuBewerkenMoeilijk_Click(object sender, RoutedEventArgs e)
+        {
+            framePages.Navigate("OefNederlands1AanpassenMoeilijk");
         }
         private void MnuIndOv_Click(object sender, RoutedEventArgs e)
         {
@@ -161,5 +190,7 @@ namespace Groepswerk
                 pasBalkAan();
             }
         }
+
+        
     }
 }
