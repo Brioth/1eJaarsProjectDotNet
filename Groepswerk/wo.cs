@@ -47,7 +47,7 @@ namespace Groepswerk
 
             if (moeilijkheid.Equals("moeilijk"))
             {
-                StreamReader bestandOefening = File.OpenText(@"OefNederlands1Moeilijk.txt");
+                StreamReader bestandOefening = File.OpenText(@"OefWoMoeilijk.txt");
                 string regel = bestandOefening.ReadLine();
                 char[] scheiding = { ';' };
 
@@ -55,8 +55,8 @@ namespace Groepswerk
                 {
                     string[] deel = regel.Split(scheiding);
 
-                    Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3],deel[4],deel[5]);
-                    this.Add(oefeningNederlands);
+                    Oefening oefWo = new Oefening(deel[0], deel[1]);
+                    this.Add(oefWo);
                     regel = bestandOefening.ReadLine();
                 }
                 bestandOefening.Close();
