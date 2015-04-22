@@ -23,5 +23,10 @@ namespace Groepswerk
         {
             InitializeComponent();
         }
+
+        private void controleer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
