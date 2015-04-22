@@ -167,6 +167,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="oefWoGemiddeld.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="oefWoMakkelijk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="oefWoMoeilijk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Programma.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -201,6 +213,15 @@
     </Compile>
     <Compile Include="OefNederlands1Navigatie.xaml.cs">
       <DependentUpon>OefNederlands1Navigatie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="oefWoGemiddeld.xaml.cs">
+      <DependentUpon>oefWoGemiddeld.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="oefWoMakkelijk.xaml.cs">
+      <DependentUpon>oefWoMakkelijk.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="oefWoMoeilijk.xaml.cs">
+      <DependentUpon>oefWoMoeilijk.xaml</DependentUpon>
     </Compile>
     <Compile Include="Programma.xaml.cs">
       <DependentUpon>Programma.xaml</DependentUpon>

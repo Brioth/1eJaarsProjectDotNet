@@ -131,8 +131,8 @@ namespace Groepswerk
             string gok = pswBox.Password;
             string plaintext = "encryptie";
             string encryptedstring = StringCipher.Encrypt(plaintext, gok);
-            MessageBox.Show(encryptedstring);
-           if (selectedGebruiker.Psw.Equals(gok))
+           
+           if (selectedGebruiker.Psw.Equals(encryptedstring))
             {
                 return true;
             }
