@@ -84,6 +84,7 @@
     <Compile Include="HoofdSpel.xaml.cs">
       <DependentUpon>HoofdSpel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HoofdSpelEntiteitenLijst.cs" />
     <Compile Include="HoofdSpelVierkantje.cs" />
     <Compile Include="HoofdSpelBolletje.cs" />
     <Compile Include="HoofdSpelLijstBlauw.cs" />

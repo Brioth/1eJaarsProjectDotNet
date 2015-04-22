@@ -13,7 +13,7 @@
         <Label Content="Voornaam" HorizontalAlignment="Left" Height="32" Margin="199,76,0,0" VerticalAlignment="Top" Width="100"/>
         <TextBox Name="txtbVoornaam" HorizontalAlignment="Left" Height="32" Margin="322,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="108"/>
         <Label Content="Wachtwoord" HorizontalAlignment="Left" Height="28" Margin="199,161,0,0" VerticalAlignment="Top" Width="100"/>
-        <PasswordBox Name="pswBox" HorizontalAlignment="Left" Height="28" Margin="322,161,0,0" VerticalAlignment="Top" Width="108"/>
+        <TextBox Name="pswBox" HorizontalAlignment="Left" Height="28" Margin="322,161,0,0" VerticalAlignment="Top" Width="108"/>
         <Label Content="Achternaam" HorizontalAlignment="Left" Height="28" Margin="199,117,0,0" VerticalAlignment="Top" Width="100"/>
         <TextBox Name="txtboxAchternaam" HorizontalAlignment="Left" Height="28" Margin="322,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="108"/>
         <Label Content="Nieuwe Klas" HorizontalAlignment="Left" Height="28" Margin="199,225,0,0" VerticalAlignment="Top" Width="100"/>

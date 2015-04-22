@@ -42,6 +42,8 @@ namespace Groepswerk
             entiteitenRood = new HoofdSpelLijstRood();
             entiteitenBlauw = new HoofdSpelLijstBlauw();
 
+            BindLijsten();
+
             animationTimer = new DispatcherTimer();
             animationTimer.Interval = TimeSpan.FromMilliseconds(50);
             animationTimer.Tick += animationTimer_Tick;
@@ -59,12 +61,13 @@ namespace Groepswerk
 
             HoofdSpelBolletje bolletjeRood = new HoofdSpelBolletje(entiteitenRood, drawingCanvas);
             entiteitenRood.Add(bolletjeRood);
+            entiteitenRood.Bolletjes = entiteitenRood.Bolletjes + 1;
 
             HoofdSpelBolletje bolletjeBlauw = new HoofdSpelBolletje(entiteitenBlauw, drawingCanvas);
             entiteitenBlauw.Add(bolletjeBlauw);
+            entiteitenBlauw.Bolletjes = entiteitenBlauw.Bolletjes+1;
 
 
-            this.DataContext = this;           
         }
         //Events
         private void animationTimer_Tick(object sender, EventArgs e)
@@ -80,7 +83,7 @@ namespace Groepswerk
             {
                 HoofdSpelBolletje bolletje = new HoofdSpelBolletje(entiteitenRood, drawingCanvas);
                 entiteitenRood.Add(bolletje);
-
+                entiteitenRood.Bolletjes = entiteitenRood.Bolletjes+1;
             }
         }
         private void blauwTimer_Tick(object sender, EventArgs e)
@@ -89,12 +92,39 @@ namespace Groepswerk
             {
                 HoofdSpelBolletje bolletje = new HoofdSpelBolletje(entiteitenBlauw, drawingCanvas);
                 entiteitenBlauw.Add(bolletje);
+                entiteitenBlauw.Bolletjes = entiteitenBlauw.Bolletjes+1;
 
             }
 
         }
         //Methods
+        private void BindLijsten()
+        {
+            Binding b = new Binding();
+            b.Source = entiteitenRood;
+            b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+            b.Path = new PropertyPath("Bolletjes");
+            txtbRoodB.SetBinding(TextBlock.TextProperty, b);
+
+            b = new Binding();
+            b.Source = entiteitenRood;
+            b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+            b.Path = new PropertyPath("Vierkantjes");
+            txtbRoodV.SetBinding(TextBlock.TextProperty, b);
+
+            b = new Binding();
+            b.Source = entiteitenBlauw;
+            b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+            b.Path = new PropertyPath("Bolletjes");
+            txtbBlauwB.SetBinding(TextBlock.TextProperty, b);
+
+            b = new Binding();
+            b.Source = entiteitenBlauw;
+            b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+            b.Path = new PropertyPath("Vierkantjes");
+            txtbBlauwV.SetBinding(TextBlock.TextProperty, b);
+        }
         //Properties
-               
+
     }
 }

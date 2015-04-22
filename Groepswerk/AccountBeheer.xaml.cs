@@ -21,6 +21,7 @@ namespace Groepswerk
 {
     /* --AccountBeheer--
      * Gebruiker aanpassen of verwijderen
+     * Hier textbox ipv passwordbox want tekens moeten weergegeven worden
      * Author: Carmen Celen
      * Date: 01/04/2015
      */
@@ -55,6 +56,7 @@ namespace Groepswerk
             accountlijst = new Accountlijst(selectedKlas);
             boxAccounts.ItemsSource = accountlijst;
             boxAccounts.SelectedIndex = 0;
+            
         }
         private void boxAccounts_SelectionChanged(object sender, SelectionChangedEventArgs e)//Vincent
         {
@@ -63,7 +65,7 @@ namespace Groepswerk
                 selectedGebruiker = (Gebruiker)boxAccounts.SelectedItem;
                 txtbVoornaam.Text = selectedGebruiker.Voornaam;
                 txtboxAchternaam.Text = selectedGebruiker.Achternaam;
-                pswBox.Password = selectedGebruiker.Psw;
+                pswBox.Text = selectedGebruiker.Psw;
                 boxNieuweKlas.SelectedItem = selectedGebruiker.Klas;
             }
         }       
@@ -83,11 +85,12 @@ namespace Groepswerk
                     break;
             }
         }
+        
         private void btnPasAan_Click(object sender, RoutedEventArgs e)
         {
             selectedGebruiker.Voornaam = txtbVoornaam.Text;
             selectedGebruiker.Achternaam = txtboxAchternaam.Text;
-            selectedGebruiker.Psw = pswBox.Password;
+            selectedGebruiker.Psw = pswBox.Text;
             selectedGebruiker.Klas = Convert.ToString(boxNieuweKlas.SelectedItem);
             wisselGebruiker();
             MessageBox.Show(String.Format("U hebt gebruiker {0} aangepast", selectedGebruiker));

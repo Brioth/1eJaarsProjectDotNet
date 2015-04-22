@@ -25,7 +25,7 @@ namespace Groepswerk
         int x, y, width=5, height=5, stepSize=5;
         Color kleur;
         Canvas drawingCanvas;
-        List<HoofdSpelEntiteit> lijst;
+        HoofdSpelEntiteitenLijst lijst;
         static Random randomBeweging = new Random(3);
         //Constructors
 
@@ -72,7 +72,7 @@ namespace Groepswerk
                 }
             }
         }
-        public abstract void CheckHit(List<HoofdSpelEntiteit> lijstTegenstander);
+        public abstract void CheckHit(HoofdSpelEntiteitenLijst lijstTegenstander);
         public abstract void CheckHit();
         public abstract void Dood();
 
@@ -106,7 +106,7 @@ namespace Groepswerk
         {
             get;
         }
-        public List<HoofdSpelEntiteit> Lijst
+        public HoofdSpelEntiteitenLijst Lijst
         {
             get { return lijst; }
             set { lijst = value; }

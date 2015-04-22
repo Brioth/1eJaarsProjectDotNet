@@ -24,7 +24,7 @@ namespace Groepswerk
         private Rect doelVierkant;
 
         //Constructors
-        public HoofdSpelBolletje(List<HoofdSpelEntiteit> lijst, Canvas drawingCanvas)
+        public HoofdSpelBolletje(HoofdSpelEntiteitenLijst lijst, Canvas drawingCanvas)
         {
             //Nieuw bolletje op random plaats
             ellipse = new Ellipse();
@@ -37,7 +37,7 @@ namespace Groepswerk
             Y = randomPlaats.Next(151);
             DisplayOn();
         }
-        public HoofdSpelBolletje(List<HoofdSpelEntiteit> lijst, int x, int y, Canvas drawingCanvas)
+        public HoofdSpelBolletje(HoofdSpelEntiteitenLijst lijst, int x, int y, Canvas drawingCanvas)
         {
             //vierkantje wordt bolletje op plaats van vierkantje
             DrawingCanvas = drawingCanvas;
@@ -67,7 +67,7 @@ namespace Groepswerk
             doelVierkant.X = X;
             doelVierkant.Y = Y;
         }
-        public override void CheckHit(List<HoofdSpelEntiteit> lijstTegenstander)
+        public override void CheckHit(HoofdSpelEntiteitenLijst lijstTegenstander)
         {
             for (int i = 0; i < lijstTegenstander.Count; i++)
             {
@@ -76,6 +76,7 @@ namespace Groepswerk
                 {
                     HoofdSpelVierkantje vierkantje = new HoofdSpelVierkantje(Lijst, DrawingCanvas);
                     Lijst.Add(vierkantje);
+                    Lijst.Vierkantjes = Lijst.Vierkantjes + 1;
                     Dood();
                     lijstTegenstander[i].CheckHit(); //Tegenstander moet ook vierkantje worden/dood gaan
                 }
@@ -85,6 +86,7 @@ namespace Groepswerk
         {
             HoofdSpelVierkantje vierkantje = new HoofdSpelVierkantje(Lijst, DrawingCanvas);
             Lijst.Add(vierkantje);
+            Lijst.Vierkantjes = Lijst.Vierkantjes + 1;
             Dood();
         }
         private void CheckKleur()
@@ -102,6 +104,7 @@ namespace Groepswerk
         {
             Lijst.Remove(this);
             DrawingCanvas.Children.Remove(ellipse);
+            Lijst.Bolletjes = Lijst.Bolletjes - 1;
         }
 
         //Properties

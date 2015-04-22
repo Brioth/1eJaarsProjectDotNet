@@ -9,17 +9,10 @@ using System.Windows.Controls;
 
 namespace Groepswerk
 {
-    public class HoofdSpelLijstBlauw : List<HoofdSpelEntiteit>, INotifyPropertyChanged
+    public class HoofdSpelLijstBlauw : HoofdSpelEntiteitenLijst, INotifyPropertyChanged
     {
         private int bolletjes = 0;
         private int vierkantjes = 0;
-        public void Move()
-        {
-            for (int i = 0; i < this.Count; i++)
-            {
-                this[i].Move();
-            }
-        }
 
         public void CheckHit(HoofdSpelLijstRood lijstTegenstander)
         {
@@ -32,24 +25,18 @@ namespace Groepswerk
             }
 
         }
-        public void DisplayOn()
-        {
-            for (int i = 0; i < this.Count; i++)
-            {
-                this[i].DisplayOn();
-            }
-        }
-        public int Bolletjes
+
+        public override int Bolletjes
         {
             get { return bolletjes; }
-            set { bolletjes = value; NotifyPropertyChanged("BolletjesBlauw"); }
+            set { bolletjes = value; OnPropertyChanged("Bolletjes"); }
         }
-        public int Vierkantjes
+        public override int Vierkantjes
         {
             get { return vierkantjes; }
-            set { vierkantjes = value; NotifyPropertyChanged("VierkantjesBlauw"); }
+            set { vierkantjes = value; OnPropertyChanged("Vierkantjes"); }
         }
-        private void NotifyPropertyChanged(string property)
+        private void OnPropertyChanged(string property)
         {
             if (PropertyChanged != null)
             {
