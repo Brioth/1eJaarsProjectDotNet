@@ -127,45 +127,27 @@ namespace Groepswerk
 
 
 
-                //if (!(oefeningenNummerLijst.Contains(oefeningenNummerOpslag)))
-                //{
-                //    antwoordlabel1.Text = tempOplossing[oefeningenNummerOpslag];
-
-                //}
-                //else
-                //{
-                //    while (oefeningenNummerLijst.Contains(oefeningenNummerOpslag))
-                //    {
-                //        oefeningenNummerOpslag = oefeningenNummer.Next(0, 9);
-                //    }
-                //    antwoordlabel1.Text = tempOplossing[oefeningenNummerOpslag];
-                //}
-
-            
-
+               
         
-            
-      
-          //  oefeningenNummerOpslag = oefeningenNummer.Next(1, lijstOefeningen.Count);
-            //oefeningenNummerOpslag in list zetten zodat je kan checken of dit nummer al genomen is?
-          //  opgave1.Text = tempOpgave[1];
-            //Oplossing1.Add(tempOplossing1[1]); 
-
-        private void sleepLabel1_DragLeave()
-        {
-        }
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
             //oefeningPunten=0;
-            //if ((lijstOefeningenWiskunde1[1].correcteOplossing).Equals(het erbij gesleepte))
-            //{
+            //if ((lijstOefeningenWiskunde1[1].correcteOplossing).Equals(null)) 
+            //    //het erbij gesleepte)
+            //    //placeholder
+            //    {
+                
             //     oefeningPunten++;
             //}
+            //if ((lijstOefeningenWiskunde1[1].correcteOplossing).Equals()
+            //{
+
+            //}
+
+
+
         }
 
-        private void sleepLabel1_DragLeave(object sender, DragEventArgs e)
-        {
-
-        }
+        
     }
 }
