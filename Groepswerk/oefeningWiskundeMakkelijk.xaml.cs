@@ -85,16 +85,16 @@ namespace Groepswerk
                 //}
             }
 
-            antwoordlabel1.Text = lijstOpgaves[0];
-            antwoordlabel2.Text = lijstOpgaves[1];
-            antwoordlabel3.Text = lijstOpgaves[2];
-            antwoordlabel4.Text = lijstOpgaves[3];
-            antwoordlabel5.Text = lijstOpgaves[4];
-            antwoordlabel6.Text = lijstOpgaves[5];
-            antwoordlabel7.Text = lijstOpgaves[6];
-            antwoordlabel8.Text = lijstOpgaves[7];
-            antwoordlabel9.Text = lijstOpgaves[8];
-            antwoordlabel10.Text = lijstOpgaves[9];
+            antwoordlabel1.Content = lijstOpgaves[0];
+            antwoordlabel2.Content = lijstOpgaves[1];
+            antwoordlabel3.Content = lijstOpgaves[2];
+            antwoordlabel4.Content = lijstOpgaves[3];
+            antwoordlabel5.Content = lijstOpgaves[4];
+            antwoordlabel6.Content = lijstOpgaves[5];
+            antwoordlabel7.Content = lijstOpgaves[6];
+            antwoordlabel8.Content = lijstOpgaves[7];
+            antwoordlabel9.Content = lijstOpgaves[8];
+            antwoordlabel10.Content = lijstOpgaves[9];
 
                 //if (!(oefeningenNummerLijst.Contains(oefeningenNummerOpslag)))
                 //{
