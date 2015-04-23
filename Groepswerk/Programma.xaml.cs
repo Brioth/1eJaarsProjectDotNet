@@ -73,6 +73,7 @@ namespace Groepswerk
         private void MnuRekenen_Click(object sender, RoutedEventArgs e)
         {
             //Vincent
+            framePages.Navigate("oefeningWiskundeMakkelijk"); 
         }
 
         //Author: Thomas Cox
@@ -190,6 +191,8 @@ namespace Groepswerk
                 pasBalkAan();
             }
         }
+
+        
 
         
     }
