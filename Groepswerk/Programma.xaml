@@ -9,7 +9,7 @@
                 <MenuItem Header="Log uit" Click="MnuHome_Click"/>
                 <MenuItem Header="Exit" Click="MnuStop_Click"/>
             </MenuItem>
-            <MenuItem Name="mnuOefeningen" Header="Oefeningen" Click="mnuOefeningen_Click">
+            <MenuItem Name="mnuOefeningen" Header="Oefeningen" >
                 <MenuItem Header="Rekenen" Click="MnuRekenen_Click"/>
                 <MenuItem Header="Taal">
                     <MenuItem Header ="Taal - Makkelijk" Click="MnuTaalMakkelijk_Click"/>

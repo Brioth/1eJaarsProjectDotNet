@@ -52,21 +52,21 @@ namespace Groepswerk
                 tempOpgaveWiskunde1[i] = lijstOefeningenWiskunde1[i].opgave;
 
                 tempOplossing[i] = lijstOefeningenWiskunde1[i].oplossing;
-               
-            }
-            opgaveblock1.Text = tempOpgaveWiskunde1[0];
-            opgaveblock2.Text = tempOpgaveWiskunde1[1];
-            opgaveblock3.Text = tempOpgaveWiskunde1[2];
-            opgaveblock4.Text = tempOpgaveWiskunde1[3];
-            opgaveblock5.Text = tempOpgaveWiskunde1[4];
-            opgaveblock6.Text = tempOpgaveWiskunde1[5];
-            opgaveblock7.Text = tempOpgaveWiskunde1[6];
-            opgaveblock8.Text = tempOpgaveWiskunde1[7];
-            opgaveblock9.Text = tempOpgaveWiskunde1[8];
-            opgaveblock10.Text = tempOpgaveWiskunde1[9];
 
-            
-            
+            }
+            opgaveblock1.Content = tempOpgaveWiskunde1[0];
+            opgaveblock2.Content = tempOpgaveWiskunde1[1];
+            opgaveblock3.Content = tempOpgaveWiskunde1[2];
+            opgaveblock4.Content = tempOpgaveWiskunde1[3];
+            opgaveblock5.Content = tempOpgaveWiskunde1[4];
+            opgaveblock6.Content = tempOpgaveWiskunde1[5];
+            opgaveblock7.Content = tempOpgaveWiskunde1[6];
+            opgaveblock8.Content = tempOpgaveWiskunde1[7];
+            opgaveblock9.Content = tempOpgaveWiskunde1[8];
+            opgaveblock10.Content = tempOpgaveWiskunde1[9];
+
+
+
             for (int i = 0; i < 10; i++)
             {
                 oefeningenNummerOpslag = oefeningenNummer.Next(0, 9);
@@ -77,11 +77,11 @@ namespace Groepswerk
                 //}
                 //else
                 //{
-                    while (oefeningenNummerLijst.Contains(oefeningenNummerOpslag))
-                    {
-                        oefeningenNummerOpslag = oefeningenNummer.Next(0, 9);
-                    }
-                    lijstOpgaves[i] = tempOplossing[oefeningenNummerOpslag];
+                while (oefeningenNummerLijst.Contains(oefeningenNummerOpslag))
+                {
+                    oefeningenNummerOpslag = oefeningenNummer.Next(0, 9);
+                }
+                lijstOpgaves[i] = tempOplossing[oefeningenNummerOpslag];
                 //}
             }
 
@@ -95,6 +95,37 @@ namespace Groepswerk
             antwoordlabel8.Content = lijstOpgaves[7];
             antwoordlabel9.Content = lijstOpgaves[8];
             antwoordlabel10.Content = lijstOpgaves[9];
+        }
+
+            private void Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DataObject data = new DataObject(DataFormats.Text, ((Label)e.Source).Content);
+
+            DragDrop.DoDragDrop((DependencyObject)e.Source, data, DragDropEffects.Copy);
+            //slepen
+        }
+
+         private void Label_Drop(object sender, DragEventArgs e)
+            // hier wordt gedropped
+        {
+            ((Label)e.Source).Content = (string)e.Data.GetData(DataFormats.Text);
+        }
+
+        private void Label_GiveFeedback(object sender, GiveFeedbackEventArgs e)
+            // als je boven een drop object staat veranderd je cursor
+        {
+            if (e.Effects == DragDropEffects.Copy)
+            {
+                e.UseDefaultCursors = false;
+                Mouse.SetCursor(Cursors.Hand);
+            }
+            else
+                e.UseDefaultCursors = true;
+
+            e.Handled = true;
+        }
+
+
 
                 //if (!(oefeningenNummerLijst.Contains(oefeningenNummerOpslag)))
                 //{
@@ -112,7 +143,7 @@ namespace Groepswerk
 
             
 
-        }
+        
             
       
           //  oefeningenNummerOpslag = oefeningenNummer.Next(1, lijstOefeningen.Count);

@@ -19,16 +19,16 @@
         <Label HorizontalAlignment="Left" Height="23" Margin="438,120,0,0" Content="9" Name="antwoordlabel9" VerticalAlignment="Top" Width="23"/>
         <Label HorizontalAlignment="Left" Height="23" Margin="488,120,0,0" Content="10" Name="antwoordlabel10" VerticalAlignment="Top" Width="22"/>
 
-        <TextBlock Name="opgaveblock1" HorizontalAlignment="Left" Margin="60,187,0,0" Text="0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="60,222,0,0" TextWrapping="Wrap" Text="0" Name="opgaveblock2" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="60,258,0,0" TextWrapping="Wrap" Text="0" Name="opgaveblock3" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="60,298,0,0" TextWrapping="Wrap" Text="0" Name="opgaveblock4" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="60,334,0,0" TextWrapping="Wrap" Text="0" Name="opgaveblock5" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="352,187,0,0" TextWrapping="Wrap" Text="0" Name="opgaveblock6" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="352,222,0,0" TextWrapping="Wrap" Text="0" Name="opgaveblock7" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="352,258,0,0" TextWrapping="Wrap" Text="0" Name="opgaveblock8" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="352,298,0,0" TextWrapping="Wrap" Text="0" Name="opgaveblock9" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="352,334,0,0" TextWrapping="Wrap" Text="0" Name="opgaveblock10" VerticalAlignment="Top"/>
+        <Label Name="opgaveblock1" HorizontalAlignment="Left" Margin="60,187,0,0" Content="0" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label HorizontalAlignment="Left" Margin="60,222,0,0" Content="0" Name="opgaveblock2" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label HorizontalAlignment="Left" Margin="60,258,0,0" Content="0" Name="opgaveblock3" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label HorizontalAlignment="Left" Margin="60,298,0,0" Content="0" Name="opgaveblock4" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label HorizontalAlignment="Left" Margin="60,334,0,0" Content="0" Name="opgaveblock5" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label HorizontalAlignment="Left" Margin="352,187,0,0" Content="0" Name="opgaveblock6" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label HorizontalAlignment="Left" Margin="352,222,0,0" Content="0" Name="opgaveblock7" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label HorizontalAlignment="Left" Margin="352,258,0,0" Content="0" Name="opgaveblock8" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label HorizontalAlignment="Left" Margin="352,298,0,0" Content="0" Name="opgaveblock9" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label HorizontalAlignment="Left" Margin="352,334,0,0" Content="0" Name="opgaveblock10" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
  
         <Button Name="verbeterButton" Content="Verbeter" HorizontalAlignment="Left" Margin="541,353,0,0" VerticalAlignment="Top" Width="99" Height="44" Click="verbeterButton_Click"/>
         <TextBlock Name="Punten" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="74,367,0,0" Height="19" Width="94"/>
