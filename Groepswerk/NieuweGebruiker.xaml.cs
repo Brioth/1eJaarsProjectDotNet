@@ -34,6 +34,7 @@ namespace Groepswerk
             InitializeComponent();
             klaslijst = new Klaslijst();
             boxKlas.ItemsSource = klaslijst;
+            boxKlas.SelectedIndex = 0;
         }
 
         //Events
