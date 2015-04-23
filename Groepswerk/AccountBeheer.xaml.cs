@@ -35,10 +35,9 @@ namespace Groepswerk
         private AlleGebruikersLijst alleGebruikersLijst;
 
         //Constructors
-        public AccountBeheer(Gebruiker actieveGebruiker)
+        public AccountBeheer()
         {
             InitializeComponent();
-            ActieveGebruiker = actieveGebruiker;
             klasLijst = new Klaslijst();
             boxKlas.ItemsSource = klasLijst;
             boxNieuweKlas.ItemsSource = klasLijst;
@@ -130,6 +129,5 @@ namespace Groepswerk
         }
 
         //Properties
-        public Gebruiker ActieveGebruiker { get; set; }
     }
 }

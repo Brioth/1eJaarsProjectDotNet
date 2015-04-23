@@ -73,6 +73,7 @@ namespace Groepswerk
         private void MnuRekenen_Click(object sender, RoutedEventArgs e)
         {
             //Vincent
+            framePages.Navigate("oefeningWiskundeMakkelijk"); 
         }
 
         //Author: Thomas Cox
@@ -119,7 +120,7 @@ namespace Groepswerk
 
         private void MnuIndOv_Click(object sender, RoutedEventArgs e)
         {
-            Gebruikerdetails detailsMenu = new Gebruikerdetails(ActieveGebruiker);
+            Gebruikerdetails detailsMenu = new Gebruikerdetails();
             framePages.Navigate(detailsMenu);
         }
         private void MnuKlasOver_Click(object sender, RoutedEventArgs e)
@@ -134,7 +135,7 @@ namespace Groepswerk
         }
         private void MnuAccBewerk_Click(object sender, RoutedEventArgs e)
         {
-            AccountBeheer accountBeheerMenu = new AccountBeheer(ActieveGebruiker);
+            AccountBeheer accountBeheerMenu = new AccountBeheer();
             framePages.Navigate(accountBeheerMenu);
         }
         private void MnuKlaslijstBewerk_Click(object sender, RoutedEventArgs e)
@@ -197,6 +198,8 @@ namespace Groepswerk
                 pasBalkAan();
             }
         }
+
+        
 
         
     }
