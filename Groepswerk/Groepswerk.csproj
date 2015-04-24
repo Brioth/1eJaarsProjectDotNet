@@ -91,6 +91,12 @@
     <Compile Include="HoofdSpelLijstRood.cs" />
     <Compile Include="HoofdSpelEntiteit.cs" />
     <Compile Include="Klaslijst.cs" />
+    <Compile Include="oefeningWiskundeGemiddeld.xaml.cs">
+      <DependentUpon>oefeningWiskundeGemiddeld.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="oefeningWiskundeMoeilijk.xaml.cs">
+      <DependentUpon>oefeningWiskundeMoeilijk.xaml</DependentUpon>
+    </Compile>
     <Compile Include="wo.cs" />
     <Page Include="BewerkKlasLijst.xaml">
       <SubType>Designer</SubType>
@@ -137,7 +143,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="oefeningWiskundeGemiddeld.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="oefeningWiskundeMakkelijk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="oefeningWiskundeMoeilijk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

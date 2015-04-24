@@ -1,0 +1,48 @@
+﻿<Page x:Class="Groepswerk.oefeningWiskundeMoeilijk"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="oefeningWiskundeMoeilijk"  Height="485.508" Width="721">
+
+    <Grid>
+        <Label Content="sleep de juiste oplossing naar de juiste opgave." HorizontalAlignment="Left" Margin="60,69,0,0" VerticalAlignment="Top" Height="32" Width="356"/>
+        <Label HorizontalAlignment="Left" Height="23" Margin="60,120,0,0"  Content="1" Name="antwoordlabel1" MouseLeftButtonDown="Label_MouseLeftButtonDown" VerticalAlignment="Top" Width="23"/>
+        <Label HorizontalAlignment="Left" Height="23" Margin="109,120,0,0" Content="2" Name="antwoordlabel2" VerticalAlignment="Top" Width="23"/>
+        <Label HorizontalAlignment="Left" Height="23" Margin="153,120,0,0" Content="3" Name="antwoordlabel3" VerticalAlignment="Top" Width="23"/>
+        <Label HorizontalAlignment="Left" Height="23" Margin="197,120,0,0" Content="4" Name="antwoordlabel4" VerticalAlignment="Top" Width="22"/>
+        <Label HorizontalAlignment="Left" Height="23" Margin="243,120,0,0" Content="5" Name="antwoordlabel5" VerticalAlignment="Top" Width="22"/>
+        <Label HorizontalAlignment="Left" Height="23" Margin="289,120,0,0" Content="6" Name="antwoordlabel6" VerticalAlignment="Top" Width="23"/>
+        <Label HorizontalAlignment="Left" Height="23" Margin="342,120,0,0" Content="7" Name="antwoordlabel7" VerticalAlignment="Top" Width="25"/>
+        <Label HorizontalAlignment="Left" Height="23" Margin="395,120,0,0" Content="8" Name="antwoordlabel8" VerticalAlignment="Top" Width="21"/>
+        <Label HorizontalAlignment="Left" Height="23" Margin="438,120,0,0" Content="9" Name="antwoordlabel9" VerticalAlignment="Top" Width="23"/>
+        <Label HorizontalAlignment="Left" Height="23" Margin="488,120,0,0" Content="10" Name="antwoordlabel10" VerticalAlignment="Top" Width="22"/>
+
+        <Label Name="opgaveblock1" HorizontalAlignment="Left" Margin="60,187,0,0" Content="0" VerticalAlignment="Top"/>
+        <Label HorizontalAlignment="Left" Margin="60,222,0,0" Content="0" Name="opgaveblock2" VerticalAlignment="Top" />
+        <Label HorizontalAlignment="Left" Margin="60,258,0,0" Content="0" Name="opgaveblock3" VerticalAlignment="Top" />
+        <Label HorizontalAlignment="Left" Margin="60,298,0,0" Content="0" Name="opgaveblock4" VerticalAlignment="Top" />
+        <Label HorizontalAlignment="Left" Margin="60,334,0,0" Content="0" Name="opgaveblock5" VerticalAlignment="Top" />
+        <Label HorizontalAlignment="Left" Margin="352,187,0,0" Content="0" Name="opgaveblock6" VerticalAlignment="Top" />
+        <Label HorizontalAlignment="Left" Margin="352,222,0,0" Content="0" Name="opgaveblock7" VerticalAlignment="Top" />
+        <Label HorizontalAlignment="Left" Margin="352,258,0,0" Content="0" Name="opgaveblock8" VerticalAlignment="Top"/>
+        <Label HorizontalAlignment="Left" Margin="352,298,0,0" Content="0" Name="opgaveblock9" VerticalAlignment="Top" />
+        <Label HorizontalAlignment="Left" Margin="352,334,0,0" Content="0" Name="opgaveblock10" VerticalAlignment="Top" />
+
+        <Label HorizontalAlignment="Left" Margin="222,187,0,0" Content="0" Name="dropLabel1" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label HorizontalAlignment="Left" Margin="222,222,0,0" Content="0" Name="dropLabel2" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label HorizontalAlignment="Left" Margin="222,258,0,0" Content="0" Name="dropLabel3" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label HorizontalAlignment="Left" Margin="222,298,0,0" Content="0" Name="dropLabel4" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label HorizontalAlignment="Left" Margin="222,335,0,0" Content="0" Name="dropLabel5" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label HorizontalAlignment="Left" Margin="554,187,0,0" Content="0" Name="dropLabel6" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label HorizontalAlignment="Left" Margin="554,222,0,0" Content="0" Name="dropLabel7" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label HorizontalAlignment="Left" Margin="554,258,0,0" Content="0" Name="dropLabel8" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label HorizontalAlignment="Left" Margin="554,298,0,0" Content="0" Name="dropLabel9" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label HorizontalAlignment="Left" Margin="554,342,0,0" Content="0" Name="dropLabel10" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+
+        <Button Name="verbeterButton" Content="Verbeter" HorizontalAlignment="Left" Margin="545,403,0,0" VerticalAlignment="Top" Width="99" Height="44" Click="verbeterButton_Click"/>
+        <TextBlock Name="Punten" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="91,428,0,0" Height="19" Width="94"/>
+    </Grid>
+</Page>

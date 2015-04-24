@@ -16,20 +16,17 @@ using System.Windows.Shapes;
 namespace Groepswerk
 {
     /// <summary>
-    /// Interaction logic for oefnWisk1.xaml
-    /// 
-    /// //author: Vincent Vandoninck
-    //date: 15/04/2015
+    /// Interaction logic for oefeningWiskundeMoeilijk.xaml
     /// </summary>
     public partial class oefeningWiskundeMakkelijk : Page
     {
-        private Oefening tempOefening1;
-        private OefeningLijst lijstOefeningenWiskunde1;
-        private string[] tempOpgaveWiskunde1, tempOplossing1;
-        private Random oefeningenNummer1 = new Random();
-        private int oefeningenNummerOpslag1;
-        private IList<int> oefeningenNummerLijst1;
-        private string[] lijstOpgaves1;
+        private Oefening tempOefening;
+        private OefeningLijst  lijstOefeningenWiskunde3;
+        private string[] tempOpgaveWiskunde3, tempOplossing3;
+        private Random oefeningenNummer3 = new Random();
+        private int oefeningenNummerOpslag3;
+        private IList<int> oefeningenNummerLijst3;
+        private string[] lijstOpgaves3;
         private int oefeningPunten;
 
         public oefeningWiskundeMakkelijk()
@@ -46,30 +43,30 @@ namespace Groepswerk
             // lijst vergelijken met de user input
             //
 
-            lijstOefeningenWiskunde1 = new OefeningLijst("makkelijk2");
-            for (int i = 0; i > lijstOefeningenWiskunde1.Count; i++)
+            lijstOefeningenWiskunde3 = new OefeningLijst("moeilijk2" );
+            for (int i = 0; i > lijstOefeningenWiskunde3.Count; i++)
             {
-                tempOpgaveWiskunde1[i] = lijstOefeningenWiskunde1[i].opgave;
+                tempOpgaveWiskunde3[i] = lijstOefeningenWiskunde3[i].opgave;
 
-                tempOplossing1[i] = lijstOefeningenWiskunde1[i].oplossing;
+                tempOplossing3[i] = lijstOefeningenWiskunde3[i].oplossing;
 
             }
-            opgaveblock1.Content = tempOpgaveWiskunde1[0];
-            opgaveblock2.Content = tempOpgaveWiskunde1[1];
-            opgaveblock3.Content = tempOpgaveWiskunde1[2];
-            opgaveblock4.Content = tempOpgaveWiskunde1[3];
-            opgaveblock5.Content = tempOpgaveWiskunde1[4];
-            opgaveblock6.Content = tempOpgaveWiskunde1[5];
-            opgaveblock7.Content = tempOpgaveWiskunde1[6];
-            opgaveblock8.Content = tempOpgaveWiskunde1[7];
-            opgaveblock9.Content = tempOpgaveWiskunde1[8];
-            opgaveblock10.Content = tempOpgaveWiskunde1[9];
+            opgaveblock1.Content = tempOpgaveWiskunde3[0];
+            opgaveblock2.Content = tempOpgaveWiskunde3[1];
+            opgaveblock3.Content = tempOpgaveWiskunde3[2];
+            opgaveblock4.Content = tempOpgaveWiskunde3[3];
+            opgaveblock5.Content = tempOpgaveWiskunde3[4];
+            opgaveblock6.Content = tempOpgaveWiskunde3[5];
+            opgaveblock7.Content = tempOpgaveWiskunde3[6];
+            opgaveblock8.Content = tempOpgaveWiskunde3[7];
+            opgaveblock9.Content = tempOpgaveWiskunde3[8];
+            opgaveblock10.Content = tempOpgaveWiskunde3[9];
 
 
 
             for (int i = 0; i < 10; i++)
             {
-                oefeningenNummerOpslag1 = oefeningenNummer.Next(0, 9);
+                oefeningenNummerOpslag3 = oefeningenNummer3.Next(0, 9);
                 //if (!(oefeningenNummerLijst.Contains(oefeningenNummerOpslag)))
                 //{
                 //    lijstOpgaves[i] = tempOplossing[oefeningenNummerOpslag];
@@ -77,27 +74,27 @@ namespace Groepswerk
                 //}
                 //else
                 //{
-                while (oefeningenNummerLijst.Contains(oefeningenNummerOpslag1))
+                while (oefeningenNummerLijst3.Contains(oefeningenNummerOpslag3))
                 {
-                    oefeningenNummerOpslag1 = oefeningenNummer.Next(0, 9);
+                    oefeningenNummerOpslag3 = oefeningenNummer3.Next(0, 9);
                 }
-                lijstOpgaves[i] = tempOplossing1[oefeningenNummerOpslag1];
+                lijstOpgaves3[i] = tempOplossing3[oefeningenNummerOpslag3];
                 //}
             }
 
-            antwoordlabel1.Content = lijstOpgaves1[0];
-            antwoordlabel2.Content = lijstOpgaves1[1];
-            antwoordlabel3.Content = lijstOpgaves1[2];
-            antwoordlabel4.Content = lijstOpgaves1[3];
-            antwoordlabel5.Content = lijstOpgaves1[4];
-            antwoordlabel6.Content = lijstOpgaves1[5];
-            antwoordlabel7.Content = lijstOpgaves1[6];
-            antwoordlabel8.Content = lijstOpgaves1[7];
-            antwoordlabel9.Content = lijstOpgaves1[8];
-            antwoordlabel10.Content = lijstOpgaves1[9];
+            antwoordlabel1.Content = lijstOpgaves3[0];
+            antwoordlabel2.Content = lijstOpgaves3[1];
+            antwoordlabel3.Content = lijstOpgaves3[2];
+            antwoordlabel4.Content = lijstOpgaves3[3];
+            antwoordlabel5.Content = lijstOpgaves3[4];
+            antwoordlabel6.Content = lijstOpgaves3[5];
+            antwoordlabel7.Content = lijstOpgaves3[6];
+            antwoordlabel8.Content = lijstOpgaves3[7];
+            antwoordlabel9.Content = lijstOpgaves3[8];
+            antwoordlabel10.Content = lijstOpgaves3[9];
         }
 
-            private void Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DataObject data = new DataObject(DataFormats.Text, ((Label)e.Source).Content);
 
@@ -105,14 +102,14 @@ namespace Groepswerk
             //slepen
         }
 
-         private void Label_Drop(object sender, DragEventArgs e)
-            // hier wordt gedropped
+        private void Label_Drop(object sender, DragEventArgs e)
+        // hier wordt gedropped
         {
             ((Label)e.Source).Content = (string)e.Data.GetData(DataFormats.Text);
         }
 
         private void Label_GiveFeedback(object sender, GiveFeedbackEventArgs e)
-            // als je boven een drop object staat veranderd je cursor
+        // als je boven een drop object staat veranderd je cursor
         {
             if (e.Effects == DragDropEffects.Copy)
             {
@@ -127,8 +124,8 @@ namespace Groepswerk
 
 
 
-               
-        
+
+
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
             //oefeningPunten=0;
@@ -136,7 +133,7 @@ namespace Groepswerk
             //    //het erbij gesleepte)
             //    //placeholder
             //    {
-                
+
             //     oefeningPunten++;
             //}
             //if ((lijstOefeningenWiskunde1[1].correcteOplossing).Equals(dropLabel1.Content)
@@ -148,6 +145,6 @@ namespace Groepswerk
 
         }
 
-        
+
     }
 }
