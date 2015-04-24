@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Groepswerk
 {    /* --AccountLijst--
@@ -21,6 +22,7 @@ namespace Groepswerk
         //Constructors
         public Klaslijst()
         {
+            try
             {
                 StreamReader bestandKlas = File.OpenText(@"Klassen.txt");
                 string regel = bestandKlas.ReadLine();
@@ -31,6 +33,10 @@ namespace Groepswerk
                     regel = bestandKlas.ReadLine();
                 }
                 bestandKlas.Close();
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("Bestand Klassen.txt niet gevonden");
             }
         }
         //Events

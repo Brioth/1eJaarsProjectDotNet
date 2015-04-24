@@ -18,5 +18,11 @@ namespace Groepswerk
             //Window programma = new Programma();
             //programma.Show();
         }
+
+        private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show("An unhandled exception just occured: " + e.Exception.Message, "Unhandled Exception", MessageBoxButton.OK, MessageBoxImage.Warning);
+            e.Handled = true;
+        }
     }
 }

@@ -44,18 +44,45 @@ namespace Groepswerk
         }
         private void btnNieuw_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
             string nieuweKlas = txtbOmschr.Text;
-            klasLijst.Insert(Convert.ToInt32(txtbIndex.Text) - 1, nieuweKlas);
+            int index = Convert.ToInt32(txtbIndex.Text) - 1 ;
+            if (index > klasLijst.Count)
+            {
+                index = klasLijst.Count;
+            }
+            klasLijst.Insert(index, nieuweKlas);
             klasLijst.SchrijfLijst();
             UpdateLijst();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("De index moet een cijfer zijn");
+            }
+
+
         }
         private void btnPasAan_Click(object sender, RoutedEventArgs e)
         {
-            string nieuweNaam = txtbOmschr.Text;
-            klasLijst.Remove(selectedKlas);
-            klasLijst.Insert(Convert.ToInt32(txtbIndex.Text) - 1, nieuweNaam);//Exception om out of bound om te zetten naar laatste
-            klasLijst.SchrijfLijst();
-            UpdateLijst();
+            try
+            {
+                string nieuweNaam = txtbOmschr.Text;
+                int index = Convert.ToInt32(txtbIndex.Text) - 1;
+                if (index>klasLijst.Count)  
+                {
+                    index = klasLijst.Count;
+                }
+                klasLijst.Remove(selectedKlas);
+                klasLijst.Insert(index, nieuweNaam);
+                klasLijst.SchrijfLijst();
+                UpdateLijst();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("De index moet een cijfer zijn");
+            }
+
         }
         private void btnVerwijder_Click(object sender, RoutedEventArgs e)
         {

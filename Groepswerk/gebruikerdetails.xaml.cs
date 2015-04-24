@@ -28,10 +28,9 @@ namespace Groepswerk
         private Gebruiker selectedGebruiker;
 
         //Constructors
-        public Gebruikerdetails(Gebruiker actieveGebruiker)
+        public Gebruikerdetails()
         {
             InitializeComponent(); // laad u formulier
-            ActieveGebruiker = actieveGebruiker;
             klasLijst = new Klaslijst();
             klasKeuze.ItemsSource = klasLijst;
             // de bron van deze box is de lijst
@@ -85,7 +84,7 @@ namespace Groepswerk
         }
        
         //propertys
-        public Gebruiker ActieveGebruiker { get; set; }
+
 
 
     } 

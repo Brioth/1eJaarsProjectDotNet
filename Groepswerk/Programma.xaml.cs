@@ -80,15 +80,18 @@ namespace Groepswerk
         //Date: 22/04/2015
         private void MnuTaalMakkelijk_Click(object sender, RoutedEventArgs e)
         {
-            framePages.Navigate("OefNederlands1Makkelijk");
+            OefNederlands1Makkelijk oefNederlandsMakkelijk = new OefNederlands1Makkelijk();
+            framePages.Navigate(oefNederlandsMakkelijk);
         }
         private void MnuTaalGemiddeld_Click(object sender, RoutedEventArgs e)
         {
-            framePages.Navigate("OefNederlands1Gemiddeld");
+            OefNederlands1Gemiddeld oefNederlandsGemiddeld = new OefNederlands1Gemiddeld();
+            framePages.Navigate(oefNederlandsGemiddeld);
         }
         private void MnuTaalMoeilijk_Click(object sender, RoutedEventArgs e)
         {
-            framePages.Navigate("OefNederlands1Moeilijk");
+            OefNederlands1Moeilijk oefNederlandsMoeilijk = new OefNederlands1Moeilijk();
+            framePages.Navigate(oefNederlandsMoeilijk);
         }
         //Author: Seppe
         private void MnuWO_Click(object sender, RoutedEventArgs e)
@@ -101,19 +104,23 @@ namespace Groepswerk
         //Date: 22/04/2015
         private void MnuBewerkenMakkelijk_Click(object sender, RoutedEventArgs e)
         {
+            OefNederlands1AanpassenMakkelijk oefNederlandsAanpassenMakkelijk = new OefNederlands1AanpassenMakkelijk();
             framePages.Navigate("OefNederlands1AanpassenMakkelijk");
         }
         private void MnuBewerkenGemiddeld_Click(object sender, RoutedEventArgs e)
         {
-            framePages.Navigate("OefNederlands1AanpassenGemiddeld");
+            OefNederlands1AanpassenGemiddeld oefNederlandsAanpassenGemiddeld = new OefNederlands1AanpassenGemiddeld();
+            framePages.Navigate(oefNederlandsAanpassenGemiddeld);
         }
         private void MnuBewerkenMoeilijk_Click(object sender, RoutedEventArgs e)
         {
-            framePages.Navigate("OefNederlands1AanpassenMoeilijk");
+            OefNederlands1AanpassenMoeilijk nederlandsOefAanpassenMoeilijk = new OefNederlands1AanpassenMoeilijk();
+            framePages.Navigate(nederlandsOefAanpassenMoeilijk);
         }
+
         private void MnuIndOv_Click(object sender, RoutedEventArgs e)
         {
-            Gebruikerdetails detailsMenu = new Gebruikerdetails(ActieveGebruiker);
+            Gebruikerdetails detailsMenu = new Gebruikerdetails();
             framePages.Navigate(detailsMenu);
         }
         private void MnuKlasOver_Click(object sender, RoutedEventArgs e)
@@ -128,7 +135,7 @@ namespace Groepswerk
         }
         private void MnuAccBewerk_Click(object sender, RoutedEventArgs e)
         {
-            AccountBeheer accountBeheerMenu = new AccountBeheer(ActieveGebruiker);
+            AccountBeheer accountBeheerMenu = new AccountBeheer();
             framePages.Navigate(accountBeheerMenu);
         }
         private void MnuKlaslijstBewerk_Click(object sender, RoutedEventArgs e)
