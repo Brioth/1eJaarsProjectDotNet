@@ -63,25 +63,59 @@ namespace Groepswerk
                 bestandOefening.Close();
             }
 
-
-        }
-        public OefeningLijst()
-        {
-
-            StreamReader bestandOefening = File.OpenText(@"oefnWiskunde1");
-            string regel = bestandOefening.ReadLine();
-            char[] scheiding = { ';' };
-
-            while (regel != null)
+            if (moeilijkheid.Equals("makkelijk2"))
             {
-                string[] deel = regel.Split(scheiding);
+                StreamReader bestandOefeningMak = File.OpenText(@"oefnWiskundeMakkelijk");
+                string regel = bestandOefeningMak.ReadLine();
+                char[] scheiding = { ';' };
 
-                Oefening oefeningWiskunde = new Oefening(deel[0], deel[1]);
-                this.Add(oefeningWiskunde);
-                regel = bestandOefening.ReadLine();
+                while (regel != null)
+                {
+                    string[] deel = regel.Split(scheiding);
+
+                    Oefening oefeningWiskundeMak = new Oefening(deel[0], deel[1]);
+                    this.Add(oefeningWiskundeMak);
+                    regel = bestandOefeningMak.ReadLine();
+                }
+                bestandOefeningMak.Close();
             }
-            bestandOefening.Close();
+
+            if (moeilijkheid.Equals("gemiddeld2"))
+            {
+                StreamReader bestandOefeningGem = File.OpenText(@"oefnWiskundeGemiddeld");
+                string regel = bestandOefeningGem.ReadLine();
+                char[] scheiding = { ';' };
+
+                while (regel != null)
+                {
+                    string[] deel = regel.Split(scheiding);
+
+                    Oefening oefeningWiskundeMoeil = new Oefening(deel[0], deel[1]);
+                    this.Add(oefeningWiskundeMoeil);
+                    regel = bestandOefeningGem.ReadLine();
+                }
+                bestandOefeningGem.Close();
+            }
+
+            if (moeilijkheid.Equals("moeilijk2"))
+            {
+                StreamReader bestandOefeningMoeil = File.OpenText(@"oefnWiskundeMoeilijk");
+                string regel = bestandOefeningMoeil.ReadLine();
+                char[] scheiding = { ';' };
+
+                while (regel != null)
+                {
+                    string[] deel = regel.Split(scheiding);
+
+                    Oefening oefeningWiskunde = new Oefening(deel[0], deel[1]);
+                    this.Add(oefeningWiskunde);
+                    regel = bestandOefeningMoeil.ReadLine();
+                }
+                bestandOefeningMoeil.Close();
+            }
+
         }
+       
     }
      
 }

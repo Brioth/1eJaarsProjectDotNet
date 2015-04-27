@@ -93,6 +93,12 @@
     <Compile Include="HoofdSpelEntiteit.cs" />
     <Compile Include="IBeweegbaar.cs" />
     <Compile Include="Klaslijst.cs" />
+    <Compile Include="oefeningWiskundeGemiddeld.xaml.cs">
+      <DependentUpon>oefeningWiskundeGemiddeld.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="oefeningWiskundeMoeilijk.xaml.cs">
+      <DependentUpon>oefeningWiskundeMoeilijk.xaml</DependentUpon>
+    </Compile>
     <Compile Include="wo.cs" />
     <Compile Include="ZombieSpel.xaml.cs">
       <DependentUpon>ZombieSpel.xaml</DependentUpon>
@@ -147,7 +153,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="oefeningWiskundeGemiddeld.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="oefeningWiskundeMakkelijk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="oefeningWiskundeMoeilijk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
