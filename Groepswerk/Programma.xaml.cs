@@ -32,7 +32,6 @@ namespace Groepswerk
         public Programma()
         {
             InitializeComponent();
-            programma.WindowState = WindowState.Maximized;
             Login login = new Login();
             framePages.Navigate(login);
             maakMenuLeeg();

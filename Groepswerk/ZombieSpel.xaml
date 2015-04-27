@@ -1,0 +1,29 @@
+﻿<Page x:Class="Groepswerk.ZombieSpel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="376" d:DesignWidth="508.8"
+      Background="#9D78989A"
+	Title="ZombieSpel">
+
+    <Grid>
+        <Canvas Name="spelCanvas"  HorizontalAlignment="Left" Height="300" Margin="10,66,0,0" VerticalAlignment="Top" Width="300" ClipToBounds="True">
+            <Canvas.Background>
+                <SolidColorBrush Color="{DynamicResource LawnGreen}"/>
+            </Canvas.Background>
+            <Canvas.Resources>
+                <Color x:Key="LawnGreen">#FF83BD1C</Color>
+            </Canvas.Resources>
+            <Image Name ="imgComputer" Source="bin/Debug/driehoekBlauw.png" Height="30" Canvas.Left="127" Canvas.Top="50" Width="30"/>
+            <Image Name ="imgSpeler" Source="bin/Debug/driehoekRood.png" Height="30" Canvas.Left="127" Canvas.Top="250" Width="30"/>
+        </Canvas>
+        <Button Name="btnSkill1" Content="Skill1" HorizontalAlignment="Left" Height="28" Margin="350,116,0,0" VerticalAlignment="Top" Width="113" Click="btnSkill1_Click"/>
+        <Button x:Name="btnSkill2" Content="Skill2" HorizontalAlignment="Left" Height="28" Margin="350,149,0,0" VerticalAlignment="Top" Width="113" Click="btnSkill2_Click"/>
+        <Button x:Name="btnSkill3" Content="Skill3" HorizontalAlignment="Left" Height="28" Margin="350,182,0,0" VerticalAlignment="Top" Width="113" Click="btnSkill3_Click"/>
+        <Button x:Name="btnSkill4" Content="Skill4" HorizontalAlignment="Left" Height="28" Margin="350,215,0,0" VerticalAlignment="Top" Width="113" Click="btnSkill4_Click"/>
+        <Button x:Name="btnSkill5" Content="Skill5" HorizontalAlignment="Left" Height="28" Margin="350,248,0,0" VerticalAlignment="Top" Width="113" Click="btnSkill5_Click"/>
+        <Button x:Name="btnSkill6" Content="Skill6" HorizontalAlignment="Left" Height="28" Margin="350,281,0,0" VerticalAlignment="Top" Width="113" Click="btnSkill6_Click"/>
+    </Grid>
+</Page>

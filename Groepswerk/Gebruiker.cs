@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Groepswerk
 {
@@ -13,6 +14,8 @@ namespace Groepswerk
      * Formaat Accounts: type(lln of lk);klas;ID;voornaam;achternaam;psw;gemWisk;gemNed;gemWO;tijdVoorSpelInSec
      * Gebruik SetGameTijd(int aantalVragenJuist, string codeMoeilijkheidsgraad) om gameTijd bij te geven
      * codes moeilijkheidsgraad zijn MAK, MED en MOE
+     * 3 seconden per juist antwoord, *1 voor mak, *2 voor med en *3 voor moe
+     * maximum gametijd te behalven is 6 minuten (360seconden), dit kan je behalen door 4 moeilijke oefeningen volledig juist te maken
      * Gebruik SchrijfString() om de string van de gebruiker te krijgen in het formaat nodig voor de txt-bestanden
      * Author: Carmen Celen
      * Date: 30/03/2015
@@ -75,25 +78,38 @@ namespace Groepswerk
 
         public void SetGameTijd(int vragenJuist, string moeilijkheidsgraad)
         {
-            double percentage;
+            if (vragenJuist>10)
+            {
+                MessageBox.Show("vragenjuist moet liggen tussen 0 en 10");//mag later weg, voor debug
+            }
+            int verhoging;
             moeilijkheidsgraad = moeilijkheidsgraad.ToUpper();
 
             switch (moeilijkheidsgraad)
             {
                 case "MAK":
-                    percentage = 1.0;
+                    verhoging = 1;
                     break;
                 case "MED":
-                    percentage = 1.50;
+                    verhoging = 2;
                     break;
                 case "MOE":
-                    percentage = 2.00;
+                    verhoging = 3;
                     break;
                 default:
-                    percentage = 0.13; //Om een gek getal uit te komen en aan te geven code is fout
+                    verhoging = 0;
+                    MessageBox.Show("code moeilijkheidsgraad is niet goed, kies uit mak, med of moe");//mag later weg, voor debug
                     break;
             }
-            gameTijd = GameTijdSec + Convert.ToInt32(vragenJuist * 10 * percentage + 0.5);
+            gameTijd = GameTijdSec + vragenJuist * 3 * verhoging;
+            if (gameTijd > 360)
+            {
+                gameTijd = 360;
+            }
+        }
+        public void SetGameTijdOp0()
+        {
+            gameTijd = 0;
         }
         //Properties
         public int Id { get; set; }
