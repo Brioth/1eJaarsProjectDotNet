@@ -99,6 +99,7 @@
     <Compile Include="oefeningWiskundeMoeilijk.xaml.cs">
       <DependentUpon>oefeningWiskundeMoeilijk.xaml</DependentUpon>
     </Compile>
+    <Compile Include="wegschrijvenData.cs" />
     <Compile Include="wo.cs" />
     <Compile Include="ZombieSpel.xaml.cs">
       <DependentUpon>ZombieSpel.xaml</DependentUpon>
@@ -305,6 +306,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="bin\Debug\Zombie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Accounts.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Klassen.txt" />
+    <Resource Include="bin\Debug\OefNederlands1Gemiddeld.txt" />
+    <Resource Include="bin\Debug\OefNederlands1Makkelijk.txt" />
+    <Resource Include="bin\Debug\OefNederlands1Moeilijk.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
