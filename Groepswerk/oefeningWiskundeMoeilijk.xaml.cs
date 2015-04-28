@@ -18,7 +18,7 @@ namespace Groepswerk
     /// <summary>
     /// Interaction logic for oefeningWiskundeMoeilijk.xaml
     /// </summary>
-    public partial class oefeningWiskundeMakkelijk : Page
+    public partial class oefeningWiskundeMoeilijk : Page
     {
         private Oefening tempOefening;
         private OefeningLijst  lijstOefeningenWiskunde3;
@@ -29,7 +29,7 @@ namespace Groepswerk
         private string[] lijstOpgaves3;
         private int oefeningPunten3;
 
-        public oefeningWiskundeMakkelijk()
+        public oefeningWiskundeMoeilijk()
         {
             InitializeComponent();
 

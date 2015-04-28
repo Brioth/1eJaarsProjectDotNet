@@ -17,7 +17,7 @@ namespace Groepswerk
     /// <summary>
     /// Interaction logic for oefWoGemiddeld.xaml
     /// </summary>
-    public partial class oefWoGemiddeld : Window
+    public partial class oefWoGemiddeld : Page
     {
        private wo lijstOefeningen;
         private string[] tempOpgave, tempOplossing1, tempOplossing2, tempOplossing3;

@@ -17,7 +17,7 @@ namespace Groepswerk
     /// <summary>
     /// Interaction logic for oefWoMakkelijk.xaml
     /// </summary>
-    public partial class oefWoMakkelijk : Window
+    public partial class oefWoMakkelijk : Page
     {
         private wo lijstOefeningen;
         private string[] tempOpgave, tempOplossing1, tempOplossing2, tempOplossing3;
