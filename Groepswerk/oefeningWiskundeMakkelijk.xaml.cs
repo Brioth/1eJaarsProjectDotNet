@@ -81,7 +81,7 @@ namespace Groepswerk
                 {
                     oefeningenNummerOpslag1 = oefeningenNummer.Next(0, 9);
                 }
-                lijstOpgaves[i] = tempOplossing1[oefeningenNummerOpslag1];
+                lijstOpgaves1[i] = tempOplossing1[oefeningenNummerOpslag1];
                 //}
             }
 

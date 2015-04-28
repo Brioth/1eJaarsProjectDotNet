@@ -149,11 +149,12 @@
       <FileName>OefeningLijst.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Groepswerk.oefeningWiskundeMakkelijk">
+  <Class Name="Groepswerk.oefeningWiskundeMoeilijk">
     <Position X="5.75" Y="4.75" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>QQAKCAAAABAAggMAAAAAIAEAFEBAAAAsIAAAAAEECEA=</HashCode>
-      <FileName>oefeningWiskundeGemiddeld.xaml.cs</FileName>
+      <HashCode>QQAICAAAAAAAgAAAAAAAAAAABEBAAAAIIAAAAAEEAgA=</HashCode>
+      <FileName>oefeningWiskundeMoeilijk.xaml.cs</FileName>
+      <NewMemberFileName>oefeningWiskundeGemiddeld.xaml.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Groepswerk.OefNederlands1AanpassenGemiddeld" Collapsed="true">
