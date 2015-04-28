@@ -49,7 +49,7 @@ namespace Groepswerk
             lijstOefeningenWiskunde2 = new OefeningLijst("gemiddeld2");
             for (int i = 0; i > lijstOefeningenWiskunde2.Count; i++)
             {
-                lijstOefeningenWiskunde2[i] =  lijstOefeningenWiskunde2[i].opgave;
+               // lijstOefeningenWiskunde2[i] =  lijstOefeningenWiskunde2[i].opgave;
 
                 tempOplossing2[i] = lijstOefeningenWiskunde2[i].oplossing;
 
