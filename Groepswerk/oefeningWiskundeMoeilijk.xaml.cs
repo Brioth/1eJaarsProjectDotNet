@@ -20,7 +20,7 @@ namespace Groepswerk
     /// </summary>
     public partial class oefeningWiskundeMakkelijk : Page
     {
-        private Oefening tempOefening;
+        private Oefening tempOefening3;
         private OefeningLijst  lijstOefeningenWiskunde3;
         private string[] tempOpgaveWiskunde3, tempOplossing3;
         private Random oefeningenNummer3 = new Random();
@@ -128,21 +128,56 @@ namespace Groepswerk
 
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
-            //oefeningPunten3=0;
-            //if ((lijstOefeningenWiskunde1[1].correcteOplossing).Equals(null)) 
-            //    //het erbij gesleepte)
-            //    //placeholder
-            //    {
+            oefeningPunten3 = 0;
 
-            //     oefeningPunten++;
-            //}
-            //if ((lijstOefeningenWiskunde1[1].correcteOplossing).Equals(dropLabel1.Content))
-            //{
-            //     oefeningPunten3++;
-            //}
+            {
+
+                if ((lijstOefeningenWiskunde1[1].correcteOplossing).Equals(dropLabel1.Content))
+                {
+                    oefeningPunten3++;
+                }
+                if ((lijstOefeningenWiskunde1[2].correcteOplossing).Equals(dropLabel2.Content))
+                {
+                    oefeningPunten3++;
+                }
+                if ((lijstOefeningenWiskunde1[3].correcteOplossing).Equals(dropLabel3.Content))
+                {
+                    oefeningPunten3++;
+                }
+                if ((lijstOefeningenWiskunde1[4].correcteOplossing).Equals(dropLabel4.Content))
+                {
+                    oefeningPunten3++;
+                }
+                if ((lijstOefeningenWiskunde1[5].correcteOplossing).Equals(dropLabel5.Content))
+                {
+                    oefeningPunten3++;
+                }
+                if ((lijstOefeningenWiskunde1[6].correcteOplossing).Equals(dropLabel6.Content))
+                {
+                    oefeningPunten3++;
+                }
+                if ((lijstOefeningenWiskunde1[7].correcteOplossing).Equals(dropLabel7.Content))
+                {
+                    oefeningPunten3++;
+                }
+                if ((lijstOefeningenWiskunde1[8].correcteOplossing).Equals(dropLabel8.Content))
+                {
+                    oefeningPunten3++;
+                }
+                if ((lijstOefeningenWiskunde1[9].correcteOplossing).Equals(dropLabel9.Content))
+                {
+                    oefeningPunten3++;
+                }
+                if ((lijstOefeningenWiskunde1[10].correcteOplossing).Equals(dropLabel10.Content))
+                {
+                    oefeningPunten3++;
+                }
+
+                Punten.Text = "u heeft  " + oefeningPunten3 + " behaald.";
+                oefeningPunten3++;
 
 
-
+            }
         }
 
 

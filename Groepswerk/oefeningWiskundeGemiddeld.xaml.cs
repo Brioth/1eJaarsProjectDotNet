@@ -18,6 +18,9 @@ namespace Groepswerk
     /// <summary>
     /// Interaction logic for oefeningWiskundeGemiddeld.xaml
     /// </summary>
+    /// 
+    //author: Vincent Vandoninck
+    //date: 15/04/2015
     public partial class oefeningWiskundeMakkelijk : Page
     {
         private Oefening tempOefening;
@@ -26,7 +29,7 @@ namespace Groepswerk
         private Random oefeningenNummer = new Random();
         private int oefeningenNummerOpslag;
         private IList<int> oefeningenNummerLijst;
-        private string[] lijstOpgaves;
+        private string[] lijstOpgaves2;
         private int oefeningPunten2;
 
         public oefeningWiskundeMakkelijk()
@@ -46,12 +49,12 @@ namespace Groepswerk
             lijstOefeningenWiskunde2 = new OefeningLijst("gemiddeld2");
             for (int i = 0; i > lijstOefeningenWiskunde2.Count; i++)
             {
-                lijstOefeningenWiskunde2[i] = lijstOefeningenWiskunde2[i].opgave;
+                lijstOefeningenWiskunde2[i] =  lijstOefeningenWiskunde2[i].opgave;
 
                 tempOplossing2[i] = lijstOefeningenWiskunde2[i].oplossing;
 
             }
-            opgaveblock1.Content = tempOpgaveWiskunde2[0];
+            opgaveblock1.Content =  tempOpgaveWiskunde2[0];
             opgaveblock2.Content = tempOpgaveWiskunde2[1];
             opgaveblock3.Content = tempOpgaveWiskunde2[2];
             opgaveblock4.Content = tempOpgaveWiskunde2[3];
@@ -78,20 +81,20 @@ namespace Groepswerk
                 {
                     oefeningenNummerOpslag = oefeningenNummer.Next(0, 9);
                 }
-                lijstOpgaves[i] = tempOplossing2[oefeningenNummerOpslag];
+                lijstOpgaves2[i] = tempOplossing2[oefeningenNummerOpslag];
                 //}
             }
 
-            antwoordlabel1.Content = lijstOpgaves[0];
-            antwoordlabel2.Content = lijstOpgaves[1];
-            antwoordlabel3.Content = lijstOpgaves[2];
-            antwoordlabel4.Content = lijstOpgaves[3];
-            antwoordlabel5.Content = lijstOpgaves[4];
-            antwoordlabel6.Content = lijstOpgaves[5];
-            antwoordlabel7.Content = lijstOpgaves[6];
-            antwoordlabel8.Content = lijstOpgaves[7];
-            antwoordlabel9.Content = lijstOpgaves[8];
-            antwoordlabel10.Content = lijstOpgaves[9];
+            antwoordlabel1.Content = lijstOpgaves2[0];
+            antwoordlabel2.Content = lijstOpgaves2[1];
+            antwoordlabel3.Content = lijstOpgaves2[2];
+            antwoordlabel4.Content = lijstOpgaves2[3];
+            antwoordlabel5.Content = lijstOpgaves2[4];
+            antwoordlabel6.Content = lijstOpgaves2[5];
+            antwoordlabel7.Content = lijstOpgaves2[6];
+            antwoordlabel8.Content = lijstOpgaves2[7];
+            antwoordlabel9.Content = lijstOpgaves2[8];
+            antwoordlabel10.Content = lijstOpgaves2[9];
         }
 
         private void Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -128,16 +131,52 @@ namespace Groepswerk
 
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
-            //oefeningPunten2=0;
-            //if ((lijstOefeningenWiskunde1[1].correcteOplossing).Equals(null)) 
-            //    //het erbij gesleepte)
-            //    //placeholder
-            //    {
+            oefeningPunten2 = 0;
 
-            //     oefeningPunten++;
-            //}
-            if ((lijstOefeningenWiskunde1[1].correcteOplossing).Equals(dropLabel1.Content))
             {
+
+                if ((lijstOefeningenWiskunde1[1].correcteOplossing).Equals(dropLabel1.Content))
+                {
+                    oefeningPunten2++;
+                }
+                if ((lijstOefeningenWiskunde1[2].correcteOplossing).Equals(dropLabel2.Content))
+                {
+                    oefeningPunten2++;
+                }
+                if ((lijstOefeningenWiskunde1[3].correcteOplossing).Equals(dropLabel3.Content))
+                {
+                    oefeningPunten2++;
+                }
+                if ((lijstOefeningenWiskunde1[4].correcteOplossing).Equals(dropLabel4.Content))
+                {
+                    oefeningPunten2++;
+                }
+                if ((lijstOefeningenWiskunde1[5].correcteOplossing).Equals(dropLabel5.Content))
+                {
+                    oefeningPunten2++;
+                }
+                if ((lijstOefeningenWiskunde1[6].correcteOplossing).Equals(dropLabel6.Content))
+                {
+                    oefeningPunten2++;
+                }
+                if ((lijstOefeningenWiskunde1[7].correcteOplossing).Equals(dropLabel7.Content))
+                {
+                    oefeningPunten2++;
+                }
+                if ((lijstOefeningenWiskunde1[8].correcteOplossing).Equals(dropLabel8.Content))
+                {
+                    oefeningPunten2++;
+                }
+                if ((lijstOefeningenWiskunde1[9].correcteOplossing).Equals(dropLabel9.Content))
+                {
+                    oefeningPunten2++;
+                }
+                if ((lijstOefeningenWiskunde1[10].correcteOplossing).Equals(dropLabel10.Content))
+                {
+                    oefeningPunten2++;
+                }
+
+                Punten.Text = "u heeft  " + oefeningPunten2 + " behaald.";
                  oefeningPunten2++;
             }
 

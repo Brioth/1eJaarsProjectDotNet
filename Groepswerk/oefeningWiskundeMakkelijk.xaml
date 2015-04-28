@@ -42,6 +42,6 @@
         <Label HorizontalAlignment="Left" Margin="554,342,0,0" Content="0" Name="dropLabel10" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
         
         <Button Name="verbeterButton" Content="Verbeter" HorizontalAlignment="Left" Margin="545,403,0,0" VerticalAlignment="Top" Width="99" Height="44" Click="verbeterButton_Click"/>
-        <TextBlock Name="Punten" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="91,428,0,0" Height="19" Width="94"/>
+        <TextBlock Name="Punten" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="91,428,0,0" Height="19" Text="" Width="94"/>
     </Grid>
 </Page>
