@@ -51,6 +51,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -90,6 +91,7 @@
     <Compile Include="HoofdSpelLijstBlauw.cs" />
     <Compile Include="HoofdSpelLijstRood.cs" />
     <Compile Include="HoofdSpelEntiteit.cs" />
+    <Compile Include="IBeweegbaar.cs" />
     <Compile Include="Klaslijst.cs" />
     <Compile Include="oefeningWiskundeGemiddeld.xaml.cs">
       <DependentUpon>oefeningWiskundeGemiddeld.xaml</DependentUpon>
@@ -98,6 +100,14 @@
       <DependentUpon>oefeningWiskundeMoeilijk.xaml</DependentUpon>
     </Compile>
     <Compile Include="wo.cs" />
+    <Compile Include="ZombieSpel.xaml.cs">
+      <DependentUpon>ZombieSpel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ZombieSpelComputer.cs" />
+    <Compile Include="ZombieSpelHuman.cs" />
+    <Compile Include="ZombieSpelSpeler.cs" />
+    <Compile Include="ZombieSpelSprite.cs" />
+    <Compile Include="ZombieSpelZombie.cs" />
     <Page Include="BewerkKlasLijst.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -195,6 +205,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ZombieSpel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OefeningLijst.cs" />
@@ -277,6 +291,18 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\driehoekBlauw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\driehoekRood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Mannetje.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Zombie.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

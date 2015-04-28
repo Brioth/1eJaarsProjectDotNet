@@ -2,9 +2,9 @@
         Name="programma"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Programma" Height="600" Width="600">
+        Title="Programma" Height="600" Width="600" WindowState="Maximized">
     <DockPanel Name="dock">
-        <Menu Name="mainMenu" DockPanel.Dock="Top">
+        <Menu Name="mainMenu" DockPanel.Dock="Top" Height="30" FontSize="16">
             <MenuItem Name="mnuBasis" Header="Menu">
                 <MenuItem Header="Log uit" Click="MnuHome_Click"/>
                 <MenuItem Header="Exit" Click="MnuStop_Click"/>
@@ -16,7 +16,11 @@
                     <MenuItem Header="Taal - Gemmiddeld" Click="MnuTaalGemiddeld_Click"/>
                     <MenuItem Header="Taal - Moeilijk" Click="MnuTaalMoeilijk_Click"/>
                 </MenuItem>
-                <MenuItem Header="WO" Click="MnuWO_Click"/>
+                <MenuItem Header="WO" >
+                    <MenuItem Header ="Wo - Makkelijk" Click="MnuWoMakkelijk_Click"/>
+                    <MenuItem Header="Wo - Gemmiddeld" Click="MnuWoGemiddeld_Click"/>
+                    <MenuItem Header="Wo - Moeilijk" Click="MnuWoMoeilijk_Click"/>
+                </MenuItem>
             </MenuItem>
             <MenuItem Name="mnuOefBew" Header="Oefeningen Bewerken">
                 <MenuItem Header="Taal">
@@ -26,7 +30,7 @@
                 </MenuItem>
             </MenuItem>
 
-            <MenuItem Name="mnuStat" Header="Statistieken">
+            <MenuItem Name="mnuStat" Header="Statistieken" Click="mnuStat_Click">
                 <MenuItem Header="Individueel Overzicht" Click="MnuIndOv_Click"/>
                 <MenuItem Header="Klassikaal Overzicht" Click="MnuKlasOver_Click"/>
             </MenuItem>

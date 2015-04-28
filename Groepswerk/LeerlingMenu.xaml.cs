@@ -55,5 +55,11 @@ namespace Groepswerk
             HoofdSpel hoofdSpel = new HoofdSpel();
             this.NavigationService.Navigate(hoofdSpel);
         }
+
+        private void btnZombie_Click(object sender, RoutedEventArgs e)
+        {
+            ZombieSpel zombieSpel = new ZombieSpel(ActieveGebruiker);
+            this.NavigationService.Navigate(zombieSpel);
+        }
     }
 }

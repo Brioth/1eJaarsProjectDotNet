@@ -32,7 +32,6 @@ namespace Groepswerk
         public Programma()
         {
             InitializeComponent();
-            programma.WindowState = WindowState.Maximized;
             Login login = new Login();
             framePages.Navigate(login);
             maakMenuLeeg();
@@ -93,12 +92,26 @@ namespace Groepswerk
             OefNederlands1Moeilijk oefNederlandsMoeilijk = new OefNederlands1Moeilijk();
             framePages.Navigate(oefNederlandsMoeilijk);
         }
+        //navigatie oefeningen
         //Author: Seppe
-        private void MnuWO_Click(object sender, RoutedEventArgs e)
-        {
-            //Seppe
-        }
 
+        private void MnuWO_Click(object sender, RoutedEventArgs e)
+        {   
+        }
+        private void MnuWoMakkelijk_Click(object sender, RoutedEventArgs e) {
+            oefWoMakkelijk oefWoMakkelijk = new oefWoMakkelijk();
+            framePages.Navigate(oefWoMakkelijk);
+        }
+        private void MnuWoGemiddeld_Click(object sender, RoutedEventArgs e)
+        {
+            oefWoGemiddeld oefWoGemiddeld = new oefWoGemiddeld();
+            framePages.Navigate(oefWoGemiddeld);
+        }
+        private void MnuWoMoeilijk_Click(object sender, RoutedEventArgs e)
+        {
+            oefWoMoeilijk oefWoMoeilijk = new oefWoMoeilijk();
+            framePages.Navigate(oefWoMoeilijk);
+        }
         //aanpassen oefening
         //Author: Thomas Cox
         //Date: 22/04/2015
@@ -197,6 +210,11 @@ namespace Groepswerk
                 this.Title = Convert.ToString(ActieveGebruiker);
                 pasBalkAan();
             }
+        }
+
+        private void mnuStat_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         

@@ -5,20 +5,38 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="332" d:DesignWidth="528"
-	Title="LeerlingenBeheer">
+	Title="LeerlingenBeheer" Background="#9D78989A" Height="Auto" Width="Auto" FontSize="16">
 
     <Grid>
-        <ComboBox Name="boxKlas" HorizontalAlignment="Left" Height="32" Margin="25,24,0,0" VerticalAlignment="Top" Width="147" SelectionChanged="boxKlas_Changed"/>
-        <ListBox Name="boxAccounts" HorizontalAlignment="Left" Height="233" Margin="25,76,0,0" VerticalAlignment="Top" Width="147" SelectionChanged="boxAccounts_SelectionChanged"/>
-        <Label Content="Voornaam" HorizontalAlignment="Left" Height="32" Margin="199,76,0,0" VerticalAlignment="Top" Width="100"/>
-        <TextBox Name="txtbVoornaam" HorizontalAlignment="Left" Height="32" Margin="322,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="108"/>
-        <Label Content="Wachtwoord" HorizontalAlignment="Left" Height="28" Margin="199,161,0,0" VerticalAlignment="Top" Width="100"/>
-        <TextBox Name="pswBox" HorizontalAlignment="Left" Height="28" Margin="322,161,0,0" VerticalAlignment="Top" Width="108"/>
-        <Label Content="Achternaam" HorizontalAlignment="Left" Height="28" Margin="199,117,0,0" VerticalAlignment="Top" Width="100"/>
-        <TextBox Name="txtboxAchternaam" HorizontalAlignment="Left" Height="28" Margin="322,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="108"/>
-        <Label Content="Nieuwe Klas" HorizontalAlignment="Left" Height="28" Margin="199,225,0,0" VerticalAlignment="Top" Width="100"/>
-        <ComboBox Name="boxNieuweKlas" HorizontalAlignment="Left" Height="31" Margin="322,225,0,0" VerticalAlignment="Top" Width="108"/>
-        <Button Name="btnPasAan" Click="btnPasAan_Click" Content="Pas aan" HorizontalAlignment="Left" Height="30" Margin="370,279,0,0" VerticalAlignment="Top" Width="126"/>
-        <Button Name="btnVerwijder" Click="btnVerwijder_Click" Content="Verwijder account" HorizontalAlignment="Left" Height="30" Margin="192,278,0,0" VerticalAlignment="Top" Width="107"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ComboBox Name="boxKlas" Grid.Column="1" Grid.Row="1" Margin="10" SelectionChanged="boxKlas_Changed"/>
+        <ListBox Name="boxAccounts" Grid.Column="1" Grid.Row="2" Grid.RowSpan="4" Margin="10" SelectionChanged="boxAccounts_SelectionChanged"/>
+        <Label Content="Voornaam" Grid.Column="2" Grid.Row="2" Margin="20,10,20,10"/>
+        <TextBox Name="txtbVoornaam" Grid.Column="3" Grid.Row="2" Margin="10" TextWrapping="Wrap" Text=""/>
+        <Label Content="Wachtwoord" Grid.Column="2" Grid.Row="3" Margin="20,10,20,10" />
+        <TextBox Name="pswBox" Grid.Column="3" Grid.Row="3" Margin="10"/>
+        <Label Content="Achternaam" Grid.Column="2" Grid.Row="4" Margin="20,10,20,10"/>
+        <TextBox Name="txtboxAchternaam" Grid.Column="3" Grid.Row="4" Margin="10" TextWrapping="Wrap" Text="" />
+        <Label Content="Nieuwe Klas" Grid.Column="2" Grid.Row="5" Margin="20,10,20,10" />
+        <ComboBox Name="boxNieuweKlas" Grid.Column="3" Grid.Row="5" Margin="10"/>
+        <Button Name="btnPasAan" Grid.Column="3" Grid.Row="7" Margin="5" Click="btnPasAan_Click" Content="Pas aan"/>
+        <Button Name="btnVerwijder" Grid.Column="2" Grid.Row="7" Margin="5" Click="btnVerwijder_Click" Content="Verwijder account"/>
     </Grid>
 </Page>
