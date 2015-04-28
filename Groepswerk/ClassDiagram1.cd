@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Groepswerk.AccountBeheer" Collapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAwCAAAAAIAACAgAAEAAAAAAAAAgAAIAAEAAAAAAAA=</HashCode>
+      <FileName>AccountBeheer.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.Accountlijst" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Accountlijst.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.AlleGebruikersLijst" Collapsed="true">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AlleGebruikersLijst.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.App" Collapsed="true">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.BewerkKlasLijst" Collapsed="true">
+    <Position X="17.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAACAAQAEAAAAAAAAAAAAIAAAAAgAAABA=</HashCode>
+      <FileName>BewerkKlasLijst.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.Gebruiker" Collapsed="true">
+    <Position X="19" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAKCAAgAAAIAAAEAAAAACAACCABAAAAAQBoAAEAAAA=</HashCode>
+      <FileName>Gebruiker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.Gebruikerdetails" Collapsed="true">
+    <Position X="10.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAIAAAAAAAEAAAAAAAAAAACIAAAAAAAAAgE=</HashCode>
+      <FileName>Gebruikerdetails.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.GemiddeldesKlas" Collapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAgIAAIAAAA=</HashCode>
+      <FileName>GemiddeldesKlas.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.HoofdSpel" Collapsed="true">
+    <Position X="13.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACIIAAEAAAAAAAAAAAgAQAIAAAAAAEAAACAAAAA=</HashCode>
+      <FileName>HoofdSpel.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.HoofdSpelBolletje" Collapsed="true">
+    <Position X="7.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKAAAACAABAAAAAAAAAAAAAAAAABAiAAAAAAAAAIAA=</HashCode>
+      <FileName>HoofdSpelBolletje.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.HoofdSpelEntiteit" Collapsed="true">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAKAoAQABKBAAAQAQAAAAEAABAAAAAwAAABgAAEAYAA=</HashCode>
+      <FileName>HoofdSpelEntiteit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.HoofdSpelEntiteitenLijst" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAEAAAAAAgAAAAAAAAACAA=</HashCode>
+      <FileName>HoofdSpelEntiteitenLijst.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.HoofdSpelLijstBlauw" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAIAAAAAAEgAAABAAAAAAIAAAACAA=</HashCode>
+      <FileName>HoofdSpelLijstBlauw.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Groepswerk.HoofdSpelLijstRood" Collapsed="true">
+    <Position X="2.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAIAAAAAAEgAAABAAAAAAIAAAACAA=</HashCode>
+      <FileName>HoofdSpelLijstRood.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Groepswerk.HoofdSpelVierkantje" Collapsed="true">
+    <Position X="5.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKAAAACAABAAAAAAAAAAAAABAAABAiAAAAAAAAAIAA=</HashCode>
+      <FileName>HoofdSpelVierkantje.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.Klaslijst" Collapsed="true">
+    <Position X="15.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Klaslijst.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.LeerlingMenu" Collapsed="true">
+    <Position X="17.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAABAAAAAAAAAAAAgABAAAAA=</HashCode>
+      <FileName>LeerlingMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.Login" Collapsed="true">
+    <Position X="19" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAIAIAAAAAAAEAAAABAAAACAAIAAAAAAAAAgA=</HashCode>
+      <FileName>Login.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.NieuweGebruiker" Collapsed="true">
+    <Position X="10.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAQAAAAAAAAAAAAAAAABgAAAAAAAADAAAAA=</HashCode>
+      <FileName>NieuweGebruiker.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.Oefening" Collapsed="true">
+    <Position X="12" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAQAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Oefening.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.OefeningLijst" Collapsed="true">
+    <Position X="13.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OefeningLijst.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.oefeningWiskundeMoeilijk">
+    <Position X="5.75" Y="4.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>QQAICAAAAAAAgAAAAAAAAAAABEBAAAAIIAAAAAEEAgA=</HashCode>
+      <FileName>oefeningWiskundeMoeilijk.xaml.cs</FileName>
+      <NewMemberFileName>oefeningWiskundeGemiddeld.xaml.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.OefNederlands1AanpassenGemiddeld" Collapsed="true">
+    <Position X="17.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQOAAAQAAQAAAAAAAAAAAAAAAAAAAgAAAAoAAAAA=</HashCode>
+      <FileName>OefNederlands1AanpassenGemiddeld.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.OefNederlands1AanpassenMakkelijk" Collapsed="true">
+    <Position X="19" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQOAAAQAAQAAAAAAAAAAAAAAAAAAAgAAAAoAAAAA=</HashCode>
+      <FileName>OefNederlands1AanpassenMakkelijk.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.OefNederlands1AanpassenMoeilijk" Collapsed="true">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAQAAQAAAEAAAAAAAAAAAAAAAgAAAAoAAAAA=</HashCode>
+      <FileName>OefNederlands1AanpassenMoeilijk.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.OefNederlands1Gemiddeld" Collapsed="true">
+    <Position X="12" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACCAAAAQAAAAIAAAIAAAEAAMAAAAAAAAAAAAAAAAU=</HashCode>
+      <FileName>OefNederlands1Gemiddeld.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.OefNederlands1Makkelijk" Collapsed="true">
+    <Position X="15.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACCAAAAQAAAAIAAAIAAAEAAMAAAAAAAAAAAAAAAAU=</HashCode>
+      <FileName>OefNederlands1Makkelijk.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.OefNederlands1Moeilijk" Collapsed="true">
+    <Position X="15.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACAAAAAQAAAAAAAAIAAAAAAMAAAAAAAAAAAAAAAAU=</HashCode>
+      <FileName>OefNederlands1Moeilijk.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.oefWoGemiddeld" Collapsed="true">
+    <Position X="17.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCAAAAQAAAAIAAAIAAAUAAMAAAAAAAAAAAAAAAAU=</HashCode>
+      <FileName>oefWoGemiddeld.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.oefWoMakkelijk" Collapsed="true">
+    <Position X="19" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCAAAAQAAAAIAAAIAAAUAAMAAAAAAAAAAAAAAAAU=</HashCode>
+      <FileName>oefWoMakkelijk.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.oefWoMoeilijk" Collapsed="true">
+    <Position X="10.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCAAAAQAAAAIAAAIAAAUAAMAAAAAAAAAAAAAAAAU=</HashCode>
+      <FileName>oefWoMoeilijk.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.Programma" Collapsed="true">
+    <Position X="12" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAFFAgDEACAAAEIAAAAgIAIAAAAAQAQAAAAAQBQAA=</HashCode>
+      <FileName>Programma.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.wo" Collapsed="true">
+    <Position X="17.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>wo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.ZombieSpel" Collapsed="true">
+    <Position X="19" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAIAAABAAQAAAAEIAgEAIAAAAAAAAAARQAAEA=</HashCode>
+      <FileName>ZombieSpel.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.ZombieSpelComputer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAABAAABAAAAAAIAAAAABAAAIAAAACAAAIAA=</HashCode>
+      <FileName>ZombieSpelComputer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Groepswerk.ZombieSpelHuman" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQAAAQAAgAAAAIAAAAAAAAACAAQAAgAAAAAAEAAIAA=</HashCode>
+      <FileName>ZombieSpelHuman.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.ZombieSpelSpeler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAABAAABAAAAAAAAAAAAAAAAIAAAACAAAAAg=</HashCode>
+      <FileName>ZombieSpelSpeler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Groepswerk.ZombieSpelSprite" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAgAAABgAAAAYAA=</HashCode>
+      <FileName>ZombieSpelSprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.ZombieSpelZombie" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQAAAQAAgAAAAAAAAAAAAAADAAAAAoAAAAAABAAIAA=</HashCode>
+      <FileName>ZombieSpelZombie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.Properties.Resources" Collapsed="true">
+    <Position X="13.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAMAAAAAAAAQABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Groepswerk.Properties.Settings" Collapsed="true">
+    <Position X="15.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Groepswerk.IBeweegbaar" Collapsed="true">
+    <Position X="13.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAABAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>IBeweegbaar.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
