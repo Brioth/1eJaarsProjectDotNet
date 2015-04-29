@@ -11,13 +11,18 @@ namespace Groepswerk
         public string id { get; set; }
         public double gespendeerdeTijd { get; set; }
         public DateTime datum { get; set; }
-        public int punten { get; set; }
-        public Resultaat(string id, double gespendeerdeTijd, DateTime datum, int punten)
+        public List<int> punten { get; set; }
+        public Resultaat(string id, double gespendeerdeTijd, DateTime datum, int punt)
         {
             this.id = id;
             this.gespendeerdeTijd = gespendeerdeTijd;
             this.datum = datum;
-            this.punten = punten;
+            punten.Add(punt);
+        }
+
+        public Resultaat(int punt)
+        {
+            punten.Add(punt);
         }
     }
 }

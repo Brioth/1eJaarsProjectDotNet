@@ -10,20 +10,24 @@ namespace Groepswerk
     class wegschrijvenData
     {
         //author: Thomas Cox
-        //
+        //Date: 28/04/2015
         public wegschrijvenData(string sleutelwoord, string nieuwId, double nieuwGespendeerdeTijd, DateTime nieuwDatum, int nieuwPunten)
         {
             switch(sleutelwoord){
-                case "oefNederlandsMakkelijk":
+                case "OefNederlandsMakkelijk":
+                    ResultatenLijst lijstResultaten = new ResultatenLijst("Makkelijk");
                     StreamReader oefNederlandsMakkelijkResultaten = File.OpenText(@"OefNederlands1MakkelijkResultaten.txt");
-                    string regel = oefNederlandsMakkelijkResultaten.ReadLine();
-                    char[] scheiding = { ';' };
 
-                    while (regel != null)
+                    for (int i = 0; i > lijstResultaten.Count; i++)
                     {
-
+                        if (!(lijstResultaten[i].datum.Equals(DateTime.Today))) //Datum wegschrijven HOORT TE GEBEUREN ENKEL OP DATUM, NIET OP TIJDSTIP (makkelijker te controleren) - Thomas
+                        {
+                            //alles wegschrijven, anders gewoon toevoegen aan lijst met punten
+                        }
                     }
-                    break;
+                    //txtfile clearen en alles terug wegschrijven. Hoort wel te lukken
+
+                        break;
                 case "oefNederlandsGemiddeld":
                     StreamReader oefNederlandsGemiddeldResultaten = File.OpenText(@"OefNederlands1GemiddeldResultaten.txt");
                     break;

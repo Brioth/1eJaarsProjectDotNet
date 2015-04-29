@@ -54,11 +54,11 @@ namespace Groepswerk
 
                while (regelMoeilijk != null)
                {
-                   string[] deel = regel.Split(scheidingMoeilijk);
+                   string[] deel = regelMoeilijk.Split(scheidingMoeilijk);
 
                    Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3], deel[4], deel[5]);
                    this.Add(oefeningNederlands);
-                   regel = bestandOefeningMoeilijk.ReadLine();
+                   regelMoeilijk = bestandOefeningMoeilijk.ReadLine();
                }
                bestandOefeningMoeilijk.Close();
            break;
@@ -84,8 +84,8 @@ namespace Groepswerk
            bestandOefeningMakkelijk2.Close();
             break;
 
-            if (moeilijkheid.Equals("gemiddeld2"))
-            {
+               case("gemiddeld2"):
+            
                 StreamReader bestandOefeningGemiddeld2 = File.OpenText(@"oefnWiskundeGemiddeld.txt");
                 string regelGemiddeld2 = bestandOefeningGemiddeld2.ReadLine();
                 char[] scheidingGemiddeld2 = { ';' };
@@ -99,10 +99,10 @@ namespace Groepswerk
                     regelGemiddeld2 = bestandOefeningGemiddeld2.ReadLine();
                 }
                 bestandOefeningGemiddeld2.Close();
-            }
+                break;
 
-            if (moeilijkheid.Equals("moeilijk2"))
-            {
+               case ("moeilijk2"):
+            
                 StreamReader bestandOefeningMoeilijk2 = File.OpenText(@"oefnWiskundeMoeilijk.txt");
                 string regelMoeilijk2 = bestandOefeningMoeilijk2.ReadLine();
                 char[] scheidingMoeilijk2 = { ';' };
@@ -116,7 +116,7 @@ namespace Groepswerk
                     regelMoeilijk2 = bestandOefeningMoeilijk2.ReadLine();
                 }
                 bestandOefeningMoeilijk2.Close();
-            }
+                break;
 
         }
        
