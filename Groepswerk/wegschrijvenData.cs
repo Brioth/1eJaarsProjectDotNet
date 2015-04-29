@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace Groepswerk
 {
+    //Author: Thomas Cox
+    //Date: 28/04/2015
     class wegschrijvenData
     {
-        //author: Thomas Cox
-        //Date: 28/04/2015
+        //Datum wegschrijven HOORT TE GEBEUREN ENKEL OP DATUM, NIET OP TIJDSTIP (makkelijker te controleren) - Thomas
+        
         public wegschrijvenData(string sleutelwoord, string nieuwId, double nieuwGespendeerdeTijd, DateTime nieuwDatum, int nieuwPunten)
         {
             switch(sleutelwoord){
@@ -20,7 +22,7 @@ namespace Groepswerk
 
                     for (int i = 0; i > lijstResultaten.Count; i++)
                     {
-                        if (!(lijstResultaten[i].datum.Equals(DateTime.Today))) //Datum wegschrijven HOORT TE GEBEUREN ENKEL OP DATUM, NIET OP TIJDSTIP (makkelijker te controleren) - Thomas
+                        if (!(lijstResultaten[i].datum.Equals(DateTime.Today))) 
                         {
                             //alles wegschrijven, anders gewoon toevoegen aan lijst met punten
                         }
