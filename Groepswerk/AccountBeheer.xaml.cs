@@ -27,7 +27,7 @@ namespace Groepswerk
      */
     public partial class AccountBeheer : Page
     {
-        //Lokale variablen
+        //Lokale variabelen
         private Klaslijst klasLijst;
         private Accountlijst accountlijst;
         private string selectedKlas;
@@ -45,7 +45,7 @@ namespace Groepswerk
         }
 
         //Events
-        private void boxKlas_Changed(object sender, SelectionChangedEventArgs e)
+        private void BoxKlas_Changed(object sender, SelectionChangedEventArgs e)
         {
             if (accountlijst != null)
             {
@@ -57,7 +57,7 @@ namespace Groepswerk
             boxAccounts.SelectedIndex = 0;
             
         }
-        private void boxAccounts_SelectionChanged(object sender, SelectionChangedEventArgs e)//Vincent
+        private void BoxAccounts_SelectionChanged(object sender, SelectionChangedEventArgs e)//Vincent
         {
             if (boxAccounts.SelectedIndex!=-1)
             {
@@ -68,7 +68,7 @@ namespace Groepswerk
                 boxNieuweKlas.SelectedItem = selectedGebruiker.Klas;
             }
         }       
-        private void btnVerwijder_Click(object sender, RoutedEventArgs e)
+        private void BtnVerwijder_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult verwijderen = MessageBox.Show(String.Format("Ben je zeker dat je {0} wilt verwijderen?",selectedGebruiker), "Delete", MessageBoxButton.YesNo);
             switch (verwijderen)
@@ -83,17 +83,16 @@ namespace Groepswerk
                 default:
                     break;
             }
-        }
-        
-        private void btnPasAan_Click(object sender, RoutedEventArgs e)
+        }        
+        private void BtnPasAan_Click(object sender, RoutedEventArgs e)
         {
             selectedGebruiker.Voornaam = txtbVoornaam.Text;
             selectedGebruiker.Achternaam = txtboxAchternaam.Text;
             selectedGebruiker.Psw = pswBox.Text;
             selectedGebruiker.Klas = Convert.ToString(boxNieuweKlas.SelectedItem);
-            wisselGebruiker();
+            WisselGebruiker();
             MessageBox.Show(String.Format("U hebt gebruiker {0} aangepast", selectedGebruiker));
-            updateListbox();
+            UpdateListbox();
         }
 
         //Methods
@@ -108,9 +107,9 @@ namespace Groepswerk
                 }
             }
             alleGebruikersLijst.SchrijfLijst();
-            updateListbox();
+            UpdateListbox();
         }
-        private void wisselGebruiker()
+        private void WisselGebruiker()
         {
             alleGebruikersLijst = new AlleGebruikersLijst();
             for (int i = 0; i < alleGebruikersLijst.Count; i++)
@@ -122,7 +121,7 @@ namespace Groepswerk
             }
             alleGebruikersLijst.SchrijfLijst();
         }
-        private void updateListbox()
+        private void UpdateListbox()
         {
             accountlijst = new Accountlijst(selectedKlas);
             boxAccounts.ItemsSource = accountlijst;

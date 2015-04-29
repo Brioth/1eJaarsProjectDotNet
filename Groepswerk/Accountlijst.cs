@@ -18,7 +18,7 @@ namespace Groepswerk
      */
     public class Accountlijst : List<Gebruiker>
     {
-        //Lokale variablen
+        //Lokale variabelen
 
         //Constructors
         public Accountlijst(string klas)

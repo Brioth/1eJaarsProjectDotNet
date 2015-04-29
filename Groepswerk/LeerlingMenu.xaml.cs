@@ -15,26 +15,39 @@ using System.Windows.Shapes;
 
 namespace Groepswerk
 {
-    /// <summary>
-    /// Interaction logic for LeerlingMenu.xaml
-    /// </summary>
+    /* --LeerlingenMenu--
+    * Leerlingen navigeren naar oefeningen
+    * Spel wordt zichtbaar gezet indien ok
+    * Author: Carmen Celen
+    * Date: 29/03/2015
+    */
     public partial class LeerlingMenu : Page
     {
-        //Constructors
+        //Lokale variabelen
 
+        //Constructors
         public LeerlingMenu(Gebruiker actievegebruiker)
         {
             InitializeComponent();
             ActieveGebruiker = actievegebruiker;
             lblBegroeting.Content = String.Format("Dag {0}", ActieveGebruiker.Voornaam);
-            checkButton();
+            CheckButton();
         }
 
         //Events
+        private void BtnSpel_Click(object sender, RoutedEventArgs e)
+        {
+            HoofdSpel hoofdSpel = new HoofdSpel();
+            this.NavigationService.Navigate(hoofdSpel);
+        }
+        private void BtnZombie_Click(object sender, RoutedEventArgs e)
+        {
+            ZombieSpel zombieSpel = new ZombieSpel(ActieveGebruiker);
+            this.NavigationService.Navigate(zombieSpel);
+        }
 
         //Methods
-
-        private void checkButton() //check of gebruiker afgelopen week alles 1 maal gespeeld heeft
+        private void CheckButton() //check of gebruiker afgelopen week alles 1 maal gespeeld heeft
         {
             if (true)
             {
@@ -47,13 +60,6 @@ namespace Groepswerk
         }
 
         //Properties
-
         public Gebruiker ActieveGebruiker { get; set; }
-
-        private void btnSpel_Click(object sender, RoutedEventArgs e)
-        {
-            HoofdSpel hoofdSpel = new HoofdSpel();
-            this.NavigationService.Navigate(hoofdSpel);
-        }
     }
 }

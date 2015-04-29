@@ -32,10 +32,9 @@ namespace Groepswerk
         public Programma()
         {
             InitializeComponent();
-            programma.WindowState = WindowState.Maximized;
             Login login = new Login();
             framePages.Navigate(login);
-            maakMenuLeeg();
+            MaakMenuLeeg();
         }
 
         //Events
@@ -159,37 +158,37 @@ namespace Groepswerk
         }
 
         //Methods
-        private void pasBalkAan() //hier beschikbaarheid menu's aanpassen
+        private void PasBalkAan() //hier beschikbaarheid menu's aanpassen
         {
             if (ActieveGebruiker != null)
             {
                 switch (ActieveGebruiker.Type)
                 {
                     case "lln":
-                        maakMenuLeeg();
+                        MaakMenuLeeg();
                         mnuAcc.Visibility = Visibility.Collapsed;
                         mnuOefBew.Visibility = Visibility.Collapsed;
                         mnuOefeningen.Visibility = Visibility.Visible;
                         mnuStat.Visibility = Visibility.Collapsed;
                         break;
                     case "lk":
-                        maakMenuLeeg();
+                        MaakMenuLeeg();
                         mnuAcc.Visibility = Visibility.Visible;
                         mnuOefBew.Visibility = Visibility.Visible;
                         mnuOefeningen.Visibility = Visibility.Collapsed;
                         mnuStat.Visibility = Visibility.Visible;
                         break;
                     default:
-                        maakMenuLeeg();
+                        MaakMenuLeeg();
                         break;
                 }
             }
             else
             {
-                maakMenuLeeg();
+                MaakMenuLeeg();
             }
         }
-        private void maakMenuLeeg() //Standaard menu zonder gebruiker
+        private void MaakMenuLeeg() //Standaard menu zonder gebruiker
         {
             mnuBasis.Visibility = Visibility.Visible;
             mnuAcc.Visibility = Visibility.Collapsed;
@@ -209,17 +208,8 @@ namespace Groepswerk
             {
                 actieveGebruiker = value;
                 this.Title = Convert.ToString(ActieveGebruiker);
-                pasBalkAan();
+                PasBalkAan();
             }
-        }
-
-        private void mnuStat_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        
-
-        
+        }        
     }
 }

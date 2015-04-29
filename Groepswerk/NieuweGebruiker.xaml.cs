@@ -22,7 +22,6 @@ namespace Groepswerk
      */
     public partial class NieuweGebruiker : Page
     {
-
         //Lokale variabelen
         private List<string> klaslijst;
         private Gebruiker nieuweGebruiker;
@@ -38,16 +37,17 @@ namespace Groepswerk
         }
 
         //Events
-        private void btnVoegToe_Click(object sender, RoutedEventArgs e)
+        private void BtnVoegToe_Click(object sender, RoutedEventArgs e)
         {
-            maakGebruiker();
-            maakNieuweAccountLijst();
+            MaakGebruiker();
+            MaakNieuweAccountLijst();
             accountlijst.SchrijfLijst();
             MessageBox.Show(String.Format("{0} {1} is toegevoegd aan {2}", nieuweGebruiker.Type, nieuweGebruiker, nieuweGebruiker.Klas));
+            MaakVakjesLeeg();
         }
 
         //Methods
-        private void maakGebruiker()
+        private void MaakGebruiker()
         {
             string voornaam = txtbVoornaam.Text;
             string achternaam = txtboxAchternaam.Text;
@@ -65,10 +65,17 @@ namespace Groepswerk
 
             nieuweGebruiker = new Gebruiker(type, klas, voornaam, achternaam, psw);
         }
-        private void maakNieuweAccountLijst()
+        private void MaakNieuweAccountLijst()
         {
             accountlijst = new AlleGebruikersLijst();
             accountlijst.Add(nieuweGebruiker);
+        }
+        private void MaakVakjesLeeg()
+        {
+            txtbVoornaam.Text = "";
+            txtboxAchternaam.Text = "" ;
+            pswBox.Password = "";
+            boxKlas.SelectedIndex = 0;
         }
 
         //Properties

@@ -34,16 +34,16 @@ namespace Groepswerk
 
             for (int i = 0; i > 5; i++)
             {
-                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count-1)));
-             
-                    while (oefeningNummerLijst.Contains(oefeningenNummerOpslag))
-                    {
-                        oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
-                    }
-                    tempOpgave[i] = lijstOefeningen[oefeningenNummerOpslag].opgave;
-                    tempOplossing1[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing1;
-                    tempOplossing2[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing2;
-                    tempOplossing3[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing3;  
+                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count - 1)));
+
+                while (oefeningNummerLijst.Contains(oefeningenNummerOpslag))
+                {
+                    oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
+                }
+                tempOpgave[i] = lijstOefeningen[oefeningenNummerOpslag].opgave;
+                tempOplossing1[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing1;
+                tempOplossing2[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing2;
+                tempOplossing3[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing3;
                 oefeningNummerLijst.Add(oefeningenNummerOpslag);
             }
             Opgave1.Text = tempOpgave[1];
@@ -51,7 +51,7 @@ namespace Groepswerk
             oefLijst.Add(tempOplossing2[1]);
             oefLijst.Add(tempOplossing3[1]);
             Oplossing1.ItemsSource = oefLijst;
-            
+
             for (int i = 0; i > 3; i++)
             {
                 oefLijst.RemoveAt(i);
@@ -109,42 +109,42 @@ namespace Groepswerk
             }
 
             if (!(Convert.ToString(Oplossing2.SelectionBoxItem).Equals(lijstOefeningen[2].correcteOplossing)))
-                {
-                    Opgave2.Text = lijstOefeningen[2].juisteAntwoordCompleet;
-                }
+            {
+                Opgave2.Text = lijstOefeningen[2].juisteAntwoordCompleet;
+            }
             else
-                {
-                    oefCorrect++;
-                }
+            {
+                oefCorrect++;
+            }
 
             if (!(Convert.ToString(Oplossing3.SelectionBoxItem).Equals(lijstOefeningen[3].correcteOplossing)))
-                {
-                    Opgave3.Text = lijstOefeningen[3].juisteAntwoordCompleet;
-                }
+            {
+                Opgave3.Text = lijstOefeningen[3].juisteAntwoordCompleet;
+            }
             else
-                {
-                    oefCorrect++;
-                }
+            {
+                oefCorrect++;
+            }
 
             if (!(Convert.ToString(Oplossing4.SelectionBoxItem).Equals(lijstOefeningen[4].correcteOplossing)))
-                {
-                    Opgave3.Text = lijstOefeningen[4].juisteAntwoordCompleet;
-                }
+            {
+                Opgave3.Text = lijstOefeningen[4].juisteAntwoordCompleet;
+            }
             else
-                {
-                    oefCorrect++;
-                }
+            {
+                oefCorrect++;
+            }
 
             if (!(Convert.ToString(Oplossing5.SelectionBoxItem).Equals(lijstOefeningen[5].correcteOplossing)))
-                {
-                    Opgave3.Text = lijstOefeningen[5].juisteAntwoordCompleet;
-                }
-            else
-                {
-                    oefCorrect++;
-                }
-            Punten.Text = Convert.ToString(oefCorrect) + "/5";
+            {
+                Opgave3.Text = lijstOefeningen[5].juisteAntwoordCompleet;
             }
+            else
+            {
+                oefCorrect++;
+            }
+            Punten.Text = Convert.ToString(oefCorrect) + "/5";
+        }
 
 
         }

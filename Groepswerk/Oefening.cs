@@ -10,7 +10,7 @@ namespace Groepswerk
     {
         //author: Thomas Cox
         //date: 14/04/2015
-        
+
 
         public Oefening(string opgave, string oplossing1, string oplossing2, string oplossing3, string correcteOplossing, string juisteAntwoordCompleet)
         {
@@ -35,7 +35,7 @@ namespace Groepswerk
         public Oefening(string opgave, string correcteOplossing)
         {
             this.opgave = opgave;
-            this.correcteOplossing = correcteOplossing;
+            this.correcteOplossing =  correcteOplossing;
         }
         
     }

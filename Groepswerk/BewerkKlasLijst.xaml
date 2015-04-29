@@ -4,18 +4,35 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="435" d:DesignWidth="551.2"
+      d:DesignHeight="435" d:DesignWidth="551.2" Background="#9D78989A" Height="Auto" Width="Auto" FontSize="16"
 	Title="BewerkKlasLijst">
 
     <Grid>
-        <ListBox Name="lboxKlasLijst" HorizontalAlignment="Left" Height="227" Margin="26,43,0,0" VerticalAlignment="Top" Width="141" SelectionChanged="KlasLijst_Changed"/>
-        <TextBox Name="txtbOmschr" HorizontalAlignment="Left" Height="34" Margin="290,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button Name="btnNieuw" Content="Voeg als nieuwe klas toe" HorizontalAlignment="Left" Height="24" Margin="321,231,0,0" VerticalAlignment="Top" Width="141" Click="btnNieuw_Click"/>
-        <Button Name ="btnPasAan" Content="Pas Aan" HorizontalAlignment="Left" Height="26" Margin="186,229,0,0" VerticalAlignment="Top" Width="78" Click="btnPasAan_Click"/>
-        <TextBox Name="txtbIndex" HorizontalAlignment="Left" Height="29" Margin="290,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="36"/>
-        <Label Content="Omschrijving" HorizontalAlignment="Left" Height="34" Margin="186,97,0,0" VerticalAlignment="Top" Width="93"/>
-        <Label Content="Index" HorizontalAlignment="Left" Height="29" Margin="186,165,0,0" VerticalAlignment="Top" Width="77"/>
-        <Button Name="btnVerwijder" Content="Button" HorizontalAlignment="Left" Height="26" Margin="186,284,0,0" VerticalAlignment="Top" Width="78" Click="btnVerwijder_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox Name="lboxKlasLijst" Grid.Column="1" Grid.Row="1" Grid.RowSpan="6" Margin="10" SelectionChanged="KlasLijst_Changed"/>
+        <TextBox Name="txtbOmschr" Grid.Column="3" Grid.Row="1" Margin="10" Text="" TabIndex="1"/>
+        <Button Name="btnNieuw" Grid.Row="5" Grid.Column="3" Margin="5" Content="Voeg als nieuwe klas toe" Click="BtnNieuw_Click" TabIndex="4"/>
+        <Button Name ="btnPasAan" Grid.Column="2" Grid.Row="5" Margin="5" Content="Pas Aan" Click="BtnPasAan_Click" TabIndex="3"/>
+        <TextBox Name="txtbIndex" Grid.Column="3" Grid.Row="3" Margin="10" Text="" TabIndex="2"/>
+        <Label Content="Omschrijving" Grid.Column="2" Grid.Row="1" Margin="20,10,20,10"/>
+        <Label Content="Index" Grid.Column="2" Grid.Row="3" Margin="20,10,20,10"/>
+        <Button Name="btnVerwijder" Content="Verwijder" Grid.Column="2" Grid.Row="6" Margin="5" Click="BtnVerwijder_Click" TabIndex="5"/>
 
     </Grid>
 </Page>

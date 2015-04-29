@@ -35,16 +35,16 @@ namespace Groepswerk
 
             for (int i = 0; i > 5; i++)
             {
-                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count-1)));
-             
-                    while (oefeningNummerLijst.Contains(oefeningenNummerOpslag))
-                    {
-                        oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
-                    }
-                    tempOpgave[i] = lijstOefeningen[oefeningenNummerOpslag].opgave;
-                    tempOplossing1[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing1;
-                    tempOplossing2[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing2;
-                    tempOplossing3[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing3;  
+                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count - 1)));
+
+                while (oefeningNummerLijst.Contains(oefeningenNummerOpslag))
+                {
+                    oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
+                }
+                tempOpgave[i] = lijstOefeningen[oefeningenNummerOpslag].opgave;
+                tempOplossing1[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing1;
+                tempOplossing2[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing2;
+                tempOplossing3[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing3;
                 oefeningNummerLijst.Add(oefeningenNummerOpslag);
             }
 
@@ -111,41 +111,41 @@ namespace Groepswerk
                 oefCorrect++;
             }
             if (!(Convert.ToString(Oplossing2.SelectionBoxItem).Equals(lijstOefeningen[2].correcteOplossing)))
-                {
-                    opgave2.Text = lijstOefeningen[2].juisteAntwoordCompleet;
-                }
+            {
+                opgave2.Text = lijstOefeningen[2].juisteAntwoordCompleet;
+            }
             else
-                {
-                    oefCorrect++;
-                }
+            {
+                oefCorrect++;
+            }
 
             if (!(Convert.ToString(Oplossing3.SelectionBoxItem).Equals(lijstOefeningen[3].correcteOplossing)))
-                {
-                    opgave3.Text = lijstOefeningen[3].juisteAntwoordCompleet;
-                }
+            {
+                opgave3.Text = lijstOefeningen[3].juisteAntwoordCompleet;
+            }
             else
-                {
-                    oefCorrect++;
-                }
+            {
+                oefCorrect++;
+            }
 
             if (!(Convert.ToString(Oplossing4.SelectionBoxItem).Equals(lijstOefeningen[4].correcteOplossing)))
-                {
-                    opgave3.Text = lijstOefeningen[4].juisteAntwoordCompleet;
-                }
+            {
+                opgave3.Text = lijstOefeningen[4].juisteAntwoordCompleet;
+            }
             else
-                {
-                    oefCorrect++;
-                }
+            {
+                oefCorrect++;
+            }
 
             if (!(Convert.ToString(Oplossing5.SelectionBoxItem).Equals(lijstOefeningen[5].correcteOplossing)))
-                {
-                    opgave3.Text = lijstOefeningen[5].juisteAntwoordCompleet;
-                }
+            {
+                opgave3.Text = lijstOefeningen[5].juisteAntwoordCompleet;
+            }
             else
-                {
-                    oefCorrect++;
-                }
-                Punten.Text = Convert.ToString(oefCorrect) + "/5";
+            {
+                oefCorrect++;
+            }
+            Punten.Text = Convert.ToString(oefCorrect) + "/5";
             }
 
 
