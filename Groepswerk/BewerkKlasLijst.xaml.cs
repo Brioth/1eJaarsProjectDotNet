@@ -42,7 +42,7 @@ namespace Groepswerk
             txtbOmschr.Text = selectedKlas;
             txtbIndex.Text = ""+(lboxKlasLijst.SelectedIndex + 1);
         }
-        private void btnNieuw_Click(object sender, RoutedEventArgs e)
+        private void BtnNieuw_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -60,10 +60,8 @@ namespace Groepswerk
             {
                 MessageBox.Show("De index moet een cijfer zijn");
             }
-
-
         }
-        private void btnPasAan_Click(object sender, RoutedEventArgs e)
+        private void BtnPasAan_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -82,9 +80,8 @@ namespace Groepswerk
             {
                 MessageBox.Show("De index moet een cijfer zijn");
             }
-
         }
-        private void btnVerwijder_Click(object sender, RoutedEventArgs e)
+        private void BtnVerwijder_Click(object sender, RoutedEventArgs e)
         {
             klasLijst.Remove(selectedKlas);
             klasLijst.SchrijfLijst();

@@ -316,6 +316,18 @@
     <Resource Include="bin\Debug\OefNederlands1Makkelijk.txt" />
     <Resource Include="bin\Debug\OefNederlands1Moeilijk.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\oefWoGemiddeld.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\oefWoMakkelijk.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\oefWoMoeilijk.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\oefnWiskunde1.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -26,17 +26,17 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ComboBox Name="boxKlas" Grid.Column="1" Grid.Row="1" Margin="10" SelectionChanged="boxKlas_Changed"/>
-        <ListBox Name="boxAccounts" Grid.Column="1" Grid.Row="2" Grid.RowSpan="4" Margin="10" SelectionChanged="boxAccounts_SelectionChanged"/>
+        <ComboBox Name="boxKlas" Grid.Column="1" Grid.Row="1" Margin="10" SelectionChanged="BoxKlas_Changed" TabIndex="0"/>
+        <ListBox Name="boxAccounts" Grid.Column="1" Grid.Row="2" Grid.RowSpan="4" Margin="10" SelectionChanged="BoxAccounts_SelectionChanged"/>
         <Label Content="Voornaam" Grid.Column="2" Grid.Row="2" Margin="20,10,20,10"/>
-        <TextBox Name="txtbVoornaam" Grid.Column="3" Grid.Row="2" Margin="10" TextWrapping="Wrap" Text=""/>
+        <TextBox Name="txtbVoornaam" Grid.Column="3" Grid.Row="2" Margin="10" Text="" TabIndex="1"/>
         <Label Content="Wachtwoord" Grid.Column="2" Grid.Row="3" Margin="20,10,20,10" />
-        <TextBox Name="pswBox" Grid.Column="3" Grid.Row="3" Margin="10"/>
+        <TextBox Name="pswBox" Grid.Column="3" Grid.Row="3" Margin="10" TabIndex="2"/>
         <Label Content="Achternaam" Grid.Column="2" Grid.Row="4" Margin="20,10,20,10"/>
-        <TextBox Name="txtboxAchternaam" Grid.Column="3" Grid.Row="4" Margin="10" TextWrapping="Wrap" Text="" />
+        <TextBox Name="txtboxAchternaam" Grid.Column="3" Grid.Row="4" Margin="10" Text="" TabIndex="3" />
         <Label Content="Nieuwe Klas" Grid.Column="2" Grid.Row="5" Margin="20,10,20,10" />
-        <ComboBox Name="boxNieuweKlas" Grid.Column="3" Grid.Row="5" Margin="10"/>
-        <Button Name="btnPasAan" Grid.Column="3" Grid.Row="7" Margin="5" Click="btnPasAan_Click" Content="Pas aan"/>
-        <Button Name="btnVerwijder" Grid.Column="2" Grid.Row="7" Margin="5" Click="btnVerwijder_Click" Content="Verwijder account"/>
+        <ComboBox Name="boxNieuweKlas" Grid.Column="3" Grid.Row="5" Margin="10" TabIndex="4"/>
+        <Button Name="btnPasAan" Grid.Column="3" Grid.Row="7" Margin="5" Click="BtnPasAan_Click" Content="Pas aan" TabIndex="6"/>
+        <Button Name="btnVerwijder" Grid.Column="2" Grid.Row="7" Margin="5" Click="BtnVerwijder_Click" Content="Verwijder account" TabIndex="5"/>
     </Grid>
 </Page>

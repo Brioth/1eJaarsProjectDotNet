@@ -26,13 +26,13 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <ListBox Name="lboxKlasLijst" Grid.Column="1" Grid.Row="1" Grid.RowSpan="6" Margin="10" SelectionChanged="KlasLijst_Changed"/>
-        <TextBox Name="txtbOmschr" Grid.Column="3" Grid.Row="1" Margin="10" TextWrapping="Wrap" Text=""/>
-        <Button Name="btnNieuw" Grid.Row="5" Grid.Column="3" Margin="5" Content="Voeg als nieuwe klas toe" Click="btnNieuw_Click"/>
-        <Button Name ="btnPasAan" Grid.Column="2" Grid.Row="5" Margin="5" Content="Pas Aan" Click="btnPasAan_Click"/>
-        <TextBox Name="txtbIndex" Grid.Column="3" Grid.Row="3" Margin="10" TextWrapping="Wrap" Text=""/>
+        <TextBox Name="txtbOmschr" Grid.Column="3" Grid.Row="1" Margin="10" Text="" TabIndex="1"/>
+        <Button Name="btnNieuw" Grid.Row="5" Grid.Column="3" Margin="5" Content="Voeg als nieuwe klas toe" Click="BtnNieuw_Click" TabIndex="4"/>
+        <Button Name ="btnPasAan" Grid.Column="2" Grid.Row="5" Margin="5" Content="Pas Aan" Click="BtnPasAan_Click" TabIndex="3"/>
+        <TextBox Name="txtbIndex" Grid.Column="3" Grid.Row="3" Margin="10" Text="" TabIndex="2"/>
         <Label Content="Omschrijving" Grid.Column="2" Grid.Row="1" Margin="20,10,20,10"/>
         <Label Content="Index" Grid.Column="2" Grid.Row="3" Margin="20,10,20,10"/>
-        <Button Name="btnVerwijder" Content="Button" Grid.Column="2" Grid.Row="6" Margin="5" Click="btnVerwijder_Click"/>
+        <Button Name="btnVerwijder" Content="Verwijder" Grid.Column="2" Grid.Row="6" Margin="5" Click="BtnVerwijder_Click" TabIndex="5"/>
 
     </Grid>
 </Page>

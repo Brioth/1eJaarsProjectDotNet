@@ -39,23 +39,21 @@ namespace Groepswerk
             klasLijst = new Klaslijst();
             boxKlas.ItemsSource = klasLijst;
             boxKlas.SelectedIndex = 0;
-
         }
 
         //Events
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            loginHandler();
-
+            LoginHandler();
         }
-        private void pswBox_Enter(object sender, KeyEventArgs e)
+        private void PswBox_Enter(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {
-                loginHandler();
+                LoginHandler();
             }
         }
-        private void boxKlas_Changed(object sender, SelectionChangedEventArgs e)
+        private void BoxKlas_Changed(object sender, SelectionChangedEventArgs e)
         {
            selectedKlas =Convert.ToString(boxKlas.SelectedItem);
             if (accountLijst != null)
@@ -101,10 +99,10 @@ namespace Groepswerk
                 }
             }
         }
-        private void loginHandler()
+        private void LoginHandler()
         {
             selectedGebruiker = (Gebruiker)boxLogin.SelectedItem;           
-            bool pswOk = checkPsw(selectedGebruiker);           
+            bool pswOk = CheckPsw(selectedGebruiker);           
 
             if (pswOk == true)
             {
@@ -127,7 +125,7 @@ namespace Groepswerk
                 MessageBox.Show("Het wachtwoord is foutief", "Foutief wachtwoord", MessageBoxButton.OK, MessageBoxImage.Stop);
             }
         }
-        private bool checkPsw(Gebruiker selectedGebruiker)
+        private bool CheckPsw(Gebruiker selectedGebruiker)
         {
             string gok = pswBox.Password;
             string plaintext = "encryptie";
