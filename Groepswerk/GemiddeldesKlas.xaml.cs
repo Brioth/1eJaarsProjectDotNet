@@ -21,7 +21,7 @@ namespace Groepswerk
     {
         private Klaslijst lijstKlas;
         private Accountlijst lijstAccount;
-        private String geselecteerdeKlas;
+        private string geselecteerdeKlas;
 
 
         public GemiddeldesKlas()
