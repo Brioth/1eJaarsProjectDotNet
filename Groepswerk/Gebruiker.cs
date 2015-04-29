@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -56,6 +57,39 @@ namespace Groepswerk
         //Events
 
         //Methods
+        public static class StringCipher
+        {
+            //encrypteren van het wachtwoord
+            private static readonly byte[] initVectorBytes = Encoding.ASCII.GetBytes("tu89geji340t89u2");
+
+            // This constant is used to determine the keysize of the encryption algorithm.
+            private const int keysize = 256;
+            public static string Encrypt(string plainText, string passPhrase)
+            {
+                byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
+                using (PasswordDeriveBytes password = new PasswordDeriveBytes(passPhrase, null))
+                {
+                    byte[] keyBytes = password.GetBytes(keysize / 8);
+                    using (RijndaelManaged symmetricKey = new RijndaelManaged())
+                    {
+                        symmetricKey.Mode = CipherMode.CBC;
+                        using (ICryptoTransform encryptor = symmetricKey.CreateEncryptor(keyBytes, initVectorBytes))
+                        {
+                            using (MemoryStream memoryStream = new MemoryStream())
+                            {
+                                using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
+                                {
+                                    cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
+                                    cryptoStream.FlushFinalBlock();
+                                    byte[] cipherTextBytes = memoryStream.ToArray();
+                                    return Convert.ToBase64String(cipherTextBytes);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         public override string ToString()
         {
             return Voornaam + " " + Achternaam;
@@ -101,7 +135,11 @@ namespace Groepswerk
         public string Achternaam { get; set; }
         public string Klas { get; set; }
         public string Type { get; set; }
-        public string Psw { get; set; }
+        public string Psw
+        {
+            get { }
+            set { }
+        }
         public int GemWisk { get; set; }
         public int GemNed { get; set; }
         public int GemWO { get; set; }
