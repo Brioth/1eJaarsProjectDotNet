@@ -50,10 +50,11 @@ namespace Groepswerk
         private void AanpasKnop_Click(object sender, RoutedEventArgs e)
         {
             File.WriteAllText(@"OefNederlands1Makkelijk.txt", String.Empty);
-            StreamWriter writer= File.AppendText(@"OefNederlands1Makkelijk.txt");
-            foreach (Oefening oef in lijstOefeningen){
-            
-                writer.WriteLine(oef.opgave + ";" + oef.oplossing1 + ";" + oef.oplossing2 + ";" +oef.oplossing3 + ";" + oef.correcteOplossing);
+            StreamWriter writer = File.AppendText(@"OefNederlands1Makkelijk.txt");
+            foreach (Oefening oef in lijstOefeningen)
+            {
+
+                writer.WriteLine(oef.opgave + ";" + oef.oplossing1 + ";" + oef.oplossing2 + ";" + oef.oplossing3 + ";" + oef.correcteOplossing);
             }
             writer.Close();
         }

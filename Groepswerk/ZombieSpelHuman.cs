@@ -23,19 +23,20 @@ namespace Groepswerk
         private string kleur;
         private Image afbeelding;
         private Point positie = new Point();
-
+        private Rect doelvierkant;
         //Constructors
         public ZombieSpelHuman(Point punt, string kleur)
         {
             cirkel = new Ellipse();
             Kleur = kleur;
             afbeelding = new Image();
-            afbeelding.Source = CreateBitmap("bin/Debug/Mannetje.png",20);
-            Snelheid = 2;
-            cirkel.Width = 20;
-            cirkel.Height = 20;
-            afbeelding.Width = 20;
-            afbeelding.Height = 20;
+            afbeelding.Source = CreateBitmap("bin/Debug/Mannetje.png");
+            doelvierkant = new Rect(new Size(GROOTTE, GROOTTE));
+            Snelheid = 5;
+            cirkel.Width = GROOTTE;
+            cirkel.Height = GROOTTE;
+            afbeelding.Width = GROOTTE;
+            afbeelding.Height = GROOTTE;
             Positie = punt;
         }
 
@@ -52,6 +53,7 @@ namespace Groepswerk
         {
             cirkel.Margin = new Thickness(this.X, this.Y, 0,0);
             afbeelding.Margin = new Thickness(this.X, this.Y, 0,0);
+            doelvierkant.Location = Positie;
         }
         //Properties
         public double Snelheid { get; set; }
@@ -73,6 +75,10 @@ namespace Groepswerk
             {
                 return kleur;
             }
+        }
+        public Rect Doelvierkant
+        {
+            get { return doelvierkant; }
         }
     }
 }

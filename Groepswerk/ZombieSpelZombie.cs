@@ -17,7 +17,7 @@ namespace Groepswerk
         private Rectangle vierkant;
         private string kleur;
         private Image afbeelding;
-
+        private Rect doelvierkant;
 
         //Constructors
         public ZombieSpelZombie(Point punt, string kleur)
@@ -25,13 +25,14 @@ namespace Groepswerk
             vierkant = new Rectangle();
             Kleur = kleur;
             afbeelding = new Image();
-            afbeelding.Source = CreateBitmap(@"Zombie.png", 10);
-            Snelheid = 1;
+            afbeelding.Source = CreateBitmap(@"Zombie.png");
+            doelvierkant = new Rect(new Size(GROOTTE, GROOTTE));
+            Snelheid = 2;
             Positie = punt;
-            vierkant.Width = 10;
-            vierkant.Height = 10;
-            afbeelding.Width = 10;
-            afbeelding.Height = 10;
+            vierkant.Width = GROOTTE;
+            vierkant.Height = GROOTTE;
+            afbeelding.Width = GROOTTE;
+            afbeelding.Height = GROOTTE;
         }
 
         //Events
@@ -47,6 +48,7 @@ namespace Groepswerk
         {
             vierkant.Margin = new Thickness(Positie.X, Positie.Y, 0, 0);
             afbeelding.Margin = new Thickness(Positie.X, Positie.Y, 0, 0);
+            doelvierkant.Location = Positie;
         }
         //Properties
         public double Snelheid { get; set; }
@@ -69,6 +71,10 @@ namespace Groepswerk
             {
                 return kleur;
             }
+        }
+        public Rect Doelvierkant
+        { 
+            get { return doelvierkant; }
         }
     }
 

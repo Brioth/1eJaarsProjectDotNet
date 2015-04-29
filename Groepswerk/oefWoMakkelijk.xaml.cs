@@ -32,14 +32,14 @@ namespace Groepswerk
         
              for (int i = 0; i > 5; i++)
             {
-                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count-1)));
-             
-                    while (oefeningNummerLijst.Contains(oefeningenNummerOpslag))
-                    {
-                        oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
-                    }
-                    tempOpgave[i] = lijstOefeningen[oefeningenNummerOpslag].opgave;
-                    tempOplossing1[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing1; 
+                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count - 1)));
+
+                while (oefeningNummerLijst.Contains(oefeningenNummerOpslag))
+                {
+                    oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
+                }
+                tempOpgave[i] = lijstOefeningen[oefeningenNummerOpslag].opgave;
+                tempOplossing1[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing1;
                 oefeningNummerLijst.Add(oefeningenNummerOpslag);
             }
             label1.Content = tempOpgave[1];

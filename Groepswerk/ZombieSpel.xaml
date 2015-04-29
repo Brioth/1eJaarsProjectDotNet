@@ -5,25 +5,36 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="376" d:DesignWidth="508.8"
-      Background="#9D78989A"
+      Background="#9D78989A" Height="Auto" Width="Auto" FontSize="16"
 	Title="ZombieSpel">
 
     <Grid>
-        <Canvas Name="spelCanvas"  HorizontalAlignment="Left" Height="300" Margin="10,66,0,0" VerticalAlignment="Top" Width="300" ClipToBounds="True">
-            <Canvas.Background>
-                <SolidColorBrush Color="{DynamicResource LawnGreen}"/>
-            </Canvas.Background>
-            <Canvas.Resources>
-                <Color x:Key="LawnGreen">#FF83BD1C</Color>
-            </Canvas.Resources>
-            <Image Name ="imgComputer" Source="bin/Debug/driehoekBlauw.png" Height="30" Canvas.Left="127" Canvas.Top="50" Width="30"/>
-            <Image Name ="imgSpeler" Source="bin/Debug/driehoekRood.png" Height="30" Canvas.Left="127" Canvas.Top="250" Width="30"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Canvas Name="spelCanvas" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" ClipToBounds="True" Background="#FF83BD1C" Margin="10" Loaded="spelCanvas_Loaded">
+            <Image Name ="imgComputer" Source="bin/Debug/driehoekBlauw.png" Height="50" Width="50"/>
+            <Image Name ="imgSpeler" Source="bin/Debug/driehoekRood.png" Height="50" Width="50"/>
         </Canvas>
-        <Button Name="btnSkill1" Content="Skill1" HorizontalAlignment="Left" Height="28" Margin="350,116,0,0" VerticalAlignment="Top" Width="113" Click="btnSkill1_Click"/>
-        <Button x:Name="btnSkill2" Content="Skill2" HorizontalAlignment="Left" Height="28" Margin="350,149,0,0" VerticalAlignment="Top" Width="113" Click="btnSkill2_Click"/>
-        <Button x:Name="btnSkill3" Content="Skill3" HorizontalAlignment="Left" Height="28" Margin="350,182,0,0" VerticalAlignment="Top" Width="113" Click="btnSkill3_Click"/>
-        <Button x:Name="btnSkill4" Content="Skill4" HorizontalAlignment="Left" Height="28" Margin="350,215,0,0" VerticalAlignment="Top" Width="113" Click="btnSkill4_Click"/>
-        <Button x:Name="btnSkill5" Content="Skill5" HorizontalAlignment="Left" Height="28" Margin="350,248,0,0" VerticalAlignment="Top" Width="113" Click="btnSkill5_Click"/>
-        <Button x:Name="btnSkill6" Content="Skill6" HorizontalAlignment="Left" Height="28" Margin="350,281,0,0" VerticalAlignment="Top" Width="113" Click="btnSkill6_Click"/>
+        <StackPanel Grid.Row="2" Grid.Column="2">
+
+
+            <Button Name="btnSkill1" Content="Skill1" Margin="5" Click="btnSkill1_Click"/>
+            <Button x:Name="btnSkill2" Content="Skill2" Margin="5" Click="btnSkill2_Click"/>
+            <Button x:Name="btnSkill3" Content="Skill3" Margin="5" Click="btnSkill3_Click"/>
+            <Button x:Name="btnSkill4" Content="Skill4" Margin="5" Click="btnSkill4_Click"/>
+            <Button x:Name="btnSkill5" Content="Skill5" Margin="5" Click="btnSkill5_Click"/>
+            <Button x:Name="btnSkill6" Content="Skill6" Margin="5" Click="btnSkill6_Click"/>
+        </StackPanel>
     </Grid>
 </Page>

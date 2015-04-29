@@ -13,55 +13,55 @@ namespace Groepswerk
     {
        public OefeningLijst(string moeilijkheid)
        {
-    //        if (moeilijkheid.Equals("makkelijk"))
-    //        {
-    //            StreamReader bestandOefening = File.OpenText(@"OefNederlands1Makkelijk.txt");
-    //            string regel = bestandOefening.ReadLine();
-    //            char[] scheiding = { ';' };
+           if (moeilijkheid.Equals("makkelijk"))
+           {
+               StreamReader bestandOefening = File.OpenText(@"OefNederlands1Makkelijk.txt");
+               string regel = bestandOefening.ReadLine();
+               char[] scheiding = { ';' };
 
-    //            while (regel != null)
-    //            {
-    //                string[] deel = regel.Split(scheiding);
+               while (regel != null)
+               {
+                   string[] deel = regel.Split(scheiding);
 
-    //                Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3], deel[4], deel[5]);
-    //                this.Add(oefeningNederlands);
-    //                regel = bestandOefening.ReadLine();
-    //            }
-    //            bestandOefening.Close();
-    //        }
-    //        if (moeilijkheid.Equals("gemiddeld"))
-    //        {
-    //            StreamReader bestandOefening = File.OpenText(@"OefNederlands1Gemiddeld.txt");
-    //            string regel = bestandOefening.ReadLine();
-    //            char[] scheiding = { ';' };
+                   Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3], deel[4], deel[5]);
+                   this.Add(oefeningNederlands);
+                   regel = bestandOefening.ReadLine();
+               }
+               bestandOefening.Close();
+           }
+           if (moeilijkheid.Equals("gemiddeld"))
+           {
+               StreamReader bestandOefening = File.OpenText(@"OefNederlands1Gemiddeld.txt");
+               string regel = bestandOefening.ReadLine();
+               char[] scheiding = { ';' };
 
-    //            while (regel != null)
-    //            {
-    //                string[] deel = regel.Split(scheiding);
+               while (regel != null)
+               {
+                   string[] deel = regel.Split(scheiding);
 
-    //                Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3], deel[4], deel[5]);
-    //                this.Add(oefeningNederlands);
-    //                regel = bestandOefening.ReadLine();
-    //            }
-    //            bestandOefening.Close();
-    //        }
+                   Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3], deel[4], deel[5]);
+                   this.Add(oefeningNederlands);
+                   regel = bestandOefening.ReadLine();
+               }
+               bestandOefening.Close();
+           }
 
-    //        if (moeilijkheid.Equals("moeilijk"))
-    //        {
-    //            StreamReader bestandOefening = File.OpenText(@"OefNederlands1Moeilijk.txt");
-    //            string regel = bestandOefening.ReadLine();
-    //            char[] scheiding = { ';' };
+           if (moeilijkheid.Equals("moeilijk"))
+           {
+               StreamReader bestandOefening = File.OpenText(@"OefNederlands1Moeilijk.txt");
+               string regel = bestandOefening.ReadLine();
+               char[] scheiding = { ';' };
 
-    //            while (regel != null)
-    //            {
-    //                string[] deel = regel.Split(scheiding);
+               while (regel != null)
+               {
+                   string[] deel = regel.Split(scheiding);
 
-    //                Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3],deel[4],deel[5]);
-    //                this.Add(oefeningNederlands);
-    //                regel = bestandOefening.ReadLine();
-    //            }
-    //            bestandOefening.Close();
-    //        }
+                   Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3], deel[4], deel[5]);
+                   this.Add(oefeningNederlands);
+                   regel = bestandOefening.ReadLine();
+               }
+               bestandOefening.Close();
+           }
 
 
             //Author: Vincent Vandoninck

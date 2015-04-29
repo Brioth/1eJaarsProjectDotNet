@@ -44,6 +44,7 @@ namespace Groepswerk
             maakNieuweAccountLijst();
             accountlijst.SchrijfLijst();
             MessageBox.Show(String.Format("{0} {1} is toegevoegd aan {2}", nieuweGebruiker.Type, nieuweGebruiker, nieuweGebruiker.Klas));
+            MaakVakjesLeeg();
         }
 
         //Methods
@@ -69,6 +70,13 @@ namespace Groepswerk
         {
             accountlijst = new AlleGebruikersLijst();
             accountlijst.Add(nieuweGebruiker);
+        }
+        private void MaakVakjesLeeg()
+        {
+            txtbVoornaam.Text = "";
+            txtboxAchternaam.Text = "" ;
+            pswBox.Password = "";
+            boxKlas.SelectedIndex = 0;
         }
 
         //Properties

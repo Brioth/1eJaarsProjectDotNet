@@ -17,8 +17,6 @@ namespace Groepswerk
         //Constructors
         public ZombieSpelComputer()
         {
-            Dead = false;
-
             HumansComputer = new List<ZombieSpelHuman>();
             ZombiesComputer = new List<ZombieSpelZombie>();
         }
@@ -32,17 +30,17 @@ namespace Groepswerk
                 double richtingX = BepaalRichting() * HumansComputer[i].Snelheid;
                 double richtingY = BepaalRichting() * HumansComputer[i].Snelheid;
 
-                if (HumansComputer[i].X <= 0 || HumansComputer[i].X >= drawingCanvas.Width)
-                {
-                    richtingX = -richtingX;
-                }
-                if (HumansComputer[i].Y <= 0 || HumansComputer[i].X >= drawingCanvas.Height)
-                {
-                    richtingY = -richtingY;
-                }
+                double nieuweX = HumansComputer[i].X + richtingX;
+                double nieuweY = HumansComputer[i].Y + richtingY;
 
-                HumansComputer[i].X = HumansComputer[i].X + richtingX;
-                HumansComputer[i].Y = HumansComputer[i].Y + richtingY;
+                if (!(nieuweX <= 0 || nieuweX+30 >= drawingCanvas.ActualWidth))
+                {
+                    HumansComputer[i].X = nieuweX;
+                }
+                if (!(nieuweY <= 0 || nieuweY+30 >= drawingCanvas.ActualHeight))
+                {
+                    HumansComputer[i].Y = nieuweY;
+                }
 
             }
             for (int i = 0; i < ZombiesComputer.Count; i++) //Laat zombies bewegen
@@ -50,17 +48,17 @@ namespace Groepswerk
                 double richtingX = BepaalRichting() * ZombiesComputer[i].Snelheid;
                 double richtingY = BepaalRichting() * ZombiesComputer[i].Snelheid;
 
-                if (ZombiesComputer[i].X <= 0 || ZombiesComputer[i].X >= drawingCanvas.Width)
-                {
-                    richtingX = -richtingX;
-                }
-                if (ZombiesComputer[i].Y <= 0 || ZombiesComputer[i].X >= drawingCanvas.Height)
-                {
-                    richtingY = -richtingY;
-                }
+                double nieuweX = ZombiesComputer[i].X + richtingX;
+                double nieuweY = ZombiesComputer[i].Y + richtingY;
 
-                ZombiesComputer[i].X = ZombiesComputer[i].X + richtingX;
-                ZombiesComputer[i].Y = ZombiesComputer[i].Y + richtingY;
+                if (!(nieuweX <= 0 || nieuweX+30 >= drawingCanvas.ActualWidth))
+                {
+                    HumansComputer[i].X = nieuweX;
+                }
+                if (!(nieuweY <= 0 || nieuweY+30 >= drawingCanvas.ActualHeight))
+                {
+                    HumansComputer[i].Y = nieuweY;
+                }
             }
         }
 
@@ -87,35 +85,62 @@ namespace Groepswerk
             }
             return richting;
         }
-        public void CheckHit()
+        public void CheckHit(List<ZombieSpelHuman> lijstTegenstanderHumans, List<ZombieSpelZombie> lijstTegenstanderZombies)
         {
-            //for (int i = 0; i < HumansComputer.Count; i++)
-            //{
-            //    HumansComputer[i].CheckHit();
-            //    if (HumansComputer[i].Geraakt)
-            //    {
-            //        //wordt zombie
-            //    }
-            //}
-            //for (int i = 0; i < ZombiesComputer.Count; i++)
-            //{
-            //    ZombiesComputer[i].CheckHit();
-            //    if (ZombiesComputer[i].GeraaktDoorEigen)
-            //    {
-            //        //wordt human
-            //    }
-            //    if (ZombiesComputer[i].GeraaktDoorVijand)
-            //    {
-            //        //ga dood, bool
-            //    }
-            //}
+            for (int i = 0; i < HumansComputer.Count; i++) //Humans geraakt door vijand
+            {
+                foreach (ZombieSpelHuman tegenstander in lijstTegenstanderHumans)
+                {
+                    if (HumansComputer[i].Doelvierkant.IntersectsWith(tegenstander.Doelvierkant))
+                    {
+                        HumansComputer[i].Geraakt = true;
+                    }
+                }
+                foreach (ZombieSpelZombie tegenstander in lijstTegenstanderZombies)
+                {
+                    if (HumansComputer[i].Doelvierkant.IntersectsWith(tegenstander.Doelvierkant))
+                    {
+                        HumansComputer[i].Geraakt = true;
+                    }
+                }
+            }
+            for (int i = 0; i < ZombiesComputer.Count; i++) 
+            {
+                foreach (ZombieSpelHuman tegenstander in lijstTegenstanderHumans) //zombies geraakt door vijand
+                {
+                    if (ZombiesComputer[i].Doelvierkant.IntersectsWith(tegenstander.Doelvierkant))
+                    {
+                        ZombiesComputer[i].GeraaktDoorVijand = true;
+                    }
+                }
+                foreach (ZombieSpelZombie tegenstander in lijstTegenstanderZombies)
+                {
+                    if (ZombiesComputer[i].Doelvierkant.IntersectsWith(tegenstander.Doelvierkant))
+                    {
+                        ZombiesComputer[i].GeraaktDoorVijand = true;
+                    }
+                }
+                foreach (ZombieSpelHuman eigenHuman in HumansComputer) //zombies geraakt door eigen partij
+                {
+                    if (ZombiesComputer[i].Doelvierkant.IntersectsWith(eigenHuman.Doelvierkant))
+                    {
+                        ZombiesComputer[i].GeraaktDoorEigen = true;
+                    }
+                }
+                foreach (ZombieSpelZombie eigenZombie in ZombiesComputer)
+                {
+                    if (ZombiesComputer[i].Doelvierkant.IntersectsWith(eigenZombie.Doelvierkant))
+                    {
+                        ZombiesComputer[i].GeraaktDoorEigen = true;
+                    }
+                }
+            }
         }
         public void MaakVrij()
         {
 
         }
         //Properties
-        public bool Dead { get; set; }
         public List<ZombieSpelHuman> HumansComputer { get; set; }
         public List<ZombieSpelZombie> ZombiesComputer { get; set; }
     }

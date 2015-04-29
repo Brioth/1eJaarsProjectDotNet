@@ -11,7 +11,6 @@ namespace Groepswerk
     {
         void Beweeg(Canvas drawingCanvas);
         void MaakVrij();//Dood?
-        void CheckHit();
-
+        void CheckHit(List<ZombieSpelHuman> humansTegenstander, List<ZombieSpelZombie> zombiesTegenstander);
     }
 }

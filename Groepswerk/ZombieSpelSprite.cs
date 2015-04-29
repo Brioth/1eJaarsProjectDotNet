@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace Groepswerk
 {
-    public abstract class ZombieSpelSprite
+    public abstract class ZombieSpelSprite : UIElement
     {
-        double x, y;
+        private double x, y;
+        public static int GROOTTE = 30;
 
         public double X
         {
@@ -22,14 +24,15 @@ namespace Groepswerk
             get { return y; }
             set { y = value; UpdateElement(); }
         }
+
         public abstract void DisplayOn(Canvas drawingCanvas);
         public abstract void UpdateElement();
-        public BitmapImage CreateBitmap(string imagepath, int hoogte)
+        public BitmapImage CreateBitmap(string imagepath)
         {
             BitmapImage bi = new BitmapImage();
             bi.BeginInit();
             bi.UriSource = new Uri(imagepath, UriKind.RelativeOrAbsolute);
-            bi.DecodePixelHeight = hoogte;
+            bi.DecodePixelHeight = GROOTTE;
             bi.EndInit();
             return bi;
         }

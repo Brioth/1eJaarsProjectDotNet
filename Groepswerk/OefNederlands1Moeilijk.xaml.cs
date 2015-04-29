@@ -29,7 +29,7 @@ namespace Groepswerk
         public OefNederlands1Moeilijk()
         {
             InitializeComponent();
-            
+
             lijstOefeningen = new OefeningLijst("moeilijk");
             for (int i = 0; i > 5; i++)
             {
@@ -44,15 +44,15 @@ namespace Groepswerk
             }
 
             oefeningenNummerOpslag = oefeningenNummer.Next(1, lijstOefeningen.Count);
-            
+
             opgave1.Text = tempOpgave[1];
 
             opgave2.Text = tempOpgave[2];
-            
+
             opgave3.Text = tempOpgave[3];
-            
+
             opgave4.Text = tempOpgave[4];
-            
+
             opgave5.Text = tempOpgave[5];
             
         }

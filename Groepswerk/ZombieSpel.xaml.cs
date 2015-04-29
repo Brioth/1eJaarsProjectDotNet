@@ -27,12 +27,12 @@ namespace Groepswerk
         private ZombieSpelComputer computer;
         private DispatcherTimer spelTijdTimer, spawnerSpeler, spawnerComputer, animationTimer;
         private Gebruiker actieveGebruiker;
+        private Point puntSpeler, puntComputer;
         //Constructors
         public ZombieSpel(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
-
-
+          
             this.actieveGebruiker = actieveGebruiker;
             speler = new ZombieSpelSpeler();
             computer = new ZombieSpelComputer();
@@ -57,29 +57,108 @@ namespace Groepswerk
             animationTimer.Tick += animation_Tick;
             animationTimer.IsEnabled = true;
 
-
         }
 
         private void animation_Tick(object sender, EventArgs e)
         {
             speler.Beweeg(spelCanvas);
             computer.Beweeg(spelCanvas);
-            speler.CheckHit();
-            computer.CheckHit();
+            speler.CheckHit(computer.HumansComputer, computer.ZombiesComputer);
+            computer.CheckHit(speler.HumansSpeler, speler.ZombiesSpeler);
+            VeranderSprites();
+            DoodSprites();
+        }
+
+        private void DoodSprites()
+        {
+            for (int i = 0; i < speler.HumansSpeler.Count; i++)
+            {
+                if (speler.HumansSpeler[i].Geraakt)
+                {
+                    spelCanvas.Children.Remove(speler.HumansSpeler[i]);
+                    speler.HumansSpeler.RemoveAt(i);
+                }
+            }
+            for (int i = 0; i < speler.ZombiesSpeler.Count; i++)
+            {
+                if (speler.ZombiesSpeler[i].GeraaktDoorEigen || speler.ZombiesSpeler[i].GeraaktDoorVijand)
+                {
+                    spelCanvas.Children.Remove(speler.ZombiesSpeler[i]);
+                    speler.ZombiesSpeler.RemoveAt(i);
+                }
+            }
+            for (int i = 0; i < computer.HumansComputer.Count; i++)
+            {
+                if (computer.HumansComputer[i].Geraakt)
+                {
+                    spelCanvas.Children.Remove(computer.HumansComputer[i]);
+                    computer.HumansComputer.RemoveAt(i);
+                }
+            }
+            for (int i = 0; i < speler.ZombiesSpeler.Count; i++)
+            {
+                if (computer.ZombiesComputer[i].GeraaktDoorEigen || computer.ZombiesComputer[i].GeraaktDoorVijand)
+                {
+                    spelCanvas.Children.Remove(computer.ZombiesComputer[i]);
+                    computer.ZombiesComputer.RemoveAt(i);
+                }
+            }
+        }
+
+        private void VeranderSprites()
+        {
+            for (int i = 0; i < speler.HumansSpeler.Count; i++)
+            {
+                if (speler.HumansSpeler[i].Geraakt) //als human geraakt door vijand maak zombie
+                {
+                    Point positie = speler.HumansSpeler[i].Positie;
+                    ZombieSpelZombie zombieSpeler = new ZombieSpelZombie(positie, "#CB2611");
+                    speler.ZombiesSpeler.Add(zombieSpeler);
+                    zombieSpeler.DisplayOn(spelCanvas);
+                }
+            }
+            for (int i = 0; i < speler.ZombiesSpeler.Count; i++) //als zombie geraakt door eigen maak human
+            {
+                if (speler.ZombiesSpeler[i].GeraaktDoorEigen)
+                {
+                    Point positie = speler.ZombiesSpeler[i].Positie;
+                    ZombieSpelHuman humanSpeler = new ZombieSpelHuman(positie, "#CB2611");
+                    speler.HumansSpeler.Add(humanSpeler);
+                    humanSpeler.DisplayOn(spelCanvas);
+                }
+            }
+            for (int i = 0; i < computer.HumansComputer.Count; i++)
+            {
+                if (computer.HumansComputer[i].Geraakt) //als human geraakt door vijand maak zombie
+                {
+                    Point positie = computer.HumansComputer[i].Positie;
+                    ZombieSpelZombie zombieComputer = new ZombieSpelZombie(positie, "#13737C");
+                    computer.ZombiesComputer.Add(zombieComputer);
+                    zombieComputer.DisplayOn(spelCanvas);
+                }
+            }
+            for (int i = 0; i < computer.ZombiesComputer.Count; i++) //als zombie geraakt door eigen maak human
+            {
+                if (computer.ZombiesComputer[i].GeraaktDoorEigen)
+                {
+                    Point positie = computer.ZombiesComputer[i].Positie;
+                    ZombieSpelHuman humanComputer = new ZombieSpelHuman(positie, "#13737C");
+                    computer.HumansComputer.Add(humanComputer);
+                    humanComputer.DisplayOn(spelCanvas);
+                }
+            }
         }
 
         private void spawnComputer_Tick(object sender, EventArgs e)
         {
-            Point spawnPunt = new Point(127.0, 65.0);
-            ZombieSpelHuman humanComputer = new ZombieSpelHuman(spawnPunt, "#13737C");
+            ZombieSpelHuman humanComputer = new ZombieSpelHuman(puntComputer, "#13737C");
             computer.HumansComputer.Add(humanComputer);
             humanComputer.DisplayOn(spelCanvas);
         }
 
         private void spawnSpeler_Tick(object sender, EventArgs e)
         {
-            Point spawnPunt = new Point(127.0, 235.0);
-            ZombieSpelHuman humanSpeler = new ZombieSpelHuman(spawnPunt, "#CB2611");
+            ZombieSpelHuman humanSpeler = new ZombieSpelHuman(puntSpeler, "#CB2611");
             speler.HumansSpeler.Add(humanSpeler);
             humanSpeler.DisplayOn(spelCanvas);
         }
@@ -139,6 +218,16 @@ namespace Groepswerk
                 }
             }
             lijst.SchrijfLijst();
+        }
+
+        private void spelCanvas_Loaded(object sender, RoutedEventArgs e)
+        {
+            puntSpeler = new Point(spelCanvas.ActualWidth / 2, spelCanvas.ActualHeight - 75);
+            puntComputer = new Point(spelCanvas.ActualWidth / 2, 25);
+            Canvas.SetLeft(imgSpeler, puntSpeler.X);
+            Canvas.SetTop(imgSpeler, puntSpeler.Y);
+            Canvas.SetLeft(imgComputer, puntComputer.X);
+            Canvas.SetTop(imgComputer, puntComputer.Y);
         }
 
     }

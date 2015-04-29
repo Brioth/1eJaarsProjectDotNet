@@ -67,19 +67,19 @@ namespace Groepswerk
             for (int i = 0; i < 10; i++)
             {
                 oefeningenNummerOpslag3 = oefeningenNummer3.Next(0, 9);
-                //if (!(oefeningenNummerLijst.Contains(oefeningenNummerOpslag)))
-                //{
-                //    lijstOpgaves[i] = tempOplossing[oefeningenNummerOpslag];
+                if (!(oefeningenNummerLijst3.Contains(oefeningenNummerOpslag3)))
+                {
+                    lijstOpgaves3[i] = tempOplossing3[oefeningenNummerOpslag3];
 
-                //}
-                //else
-                //{
+                }
+                else
+                {
                 while (oefeningenNummerLijst3.Contains(oefeningenNummerOpslag3))
                 {
                     oefeningenNummerOpslag3 = oefeningenNummer3.Next(0, 9);
                 }
                 lijstOpgaves3[i] = tempOplossing3[oefeningenNummerOpslag3];
-                //}
+                }
             }
 
             antwoordlabel1.Content = lijstOpgaves3[0];

@@ -21,7 +21,7 @@ namespace Groepswerk
     /// 
     //author: Vincent Vandoninck
     //date: 15/04/2015
-    public partial class oefeningWiskundeMakkelijk : Page
+    public partial class oefeningWiskundeGemiddeld : Page
     {
         private Oefening tempOefening;
         private OefeningLijst lijstOefeningenWiskunde2;
@@ -32,7 +32,7 @@ namespace Groepswerk
         private string[] lijstOpgaves2;
         private int oefeningPunten2;
 
-        public oefeningWiskundeMakkelijk()
+        public oefeningWiskundeGemiddeld()
         {
             InitializeComponent();
 
@@ -49,7 +49,7 @@ namespace Groepswerk
             lijstOefeningenWiskunde2 = new OefeningLijst("gemiddeld2");
             for (int i = 0; i > lijstOefeningenWiskunde2.Count; i++)
             {
-               // lijstOefeningenWiskunde2[i] =  lijstOefeningenWiskunde2[i].opgave;
+               // lijstOefeningenWiskunde2[i] = lijstOefeningenWiskunde2[i].opgave;
 
                 tempOplossing2[i] = lijstOefeningenWiskunde2[i].oplossing;
 
@@ -70,19 +70,19 @@ namespace Groepswerk
             for (int i = 0; i < 10; i++)
             {
                 oefeningenNummerOpslag = oefeningenNummer.Next(0, 9);
-                //if (!(oefeningenNummerLijst.Contains(oefeningenNummerOpslag)))
-                //{
-                //    lijstOpgaves[i] = tempOplossing[oefeningenNummerOpslag];
+                if (!(oefeningenNummerLijst.Contains(oefeningenNummerOpslag)))
+                {
+                    lijstOpgaves2[i] = tempOplossing2[oefeningenNummerOpslag];
 
-                //}
-                //else
-                //{
+                }
+                else
+                {
                 while (oefeningenNummerLijst.Contains(oefeningenNummerOpslag))
                 {
                     oefeningenNummerOpslag = oefeningenNummer.Next(0, 9);
                 }
                 lijstOpgaves2[i] = tempOplossing2[oefeningenNummerOpslag];
-                //}
+                }
             }
 
             antwoordlabel1.Content = lijstOpgaves2[0];
@@ -135,49 +135,49 @@ namespace Groepswerk
 
             {
 
-                if ((lijstOefeningenWiskunde1[1].correcteOplossing).Equals(dropLabel1.Content))
+                if ((lijstOefeningenWiskunde2[1].correcteOplossing).Equals(dropLabel1.Content))
                 {
                     oefeningPunten2++;
                 }
-                if ((lijstOefeningenWiskunde1[2].correcteOplossing).Equals(dropLabel2.Content))
+                if ((lijstOefeningenWiskunde2[2].correcteOplossing).Equals(dropLabel2.Content))
                 {
                     oefeningPunten2++;
                 }
-                if ((lijstOefeningenWiskunde1[3].correcteOplossing).Equals(dropLabel3.Content))
+                if ((lijstOefeningenWiskunde2[3].correcteOplossing).Equals(dropLabel3.Content))
                 {
                     oefeningPunten2++;
                 }
-                if ((lijstOefeningenWiskunde1[4].correcteOplossing).Equals(dropLabel4.Content))
+                if ((lijstOefeningenWiskunde2[4].correcteOplossing).Equals(dropLabel4.Content))
                 {
                     oefeningPunten2++;
                 }
-                if ((lijstOefeningenWiskunde1[5].correcteOplossing).Equals(dropLabel5.Content))
+                if ((lijstOefeningenWiskunde2[5].correcteOplossing).Equals(dropLabel5.Content))
                 {
                     oefeningPunten2++;
                 }
-                if ((lijstOefeningenWiskunde1[6].correcteOplossing).Equals(dropLabel6.Content))
+                if ((lijstOefeningenWiskunde2[6].correcteOplossing).Equals(dropLabel6.Content))
                 {
                     oefeningPunten2++;
                 }
-                if ((lijstOefeningenWiskunde1[7].correcteOplossing).Equals(dropLabel7.Content))
+                if ((lijstOefeningenWiskunde2[7].correcteOplossing).Equals(dropLabel7.Content))
                 {
                     oefeningPunten2++;
                 }
-                if ((lijstOefeningenWiskunde1[8].correcteOplossing).Equals(dropLabel8.Content))
+                if ((lijstOefeningenWiskunde2[8].correcteOplossing).Equals(dropLabel8.Content))
                 {
                     oefeningPunten2++;
                 }
-                if ((lijstOefeningenWiskunde1[9].correcteOplossing).Equals(dropLabel9.Content))
+                if ((lijstOefeningenWiskunde2[9].correcteOplossing).Equals(dropLabel9.Content))
                 {
                     oefeningPunten2++;
                 }
-                if ((lijstOefeningenWiskunde1[10].correcteOplossing).Equals(dropLabel10.Content))
+                if ((lijstOefeningenWiskunde2[10].correcteOplossing).Equals(dropLabel10.Content))
                 {
                     oefeningPunten2++;
                 }
 
                 Punten.Text = "u heeft  " + oefeningPunten2 + " behaald.";
-                 oefeningPunten2++;
+                oefeningPunten2++;
             }
 
 
