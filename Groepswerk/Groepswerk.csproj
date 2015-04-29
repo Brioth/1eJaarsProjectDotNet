@@ -304,6 +304,36 @@
   <ItemGroup>
     <Resource Include="bin\Debug\Zombie.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Accounts.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Accounts.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Klassen.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\OefNederlands1Gemiddeld.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\OefNederlands1Makkelijk.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\OefNederlands1Moeilijk.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\oefnWiskunde1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\oefWoGemiddeld.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\oefWoMakkelijk.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\oefWoMoeilijk.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

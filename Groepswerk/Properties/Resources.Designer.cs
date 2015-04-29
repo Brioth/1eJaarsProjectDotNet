@@ -61,6 +61,23 @@ namespace Groepswerk.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to lk;Leerkracht;1;Meester Jef;Jansens;bwX8QhzaRcceEY1iL+5GFA==;0;0;0;100
+        ///lln;klas1;2;Loes;Lavaerts;15i/LJvTWWOevvBg9gl1pQ==;60;70;60;250
+        ///lln;klas2;3;kim;Klijsters;fx5FA439Slkx4C1fedrT2Q==;80;90;80;400
+        ///lk;Leerkracht;4;Meester Mark;Martens;3cJyb8CMmIN5ZFOce/yTsA==;60;80;55;300
+        ///lln;klas1;5;Mieke;Maes;sj9yUM3IEDGXAAyGAmT8JA==;50;40;30;200
+        ///lln;klas1;6;Jan;Jambers;GubXq9HQwSBACYuN5QyC2w==;90;60;80;300
+        ///lln;klas2;7;Jef;Jansens;15i/LJvTWWOevvBg9gl1pQ==;80;50;60;240
+        ///lln;klas3;8;Lieve;Lauwers;psw;60;80;75;300
+        ///ll [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Accounts {
+            get {
+                return ResourceManager.GetString("Accounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap driehoekBlauw {
@@ -81,12 +98,209 @@ namespace Groepswerk.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to klas1
+        ///klas2
+        ///klas3
+        ///klas7
+        ///klas8
+        ///Leerkracht
+        ///.
+        /// </summary>
+        internal static string Klassen {
+            get {
+                return ResourceManager.GetString("Klassen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Mannetje {
             get {
                 object obj = ResourceManager.GetObject("Mannetje", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hij had een mooi verhaal (vertellen);vertelt;verteld;verteldt;verteld;Hij had een mooi verhaal verteld
+        ///We (spoeden, tegenwoordige tijd) ons naar de klas;spoede;spoedde;spoeden;spoeden; We spoeden ons naar de klas
+        ///Hij (horen, verleden tijd) een knal;hoord;hoorde;hoorte;hoorde; Hij hoorde een knal
+        ///(Houden, tegenwoordige tijd) jij van iemand die zijn woord breekt?;Houd;Houdt;Hout;Houd;Houd jij van iemand die zijn woord breekt?
+        ///Dit is enkel een test om te kijken of je het wel(kennen, tegenwoordige tijd).;ke [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string OefNederlands1Gemiddeld {
+            get {
+                return ResourceManager.GetString("OefNederlands1Gemiddeld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hij had een mooi verhaal vertel_(vertellen);t;d;dt;d;Hij had een mooi verhaal verteld
+        ///We spoe_ (spoeden, tegenwoordige tijd) ons naar de klas;de;dde;den;den; We spoeden ons naar de klas
+        ///Hij hoor_ (horen, verleden tijd) een knal;d;de;te;de; Hij hoorde een knal
+        ///Hou_ (houden, tegenwoordige tijd) jij van iemand die zijn woord breekt?;d;dt;t;d;Houd jij van iemand die zijn woord breekt?
+        ///Dit is enkel een test om te kijken of je het wel ken_ (kennen, tegenwoordige tijd).;t;d;dt;t;Dit is enkel een test om te kij [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string OefNederlands1Makkelijk {
+            get {
+                return ResourceManager.GetString("OefNederlands1Makkelijk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hij had een mooi verhaal vertel_(vertellen);verteld;Hij had een mooi verhaal verteld
+        ///We spoe_ (spoeden, tegenwoordige tijd) ons naar de klas;spoeden; We spoeden ons naar de klas
+        ///Hij hoor_ (horen, verleden tijd) een knal;hoorde; Hij hoorde een knal
+        ///Hou_ (houden, tegenwoordige tijd) jij van iemand die zijn woord breekt?;Houd;Houd jij van iemand die zijn woord breekt?
+        ///Dit is enkel een test om te kijken of je het wel ken_ (kennen, tegenwoordige tijd).;kent;Dit is enkel een test om te kijken of je het wel ke [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string OefNederlands1Moeilijk {
+            get {
+                return ResourceManager.GetString("OefNederlands1Moeilijk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1 × 1 = ;1;
+        ///2 × 1 = ;2;
+        ///3 × 1 = ;3;
+        ///4 × 1 = ;4;
+        ///5 × 1 = ;5;
+        ///6 × 1 = ;6;
+        ///7 × 1 = ;7;
+        ///8 × 1 = ;8;
+        ///9 × 1 = ;9;
+        ///10 × 1 = ;10;
+        ///1 × 2 = ;2;
+        ///2 × 2 = ;4;
+        ///3 × 2 = ;6;
+        ///4 × 2 = ;8;
+        ///5 × 2 = ;10;
+        ///6 × 2 = ;12;
+        ///7 × 2 = ;14;
+        ///8 × 2 = ;16;
+        ///9 × 2 = ;18;
+        ///10 × 2 = ;20;
+        ///1 × 3 = ;3;
+        ///2 × 3 = ;6;
+        ///3 × 3 = ;9;
+        ///4 × 3 = ;12;
+        ///5 × 3 = ;15;
+        ///6 × 3 = ;18;
+        ///7 × 3 = ;21;
+        ///8 × 3 = ;24;
+        ///9 × 3 =; 27;
+        ///10 × 3 =; 30;
+        ///1 × 4 = ;4;
+        ///2 × 4 = ;8;
+        ///3 × 4 = ;12;
+        ///4 × 4 = ;16;
+        ///5 × 4 = ;20;
+        ///6 × 4 = ;24;
+        ///7 × 4 = ;28;
+        ///8 × 4 = ; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string oefnWiskunde1 {
+            get {
+                return ResourceManager.GetString("oefnWiskunde1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Albanië;Tirana
+        ///Andorra;Andorra la Vella
+        ///Bosnië en Herzegovina;Sarajevo
+        ///IJsland;Reykjavik
+        ///Kosovo;Pristina
+        ///Macedonië;Skopje
+        ///Malta;Valletta
+        ///Moldavië;Chisinau
+        ///Montenegro;Podgorica
+        ///San Marino;San Marino
+        ///Servië;Belgrado
+        ///Slovenië;Ljubljana
+        ///Slowakije;Bratislava
+        ///Turkije;Ankara
+        ///Kroatië;Zagreb
+        ///Letland;Riga
+        ///Liechtenstein;Vaduz
+        ///Litouwen;Vilnius
+        ///Kosovo;Pristina.
+        /// </summary>
+        internal static string oefWoGemiddeld {
+            get {
+                return ResourceManager.GetString("oefWoGemiddeld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to België;Brussel
+        ///Bulgarije;Sofia
+        ///Denemarken;Kopenhagen
+        ///Duitsland;Berlijn
+        ///Estland;Tallinn
+        ///Finland;Helsinki
+        ///Frankrijk;Parijs
+        ///Griekenland;Athene
+        ///Hongarije;Boedapest
+        ///Ierland;Dublin
+        ///Italië;Rome
+        ///Luxemburg;Luxemburg
+        ///Nederland;Amsterdam
+        ///Noorwegen;Oslo
+        ///Oekraïne;Kiev
+        ///Oostenrijk;Wenen
+        ///Polen;Warschau
+        ///Portugal;Lissabon
+        ///Roemenië;Boekarest
+        ///Rusland;Moskou
+        ///Spanje;Madrid
+        ///Tsjechië;Praag
+        ///Verenigd Koninkrijk;Londen
+        ///Wit-Rusland;Minsk
+        ///Zweden;Stockholm
+        ///
+        ///.
+        /// </summary>
+        internal static string oefWoMakkelijk {
+            get {
+                return ResourceManager.GetString("oefWoMakkelijk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to alabama;montgomery
+        ///alaska;juneau
+        ///arizona;phoenix
+        ///arkansas;little rock
+        ///californië;sacramento
+        ///colorado;denver
+        ///connecticut;hartford
+        ///delaware;dover
+        ///florida;tallahassee
+        ///georgia;atlanta
+        ///hawaï;honolulu
+        ///idaho;boise
+        ///illinois;springfield
+        ///indiana;indianapolis
+        ///iowa;des moines
+        ///kansas;topeka
+        ///kentucky;frankfort
+        ///louisiana;baton rouge
+        ///maine;augusta
+        ///maryland;annapolis
+        ///massachussets;boston
+        ///michigan;lansing
+        ///minnesta;saint paul
+        ///mississippi;jackson
+        ///missouri;jefferson city
+        ///montana;helena
+        ///nebraska;lincoln [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string oefWoMoeilijk {
+            get {
+                return ResourceManager.GetString("oefWoMoeilijk", resourceCulture);
             }
         }
         
