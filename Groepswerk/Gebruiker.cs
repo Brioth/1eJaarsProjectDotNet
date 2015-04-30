@@ -18,6 +18,7 @@ namespace Groepswerk
      * 3 seconden per juist antwoord, *1 voor mak, *2 voor med en *3 voor moe
      * maximum gametijd te behalven is 6 minuten (360seconden), dit kan je behalen door 4 moeilijke oefeningen volledig juist te maken
      * Gebruik SchrijfString() om de string van de gebruiker te krijgen in het formaat nodig voor de txt-bestanden
+     * psw'en worden weggeschreven als bytes
      * Author: Carmen Celen
      * Date: 30/03/2015
      */
@@ -26,6 +27,8 @@ namespace Groepswerk
         //Lokale variabelen
 
         private int gameTijd;
+        private string encrPsw;
+        private int SLEUTEL = 70;
 
         //Constructors
         public Gebruiker(string type, string klas, string voornaam, string achternaam, string psw, int gemWisk = 0, int gemNed = 0, int gemWO = 0, int gameTijdSec = 0)
@@ -36,7 +39,7 @@ namespace Groepswerk
             Achternaam = achternaam;
             Klas = klas;
             Type = type;
-            Psw = psw;
+            encrPsw = psw;
             GemNed = gemNed;
             GemWisk = gemWisk;
             GemWO = gemWO;
@@ -50,7 +53,7 @@ namespace Groepswerk
             Achternaam = achternaam;
             Klas = klas;
             Type = type;
-            Psw = psw;
+            encrPsw = psw;
             GemNed = gemNed;
             GemWisk = gemWisk;
             GemWO = gemWO;
@@ -59,40 +62,7 @@ namespace Groepswerk
 
         //Events
 
-        //Methods
-        public static class StringCipher
-        {
-            //encrypteren van het wachtwoord
-            private static readonly byte[] initVectorBytes = Encoding.ASCII.GetBytes("tu89geji340t89u2");
-
-            // This constant is used to determine the keysize of the encryption algorithm.
-            private const int keysize = 256;
-            public static string Encrypt(string plainText, string passPhrase)
-            {
-                byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
-                using (PasswordDeriveBytes password = new PasswordDeriveBytes(passPhrase, null))
-                {
-                    byte[] keyBytes = password.GetBytes(keysize / 8);
-                    using (RijndaelManaged symmetricKey = new RijndaelManaged())
-                    {
-                        symmetricKey.Mode = CipherMode.CBC;
-                        using (ICryptoTransform encryptor = symmetricKey.CreateEncryptor(keyBytes, initVectorBytes))
-                        {
-                            using (MemoryStream memoryStream = new MemoryStream())
-                            {
-                                using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
-                                {
-                                    cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
-                                    cryptoStream.FlushFinalBlock();
-                                    byte[] cipherTextBytes = memoryStream.ToArray();
-                                    return Convert.ToBase64String(cipherTextBytes);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        //Methods        
         public override string ToString()
         {
             return Voornaam + " " + Achternaam;
@@ -107,7 +77,7 @@ namespace Groepswerk
         }
         public string SchrijfString()
         {
-            return (Type + ";" + Klas + ";" + Id + ";" + Voornaam + ";" + Achternaam + ";" + Psw + ";" + GemWisk + ";" + GemNed + ";" + GemWO + ";" + GameTijdSec);
+            return (Type + ";" + Klas + ";" + Id + ";" + Voornaam + ";" + Achternaam + ";" + encrPsw + ";" + GemWisk + ";" + GemNed + ";" + GemWO + ";" + GameTijdSec);
         }
 
         public void SetGameTijd(int vragenJuist, string moeilijkheidsgraad)
@@ -153,8 +123,47 @@ namespace Groepswerk
         public string Type { get; set; }
         public string Psw
         {
-            get { }
-            set { }
+            get 
+            {
+                char[] chars = encrPsw.ToCharArray();
+                int[] code = new int[chars.Length];
+                for (int i = 0; i < chars.Length; i++)
+			{
+                code[i] = chars[i] - SLEUTEL;
+                if (code[i] > 127)
+                {
+                    code[i] = chars[i]%128;
+                }
+                if (code[i]<0)
+                {
+                    code[i] = code[i] + 128;
+                }
+                chars[i] = Convert.ToChar(code[i]);
+			}
+                return new String(chars);
+
+            }
+            set 
+            {
+
+                char[] chars = value.ToCharArray();
+                int[] code = new int[chars.Length];
+                for (int i = 0; i < chars.Length; i++)
+                {
+                    code[i] = chars[i] + SLEUTEL;
+                    if (code[i] > 127)
+                    {
+                        code[i] = chars[i] % 128;
+                    }
+                    if (code[i] <0)
+                    {
+                        code[i] = code[i] + 128;
+                    }
+                    chars[i] = Convert.ToChar(code[i]);
+                }
+
+                encrPsw = new String(chars);
+            }
         }
         public int GemWisk { get; set; }
         public int GemNed { get; set; }
