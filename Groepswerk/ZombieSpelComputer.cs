@@ -27,42 +27,37 @@ namespace Groepswerk
         {
             for (int i = 0; i < HumansComputer.Count; i++) //Laat humans bewegen
             {
-                double richtingX = BepaalRichting() * HumansComputer[i].Snelheid;
-                double richtingY = BepaalRichting() * HumansComputer[i].Snelheid;
-
-                double nieuweX = HumansComputer[i].X + richtingX;
-                double nieuweY = HumansComputer[i].Y + richtingY;
-
-                if (!(nieuweX <= 0 || nieuweX+30 >= drawingCanvas.ActualWidth))
+                if (HumansComputer[i].X + 30 >= drawingCanvas.ActualWidth || HumansComputer[i].X < 0)
                 {
-                    HumansComputer[i].X = nieuweX;
+                    HumansComputer[i].RichtingX = -(HumansComputer[i].RichtingX);
+                    HumansComputer[i].RichtingY = BepaalRichting();
                 }
-                if (!(nieuweY <= 0 || nieuweY+30 >= drawingCanvas.ActualHeight))
+                if (HumansComputer[i].Y + 30 >= drawingCanvas.ActualHeight || HumansComputer[i].Y < 0)
                 {
-                    HumansComputer[i].Y = nieuweY;
+                    HumansComputer[i].RichtingY = -(HumansComputer[i].RichtingY);
+                    HumansComputer[i].RichtingX = BepaalRichting();
                 }
 
+                HumansComputer[i].Positie = new Point(HumansComputer[i].X + HumansComputer[i].RichtingX * HumansComputer[i].Snelheid, HumansComputer[i].Y + HumansComputer[i].RichtingY * HumansComputer[i].Snelheid);
             }
             for (int i = 0; i < ZombiesComputer.Count; i++) //Laat zombies bewegen
             {
-                double richtingX = BepaalRichting() * ZombiesComputer[i].Snelheid;
-                double richtingY = BepaalRichting() * ZombiesComputer[i].Snelheid;
-
-                double nieuweX = ZombiesComputer[i].X + richtingX;
-                double nieuweY = ZombiesComputer[i].Y + richtingY;
-
-                if (!(nieuweX <= 0 || nieuweX+30 >= drawingCanvas.ActualWidth))
+                if (ZombiesComputer[i].X + 30 >= drawingCanvas.ActualWidth || ZombiesComputer[i].X < 0)
                 {
-                    HumansComputer[i].X = nieuweX;
+                    ZombiesComputer[i].RichtingX = -(ZombiesComputer[i].RichtingX);
+                    ZombiesComputer[i].RichtingY = BepaalRichting();
                 }
-                if (!(nieuweY <= 0 || nieuweY+30 >= drawingCanvas.ActualHeight))
+                if (ZombiesComputer[i].Y + 30 >= drawingCanvas.ActualHeight || ZombiesComputer[i].Y < 0)
                 {
-                    HumansComputer[i].Y = nieuweY;
+                    ZombiesComputer[i].RichtingY = -(ZombiesComputer[i].RichtingY);
+                    ZombiesComputer[i].RichtingX = BepaalRichting();
                 }
+
+                ZombiesComputer[i].Positie = new Point(ZombiesComputer[i].X + ZombiesComputer[i].RichtingX * ZombiesComputer[i].Snelheid, ZombiesComputer[i].Y + ZombiesComputer[i].RichtingY * ZombiesComputer[i].Snelheid);
             }
         }
 
-        private int BepaalRichting() //0 is -, 1 is blijven staan, 2 is +
+        private int BepaalRichting() //0 is -, 1 is blijven staan en 2 is +
         {
             int gekozenrichting = richtingRandom.Next(3);
             int richting;
@@ -104,7 +99,7 @@ namespace Groepswerk
                     }
                 }
             }
-            for (int i = 0; i < ZombiesComputer.Count; i++) 
+            for (int i = 0; i < ZombiesComputer.Count; i++)
             {
                 foreach (ZombieSpelHuman tegenstander in lijstTegenstanderHumans) //zombies geraakt door vijand
                 {
@@ -136,9 +131,48 @@ namespace Groepswerk
                 }
             }
         }
-        public void MaakVrij()
+        public void Verander(Canvas spelCanvas)
         {
-
+            for (int i = 0; i < HumansComputer.Count; i++)
+            {
+                if (HumansComputer[i].Geraakt) //als human geraakt door vijand maak zombie
+                {
+                    //Point positie = new Point(HumansComputer[i].X + (HumansComputer[i].RichtingX * HumansComputer[i].Snelheid *2), HumansComputer[i].Y + (HumansComputer[i].RichtingY * HumansComputer[i].Snelheid*2));
+                    Point positie = new Point(spelCanvas.ActualWidth / 2, 25);
+                    ZombieSpelZombie zombieComputer = new ZombieSpelZombie(positie,"#13737C");
+                    ZombiesComputer.Add(zombieComputer);
+                    zombieComputer.DisplayOn(spelCanvas);
+                }
+            }
+            for (int i = 0; i < ZombiesComputer.Count; i++) //als zombie geraakt door eigen maak human
+            {
+                if (ZombiesComputer[i].GeraaktDoorEigen)
+                {
+                    Point positie = new Point(ZombiesComputer[i].X + (ZombiesComputer[i].RichtingX * ZombiesComputer[i].Snelheid*2), ZombiesComputer[i].Y + (ZombiesComputer[i].RichtingY * ZombiesComputer[i].Snelheid*2));
+                    ZombieSpelHuman humanComputer = new ZombieSpelHuman(positie, "#13737C");
+                    HumansComputer.Add(humanComputer);
+                    humanComputer.DisplayOn(spelCanvas);
+                }
+            }
+        }
+        public void MaakVrij(Canvas spelCanvas)
+        {
+            for (int i = 0; i < HumansComputer.Count; i++)
+            {
+                if (HumansComputer[i].Geraakt)
+                {
+                    HumansComputer[i].VerwijderHuman(spelCanvas);
+                    HumansComputer.RemoveAt(i);
+                }
+            }
+            for (int i = 0; i < ZombiesComputer.Count; i++)
+            {
+                if (ZombiesComputer[i].GeraaktDoorEigen || ZombiesComputer[i].GeraaktDoorVijand)
+                {
+                    ZombiesComputer[i].VerwijderZombie(spelCanvas);
+                    ZombiesComputer.RemoveAt(i);
+                }
+            }
         }
         //Properties
         public List<ZombieSpelHuman> HumansComputer { get; set; }

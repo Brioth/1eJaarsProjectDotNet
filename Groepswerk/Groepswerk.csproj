@@ -296,37 +296,63 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\driehoekBlauw.png" />
+    <Resource Include="bin\Debug\driehoekBlauw.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\driehoekRood.png" />
+    <Resource Include="bin\Debug\driehoekRood.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\Mannetje.png" />
+    <Resource Include="bin\Debug\Mannetje.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\Zombie.png" />
+    <Resource Include="bin\Debug\Zombie.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\Accounts.txt" />
+    <Resource Include="bin\Debug\Accounts.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\Klassen.txt" />
-    <Resource Include="bin\Debug\OefNederlands1Gemiddeld.txt" />
-    <Resource Include="bin\Debug\OefNederlands1Makkelijk.txt" />
-    <Resource Include="bin\Debug\OefNederlands1Moeilijk.txt" />
+    <Resource Include="bin\Debug\Klassen.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bin\Debug\OefNederlands1Gemiddeld.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bin\Debug\OefNederlands1Makkelijk.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bin\Debug\OefNederlands1Moeilijk.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\oefWoGemiddeld.txt" />
+    <Resource Include="bin\Debug\oefWoGemiddeld.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\oefWoMakkelijk.txt" />
+    <Resource Include="bin\Debug\oefWoMakkelijk.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\oefWoMoeilijk.txt" />
+    <Resource Include="bin\Debug\oefWoMoeilijk.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\oefnWiskunde1.txt" />
+    <Resource Include="bin\Debug\oefnWiskunde1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

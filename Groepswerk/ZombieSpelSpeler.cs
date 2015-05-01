@@ -27,38 +27,35 @@ namespace Groepswerk
         {
             for (int i = 0; i < HumansSpeler.Count; i++) //Laat humans bewegen
             {
-                double richtingX = BepaalRichting() * HumansSpeler[i].Snelheid;
-                double richtingY = BepaalRichting() * HumansSpeler[i].Snelheid;
-
-                double nieuweX = HumansSpeler[i].X + richtingX;
-                double nieuweY = HumansSpeler[i].Y + richtingY;
-
-                if (!(nieuweX <= 0 || nieuweX+30 >= drawingCanvas.ActualWidth))
+                if (HumansSpeler[i].X + 30 >= drawingCanvas.ActualWidth || HumansSpeler[i].X < 0)
                 {
-                    HumansSpeler[i].X = nieuweX;
+                    HumansSpeler[i].RichtingX = -(HumansSpeler[i].RichtingX);
+                    HumansSpeler[i].RichtingY = BepaalRichting();
                 }
-                if (!(nieuweY <= 0 || nieuweY+30 >= drawingCanvas.ActualHeight))
+                if (HumansSpeler[i].Y + 30 >= drawingCanvas.ActualHeight || HumansSpeler[i].Y < 0)
                 {
-                    HumansSpeler[i].Y = nieuweY;
+                    HumansSpeler[i].RichtingY = -(HumansSpeler[i].RichtingY);
+                    HumansSpeler[i].RichtingX = BepaalRichting();
                 }
+
+                HumansSpeler[i].Positie = new Point(HumansSpeler[i].X + HumansSpeler[i].RichtingX * HumansSpeler[i].Snelheid, HumansSpeler[i].Y + HumansSpeler[i].RichtingY * HumansSpeler[i].Snelheid);
 
             }
             for (int i = 0; i < ZombiesSpeler.Count; i++) //Laat zombies bewegen
             {
-                double richtingX = BepaalRichting() * ZombiesSpeler[i].Snelheid;
-                double richtingY = BepaalRichting() * ZombiesSpeler[i].Snelheid;
-
-                double nieuweX = ZombiesSpeler[i].X + richtingX;
-                double nieuweY = ZombiesSpeler[i].Y + richtingY;
-
-                if (!(nieuweX <= 0 || nieuweX+30 >= drawingCanvas.ActualWidth))
+                if (ZombiesSpeler[i].X + 30 >= drawingCanvas.ActualWidth || ZombiesSpeler[i].X < 0)
                 {
-                    HumansSpeler[i].X = nieuweX;
+                    ZombiesSpeler[i].RichtingX = -(ZombiesSpeler[i].RichtingX);
+                    ZombiesSpeler[i].RichtingY = BepaalRichting();
                 }
-                if (!(nieuweY <= 0 || nieuweY+30 >= drawingCanvas.ActualHeight))
+                if (ZombiesSpeler[i].Y + 30 >= drawingCanvas.ActualHeight || ZombiesSpeler[i].Y < 0)
                 {
-                    HumansSpeler[i].Y = nieuweY;
+                    ZombiesSpeler[i].RichtingY = -(ZombiesSpeler[i].RichtingY);
+                    ZombiesSpeler[i].RichtingX = BepaalRichting();
                 }
+
+                ZombiesSpeler[i].Positie = new Point(ZombiesSpeler[i].X + ZombiesSpeler[i].RichtingX * ZombiesSpeler[i].Snelheid, ZombiesSpeler[i].Y + ZombiesSpeler[i].RichtingY * ZombiesSpeler[i].Snelheid);
+
             }
         }
         private int BepaalRichting() //0 is -, 1 is blijven staan, 2 is +
@@ -135,9 +132,47 @@ namespace Groepswerk
                 }
             }
         }
-        public void MaakVrij()
+        public void Verander(Canvas spelCanvas)
         {
-
+            for (int i = 0; i < HumansSpeler.Count; i++)
+            {
+                if (HumansSpeler[i].Geraakt) //als human geraakt door vijand maak zombie
+                {
+                    Point positie = new Point(HumansSpeler[i].X + (HumansSpeler[i].RichtingX * HumansSpeler[i].Snelheid*2), HumansSpeler[i].Y + (HumansSpeler[i].RichtingY * HumansSpeler[i].Snelheid*2));
+                    ZombieSpelZombie zombieSpeler = new ZombieSpelZombie(positie, "#CB2611");
+                    ZombiesSpeler.Add(zombieSpeler);
+                    zombieSpeler.DisplayOn(spelCanvas);
+                }
+            }
+            for (int i = 0; i < ZombiesSpeler.Count; i++) //als zombie geraakt door eigen maak human
+            {
+                if (ZombiesSpeler[i].GeraaktDoorEigen)
+                {
+                    Point positie = new Point(ZombiesSpeler[i].X + (ZombiesSpeler[i].RichtingX * ZombiesSpeler[i].Snelheid*2), ZombiesSpeler[i].Y + (ZombiesSpeler[i].RichtingY * ZombiesSpeler[i].Snelheid*2));
+                    ZombieSpelHuman humanSpeler = new ZombieSpelHuman(positie, "#CB2611");
+                    HumansSpeler.Add(humanSpeler);
+                    humanSpeler.DisplayOn(spelCanvas);
+                }
+            }
+        }
+        public void MaakVrij(Canvas spelCanvas)
+        {
+            for (int i = 0; i < HumansSpeler.Count; i++)
+            {
+                if (HumansSpeler[i].Geraakt)
+                {
+                    HumansSpeler[i].VerwijderHuman(spelCanvas);
+                    HumansSpeler.RemoveAt(i);
+                }
+            }
+            for (int i = 0; i < ZombiesSpeler.Count; i++)
+            {
+                if (ZombiesSpeler[i].GeraaktDoorEigen || ZombiesSpeler[i].GeraaktDoorVijand)
+                {
+                    ZombiesSpeler[i].VerwijderZombie(spelCanvas);
+                    ZombiesSpeler.RemoveAt(i);
+                }
+            }
         }
         //Properties
         public List<ZombieSpelHuman> HumansSpeler { get; set; }

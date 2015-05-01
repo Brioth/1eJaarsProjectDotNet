@@ -10,7 +10,7 @@ namespace Groepswerk
     interface IBeweegbaar
     {
         void Beweeg(Canvas drawingCanvas);
-        void MaakVrij();//Dood?
+        void MaakVrij(Canvas drawingCanvas);
         void CheckHit(List<ZombieSpelHuman> humansTegenstander, List<ZombieSpelZombie> zombiesTegenstander);
     }
 }

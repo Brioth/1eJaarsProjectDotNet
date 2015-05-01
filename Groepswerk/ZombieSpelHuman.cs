@@ -24,6 +24,7 @@ namespace Groepswerk
         private Image afbeelding;
         private Point positie = new Point();
         private Rect doelvierkant;
+        private static Random richtingRandom = new Random();
         //Constructors
         public ZombieSpelHuman(Point punt, string kleur)
         {
@@ -38,6 +39,12 @@ namespace Groepswerk
             afbeelding.Width = GROOTTE;
             afbeelding.Height = GROOTTE;
             Positie = punt;
+            do
+            {
+                RichtingX = BepaalRichting();
+                RichtingY = BepaalRichting();
+            } while (RichtingX ==0 && RichtingY ==0);
+
         }
 
         //Events
@@ -54,6 +61,34 @@ namespace Groepswerk
             cirkel.Margin = new Thickness(this.X, this.Y, 0,0);
             afbeelding.Margin = new Thickness(this.X, this.Y, 0,0);
             doelvierkant.Location = Positie;
+        }
+        private int BepaalRichting() //0 is -, 1 is blijven staan, 2 is +
+        {
+            int gekozenrichting = richtingRandom.Next(3);
+            int richting;
+
+            switch (gekozenrichting)
+            {
+                case 0:
+                    richting = -1;
+                    break;
+                case 1:
+                    richting = 0;
+                    break;
+                case 2:
+                    richting = 1;
+                    break;
+                default:
+                    richting = 0;
+                    MessageBox.Show("Richting is niet juist gegenereerd"); //Mag later weg, voor debug
+                    break;
+            }
+            return richting;
+        }
+        public void VerwijderHuman(Canvas drawingCanvas)
+        {
+            drawingCanvas.Children.Remove(cirkel);
+            drawingCanvas.Children.Remove(afbeelding);
         }
         //Properties
         public double Snelheid { get; set; }
@@ -80,5 +115,7 @@ namespace Groepswerk
         {
             get { return doelvierkant; }
         }
+        public int RichtingX { get; set; }
+        public int RichtingY { get; set; }
     }
 }
