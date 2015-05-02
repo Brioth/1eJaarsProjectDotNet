@@ -23,12 +23,21 @@ namespace Groepswerk
             CheckKleur();
             vierkant = new Rectangle();
             doelVierkant = new Rect();
+            vierkant.Width = GROOTTE;
+            vierkant.Height = GROOTTE;
+            doelVierkant.Width = GROOTTE;
+            doelVierkant.Height = GROOTTE;
             DrawingCanvas = drawingCanvas;
             vierkant.Fill = new SolidColorBrush(Kleur);
+            Snelheid = 2;
             X = randomPlaats.Next(151);
             Y = randomPlaats.Next(151);
             DisplayOn();
-
+            do
+            {
+                RichtingX = BepaalRichting();
+                RichtingY = BepaalRichting();
+            } while (RichtingX == 0 && RichtingY == 0);
         }
 
         public override void DisplayOn()
@@ -37,11 +46,7 @@ namespace Groepswerk
         }
         protected override void UpdateElement()
         {
-            vierkant.Width = Width;
-            vierkant.Height = Height;
             vierkant.Margin = new System.Windows.Thickness(X, Y, 0, 0);
-            doelVierkant.Width = Width;
-            doelVierkant.Height = Height;
             doelVierkant.X = X;
             doelVierkant.Y = Y;
         }

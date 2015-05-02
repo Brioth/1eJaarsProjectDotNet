@@ -43,7 +43,7 @@ namespace Groepswerk
             spelTijdTimer.IsEnabled = true;
 
             spawnerSpeler = new DispatcherTimer();
-            spawnerSpeler.Interval = TimeSpan.FromSeconds(1);
+            spawnerSpeler.Interval = TimeSpan.FromSeconds(3);
             spawnerSpeler.Tick += spawnSpeler_Tick;
             spawnerSpeler.IsEnabled = true;
 
@@ -65,15 +65,13 @@ namespace Groepswerk
             computer.Beweeg(spelCanvas);
             speler.CheckHit(computer.HumansComputer, computer.ZombiesComputer);
             computer.CheckHit(speler.HumansSpeler, speler.ZombiesSpeler);
-            speler.Verander(spelCanvas);
-            computer.Verander(spelCanvas);
             speler.MaakVrij(spelCanvas);
             computer.MaakVrij(spelCanvas);
         }
         
         private void spawnComputer_Tick(object sender, EventArgs e)
         {
-            if (computer.HumansComputer.Count <2)
+            if (computer.HumansComputer.Count <20)
             {
                 ZombieSpelHuman humanComputer = new ZombieSpelHuman(puntComputer, "#13737C");
                 computer.HumansComputer.Add(humanComputer);
@@ -84,7 +82,7 @@ namespace Groepswerk
 
         private void spawnSpeler_Tick(object sender, EventArgs e)
         {
-            while (speler.HumansSpeler.Count < 2)
+            if (speler.HumansSpeler.Count < 20)
             {
                 ZombieSpelHuman humanSpeler = new ZombieSpelHuman(puntSpeler, "#CB2611");
                 speler.HumansSpeler.Add(humanSpeler);

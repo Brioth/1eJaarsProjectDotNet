@@ -131,48 +131,43 @@ namespace Groepswerk
                 }
             }
         }
-        public void Verander(Canvas spelCanvas)
+        public void MaakVrij(Canvas spelCanvas)
         {
             for (int i = 0; i < HumansComputer.Count; i++)
             {
                 if (HumansComputer[i].Geraakt) //als human geraakt door vijand maak zombie
                 {
-                    //Point positie = new Point(HumansComputer[i].X + (HumansComputer[i].RichtingX * HumansComputer[i].Snelheid *2), HumansComputer[i].Y + (HumansComputer[i].RichtingY * HumansComputer[i].Snelheid*2));
-                    Point positie = new Point(spelCanvas.ActualWidth / 2, 25);
-                    ZombieSpelZombie zombieComputer = new ZombieSpelZombie(positie,"#13737C");
+                    Point positie = new Point(HumansComputer[i].X - HumansComputer[i].RichtingX * HumansComputer[i].Snelheid*5, HumansComputer[i].Y - HumansComputer[i].RichtingY * HumansComputer[i].Snelheid*5);
+                    //Point positie = new Point(spelCanvas.ActualWidth / 2, 60);
+                    ZombieSpelZombie zombieComputer = new ZombieSpelZombie(positie, "#13737C");
+                    HumansComputer[i].VerwijderHuman(spelCanvas);
+                    HumansComputer.RemoveAt(i);
                     ZombiesComputer.Add(zombieComputer);
                     zombieComputer.DisplayOn(spelCanvas);
+                    Console.WriteLine("De Human wordt zombie");
                 }
             }
             for (int i = 0; i < ZombiesComputer.Count; i++) //als zombie geraakt door eigen maak human
             {
                 if (ZombiesComputer[i].GeraaktDoorEigen)
                 {
-                    Point positie = new Point(ZombiesComputer[i].X + (ZombiesComputer[i].RichtingX * ZombiesComputer[i].Snelheid*2), ZombiesComputer[i].Y + (ZombiesComputer[i].RichtingY * ZombiesComputer[i].Snelheid*2));
+                    Point positie = new Point(ZombiesComputer[i].X - ZombiesComputer[i].RichtingX * ZombiesComputer[i].Snelheid*5, ZombiesComputer[i].Y - ZombiesComputer[i].RichtingY * ZombiesComputer[i].Snelheid*5);
+                    //Point positie = new Point(spelCanvas.ActualWidth / 2, 60);
                     ZombieSpelHuman humanComputer = new ZombieSpelHuman(positie, "#13737C");
-                    HumansComputer.Add(humanComputer);
-                    humanComputer.DisplayOn(spelCanvas);
-                }
-            }
-        }
-        public void MaakVrij(Canvas spelCanvas)
-        {
-            for (int i = 0; i < HumansComputer.Count; i++)
-            {
-                if (HumansComputer[i].Geraakt)
-                {
-                    HumansComputer[i].VerwijderHuman(spelCanvas);
-                    HumansComputer.RemoveAt(i);
-                }
-            }
-            for (int i = 0; i < ZombiesComputer.Count; i++)
-            {
-                if (ZombiesComputer[i].GeraaktDoorEigen || ZombiesComputer[i].GeraaktDoorVijand)
-                {
                     ZombiesComputer[i].VerwijderZombie(spelCanvas);
                     ZombiesComputer.RemoveAt(i);
+                    HumansComputer.Add(humanComputer);
+                    humanComputer.DisplayOn(spelCanvas);
+                    Console.WriteLine("de zombie wordt een human");
+                }
+                else if (ZombiesComputer[i].GeraaktDoorVijand)
+                {
+                    ZombiesComputer.RemoveAt(i);
+                    ZombiesComputer[i].VerwijderZombie(spelCanvas);
+                    Console.WriteLine("De zombie gaat dood");
                 }
             }
+
         }
         //Properties
         public List<ZombieSpelHuman> HumansComputer { get; set; }
