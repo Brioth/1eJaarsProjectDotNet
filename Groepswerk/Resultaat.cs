@@ -9,7 +9,7 @@ namespace Groepswerk
     //aangepast 3/5/2015 door carmen
     //Constructor zonder datum om nieuw resultaat te maken met huidige datum, en met resultatenlijst om te checken of datum+id al bestaat
     //Constructor met datum om oud resultaat in te lezen
-    class Resultaat
+    public class Resultaat
     {
         //Lokale variabelen
         private int totaalPunten, gespendeerdeTijd, aantalOefeningen = 0;

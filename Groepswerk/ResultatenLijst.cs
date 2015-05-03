@@ -10,7 +10,7 @@ namespace Groepswerk
     //Aangepast op 3/5/2015 door Carmen
     //aparte dinges niet nodig, geef gewoon de txt mee in de constructor, structuur van alle files is toch hetzelfde
 
-    class ResultatenLijst : List<Resultaat>
+    public class ResultatenLijst : List<Resultaat>
     {
         public ResultatenLijst(string bestand)
         {
@@ -21,7 +21,6 @@ namespace Groepswerk
                 while (regel != null)
                 {
                         string[] deel = regel.Split(scheiding);
-
                         Resultaat oefeningenResultaten = new Resultaat(Convert.ToInt32(deel[0]), Convert.ToDateTime(deel[1]), Convert.ToInt32(deel[2]), Convert.ToInt32(deel[3]), Convert.ToInt32(deel[4]));
                         this.Add(oefeningenResultaten);
                         regel = bestandResultaten.ReadLine();
