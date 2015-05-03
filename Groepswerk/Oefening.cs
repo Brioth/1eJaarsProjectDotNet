@@ -30,13 +30,7 @@ namespace Groepswerk
         public string correcteOplossing { get; set; }
         public string juisteAntwoordCompleet { get; set; }
 
-        //author: Vincent Vandoninck
-        //date: 20/04/2015
-        public Oefening(string opgave, string correcteOplossing)
-        {
-            this.opgave = opgave;
-            this.correcteOplossing =  correcteOplossing;
-        }
+        
         
     }
 

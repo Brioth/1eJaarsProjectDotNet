@@ -11,115 +11,117 @@ namespace Groepswerk
     //Date: 14/04/2015
     class OefeningLijst : List<Oefening> //alle oefeningen in een lijst gooien!
     {
-       public OefeningLijst(string moeilijkheid)
-       {
-           switch (moeilijkheid) { 
-               case("makkelijk"):
-           
-               StreamReader bestandOefeningMakkelijk = File.OpenText(@"OefNederlands1Makkelijk.txt");
-               string regelMakkelijk = bestandOefeningMakkelijk.ReadLine();
-               char[] scheidingMakkelijk = { ';' };
+        public OefeningLijst(string moeilijkheid)
+        {
+            switch (moeilijkheid)
+            {
+                case ("makkelijk"):
 
-               while (regelMakkelijk != null)
-               {
-                   string[] deel = regelMakkelijk.Split(scheidingMakkelijk);
-                   Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3], deel[4], deel[5]);
-                   this.Add(oefeningNederlands);
-                   regelMakkelijk = bestandOefeningMakkelijk.ReadLine();
-               }
-               bestandOefeningMakkelijk.Close();
-           break;
-               case("gemiddeld"):
-           
-               StreamReader bestandOefeningGemiddeld = File.OpenText(@"OefNederlands1Gemiddeld.txt");
-               string regelGemiddeld = bestandOefeningGemiddeld.ReadLine();
-               char[] scheidingGemiddeld = { ';' };
+                    StreamReader bestandOefeningMakkelijk = File.OpenText(@"OefNederlands1Makkelijk.txt");
+                    string regelMakkelijk = bestandOefeningMakkelijk.ReadLine();
+                    char[] scheidingMakkelijk = { ';' };
 
-               while (regelGemiddeld != null)
-               {
-                   string[] deel = regelGemiddeld.Split(scheidingGemiddeld);
+                    while (regelMakkelijk != null)
+                    {
+                        string[] deel = regelMakkelijk.Split(scheidingMakkelijk);
+                        Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3], deel[4], deel[5]);
+                        this.Add(oefeningNederlands);
+                        regelMakkelijk = bestandOefeningMakkelijk.ReadLine();
+                    }
+                    bestandOefeningMakkelijk.Close();
+                    break;
+                case ("gemiddeld"):
 
-                   Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3], deel[4], deel[5]);
-                   this.Add(oefeningNederlands);
-                   regelGemiddeld = bestandOefeningGemiddeld.ReadLine();
-               }
-               bestandOefeningGemiddeld.Close();
-           break;
+                    StreamReader bestandOefeningGemiddeld = File.OpenText(@"OefNederlands1Gemiddeld.txt");
+                    string regelGemiddeld = bestandOefeningGemiddeld.ReadLine();
+                    char[] scheidingGemiddeld = { ';' };
 
-               case("moeilijk"):
-           
-               StreamReader bestandOefeningMoeilijk = File.OpenText(@"OefNederlands1Moeilijk.txt");
-               string regelMoeilijk = bestandOefeningMoeilijk.ReadLine();
-               char[] scheidingMoeilijk = { ';' };
+                    while (regelGemiddeld != null)
+                    {
+                        string[] deel = regelGemiddeld.Split(scheidingGemiddeld);
 
-               while (regelMoeilijk != null)
-               {
-                   string[] deel = regelMoeilijk.Split(scheidingMoeilijk);
+                        Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3], deel[4], deel[5]);
+                        this.Add(oefeningNederlands);
+                        regelGemiddeld = bestandOefeningGemiddeld.ReadLine();
+                    }
+                    bestandOefeningGemiddeld.Close();
+                    break;
 
-                   Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3], deel[4], deel[5]);
-                   this.Add(oefeningNederlands);
-                   regelMoeilijk = bestandOefeningMoeilijk.ReadLine();
-               }
-               bestandOefeningMoeilijk.Close();
-           break;
+                case ("moeilijk"):
+
+                    StreamReader bestandOefeningMoeilijk = File.OpenText(@"OefNederlands1Moeilijk.txt");
+                    string regelMoeilijk = bestandOefeningMoeilijk.ReadLine();
+                    char[] scheidingMoeilijk = { ';' };
+
+                    while (regelMoeilijk != null)
+                    {
+                        string[] deel = regelMoeilijk.Split(scheidingMoeilijk);
+
+                        Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2], deel[3], deel[4], deel[5]);
+                        this.Add(oefeningNederlands);
+                        regelMoeilijk = bestandOefeningMoeilijk.ReadLine();
+                    }
+                    bestandOefeningMoeilijk.Close();
+                    break;
 
 
-            //Author: Vincent Vandoninck
-            //Date: 24/04/2015
+                //Author: Vincent Vandoninck
+                //Date: 24/04/2015
 
-               case("makkelijk2"):
+                //       case("makkelijk2"):
 
-           StreamReader bestandOefeningMakkelijk2 = File.OpenText(@"oefnWiskundeMakkelijk.txt");
-           string regelMakkelijk2 = bestandOefeningMakkelijk2.ReadLine();
-           char[] scheidingmakkelijk2 = { ';' };
+                //   StreamReader bestandOefeningMakkelijk2 = File.OpenText(@"oefnWiskundeMakkelijk.txt");
+                //   string regelMakkelijk2 = bestandOefeningMakkelijk2.ReadLine();
+                //   char[] scheidingmakkelijk2 = { ';' };
 
-           while (regelMakkelijk2 != null)
-                {
-                    string[] deel = regelMakkelijk2.Split(scheidingmakkelijk2);
+                //   while (regelMakkelijk2 != null)
+                //        {
+                //            string[] deel = regelMakkelijk2.Split(scheidingmakkelijk2);
 
-                    Oefening oefeningWiskundeMakkelijk2 = new Oefening(Convert.ToString(deel[0]), Convert.ToString(deel[1]));
-                    this.Add(oefeningWiskundeMakkelijk2);
-                    regelMakkelijk2 = bestandOefeningMakkelijk2.ReadLine();
-                }
-           bestandOefeningMakkelijk2.Close();
-            break;
+                //            Oefening oefeningWiskundeMakkelijk2 = new Oefening(Convert.ToString(deel[0]), Convert.ToString(deel[1]));
+                //            this.Add(oefeningWiskundeMakkelijk2);
+                //            regelMakkelijk2 = bestandOefeningMakkelijk2.ReadLine();
+                //        }
+                //   bestandOefeningMakkelijk2.Close();
+                //    break;
 
-               case("gemiddeld2"):
-            
-                StreamReader bestandOefeningGemiddeld2 = File.OpenText(@"oefnWiskundeGemiddeld.txt");
-                string regelGemiddeld2 = bestandOefeningGemiddeld2.ReadLine();
-                char[] scheidingGemiddeld2 = { ';' };
+                //       case("gemiddeld2"):
 
-                while (regelGemiddeld2 != null)
-                {
-                    string[] deel = regelGemiddeld2.Split(scheidingGemiddeld2);
+                //        StreamReader bestandOefeningGemiddeld2 = File.OpenText(@"oefnWiskundeGemiddeld.txt");
+                //        string regelGemiddeld2 = bestandOefeningGemiddeld2.ReadLine();
+                //        char[] scheidingGemiddeld2 = { ';' };
 
-                    Oefening oefeningWiskundeGemiddeld2 = new Oefening(Convert.ToString(deel[0]), Convert.ToString(deel[1]));
-                    this.Add(oefeningWiskundeGemiddeld2);
-                    regelGemiddeld2 = bestandOefeningGemiddeld2.ReadLine();
-                }
-                bestandOefeningGemiddeld2.Close();
-                break;
+                //        while (regelGemiddeld2 != null)
+                //        {
+                //            string[] deel = regelGemiddeld2.Split(scheidingGemiddeld2);
 
-               case ("moeilijk2"):
-            
-                StreamReader bestandOefeningMoeilijk2 = File.OpenText(@"oefnWiskundeMoeilijk.txt");
-                string regelMoeilijk2 = bestandOefeningMoeilijk2.ReadLine();
-                char[] scheidingMoeilijk2 = { ';' };
+                //            Oefening oefeningWiskundeGemiddeld2 = new Oefening(Convert.ToString(deel[0]), Convert.ToString(deel[1]));
+                //            this.Add(oefeningWiskundeGemiddeld2);
+                //            regelGemiddeld2 = bestandOefeningGemiddeld2.ReadLine();
+                //        }
+                //        bestandOefeningGemiddeld2.Close();
+                //        break;
 
-                while (regelMoeilijk2 != null)
-                {
-                    string[] deel = regelMoeilijk2.Split(scheidingMoeilijk2);
+                //       case ("moeilijk2"):
 
-                    Oefening oefeningWiskundeMoeilijk2 = new Oefening(Convert.ToString(deel[0]), Convert.ToString(deel[1]));
-                    this.Add(oefeningWiskundeMoeilijk2);
-                    regelMoeilijk2 = bestandOefeningMoeilijk2.ReadLine();
-                }
-                bestandOefeningMoeilijk2.Close();
-                break;
+                //        StreamReader bestandOefeningMoeilijk2 = File.OpenText(@"oefnWiskundeMoeilijk.txt");
+                //        string regelMoeilijk2 = bestandOefeningMoeilijk2.ReadLine();
+                //        char[] scheidingMoeilijk2 = { ';' };
 
+                //        while (regelMoeilijk2 != null)
+                //        {
+                //            string[] deel = regelMoeilijk2.Split(scheidingMoeilijk2);
+
+                //            Oefening oefeningWiskundeMoeilijk2 = new Oefening(Convert.ToString(deel[0]), Convert.ToString(deel[1]));
+                //            this.Add(oefeningWiskundeMoeilijk2);
+                //            regelMoeilijk2 = bestandOefeningMoeilijk2.ReadLine();
+                //        }
+                //        bestandOefeningMoeilijk2.Close();
+                //        break;
+
+                //}
+
+            }
         }
-       
-    }
     }
 }
