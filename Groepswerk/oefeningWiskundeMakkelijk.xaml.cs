@@ -16,88 +16,106 @@ using System.Windows.Shapes;
 namespace Groepswerk
 {
     /// <summary>
-    /// Interaction logic for oefnWisk1.xaml
-    /// 
-    /// //author: Vincent Vandoninck
-    //date: 15/04/2015
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class oefeningWiskundeMakkelijk : Page
     {
-        private Oefening tempOefening1;
-        private OefeningLijst lijstOefeningenWiskunde1;
-        private string[] tempOpgaveWiskunde1, tempOplossing1;
-        private Random oefeningenNummer1 = new Random();
-        private int oefeningenNummerOpslag1;
-        private IList<int> oefeningenNummerLijst1;
-        private string[] lijstOpgaves1;
+
+
         private int oefeningPunten;
+        private Random RandomTest = new Random();
+        private int randomGetal1;
+        private int randomGetal2;
+        private String[] OpgaveLijst = new String[10];
+        private int[] oplossingLijst = new int[10];
+        private List<int> randomLijst = new List<int>();
 
         public oefeningWiskundeMakkelijk()
         {
             InitializeComponent();
 
-            //bestand maken met opgave en antwoord per lijn
-            // in lijst inlezen
-            // random getal tss lijst.count
-            //opgave van de geselecteerde oefn in opgave boxen zettenù
-            // antwoorden opslaan in andere lijst en ermee vergelijken
-
-            // of 2 random getallen tss 10 laten maken en die uitkomst ervan laten berekenen en opslaan in lijst
+            // of 2 random getallen tss 10 laten maken en die uitkomst ervan laten berekenen en opslaan in lijst (txt bestand)
             // lijst vergelijken met de user input
-            //
-
-            lijstOefeningenWiskunde1 = new OefeningLijst("makkelijk2");
-            for (int i = 0; i > lijstOefeningenWiskunde1.Count; i++)
-            {
-                tempOpgaveWiskunde1[i] = lijstOefeningenWiskunde1[i].opgave;
-
-                tempOplossing1[i] = lijstOefeningenWiskunde1[i].oplossing;
-
-            }
-            opgaveblock1.Content = tempOpgaveWiskunde1[0];
-            opgaveblock2.Content = tempOpgaveWiskunde1[1];
-            opgaveblock3.Content = tempOpgaveWiskunde1[2];
-            opgaveblock4.Content = tempOpgaveWiskunde1[3];
-            opgaveblock5.Content = tempOpgaveWiskunde1[4];
-            opgaveblock6.Content = tempOpgaveWiskunde1[5];
-            opgaveblock7.Content = tempOpgaveWiskunde1[6];
-            opgaveblock8.Content = tempOpgaveWiskunde1[7];
-            opgaveblock9.Content = tempOpgaveWiskunde1[8];
-            opgaveblock10.Content = tempOpgaveWiskunde1[9];
-
-
 
             for (int i = 0; i < 10; i++)
             {
-                oefeningenNummerOpslag1 = oefeningenNummer1.Next(0, 9);
-                if (!(oefeningenNummerLijst1.Contains(oefeningenNummerOpslag1)))
-                {
-                    lijstOpgaves1[i] = tempOplossing1[oefeningenNummerOpslag1];
+                randomGetal1 = RandomTest.Next(1, 11);
+                randomGetal2 = RandomTest.Next(1, 11);
 
-                }
-                else
-                {
-                while (oefeningenNummerLijst1.Contains(oefeningenNummerOpslag1))
-                {
-                    oefeningenNummerOpslag1 = oefeningenNummer1.Next(0, 9);
-                }
-                lijstOpgaves1[i] = tempOplossing1[oefeningenNummerOpslag1];
-                }
+                // eerst uitkomst berekenen en die opslaan in labels
+                // uitkomst ingeven als gebruiker en testen met verbeterknop
+                //
+                //
+                oplossingLijst[i] = randomGetal1 * randomGetal2;
+                randomLijst.Add(oplossingLijst[i]);
+
+                randomGetal1.ToString();
+                randomGetal2.ToString();
+
+
+                OpgaveLijst[i] = (randomGetal1.ToString() + " x " + (randomGetal2.ToString()));
+
             }
 
-            antwoordlabel1.Content = lijstOpgaves1[0];
-            antwoordlabel2.Content = lijstOpgaves1[1];
-            antwoordlabel3.Content = lijstOpgaves1[2];
-            antwoordlabel4.Content = lijstOpgaves1[3];
-            antwoordlabel5.Content = lijstOpgaves1[4];
-            antwoordlabel6.Content = lijstOpgaves1[5];
-            antwoordlabel7.Content = lijstOpgaves1[6];
-            antwoordlabel8.Content = lijstOpgaves1[7];
-            antwoordlabel9.Content = lijstOpgaves1[8];
-            antwoordlabel10.Content = lijstOpgaves1[9];
+
+
+            // nog verbinden (in array?)
+            opgaveblock1.Content = OpgaveLijst[0];
+            opgaveblock2.Content = OpgaveLijst[1];
+            opgaveblock3.Content = OpgaveLijst[2];
+            opgaveblock4.Content = OpgaveLijst[3];
+            opgaveblock5.Content = OpgaveLijst[4];
+            opgaveblock6.Content = OpgaveLijst[5];
+            opgaveblock7.Content = OpgaveLijst[6];
+            opgaveblock8.Content = OpgaveLijst[7];
+            opgaveblock9.Content = OpgaveLijst[8];
+            opgaveblock10.Content = OpgaveLijst[9];
+
+
+            int randomGetal = RandomTest.Next(randomLijst.Count());
+
+            antwoordlabel1.Content = randomLijst[randomGetal];
+            randomLijst.RemoveAt(randomGetal);
+
+            randomGetal = RandomTest.Next(randomLijst.Count());
+            antwoordlabel2.Content = randomLijst[randomGetal];
+            randomLijst.RemoveAt(randomGetal);
+
+            randomGetal = RandomTest.Next(randomLijst.Count());
+            antwoordlabel3.Content = randomLijst[randomGetal];
+            randomLijst.RemoveAt(randomGetal);
+
+            randomGetal = RandomTest.Next(randomLijst.Count());
+            antwoordlabel4.Content = randomLijst[randomGetal];
+            randomLijst.RemoveAt(randomGetal);
+
+            randomGetal = RandomTest.Next(randomLijst.Count());
+            antwoordlabel5.Content = randomLijst[randomGetal];
+            randomLijst.RemoveAt(randomGetal);
+
+            randomGetal = RandomTest.Next(randomLijst.Count());
+            antwoordlabel6.Content = randomLijst[randomGetal];
+            randomLijst.RemoveAt(randomGetal);
+
+            randomGetal = RandomTest.Next(randomLijst.Count());
+            antwoordlabel7.Content = randomLijst[randomGetal];
+            randomLijst.RemoveAt(randomGetal);
+
+            randomGetal = RandomTest.Next(randomLijst.Count());
+            antwoordlabel8.Content = randomLijst[randomGetal];
+            randomLijst.RemoveAt(randomGetal);
+
+            randomGetal = RandomTest.Next(randomLijst.Count());
+            antwoordlabel9.Content = randomLijst[randomGetal];
+            randomLijst.RemoveAt(randomGetal);
+
+            randomGetal = RandomTest.Next(randomLijst.Count());
+            antwoordlabel10.Content = randomLijst[randomGetal];
+            randomLijst.RemoveAt(randomGetal);
+
         }
 
-            private void Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DataObject data = new DataObject(DataFormats.Text, ((Label)e.Source).Content);
 
@@ -105,14 +123,14 @@ namespace Groepswerk
             //slepen
         }
 
-         private void Label_Drop(object sender, DragEventArgs e)
-            // hier wordt gedropped
+        private void Label_Drop(object sender, DragEventArgs e)
+        // hier wordt gedropped
         {
             ((Label)e.Source).Content = (string)e.Data.GetData(DataFormats.Text);
         }
 
         private void Label_GiveFeedback(object sender, GiveFeedbackEventArgs e)
-            // als je boven een drop object staat veranderd je cursor
+        // als je boven een drop object staat veranderd je cursor
         {
             if (e.Effects == DragDropEffects.Copy)
             {
@@ -126,9 +144,6 @@ namespace Groepswerk
         }
 
 
-
-               
-        
         //author: Vincent Vandoninck
         //date: 28/04/2015
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
@@ -138,50 +153,69 @@ namespace Groepswerk
 
             {
 
-                if ((lijstOefeningenWiskunde1[1].correcteOplossing).Equals(dropLabel1.Content))
+                try
                 {
-                    oefeningPunten++;
-                }
-                if ((lijstOefeningenWiskunde1[2].correcteOplossing).Equals(dropLabel2.Content))
-                {
-                    oefeningPunten++;
-                }
-                if ((lijstOefeningenWiskunde1[3].correcteOplossing).Equals(dropLabel3.Content))
-                {
-                    oefeningPunten++;
-                }
-                if ((lijstOefeningenWiskunde1[4].correcteOplossing).Equals(dropLabel4.Content))
-                {
-                    oefeningPunten++;
-                }
-                if ((lijstOefeningenWiskunde1[5].correcteOplossing).Equals(dropLabel5.Content))
-                {
-                    oefeningPunten++;
-                }
-                if ((lijstOefeningenWiskunde1[6].correcteOplossing).Equals(dropLabel6.Content))
-                {
-                    oefeningPunten++;
-                }
-                if ((lijstOefeningenWiskunde1[7].correcteOplossing).Equals(dropLabel7.Content))
-                {
-                    oefeningPunten++;
-                }
-                if ((lijstOefeningenWiskunde1[8].correcteOplossing).Equals(dropLabel8.Content))
-                {
-                    oefeningPunten++;
-                }
-                if ((lijstOefeningenWiskunde1[9].correcteOplossing).Equals(dropLabel9.Content))
-                {
-                    oefeningPunten++;
-                }
-                if ((lijstOefeningenWiskunde1[10].correcteOplossing).Equals(dropLabel10.Content))
-                {
-                    oefeningPunten++;
+                    if ((oplossingLijst[0]) == Convert.ToInt32(dropLabel1.Text))
+                    {
+                        oefeningPunten++;
+                    }
+                    if ((oplossingLijst[1]) == Convert.ToInt32(dropLabel2.Text))
+                    {
+                        oefeningPunten++;
+                    }
+                    if ((oplossingLijst[2]) == Convert.ToInt32(dropLabel3.Text))
+                    {
+                        oefeningPunten++;
+                    }
+                    if ((oplossingLijst[3]) == Convert.ToInt32(dropLabel4.Text))
+                    {
+                        oefeningPunten++;
+                    }
+                    if ((oplossingLijst[4]) == Convert.ToInt32(dropLabel5.Text))
+                    {
+                        oefeningPunten++;
+                    }
+                    if ((oplossingLijst[5]) == Convert.ToInt32(dropLabel6.Text))
+                    {
+                        oefeningPunten++;
+                    }
+                    if ((oplossingLijst[6]) == Convert.ToInt32(dropLabel7.Text))
+                    {
+                        oefeningPunten++;
+                    }
+                    if ((oplossingLijst[7]) == Convert.ToInt32(dropLabel8.Text))
+                    {
+                        oefeningPunten++;
+                    }
+                    if ((oplossingLijst[8]) == Convert.ToInt32(dropLabel9.Text))
+                    {
+                        oefeningPunten++;
+                    }
+                    if ((oplossingLijst[9]) == Convert.ToInt32(dropLabel10.Text))
+                    {
+                        oefeningPunten++;
+                    }
+                    Punten.Text = ("u heeft  " + oefeningPunten + " behaald. ");
                 }
 
-                Punten.Text = "u heeft  " + oefeningPunten + " behaald.";
+
+
+                catch (FormatException exceptionObject)
+                {
+                    MessageBox.Show("zet 0 als je het antwoord niet weet");
+                }
+
+
             }
         }
-        
+
+        private void dropLabel1_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+
+        }
+
+
+
     }
+
 }
