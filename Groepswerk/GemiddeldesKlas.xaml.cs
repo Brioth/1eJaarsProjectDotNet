@@ -23,68 +23,49 @@ namespace Groepswerk
     public partial class GemiddeldesKlas : Page
     {
         private Klaslijst lijstKlas;
-        private Accountlijst lijstAccount;
-        private Klas geselecteerdeKlas;
-
+        private Accountlijst lijstAccounts;
+        private List<DetailsGebruiker> detailsGebruikers;
 
         public GemiddeldesKlas()
         {
             InitializeComponent();
             lijstKlas = new Klaslijst();
+            detailsGebruikers = new List<DetailsGebruiker>();
             selecteerKlas.ItemsSource = lijstKlas;
             selecteerKlas.SelectedIndex = 0;
+
         }
 
         private void selecteerKlas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string gemiddeldesText = gemiddeldes.Text;
-            gemiddeldes.Text = "Naam leerling" + '\t' + "Gemiddelde Wiskunde" + '\t' + "Gemiddelde Nederlands" + '\t' + "Gemiddelde WO";
-            geselecteerdeKlas = (Klas)selecteerKlas.SelectedItem;
-            lijstAccount = new Accountlijst(geselecteerdeKlas);
-
-            for (int i = 0; i < (lijstAccount.Count); i++)
+            lijstAccounts = new Accountlijst((Klas)selecteerKlas.SelectedItem);
+            foreach (Gebruiker gebruiker in lijstAccounts)
             {
-                gemiddeldesText = gemiddeldes.Text;
-                //gemiddeldesText = gemiddeldesText + '\n' + lijstAccount[i].Voornaam + " " + lijstAccount[i].Achternaam + '\t' + '\t' + lijstAccount[i].GemWisk + '\t' + '\t' + '\t' + lijstAccount[i].GemNed + '\t' + '\t' + '\t' + lijstAccount[i].GemWO;
-                gemiddeldes.Text = gemiddeldesText;
+                detailsGebruikers.Add(new DetailsGebruiker(gebruiker.Id));
             }
+
+            resultatenGrid.ItemsSource = detailsGebruikers;
+
+
+
+
+
+            //MaakGrid();
+            //string gemiddeldesText = gemiddeldes.Text;
+            //gemiddeldes.Text = "Naam leerling" + '\t' + "Gemiddelde Wiskunde" + '\t' + "Gemiddelde Nederlands" + '\t' + "Gemiddelde WO";
+
+
+
+            //for (int i = 0; i < (lijstAccounts.Count); i++)
+            //{
+            //    gemiddeldesText = gemiddeldes.Text;
+            //    //gemiddeldesText = gemiddeldesText + '\n' + lijstAccount[i].Voornaam + " " + lijstAccount[i].Achternaam + '\t' + '\t' + lijstAccount[i].GemWisk + '\t' + '\t' + '\t' + lijstAccount[i].GemNed + '\t' + '\t' + '\t' + lijstAccount[i].GemWO;
+            //    gemiddeldes.Text = gemiddeldesText;
+            //}
             
         }
-        private void BerekenGemiddeldeNed(int id)
-        {
-            int[] nedMak = BerekenGemiddelde(id, "blabla");
-            int[] nedGem = BerekenGemiddelde(id, "blabla");
-            int[] nedMoe = BerekenGemiddelde(id, "blabla");
-        }
-        private void BerekenGemiddeldeWisk(int id)
-        {
-            int[] wiskMak = BerekenGemiddelde(id, "blabla");
-            int[] wiskGem = BerekenGemiddelde(id, "blabla");
-            int[] wiskMoe = BerekenGemiddelde(id, "blabla");
-        }
-        private void BerekenGemiddeldeWO(int id)
-        {
-            int[] woMak = BerekenGemiddelde(id, "blabla");
-            int[] woGem = BerekenGemiddelde(id, "blabla");
-            int[] woMoe = BerekenGemiddelde(id, "blabla");
-        }
-        private int[] BerekenGemiddelde(int id, string bestand)
-        {
-            ResultatenLijst lijst = new ResultatenLijst(bestand);
-            int totaalPunten = 0;
-            int totaalSeconden = 0;
-            int totaalOefeningen = 0;
-            foreach (Resultaat item in lijst)
-            {
-                if (item.Id == id)
-                {
-                    totaalPunten = totaalPunten + item.TotaalPunten;
-                    totaalSeconden = totaalSeconden + item.GespendeerdeTijd;
-                    totaalOefeningen = totaalOefeningen + item.TotaalPunten;
-                }
-            }
-            int[] berekeningen = {totaalPunten, totaalOefeningen, totaalSeconden};
-            return berekeningen;
-        }
+
+
+ 
     } 
 }
