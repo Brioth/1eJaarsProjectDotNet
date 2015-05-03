@@ -75,6 +75,7 @@
     <Compile Include="BewerkKlasLijst.xaml.cs">
       <DependentUpon>BewerkKlasLijst.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DetailsGebruiker.cs" />
     <Compile Include="Gebruiker.cs" />
     <Compile Include="Gebruikerdetails.xaml.cs">
       <DependentUpon>Gebruikerdetails.xaml</DependentUpon>
@@ -92,6 +93,7 @@
     <Compile Include="HoofdSpelLijstRood.cs" />
     <Compile Include="HoofdSpelEntiteit.cs" />
     <Compile Include="IBeweegbaar.cs" />
+    <Compile Include="Klas.cs" />
     <Compile Include="Klaslijst.cs" />
     <Compile Include="oefeningWiskundeGemiddeld.xaml.cs">
       <DependentUpon>oefeningWiskundeGemiddeld.xaml</DependentUpon>
@@ -101,7 +103,6 @@
     </Compile>
     <Compile Include="Resultaat.cs" />
     <Compile Include="ResultatenLijst.cs" />
-    <Compile Include="wegschrijvenData.cs" />
     <Compile Include="wo.cs" />
     <Compile Include="ZombieSpel.xaml.cs">
       <DependentUpon>ZombieSpel.xaml</DependentUpon>
@@ -296,63 +297,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\driehoekBlauw.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="bin\Debug\driehoekBlauw.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\driehoekRood.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="bin\Debug\driehoekRood.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\Mannetje.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="bin\Debug\Mannetje.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\Zombie.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="bin\Debug\Accounts.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="bin\Debug\Klassen.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="bin\Debug\OefNederlands1Gemiddeld.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="bin\Debug\OefNederlands1Makkelijk.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="bin\Debug\OefNederlands1Moeilijk.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="bin\Debug\oefWoGemiddeld.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="bin\Debug\oefWoMakkelijk.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="bin\Debug\oefWoMoeilijk.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="bin\Debug\oefnWiskunde1.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="bin\Debug\Zombie.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

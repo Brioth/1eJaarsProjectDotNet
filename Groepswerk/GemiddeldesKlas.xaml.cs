@@ -16,36 +16,56 @@ namespace Groepswerk
 {
     /* Author: Thomas Cox
      * Date: 5/04/2015
+     * 
+     * Aangepast op 3/5 door Carmen
+     * 
     */
     public partial class GemiddeldesKlas : Page
     {
         private Klaslijst lijstKlas;
-        private Accountlijst lijstAccount;
-        private string geselecteerdeKlas;
-
+        private Accountlijst lijstAccounts;
+        private List<DetailsGebruiker> detailsGebruikers;
 
         public GemiddeldesKlas()
         {
             InitializeComponent();
             lijstKlas = new Klaslijst();
+            detailsGebruikers = new List<DetailsGebruiker>();
             selecteerKlas.ItemsSource = lijstKlas;
             selecteerKlas.SelectedIndex = 0;
+
         }
 
         private void selecteerKlas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string gemiddeldesText = gemiddeldes.Text;
-            gemiddeldes.Text = "Naam leerling" + '\t' + "Gemiddelde Wiskunde" + '\t' + "Gemiddelde Nederlands" + '\t' + "Gemiddelde WO";
-            geselecteerdeKlas = Convert.ToString(selecteerKlas.SelectedItem);
-            lijstAccount = new Accountlijst(geselecteerdeKlas);
-
-            for (int i = 0; i < (lijstAccount.Count); i++)
+            lijstAccounts = new Accountlijst((Klas)selecteerKlas.SelectedItem);
+            foreach (Gebruiker gebruiker in lijstAccounts)
             {
-                gemiddeldesText = gemiddeldes.Text;
-                gemiddeldesText = gemiddeldesText + '\n' + lijstAccount[i].Voornaam + " " + lijstAccount[i].Achternaam + '\t' + '\t' + lijstAccount[i].GemWisk + '\t' + '\t' + '\t' + lijstAccount[i].GemNed + '\t' + '\t' + '\t' + lijstAccount[i].GemWO;
-                gemiddeldes.Text = gemiddeldesText;
+                detailsGebruikers.Add(new DetailsGebruiker(gebruiker.Id));
             }
+
+            resultatenGrid.ItemsSource = detailsGebruikers;
+
+
+
+
+
+            //MaakGrid();
+            //string gemiddeldesText = gemiddeldes.Text;
+            //gemiddeldes.Text = "Naam leerling" + '\t' + "Gemiddelde Wiskunde" + '\t' + "Gemiddelde Nederlands" + '\t' + "Gemiddelde WO";
+
+
+
+            //for (int i = 0; i < (lijstAccounts.Count); i++)
+            //{
+            //    gemiddeldesText = gemiddeldes.Text;
+            //    //gemiddeldesText = gemiddeldesText + '\n' + lijstAccount[i].Voornaam + " " + lijstAccount[i].Achternaam + '\t' + '\t' + lijstAccount[i].GemWisk + '\t' + '\t' + '\t' + lijstAccount[i].GemNed + '\t' + '\t' + '\t' + lijstAccount[i].GemWO;
+            //    gemiddeldes.Text = gemiddeldesText;
+            //}
             
         }
+
+
+ 
     } 
 }

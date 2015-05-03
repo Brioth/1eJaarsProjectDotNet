@@ -35,7 +35,7 @@ namespace Groepswerk
                         woorden[i] = woorden[i].Trim();
                     }
 
-                    Gebruiker gebruiker = new Gebruiker(woorden[0], woorden[1], Convert.ToInt32(woorden[2]), woorden[3], woorden[4], woorden[5], Convert.ToInt32(woorden[6]), Convert.ToInt32(woorden[7]), Convert.ToInt32(woorden[8]), Convert.ToInt32(woorden[9]));
+                    Gebruiker gebruiker = new Gebruiker(woorden[0], woorden[1], Convert.ToInt32(woorden[2]), woorden[3], woorden[4], woorden[5],Convert.ToInt32(woorden[6]));
                     this.Add(gebruiker);
                     regel = bestandAcc.ReadLine();
                 }

@@ -24,7 +24,7 @@ namespace Groepswerk
     {
         //Lokale variabelen
         private Klaslijst klasLijst;
-        private String selectedKlas;
+        private Klas selectedKlas;
 
         //Constructors
         public BewerkKlasLijst()
@@ -38,23 +38,29 @@ namespace Groepswerk
         //Events
         private void KlasLijst_Changed(object sender, SelectionChangedEventArgs e)
         {
-            selectedKlas = Convert.ToString(lboxKlasLijst.SelectedItem);
-            txtbOmschr.Text = selectedKlas;
-            txtbIndex.Text = ""+(lboxKlasLijst.SelectedIndex + 1);
+            if (lboxKlasLijst.SelectedIndex != -1)
+            {
+                selectedKlas = (Klas)lboxKlasLijst.SelectedItem;
+                txtbOmschr.Text = selectedKlas.Naam;
+                chboxZombie.IsChecked = selectedKlas.Zombie;
+                txtbIndex.Text = "" + (lboxKlasLijst.SelectedIndex + 1);
+            }
+
         }
         private void BtnNieuw_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-            string nieuweKlas = txtbOmschr.Text;
-            int index = Convert.ToInt32(txtbIndex.Text) - 1 ;
-            if (index > klasLijst.Count)
-            {
-                index = klasLijst.Count;
-            }
-            klasLijst.Insert(index, nieuweKlas);
-            klasLijst.SchrijfLijst();
-            UpdateLijst();
+
+                int index = Convert.ToInt32(txtbIndex.Text) - 1;
+                if (index > klasLijst.Count)
+                {
+                    index = klasLijst.Count;
+                }
+                Klas nieuweKlas = new Klas(txtbOmschr.Text, Convert.ToBoolean(chboxZombie.IsChecked));
+                klasLijst.Insert(index, nieuweKlas);
+                klasLijst.SchrijfLijst();
+                UpdateLijst();
             }
             catch (FormatException)
             {
@@ -65,14 +71,15 @@ namespace Groepswerk
         {
             try
             {
-                string nieuweNaam = txtbOmschr.Text;
-                int index = Convert.ToInt32(txtbIndex.Text) - 1;
-                if (index>klasLijst.Count)  
+                int index = Convert.ToInt32(txtbIndex.Text);
+                if (index > klasLijst.Count)
                 {
                     index = klasLijst.Count;
                 }
+                Klas aangepasteKlas = new Klas(txtbOmschr.Text, Convert.ToBoolean(chboxZombie.IsChecked));
+                PasKlasGebruikersAan(aangepasteKlas);                
+                klasLijst.Insert(index, aangepasteKlas);
                 klasLijst.Remove(selectedKlas);
-                klasLijst.Insert(index, nieuweNaam);
                 klasLijst.SchrijfLijst();
                 UpdateLijst();
             }
@@ -80,6 +87,19 @@ namespace Groepswerk
             {
                 MessageBox.Show("De index moet een cijfer zijn");
             }
+        }
+
+        private void PasKlasGebruikersAan(Klas nieuweKlas)
+        {
+            AlleGebruikersLijst lijst = new AlleGebruikersLijst();
+            foreach (Gebruiker gebruiker in lijst)
+            {
+                if (gebruiker.Klas.Naam.Equals(selectedKlas.Naam))
+                {
+                    gebruiker.Klas = nieuweKlas;
+                }
+            }
+            lijst.SchrijfLijst();
         }
         private void BtnVerwijder_Click(object sender, RoutedEventArgs e)
         {
@@ -94,6 +114,11 @@ namespace Groepswerk
             klasLijst = new Klaslijst();
             lboxKlasLijst.ItemsSource = klasLijst;
             lboxKlasLijst.SelectedIndex = 0;
+        }
+
+        private void chboxZombie_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
 
         //Properties

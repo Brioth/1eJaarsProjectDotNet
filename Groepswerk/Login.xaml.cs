@@ -30,7 +30,7 @@ namespace Groepswerk
         private Accountlijst accountLijst;
         private Klaslijst klasLijst;
         private Gebruiker selectedGebruiker;
-        private string selectedKlas;
+        private Klas selectedKlas;
 
         //Constructors
         public Login()
@@ -55,7 +55,7 @@ namespace Groepswerk
         }
         private void BoxKlas_Changed(object sender, SelectionChangedEventArgs e)
         {
-           selectedKlas =Convert.ToString(boxKlas.SelectedItem);
+           selectedKlas =(Klas)boxKlas.SelectedItem;
             if (accountLijst != null)
             {
                 accountLijst.Clear();
@@ -63,8 +63,12 @@ namespace Groepswerk
             accountLijst = new Accountlijst(selectedKlas);
             boxLogin.ItemsSource = accountLijst;
             boxLogin.SelectedIndex = 0;
+            pswBox.Clear();
         }
-
+        private void boxLogin_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            pswBox.Clear();
+        }
         //Methods
 
         private void LoginHandler()
@@ -106,6 +110,8 @@ namespace Groepswerk
                 return false;
             }
         }
+
+
 
         //Properties
     }

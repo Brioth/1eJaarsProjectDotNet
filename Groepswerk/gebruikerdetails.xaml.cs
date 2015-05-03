@@ -23,8 +23,8 @@ namespace Groepswerk
     {
         //variabelen
         private List<Gebruiker> accountLijst;
-        private List<String> klasLijst;
-        private string selectedKlas;
+        private List<Klas> klasLijst;
+        private Klas selectedKlas;
         private Gebruiker selectedGebruiker;
 
         //Constructors
@@ -48,7 +48,7 @@ namespace Groepswerk
                 accountLijst = null;
             }
 
-            selectedKlas = Convert.ToString(klasKeuze.SelectedItem);
+            selectedKlas = (Klas)klasKeuze.SelectedItem;
             accountLijst = new Accountlijst(selectedKlas);
             listBox_llnLijst.ItemsSource = accountLijst;
             // elke student in de lijst is nu zchtbaar want de hele lijst is de source
@@ -77,9 +77,9 @@ namespace Groepswerk
             voornaambox.Text = selectedGebruiker.Voornaam;
             naambox.Text = selectedGebruiker.Achternaam;
             leerlingId.Text = Convert.ToString(selectedGebruiker.Id);
-            gemNedGeg.Text = Convert.ToString(selectedGebruiker.GemNed);
-            gemWiskGeg.Text = Convert.ToString(selectedGebruiker.GemWisk);
-            gemWoGeg.Text = Convert.ToString(selectedGebruiker.GemWO);
+            //gemNedGeg.Text = Convert.ToString(selectedGebruiker.GemNed);
+            //gemWiskGeg.Text = Convert.ToString(selectedGebruiker.GemWisk);
+            //gemWoGeg.Text = Convert.ToString(selectedGebruiker.GemWO);
          
         }
        

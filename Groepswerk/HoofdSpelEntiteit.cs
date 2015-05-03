@@ -22,11 +22,13 @@ namespace Groepswerk
     public abstract class HoofdSpelEntiteit : UIElement
     {
         //Lokale variabelen
-        int x, y, width=5, height=5, stepSize=5;
-        Color kleur;
-        Canvas drawingCanvas;
-        HoofdSpelEntiteitenLijst lijst;
-        static Random randomBeweging = new Random(3);
+        private int x, y;
+        public static int GROOTTE = 20;
+        private Color kleur;
+        private Canvas drawingCanvas;
+        private HoofdSpelEntiteitenLijst lijst;
+        private static Random richtingRandom = new Random();
+
         //Constructors
 
         //Events
@@ -36,41 +38,78 @@ namespace Groepswerk
         protected abstract void UpdateElement();
         public void Move()
         {
-            if (X < 0 || X > 150 || Y < 0 || Y > 150)
+            if (this.X + GROOTTE >= DrawingCanvas.ActualWidth || this.X < 0)
             {
-                this.Dood();
+                RichtingX = -RichtingX;
+                RichtingY = BepaalRichting();
             }
-            else
+            if (this.Y + GROOTTE >= DrawingCanvas.ActualHeight || this.Y < 0)
             {
-                int getalX = randomBeweging.Next(3);
-                int getalY = randomBeweging.Next(3);
-                switch (getalX)
-                {
-                    case 0:
-                        X -= stepSize;
-                        break;
-                    case 1:
-                        break;
-                    case 2:
-                        X += stepSize;
-                        break;
-                    default:
-                        break;
-                }
-                switch (getalY)
-                {
-                    case 0:
-                        Y -= stepSize;
-                        break;
-                    case 1:
-                        break;
-                    case 2:
-                        Y += stepSize;
-                        break;
-                    default:
-                        break;
-                }
+                RichtingX = BepaalRichting();
+                RichtingY = -RichtingY;
             }
+
+            X = X + RichtingX * Snelheid;
+            Y = Y + RichtingY * Snelheid;
+
+            //if (X < 0 || X > 150 || Y < 0 || Y > 150)
+            //{
+            //    this.Dood();
+            //}
+            //else
+            //{
+            //    int getalX = randomBeweging.Next(3);
+            //    int getalY = randomBeweging.Next(3);
+            //    switch (getalX)
+            //    {
+            //        case 0:
+            //            X -= stepSize;
+            //            break;
+            //        case 1:
+            //            break;
+            //        case 2:
+            //            X += stepSize;
+            //            break;
+            //        default:
+            //            break;
+            //    }
+            //    switch (getalY)
+            //    {
+            //        case 0:
+            //            Y -= stepSize;
+            //            break;
+            //        case 1:
+            //            break;
+            //        case 2:
+            //            Y += stepSize;
+            //            break;
+            //        default:
+            //            break;
+            //    }
+            //}
+        }
+        protected int BepaalRichting() //0 is -, 1 is blijven staan, 2 is +
+        {
+            int gekozenrichting = richtingRandom.Next(3);
+            int richting;
+
+            switch (gekozenrichting)
+            {
+                case 0:
+                    richting = -1;
+                    break;
+                case 1:
+                    richting = 0;
+                    break;
+                case 2:
+                    richting = 1;
+                    break;
+                default:
+                    richting = 0;
+                    MessageBox.Show("Richting is niet juist gegenereerd"); //Mag later weg, voor debug
+                    break;
+            }
+            return richting;
         }
         public abstract void CheckHit(HoofdSpelEntiteitenLijst lijstTegenstander);
         public abstract void CheckHit();
@@ -86,16 +125,6 @@ namespace Groepswerk
         {
             get { return y; }
             set { y = value; UpdateElement(); }
-        }
-        public int Width 
-        {
-            get { return width; }
-            set { width = value; UpdateElement(); } 
-        }
-        public int Height 
-        {
-            get { return height; }
-            set { height = value; UpdateElement(); } 
         }
         public Color Kleur
         {
@@ -116,5 +145,9 @@ namespace Groepswerk
             get { return drawingCanvas; }
             set { drawingCanvas = value; }
         }
+        public int RichtingX { get; set; }
+        public int RichtingY { get; set; }
+        public int Snelheid { get; set; }
+
     }
 }

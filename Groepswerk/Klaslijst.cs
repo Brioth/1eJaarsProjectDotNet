@@ -15,7 +15,7 @@ namespace Groepswerk
       * Author: Carmen Celen
       * Date: 03/04/2015
       */
-    public class Klaslijst : List<string>
+    public class Klaslijst : List<Klas>
     {
         //Lokale variabelen
 
@@ -26,10 +26,19 @@ namespace Groepswerk
             {
                 StreamReader bestandKlas = File.OpenText(@"Klassen.txt");
                 string regel = bestandKlas.ReadLine();
+                char[] scheiding = { ';' };
 
                 while (regel != null)
                 {
-                    this.Add(regel.Trim());
+                    string[] woorden = regel.Split(scheiding);
+                    for (int i = 0; i < woorden.Length; i++)
+                    {
+                        woorden[i] = woorden[i].Trim();
+                    }
+
+                    Klas klas = new Klas(woorden[0],Convert.ToBoolean(woorden[1]));
+
+                    this.Add(klas);
                     regel = bestandKlas.ReadLine();
                 }
                 bestandKlas.Close();
@@ -46,13 +55,12 @@ namespace Groepswerk
         {
             File.WriteAllText(@"Klassen.txt", String.Empty);
             StreamWriter schrijver = File.AppendText(@"Klassen.txt");
-            foreach (string item in this)
+            foreach (Klas item in this)
             {
-                schrijver.WriteLine(item);
+                schrijver.WriteLine(item.SchrijfString());
             }
             schrijver.Close();
         }
         //Properties
-
     }
 }
