@@ -22,7 +22,7 @@ namespace Groepswerk
                 {
                         string[] deel = regel.Split(scheiding);
 
-                        Resultaat oefeningenResultaten = new Resultaat(Convert.ToInt32(deel[0]), Convert.ToDateTime(deel[1]), Convert.ToInt32(deel[2]), Convert.ToInt32(deel[3]));
+                        Resultaat oefeningenResultaten = new Resultaat(Convert.ToInt32(deel[0]), Convert.ToDateTime(deel[1]), Convert.ToInt32(deel[2]), Convert.ToInt32(deel[3]), Convert.ToInt32(deel[4]));
                         this.Add(oefeningenResultaten);
                         regel = bestandResultaten.ReadLine();
                 }

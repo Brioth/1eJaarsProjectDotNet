@@ -7,30 +7,43 @@ using System.Threading.Tasks;
 namespace Groepswerk
 {
     //aangepast 3/5/2015 door carmen
-    //Constructor zonder datum om nieuw resultaat te maken met huidige datum
+    //Constructor zonder datum om nieuw resultaat te maken met huidige datum, en met resultatenlijst om te checken of datum+id al bestaat
     //Constructor met datum om oud resultaat in te lezen
-    //constructor add tijd in #seconden via AddTime
-    //constructor add punten via AddPunten
     class Resultaat
     {
         //Lokale variabelen
         private int totaalPunten, gespendeerdeTijd, aantalOefeningen = 0;
         //Constructors
-        public Resultaat(int id, DateTime datum , int gespendeerdeTijd, int punt) //Constructor om resultaat op te halen
+        public Resultaat(int id, DateTime datum , int aantalOefeningen, int punt, int gespendeerdeTijd) //Constructor om resultaat op te halen
         {
             Id = id;
-            AddTime(gespendeerdeTijd);
             Datum = datum;
-            AddPunten(punt);
-            aantalOefeningen++;
+            this.aantalOefeningen = aantalOefeningen;
+            totaalPunten = punt;
+            gespendeerdeTijd = this.gespendeerdeTijd;
         }
-        public Resultaat(int id, int gespendeerdeTijd, int punt) //Constructor om nieuw resultaat te maken
+        public Resultaat(int id, int punt, int gespendeerdeTijd, ResultatenLijst lijst) //Constructor om nieuw resultaat te maken
         {
             Id = id;
-            AddTime(gespendeerdeTijd);
             Datum = DateTime.Today;
-            AddPunten(punt);
-            aantalOefeningen++;
+            foreach (Resultaat item in lijst)
+            {
+                if (item.Id.Equals(this.Id) && (item.Datum.Equals(DateTime.Today)))
+                {
+                    this.totaalPunten = item.TotaalPunten;
+                    this.gespendeerdeTijd = item.GespendeerdeTijd;
+                    this.aantalOefeningen = item.AantalOefeningen;
+                    this.AddPunten(punt);
+                    this.AddTime(gespendeerdeTijd);
+                    this.aantalOefeningen++;
+                }
+                else
+                {
+                    totaalPunten = punt;
+                    this.gespendeerdeTijd = gespendeerdeTijd;
+                    aantalOefeningen = 1;
+                }
+            }
         }
         //Events
         //Methods
@@ -44,7 +57,7 @@ namespace Groepswerk
         }
         public String SchrijfString()
         {
-            return (Id + ";" + Datum + ";" + TotaalPunten + ";" + GespendeerdeTijd + ";" + aantalOefeningen);
+            return (Id + ";" + Datum + ";" + TotaalPunten + ";" + AantalOefeningen + ";" + GespendeerdeTijd);
         }
         //Properties
         public int Id { get; set; }
