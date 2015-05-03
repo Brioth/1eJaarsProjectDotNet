@@ -21,6 +21,12 @@ namespace Groepswerk
             this.correcteOplossing = correcteOplossing;
             this.juisteAntwoordCompleet = juisteAntwoordCompleet;
         }
+        public Oefening(string opgave, string oplossing )
+        {
+            this.opgave = opgave;
+            this.oplossing = oplossing;
+           
+        }
         public string opgave { get; set; }
         public string oplossing { get; set; }
         public string oplossing1 { get; set; }
