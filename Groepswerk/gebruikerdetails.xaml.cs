@@ -26,7 +26,7 @@ namespace Groepswerk
         private List<Klas> klasLijst;
         private Klas selectedKlas;
         private Gebruiker selectedGebruiker;
-
+        private DetailsGebruiker details;
         //Constructors
         public Gebruikerdetails()
         {
@@ -35,8 +35,6 @@ namespace Groepswerk
             klasKeuze.ItemsSource = klasLijst;
             // de bron van deze box is de lijst
             klasKeuze.SelectedIndex = 0;
-
-
         }
 
         //events
@@ -50,40 +48,30 @@ namespace Groepswerk
 
             selectedKlas = (Klas)klasKeuze.SelectedItem;
             accountLijst = new Accountlijst(selectedKlas);
-            listBox_llnLijst.ItemsSource = accountLijst;
+            boxLln.ItemsSource = accountLijst;
             // elke student in de lijst is nu zchtbaar want de hele lijst is de source
-            listBox_llnLijst.SelectedIndex = 0;
+            boxLln.SelectedIndex = 0;
             // om het netjes te houden begin je bij de eerste al als geselecteerde waarde
             
         }
+        // methodes
 
-        private void listBox_llnLijst_Changed(object sender, SelectionChangedEventArgs e)
-        // als je in de listbox nu een andere waarde selecteerd wordt deze event aangeroepen.
+
+        private void boxLln_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (listBox_llnLijst.SelectedIndex==-1)
-            {
-                listBox_llnLijst.SelectedIndex = 0;
-            }
-            selectedGebruiker = (Gebruiker)listBox_llnLijst.SelectedItem;
-                                // casten naar gebruiker         
-            VakjesVullen();
-
+            selectedGebruiker = (Gebruiker)boxLln.SelectedItem;
+            details = new DetailsGebruiker(selectedGebruiker.Id);
+            //vul datagrid algemeen gemiddelde
+            boxOef.SelectedIndex = 0;
         }
 
-
-
-        // methodes
-        private void VakjesVullen(){
-            voornaambox.Text = selectedGebruiker.Voornaam;
-            naambox.Text = selectedGebruiker.Achternaam;
-            leerlingId.Text = Convert.ToString(selectedGebruiker.Id);
-            //gemNedGeg.Text = Convert.ToString(selectedGebruiker.GemNed);
-            //gemWiskGeg.Text = Convert.ToString(selectedGebruiker.GemWisk);
-            //gemWoGeg.Text = Convert.ToString(selectedGebruiker.GemWO);
-         
+        private void boxOef_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //zet gem oef en details 
+            
         }
        
-        //propertys
+        //properties
 
 
 

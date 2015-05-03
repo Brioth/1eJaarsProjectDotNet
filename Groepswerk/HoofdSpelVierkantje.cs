@@ -65,7 +65,7 @@ namespace Groepswerk
             }
             for (int i = 0; i < Lijst.Count; i++) //Als je je eigen bolletje raakt
             {
-                if (Lijst[i] is HoofdSpelBolletje && Lijst[i].DoelVierkant.IntersectsWith(doelVierkant))
+                if (Lijst[i].DoelVierkant.IntersectsWith(doelVierkant))
                 {
                     HoofdSpelBolletje bolletje = new HoofdSpelBolletje(Lijst, X, Y, DrawingCanvas);
                     Lijst.Add(bolletje);

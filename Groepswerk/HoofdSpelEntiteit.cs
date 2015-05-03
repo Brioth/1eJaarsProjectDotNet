@@ -51,42 +51,6 @@ namespace Groepswerk
 
             X = X + RichtingX * Snelheid;
             Y = Y + RichtingY * Snelheid;
-
-            //if (X < 0 || X > 150 || Y < 0 || Y > 150)
-            //{
-            //    this.Dood();
-            //}
-            //else
-            //{
-            //    int getalX = randomBeweging.Next(3);
-            //    int getalY = randomBeweging.Next(3);
-            //    switch (getalX)
-            //    {
-            //        case 0:
-            //            X -= stepSize;
-            //            break;
-            //        case 1:
-            //            break;
-            //        case 2:
-            //            X += stepSize;
-            //            break;
-            //        default:
-            //            break;
-            //    }
-            //    switch (getalY)
-            //    {
-            //        case 0:
-            //            Y -= stepSize;
-            //            break;
-            //        case 1:
-            //            break;
-            //        case 2:
-            //            Y += stepSize;
-            //            break;
-            //        default:
-            //            break;
-            //    }
-            //}
         }
         protected int BepaalRichting() //0 is -, 1 is blijven staan, 2 is +
         {

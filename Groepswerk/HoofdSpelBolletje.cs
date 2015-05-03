@@ -23,8 +23,6 @@ namespace Groepswerk
         private static Random randomPlaats = new Random(151); //static random en later Next want anders toch dezelfde seed
         private Rect doelVierkant;
 
-
-
         //Constructors
         public HoofdSpelBolletje(HoofdSpelEntiteitenLijst lijst, Canvas drawingCanvas)
         {
@@ -83,8 +81,9 @@ namespace Groepswerk
         protected override void UpdateElement()
         {
             ellipse.Margin = new System.Windows.Thickness(X, Y, 0, 0);
-            doelVierkant.X = X;
-            doelVierkant.Y = Y;
+            doelVierkant.Location = new Point(X, Y);
+            //doelVierkant.X = X;
+            //doelVierkant.Y = Y;
         }
         public override void CheckHit(HoofdSpelEntiteitenLijst lijstTegenstander)
         {

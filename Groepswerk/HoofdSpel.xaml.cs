@@ -31,7 +31,7 @@ namespace Groepswerk
         private HoofdSpelLijstBlauw entiteitenBlauw;
 
         private DispatcherTimer animationTimer;//Wnr alles beweegt
-        private DispatcherTimer roodTimer;//Wnr nieuw bolletje user spawnt
+        private DispatcherTimer SpawnTimer;//Wnr nieuw bolletje user spawnt
         private DispatcherTimer blauwTimer;//Wnr nieuw bolletje tegenstander spawnt
 
         //Constructors
@@ -49,23 +49,18 @@ namespace Groepswerk
             animationTimer.Tick += animationTimer_Tick;
             animationTimer.IsEnabled = true;
 
-            roodTimer = new DispatcherTimer();
-            roodTimer.Interval = TimeSpan.FromSeconds(2);
-            roodTimer.Tick += roodTimer_Tick;
-            roodTimer.IsEnabled = true;
+            SpawnTimer = new DispatcherTimer();
+            SpawnTimer.Interval = TimeSpan.FromSeconds(2);
+            SpawnTimer.Tick += Spawner_Tick;
+            SpawnTimer.IsEnabled = true;
 
-            blauwTimer = new DispatcherTimer();
-            blauwTimer.Interval = TimeSpan.FromSeconds(2);
-            blauwTimer.Tick += blauwTimer_Tick;
-            blauwTimer.IsEnabled = true;
+            //HoofdSpelBolletje bolletjeRood = new HoofdSpelBolletje(entiteitenRood, drawingCanvas);
+            //entiteitenRood.Add(bolletjeRood);
+            //entiteitenRood.Bolletjes = entiteitenRood.Bolletjes + 1;
 
-            HoofdSpelBolletje bolletjeRood = new HoofdSpelBolletje(entiteitenRood, drawingCanvas);
-            entiteitenRood.Add(bolletjeRood);
-            entiteitenRood.Bolletjes = entiteitenRood.Bolletjes + 1;
-
-            HoofdSpelBolletje bolletjeBlauw = new HoofdSpelBolletje(entiteitenBlauw, drawingCanvas);
-            entiteitenBlauw.Add(bolletjeBlauw);
-            entiteitenBlauw.Bolletjes = entiteitenBlauw.Bolletjes+1;
+            //HoofdSpelBolletje bolletjeBlauw = new HoofdSpelBolletje(entiteitenBlauw, drawingCanvas);
+            //entiteitenBlauw.Add(bolletjeBlauw);
+            //entiteitenBlauw.Bolletjes = entiteitenBlauw.Bolletjes+1;
 
 
         }
@@ -77,26 +72,17 @@ namespace Groepswerk
             entiteitenRood.CheckHit(entiteitenBlauw);
             entiteitenBlauw.CheckHit(entiteitenRood);
         }
-        private void roodTimer_Tick(object sender, EventArgs e)
+        private void Spawner_Tick(object sender, EventArgs e)
         {
-            if (entiteitenRood.Count <= 20)
-            {
-                HoofdSpelBolletje bolletje = new HoofdSpelBolletje(entiteitenRood, drawingCanvas);
-                entiteitenRood.Add(bolletje);
-                entiteitenRood.Bolletjes = entiteitenRood.Bolletjes+1;
-            }
-        }
-        private void blauwTimer_Tick(object sender, EventArgs e)
-        {
-            if (entiteitenBlauw.Count <= 20)
-            {
-                HoofdSpelBolletje bolletje = new HoofdSpelBolletje(entiteitenBlauw, drawingCanvas);
-                entiteitenBlauw.Add(bolletje);
-                entiteitenBlauw.Bolletjes = entiteitenBlauw.Bolletjes+1;
+            HoofdSpelBolletje bolletjeRood = new HoofdSpelBolletje(entiteitenRood, drawingCanvas);
+            entiteitenRood.Add(bolletjeRood);
+            entiteitenRood.Bolletjes = entiteitenRood.Bolletjes + 1;
 
-            }
-
+            HoofdSpelBolletje bolletjeBlauw = new HoofdSpelBolletje(entiteitenBlauw, drawingCanvas);
+            entiteitenBlauw.Add(bolletjeBlauw);
+            entiteitenBlauw.Bolletjes = entiteitenBlauw.Bolletjes + 1;
         }
+
         //Methods
         private void BindLijsten()
         {
