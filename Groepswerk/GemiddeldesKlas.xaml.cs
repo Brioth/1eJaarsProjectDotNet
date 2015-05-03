@@ -16,6 +16,9 @@ namespace Groepswerk
 {
     /* Author: Thomas Cox
      * Date: 5/04/2015
+     * 
+     * Aangepast op 3/5 door Carmen
+     * 
     */
     public partial class GemiddeldesKlas : Page
     {
@@ -46,6 +49,42 @@ namespace Groepswerk
                 gemiddeldes.Text = gemiddeldesText;
             }
             
+        }
+        private void BerekenGemiddeldeNed(int id)
+        {
+            int[] nedMak = BerekenGemiddelde(id, "blabla");
+            int[] nedGem = BerekenGemiddelde(id, "blabla");
+            int[] nedMoe = BerekenGemiddelde(id, "blabla");
+        }
+        private void BerekenGemiddeldeWisk(int id)
+        {
+            int[] wiskMak = BerekenGemiddelde(id, "blabla");
+            int[] wiskGem = BerekenGemiddelde(id, "blabla");
+            int[] wiskMoe = BerekenGemiddelde(id, "blabla");
+        }
+        private void BerekenGemiddeldeWO(int id)
+        {
+            int[] woMak = BerekenGemiddelde(id, "blabla");
+            int[] woGem = BerekenGemiddelde(id, "blabla");
+            int[] woMoe = BerekenGemiddelde(id, "blabla");
+        }
+        private int[] BerekenGemiddelde(int id, string bestand)
+        {
+            ResultatenLijst lijst = new ResultatenLijst(bestand);
+            int totaalPunten = 0;
+            int totaalSeconden = 0;
+            int totaalOefeningen = 0;
+            foreach (Resultaat item in lijst)
+            {
+                if (item.Id == id)
+                {
+                    totaalPunten = totaalPunten + item.TotaalPunten;
+                    totaalSeconden = totaalSeconden + item.GespendeerdeTijd;
+                    totaalOefeningen = totaalOefeningen + item.TotaalPunten;
+                }
+            }
+            int[] berekeningen = {totaalPunten, totaalOefeningen, totaalSeconden};
+            return berekeningen;
         }
     } 
 }

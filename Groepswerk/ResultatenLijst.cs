@@ -7,63 +7,38 @@ using System.Threading.Tasks;
 
 namespace Groepswerk
 {
+    //Aangepast op 3/5/2015 door Carmen
+    //aparte dinges niet nodig, geef gewoon de txt mee in de constructor, structuur van alle files is toch hetzelfde
+
     class ResultatenLijst : List<Resultaat>
     {
-        public ResultatenLijst(string sleutelwoord)
+        public ResultatenLijst(string bestand)
         {
-            switch (sleutelwoord) { 
-                case("Makkelijk"):
+                StreamReader bestandResultaten = File.OpenText(bestand);
+                string regel = bestandResultaten.ReadLine();
+                char[] scheiding = { ';' };
 
-                StreamReader bestandResultatenMakkelijk = File.OpenText(@"OefNederlands1MakkelijkResultaten.txt");
-                string regelMakkelijk = bestandResultatenMakkelijk.ReadLine();
-                char[] scheidingMakkelijk = { ';' };
-
-                while (regelMakkelijk != null)
+                while (regel != null)
                 {
-                        string[] deel = regelMakkelijk.Split(scheidingMakkelijk);
+                        string[] deel = regel.Split(scheiding);
 
-                        Resultaat oefeningNederlandsResultaten = new Resultaat(deel[0], Convert.ToDouble(deel[1]), Convert.ToDateTime(deel[2]), Convert.ToInt32(deel[3]));
-                        this.Add(oefeningNederlandsResultaten);
-                        regelMakkelijk = bestandResultatenMakkelijk.ReadLine();
+                        Resultaat oefeningenResultaten = new Resultaat(Convert.ToInt32(deel[0]), Convert.ToDateTime(deel[1]), Convert.ToInt32(deel[2]), Convert.ToInt32(deel[3]));
+                        this.Add(oefeningenResultaten);
+                        regel = bestandResultaten.ReadLine();
                 }
 
-                    bestandResultatenMakkelijk.Close();
-                    break;
-
-                case("Gemiddeld"):
-                    StreamReader bestandResultatenGemiddeld = File.OpenText(@"OefNederlands1GemiddeldResultaten.txt");
-                    string regelGemiddeld = bestandResultatenGemiddeld.ReadLine();
-                    char[] scheidingGemiddeld = { ';' };
-
-                    while (regelGemiddeld != null)
-                    {
-                        string[] deel = regelGemiddeld.Split(scheidingGemiddeld);
-
-                        Resultaat oefeningNederlands = new Resultaat(deel[0], Convert.ToDouble(deel[1]), Convert.ToDateTime(deel[2]), Convert.ToInt32(deel[3]));
-                        this.Add(oefeningNederlands);
-                        regelMakkelijk = bestandResultatenGemiddeld.ReadLine();
-                    }
-
-                    bestandResultatenGemiddeld.Close();
-                    break;
-
-                case ("Moeilijk"):
-                    StreamReader bestandResultatenMoeilijk = File.OpenText(@"OefNederlands1MoeilijkResultaten.txt");
-                    string regelMoeilijk = bestandResultatenMoeilijk.ReadLine();
-                    char[] scheidingMoeilijk = { ';' };
-
-                    while (regelMoeilijk != null)
-                    {
-                        string[] deel = regelMoeilijk.Split(scheidingMoeilijk);
-
-                        Resultaat oefeningNederlands = new Resultaat(deel[0], Convert.ToDouble(deel[1]), Convert.ToDateTime(deel[2]), Convert.ToInt32(deel[3]));
-                        this.Add(oefeningNederlands);
-                        regelMoeilijk = bestandResultatenMoeilijk.ReadLine();
-                    }
-
-                    bestandResultatenMoeilijk.Close();
-                    break;
+                bestandResultaten.Close();
+                    
+        }
+        public void SchrijfLijst(string bestand)
+        {
+            File.WriteAllText(bestand, String.Empty);
+            StreamWriter schrijver = File.AppendText(bestand);
+            foreach (Resultaat item in this)
+            {
+                schrijver.WriteLine(item.SchrijfString());
             }
-    }
+            schrijver.Close();
+        }
     }
 }
