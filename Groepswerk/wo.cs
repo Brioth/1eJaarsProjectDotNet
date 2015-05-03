@@ -7,62 +7,18 @@ using System.Threading.Tasks;
 
 namespace Groepswerk
 {
-    class wo : List<Oefening>
+    class wo
     {
-    
-        public wo(string moeilijkheid)
+
+        public wo(string opgave, string oplossing)
         {
-            if (moeilijkheid.Equals("makkelijk"))
-            {
-                StreamReader bestandOefening = File.OpenText(@"oefWoMakkelijk.txt");
-                string regel = bestandOefening.ReadLine();
-                char[] scheiding = { ';' };
-
-                while (regel != null)
-                {
-                    string[] deel = regel.Split(scheiding);
-
-                    Oefening oefWo = new Oefening(deel[0], deel[1]);
-                    this.Add(oefWo);
-                    regel = bestandOefening.ReadLine();
-                }
-                bestandOefening.Close();
-            }
-            if (moeilijkheid.Equals("gemiddeld"))
-            {
-                StreamReader bestandOefening = File.OpenText(@"OefWoGemiddeld.txt");
-                string regel = bestandOefening.ReadLine();
-                char[] scheiding = { ';' };
-
-                while (regel != null)
-                {
-                    string[] deel = regel.Split(scheiding);
-
-                    Oefening oefWo = new Oefening(deel[0], deel[1]);
-                    this.Add(oefWo);
-                    regel = bestandOefening.ReadLine();
-                }
-                bestandOefening.Close();
-            }
-
-            if (moeilijkheid.Equals("moeilijk"))
-            {
-                StreamReader bestandOefening = File.OpenText(@"OefWoMoeilijk.txt");
-                string regel = bestandOefening.ReadLine();
-                char[] scheiding = { ';' };
-
-                while (regel != null)
-                {
-                    string[] deel = regel.Split(scheiding);
-
-                    Oefening oefWo = new Oefening(deel[0], deel[1]);
-                    this.Add(oefWo);
-                    regel = bestandOefening.ReadLine();
-                }
-                bestandOefening.Close();
-            }
-
+            this.opgave = opgave;
+            this.oplossing = oplossing;
 
         }
+
+        public string opgave { get; set; }
+        public string oplossing { get; set; }
+
     }
 }
