@@ -22,9 +22,13 @@ namespace Groepswerk
 
                     for (int i = 0; i > lijstResultaten.Count; i++)
                     {
-                        if (!(lijstResultaten[i].datum.Equals(DateTime.Today))) 
+                        if (!(lijstResultaten[i].datum.Equals(DateTime.Today)&&(lijstResultaten[i].id.Equals(nieuwId))))
                         {
-                            //alles wegschrijven, anders gewoon toevoegen aan lijst met punten
+                            string resultaatString = (nieuwId + ";" + nieuwGespendeerdeTijd + ";" + nieuwDatum + ";" + nieuwPunten);   
+                        }
+                        else
+                        {
+
                         }
                     }
                     //txtfile clearen en alles terug wegschrijven. Hoort wel te lukken
