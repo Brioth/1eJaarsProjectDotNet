@@ -135,7 +135,7 @@ namespace Groepswerk
                     oefCorrect++;
                 textbox1.Background=Brushes.Green;
                 }
-            labelpunten.Content = Convert.ToString(oefCorrect) + "/5";
+           
             }
         }
     }
