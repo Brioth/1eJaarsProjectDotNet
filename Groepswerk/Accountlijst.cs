@@ -21,7 +21,7 @@ namespace Groepswerk
         //Lokale variabelen
 
         //Constructors
-        public Accountlijst(string klas)
+        public Accountlijst(Klas klas)
         {
             try
             {
@@ -37,9 +37,9 @@ namespace Groepswerk
                         woorden[i] = woorden[i].Trim();
                     }
 
-                    Gebruiker gebruiker = new Gebruiker(woorden[0], woorden[1], Convert.ToInt32(woorden[2]), woorden[3], woorden[4], woorden[5], Convert.ToInt32(woorden[6]), Convert.ToInt32(woorden[7]), Convert.ToInt32(woorden[8]), Convert.ToInt32(woorden[9]));
+                    Gebruiker gebruiker = new Gebruiker(woorden[0], woorden[1], Convert.ToInt32(woorden[2]), woorden[3], woorden[4], woorden[5], Convert.ToInt32(woorden[6]));
 
-                    if ((gebruiker.Klas).Equals(klas)) //filter op gebruikers in meegegeven klas
+                    if (gebruiker.Klas.Naam.Equals(klas.Naam)) //filter op gebruikers in meegegeven klas
                     {
                         this.Add(gebruiker);
                     }

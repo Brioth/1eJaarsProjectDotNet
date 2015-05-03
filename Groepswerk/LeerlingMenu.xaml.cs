@@ -52,6 +52,7 @@ namespace Groepswerk
             if (true)
             {
                 //zet button aan
+                btnZombie.IsEnabled = Convert.ToBoolean(ActieveGebruiker.Klas.Zombie);
             }
             else
             {

@@ -21,7 +21,7 @@ namespace Groepswerk
     {
         private Klaslijst lijstKlas;
         private Accountlijst lijstAccount;
-        private string geselecteerdeKlas;
+        private Klas geselecteerdeKlas;
 
 
         public GemiddeldesKlas()
@@ -36,13 +36,13 @@ namespace Groepswerk
         {
             string gemiddeldesText = gemiddeldes.Text;
             gemiddeldes.Text = "Naam leerling" + '\t' + "Gemiddelde Wiskunde" + '\t' + "Gemiddelde Nederlands" + '\t' + "Gemiddelde WO";
-            geselecteerdeKlas = Convert.ToString(selecteerKlas.SelectedItem);
+            geselecteerdeKlas = (Klas)selecteerKlas.SelectedItem;
             lijstAccount = new Accountlijst(geselecteerdeKlas);
 
             for (int i = 0; i < (lijstAccount.Count); i++)
             {
                 gemiddeldesText = gemiddeldes.Text;
-                gemiddeldesText = gemiddeldesText + '\n' + lijstAccount[i].Voornaam + " " + lijstAccount[i].Achternaam + '\t' + '\t' + lijstAccount[i].GemWisk + '\t' + '\t' + '\t' + lijstAccount[i].GemNed + '\t' + '\t' + '\t' + lijstAccount[i].GemWO;
+                //gemiddeldesText = gemiddeldesText + '\n' + lijstAccount[i].Voornaam + " " + lijstAccount[i].Achternaam + '\t' + '\t' + lijstAccount[i].GemWisk + '\t' + '\t' + '\t' + lijstAccount[i].GemNed + '\t' + '\t' + '\t' + lijstAccount[i].GemWO;
                 gemiddeldes.Text = gemiddeldesText;
             }
             

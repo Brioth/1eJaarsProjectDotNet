@@ -30,7 +30,7 @@ namespace Groepswerk
         //Lokale variabelen
         private Klaslijst klasLijst;
         private Accountlijst accountlijst;
-        private string selectedKlas;
+        private Klas selectedKlas;
         private Gebruiker selectedGebruiker;
         private AlleGebruikersLijst alleGebruikersLijst;
 
@@ -51,7 +51,7 @@ namespace Groepswerk
             {
                 accountlijst.Clear();
             }
-            selectedKlas = Convert.ToString(boxKlas.SelectedItem);
+            selectedKlas = (Klas)boxKlas.SelectedItem;
             accountlijst = new Accountlijst(selectedKlas);
             boxAccounts.ItemsSource = accountlijst;
             boxAccounts.SelectedIndex = 0;
@@ -65,7 +65,7 @@ namespace Groepswerk
                 txtbVoornaam.Text = selectedGebruiker.Voornaam;
                 txtboxAchternaam.Text = selectedGebruiker.Achternaam;
                 pswBox.Text = selectedGebruiker.Psw;
-                boxNieuweKlas.SelectedItem = selectedGebruiker.Klas;
+                boxNieuweKlas.SelectedIndex = boxKlas.SelectedIndex;
             }
         }       
         private void BtnVerwijder_Click(object sender, RoutedEventArgs e)
@@ -78,6 +78,7 @@ namespace Groepswerk
                 case MessageBoxResult.Yes:
                     VerwijderGebruiker();
                     MessageBox.Show(string.Format("U hebt gebruiker {0} verwijderd", selectedGebruiker));
+                    UpdateListbox();
                     boxKlas.SelectedItem = selectedKlas;
                     break;
                 default:
@@ -89,7 +90,7 @@ namespace Groepswerk
             selectedGebruiker.Voornaam = txtbVoornaam.Text;
             selectedGebruiker.Achternaam = txtboxAchternaam.Text;
             selectedGebruiker.Psw = pswBox.Text;
-            selectedGebruiker.Klas = Convert.ToString(boxNieuweKlas.SelectedItem);
+            selectedGebruiker.Klas = (Klas)boxNieuweKlas.SelectedItem;
             WisselGebruiker();
             MessageBox.Show(String.Format("U hebt gebruiker {0} aangepast", selectedGebruiker));
             UpdateListbox();
@@ -106,8 +107,7 @@ namespace Groepswerk
                     alleGebruikersLijst.RemoveAt(i);
                 }
             }
-            alleGebruikersLijst.SchrijfLijst();
-            UpdateListbox();
+            alleGebruikersLijst.SchrijfLijst();          
         }
         private void WisselGebruiker()
         {
@@ -125,6 +125,7 @@ namespace Groepswerk
         {
             accountlijst = new Accountlijst(selectedKlas);
             boxAccounts.ItemsSource = accountlijst;
+            boxAccounts.SelectedIndex = 0;
         }
 
         //Properties

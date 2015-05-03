@@ -23,7 +23,7 @@ namespace Groepswerk
     public partial class NieuweGebruiker : Page
     {
         //Lokale variabelen
-        private List<string> klaslijst;
+        private List<Klas> klaslijst;
         private Gebruiker nieuweGebruiker;
         private AlleGebruikersLijst accountlijst;
 
