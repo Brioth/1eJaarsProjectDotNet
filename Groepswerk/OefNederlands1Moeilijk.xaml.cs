@@ -38,13 +38,13 @@ namespace Groepswerk
             oefeningNummerLijst = new List<int>();
 
             lijstOefeningen = new OefeningLijst("moeilijk");
-            for (int i = 0; i > 5; i++)
+            for (int i = 0; i < 5; i++)
             {
-                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count - 1)));
+                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count)));
 
                 while (oefeningNummerLijst.Contains(oefeningenNummerOpslag))
                 {
-                    oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
+                    oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, lijstOefeningen.Count));
                 }
                 tempOpgave[i] = lijstOefeningen[oefeningenNummerOpslag].opgave;
                 oefeningNummerLijst.Add(oefeningenNummerOpslag);
@@ -52,15 +52,15 @@ namespace Groepswerk
 
             oefeningenNummerOpslag = oefeningenNummer.Next(1, lijstOefeningen.Count);
 
-            opgave1.Text = tempOpgave[1];
+            opgave1.Text = tempOpgave[0];
 
-            opgave2.Text = tempOpgave[2];
+            opgave2.Text = tempOpgave[1];
 
-            opgave3.Text = tempOpgave[3];
+            opgave3.Text = tempOpgave[2];
 
-            opgave4.Text = tempOpgave[4];
+            opgave4.Text = tempOpgave[3];
 
-            opgave5.Text = tempOpgave[5];
+            opgave5.Text = tempOpgave[4];
             
         }
 

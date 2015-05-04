@@ -46,13 +46,13 @@ namespace Groepswerk
 
             oefeningNummerLijst = new List<int>();
 
-            for (int i = 0; i > 5; i++)
+            for (int i = 0; i < 5; i++)
             {
-                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count + 1)));
+                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, lijstOefeningen.Count));
 
                 while (oefeningNummerLijst.Contains(oefeningenNummerOpslag))
                 {
-                    oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
+                    oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, lijstOefeningen.Count));
                 }
                 tempOpgave[i] = lijstOefeningen[oefeningenNummerOpslag].opgave;
                 tempOplossing1[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing1;
@@ -62,34 +62,34 @@ namespace Groepswerk
             }
 
 
-            opgave1.Text = tempOpgave[1];
-            oefLijst1.Add(tempOplossing1[1]);
-            oefLijst1.Add(tempOplossing2[1]);
-            oefLijst1.Add(tempOplossing3[1]);
+            opgave1.Text = tempOpgave[0];
+            oefLijst1.Add(tempOplossing1[0]);
+            oefLijst1.Add(tempOplossing2[0]);
+            oefLijst1.Add(tempOplossing3[0]);
             oplossing1.ItemsSource = oefLijst1;
 
-            opgave2.Text = tempOpgave[2];
-            oefLijst2.Add(tempOplossing1[2]);
-            oefLijst2.Add(tempOplossing2[2]);
-            oefLijst2.Add(tempOplossing3[2]);
+            opgave2.Text = tempOpgave[1];
+            oefLijst2.Add(tempOplossing1[1]);
+            oefLijst2.Add(tempOplossing2[1]);
+            oefLijst2.Add(tempOplossing3[1]);
             oplossing2.ItemsSource = oefLijst2;
 
-            opgave3.Text = tempOpgave[3];
-            oefLijst3.Add(tempOplossing1[3]);
-            oefLijst3.Add(tempOplossing2[3]);
-            oefLijst3.Add(tempOplossing3[3]);
+            opgave3.Text = tempOpgave[2];
+            oefLijst3.Add(tempOplossing1[2]);
+            oefLijst3.Add(tempOplossing2[2]);
+            oefLijst3.Add(tempOplossing3[2]);
             oplossing3.ItemsSource = oefLijst3;
             
-            opgave4.Text = tempOpgave[4];
-            oefLijst4.Add(tempOplossing1[4]);
-            oefLijst4.Add(tempOplossing2[4]);
-            oefLijst4.Add(tempOplossing3[4]);
+            opgave4.Text = tempOpgave[3];
+            oefLijst4.Add(tempOplossing1[3]);
+            oefLijst4.Add(tempOplossing2[3]);
+            oefLijst4.Add(tempOplossing3[3]);
             oplossing4.ItemsSource = oefLijst4;
 
-            opgave5.Text = tempOpgave[5];
-            oefLijst5.Add(tempOplossing1[5]);
-            oefLijst5.Add(tempOplossing2[5]);
-            oefLijst5.Add(tempOplossing3[5]);
+            opgave5.Text = tempOpgave[4];
+            oefLijst5.Add(tempOplossing1[4]);
+            oefLijst5.Add(tempOplossing2[4]);
+            oefLijst5.Add(tempOplossing3[4]);
             oplossing5.ItemsSource = oefLijst5;
             
         }

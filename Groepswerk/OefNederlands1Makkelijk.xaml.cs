@@ -49,7 +49,7 @@ namespace Groepswerk
 
             for (int i = 0; i < 5; i++)
             {
-                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count+1)));
+                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count)));
 
                 while (oefeningNummerLijst.Contains(oefeningenNummerOpslag))
                 {

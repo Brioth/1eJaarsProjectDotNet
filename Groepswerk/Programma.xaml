@@ -12,7 +12,7 @@
             <MenuItem Name="mnuOefeningen" Header="Oefeningen" IsTabStop="False" >
                 <MenuItem Header="Rekenen">
                 <MenuItem Header ="Rekenen - Makkelijk" Click="MnuWiskundeMakkelijk_Click"/>
-                <MenuItem Header="Rekenen - Gemmiddeld" Click="MnuWiskundeGemiddeld_Click"/>
+                <MenuItem Header="Rekenen - Gemiddeld" Click="MnuWiskundeGemiddeld_Click"/>
                 <MenuItem Header="Rekenen - Moeilijk" Click="MnuWiskundeMoeilijk_Click"/>
             </MenuItem>
             <MenuItem Header="Taal">
