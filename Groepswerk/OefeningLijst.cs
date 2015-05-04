@@ -65,62 +65,7 @@ namespace Groepswerk
                     break;
 
 
-                //Author: Vincent Vandoninck
-                //Date: 24/04/2015
-
-                //       case("makkelijk2"):
-
-                //   StreamReader bestandOefeningMakkelijk2 = File.OpenText(@"oefnWiskundeMakkelijk.txt");
-                //   string regelMakkelijk2 = bestandOefeningMakkelijk2.ReadLine();
-                //   char[] scheidingmakkelijk2 = { ';' };
-
-                //   while (regelMakkelijk2 != null)
-                //        {
-                //            string[] deel = regelMakkelijk2.Split(scheidingmakkelijk2);
-
-                //            Oefening oefeningWiskundeMakkelijk2 = new Oefening(Convert.ToString(deel[0]), Convert.ToString(deel[1]));
-                //            this.Add(oefeningWiskundeMakkelijk2);
-                //            regelMakkelijk2 = bestandOefeningMakkelijk2.ReadLine();
-                //        }
-                //   bestandOefeningMakkelijk2.Close();
-                //    break;
-
-                //       case("gemiddeld2"):
-
-                //        StreamReader bestandOefeningGemiddeld2 = File.OpenText(@"oefnWiskundeGemiddeld.txt");
-                //        string regelGemiddeld2 = bestandOefeningGemiddeld2.ReadLine();
-                //        char[] scheidingGemiddeld2 = { ';' };
-
-                //        while (regelGemiddeld2 != null)
-                //        {
-                //            string[] deel = regelGemiddeld2.Split(scheidingGemiddeld2);
-
-                //            Oefening oefeningWiskundeGemiddeld2 = new Oefening(Convert.ToString(deel[0]), Convert.ToString(deel[1]));
-                //            this.Add(oefeningWiskundeGemiddeld2);
-                //            regelGemiddeld2 = bestandOefeningGemiddeld2.ReadLine();
-                //        }
-                //        bestandOefeningGemiddeld2.Close();
-                //        break;
-
-                //       case ("moeilijk2"):
-
-                //        StreamReader bestandOefeningMoeilijk2 = File.OpenText(@"oefnWiskundeMoeilijk.txt");
-                //        string regelMoeilijk2 = bestandOefeningMoeilijk2.ReadLine();
-                //        char[] scheidingMoeilijk2 = { ';' };
-
-                //        while (regelMoeilijk2 != null)
-                //        {
-                //            string[] deel = regelMoeilijk2.Split(scheidingMoeilijk2);
-
-                //            Oefening oefeningWiskundeMoeilijk2 = new Oefening(Convert.ToString(deel[0]), Convert.ToString(deel[1]));
-                //            this.Add(oefeningWiskundeMoeilijk2);
-                //            regelMoeilijk2 = bestandOefeningMoeilijk2.ReadLine();
-                //        }
-                //        bestandOefeningMoeilijk2.Close();
-                //        break;
-
-                //}
-
+             
             }
         }
     }

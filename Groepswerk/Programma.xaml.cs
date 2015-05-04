@@ -71,9 +71,28 @@ namespace Groepswerk
         //aanpassen oefeningen
         private void MnuRekenen_Click(object sender, RoutedEventArgs e)
         {
-            //Vincent
+            //Author: Vincent Vandoninck
+            //Date: 04/05/2015
             framePages.Navigate("oefeningWiskundeMakkelijk"); 
         }
+        private void MnuWiskundeMakkelijk_Click(object sender, RoutedEventArgs e)
+        {
+            oefeningWiskundeMakkelijk oefWiskundeMakkelijk = new oefeningWiskundeMakkelijk();
+            framePages.Navigate(oefWiskundeMakkelijk);
+        }
+        private void MnuWiskundeGemiddeld_Click(object sender, RoutedEventArgs e)
+        {
+            oefeningWiskundeGemiddeld oefWiskundeGemiddeld = new oefeningWiskundeGemiddeld();
+            framePages.Navigate(oefWiskundeGemiddeld);
+        }
+        private void MnuWiskundeMoeilijk_Click(object sender, RoutedEventArgs e)
+        {
+            oefeningWiskundeMoeilijk oefWiskundeMoeilijk = new oefeningWiskundeMoeilijk();
+            framePages.Navigate(oefWiskundeMoeilijk);
+        }
+
+
+
 
         //Author: Thomas Cox
         //Date: 22/04/2015

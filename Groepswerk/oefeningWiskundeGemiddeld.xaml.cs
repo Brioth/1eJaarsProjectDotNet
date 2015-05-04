@@ -13,12 +13,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Groepswerk{
- /// <summary>
+namespace Groepswerk
+{
+    //Author: Vincent Vandoninck
+    //Date: 03/05/2015
+
+    // Random getallen genereren en deze uitrekenen. De uitkomst hiervan opslaan in een lijst.
+    // Deze lijst vergelijken met de ingevoerde antwoorden van de gebruiker en het aantal juiste antwoorden weergeven als punten.
+    // 
+
+    /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
     public partial class oefeningWiskundeGemiddeld : Page
     {
+        //Lokale variabelen
         private int oefeningPunten;
         private Random RandomTest = new Random();
         private int randomGetal1;
@@ -29,6 +39,7 @@ namespace Groepswerk{
         private int[] oplossingLijst = new int[10];
         private List<int> randomLijst = new List<int>();
 
+        //constructors
         public oefeningWiskundeGemiddeld()
         {
             InitializeComponent();
@@ -82,6 +93,8 @@ namespace Groepswerk{
         }
         //author: Vincent Vandoninck
         //date: 28/04/2015
+
+        //events
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
             oefeningPunten = 0;
@@ -91,47 +104,98 @@ namespace Groepswerk{
                     if ((oplossingLijst[0]) == Convert.ToInt32(dropLabel1.Text))
                     {
                         oefeningPunten++;
+                        dropLabel1.Background = Brushes.Green;
+                    }
+                    else
+                    {
+                        dropLabel1.Background = Brushes.Red;
                     }
                     if ((oplossingLijst[1]) == Convert.ToInt32(dropLabel2.Text))
                     {
                         oefeningPunten++;
+                        dropLabel2.Background = Brushes.Green;
+                    }
+                    else
+                    {
+                        dropLabel2.Background = Brushes.Red;
                     }
                     if ((oplossingLijst[2]) == Convert.ToInt32(dropLabel3.Text))
                     {
                         oefeningPunten++;
+                        dropLabel3.Background = Brushes.Green;
+                    }
+                    else
+                    {
+                        dropLabel3.Background = Brushes.Red;
                     }
                     if ((oplossingLijst[3]) == Convert.ToInt32(dropLabel4.Text))
                     {
                         oefeningPunten++;
+                        dropLabel4.Background = Brushes.Green;
+                    }
+                    else
+                    {
+                        dropLabel4.Background = Brushes.Red;
                     }
                     if ((oplossingLijst[4]) == Convert.ToInt32(dropLabel5.Text))
                     {
                         oefeningPunten++;
+                        dropLabel5.Background = Brushes.Green;
+                    }
+                    else
+                    {
+                        dropLabel5.Background = Brushes.Red;
                     }
                     if ((oplossingLijst[5]) == Convert.ToInt32(dropLabel6.Text))
                     {
                         oefeningPunten++;
+                        dropLabel6.Background = Brushes.Green;
+                    }
+                    else
+                    {
+                        dropLabel6.Background = Brushes.Red;
                     }
                     if ((oplossingLijst[6]) == Convert.ToInt32(dropLabel7.Text))
                     {
                         oefeningPunten++;
+                        dropLabel7.Background = Brushes.Green;
+                    }
+                    else
+                    {
+                        dropLabel7.Background = Brushes.Red;
                     }
                     if ((oplossingLijst[7]) == Convert.ToInt32(dropLabel8.Text))
                     {
                         oefeningPunten++;
+                        dropLabel8.Background = Brushes.Green;
+                    }
+                    else
+                    {
+                        dropLabel8.Background = Brushes.Red;
                     }
                     if ((oplossingLijst[8]) == Convert.ToInt32(dropLabel9.Text))
                     {
                         oefeningPunten++;
+                        dropLabel9.Background = Brushes.Green;
                     }
+
+                    else
+                    {
+                        dropLabel9.Background = Brushes.Red;
+                    } 
                     if ((oplossingLijst[9]) == Convert.ToInt32(dropLabel10.Text))
                     {
                         oefeningPunten++;
+                        dropLabel10.Background = Brushes.Green;
+                    }
+                    else
+                    {
+                        dropLabel10.Background = Brushes.Red;
                     }
                     Punten.Text = ("u heeft  " + oefeningPunten + " behaald. ");
                 }
 
-                catch (FormatException exceptionObject)
+                catch (FormatException)
                 {
                     MessageBox.Show("zet 0 als je het antwoord niet weet");
                 }

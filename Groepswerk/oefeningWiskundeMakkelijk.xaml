@@ -3,48 +3,77 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d"
-	Title="Oefening Wiskunde makkelijk" Height="485.508" Width="721">
+      mc:Ignorable="d" Background="#9D78989A" Height="356.511" Width="371.205" FontSize="16"
+	Title="Oefening Wiskunde makkelijk" >
 
     <Grid>
-        <Label Content=" Sleep het juiste antwoord naar het vakje naast de opgave. Vul 0 in als je de oplossing niet weet." HorizontalAlignment="Left" Margin="60,69,0,0" VerticalAlignment="Top" Height="32" Width="525"/>
-        <Label HorizontalAlignment="Left" Height="23" Margin="60,120,0,0"  Content="1" Name="antwoordlabel1" MouseLeftButtonDown="Label_MouseLeftButtonDown" VerticalAlignment="Top" Width="23"/>
-        <Label HorizontalAlignment="Left" Height="23" Margin="109,120,0,0" Content="2" Name="antwoordlabel2" MouseLeftButtonDown="Label_MouseLeftButtonDown" VerticalAlignment="Top" Width="23"/>
-        <Label HorizontalAlignment="Left" Height="23" Margin="153,120,0,0" Content="3" Name="antwoordlabel3" MouseLeftButtonDown="Label_MouseLeftButtonDown" VerticalAlignment="Top" Width="23"/>
-        <Label HorizontalAlignment="Left" Height="23" Margin="197,120,0,0" Content="4" Name="antwoordlabel4" MouseLeftButtonDown="Label_MouseLeftButtonDown" VerticalAlignment="Top" Width="22"/>
-        <Label HorizontalAlignment="Left" Height="23" Margin="243,120,0,0" Content="5" Name="antwoordlabel5" MouseLeftButtonDown="Label_MouseLeftButtonDown" VerticalAlignment="Top" Width="22"/>
-        <Label HorizontalAlignment="Left" Height="23" Margin="289,120,0,0" Content="6" Name="antwoordlabel6" MouseLeftButtonDown="Label_MouseLeftButtonDown" VerticalAlignment="Top" Width="23"/>
-        <Label HorizontalAlignment="Left" Height="23" Margin="342,120,0,0" Content="7" Name="antwoordlabel7" MouseLeftButtonDown="Label_MouseLeftButtonDown" VerticalAlignment="Top" Width="25"/>
-        <Label HorizontalAlignment="Left" Height="23" Margin="395,120,0,0" Content="8" Name="antwoordlabel8" MouseLeftButtonDown="Label_MouseLeftButtonDown" VerticalAlignment="Top" Width="21"/>
-        <Label HorizontalAlignment="Left" Height="23" Margin="438,120,0,0" Content="9" Name="antwoordlabel9" MouseLeftButtonDown="Label_MouseLeftButtonDown" VerticalAlignment="Top" Width="23"/>
-        <Label HorizontalAlignment="Left" Height="23" Margin="488,120,0,0" Content="10" Name="antwoordlabel10" MouseLeftButtonDown="Label_MouseLeftButtonDown" VerticalAlignment="Top" Width="22"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock TextWrapping="Wrap" Text=" Sleep het juiste antwoord naar het vakje naast de opgave. Vul 0 in als je de oplossing niet weet." Margin="10"  Grid.Column="2" Grid.Row="1"/>
+
+        <Label  Margin="20,10,20,10"  Content="1" Name="antwoordlabel1" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="1" Grid.Row="2"/>
+        <Label  Margin="20,10,20,10" Content="2" Name="antwoordlabel2" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="2" Grid.Row="2" />
+        <Label  Margin="20,10,20,10" Content="3" Name="antwoordlabel3" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="3" Grid.Row="2"/>
+        <Label  Margin="20,10,20,10" Content="4" Name="antwoordlabel4" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="4" Grid.Row="2"/>
+        <Label   Margin="20,10,20,10" Content="5" Name="antwoordlabel5" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="5" Grid.Row="2"/>
+        <Label   Margin="20,10,20,10" Content="6" Name="antwoordlabel6" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="6" Grid.Row="2"/>
+        <Label   Margin="20,10,20,10" Content="7" Name="antwoordlabel7" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="7" Grid.Row="2"/>
+        <Label  Margin="20,10,20,10" Content="8" Name="antwoordlabel8" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="8" Grid.Row="2"/>
+        <Label  Margin="20,10,20,10" Content="9" Name="antwoordlabel9" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="9" Grid.Row="2"/>
+        <Label  Margin="20,10,20,10" Content="10" Name="antwoordlabel10" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="10" Grid.Row="2"/>
 
         <!--AllowDrop="True" Drop="Label_Drop"-->
-        <Label Name="opgaveblock1" HorizontalAlignment="Left" MinWidth="20" Margin="60,187,0,0" Content="opgave1" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"  />
-        <Label HorizontalAlignment="Left" Margin="60,222,0,0" MinWidth="20" Content="" Name="opgaveblock2" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
-        <Label HorizontalAlignment="Left" Margin="60,258,0,0" MinWidth="20" Content="" Name="opgaveblock3" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
-        <Label HorizontalAlignment="Left" Margin="60,298,0,0" MinWidth="20" Content="" Name="opgaveblock4" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
-        <Label HorizontalAlignment="Left" Margin="60,334,0,0" MinWidth="20" Content="" Name="opgaveblock5" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
-        <Label HorizontalAlignment="Left" Margin="352,187,0,0" MinWidth="20" Content="" Name="opgaveblock6" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
-        <Label HorizontalAlignment="Left" Margin="352,222,0,0" MinWidth="20" Content="" Name="opgaveblock7" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
-        <Label HorizontalAlignment="Left" Margin="352,258,0,0" MinWidth="20" Content="" Name="opgaveblock8" VerticalAlignment="Top"  AllowDrop="True" Drop="Label_Drop"/>
-        <Label HorizontalAlignment="Left" Margin="352,298,0,0" MinWidth="20" Content="" Name="opgaveblock9" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
-        <Label HorizontalAlignment="Left" Margin="352,334,0,0" MinWidth="20" Content="" Name="opgaveblock10" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <Label Name="opgaveblock1" Margin="20,10,20,10" MinWidth="20"  Content="opgave1"   Grid.Column="2" Grid.Row="3" />
+        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave2" Name="opgaveblock2"   Grid.Column="2" Grid.Row="4"/>
+        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave3" Name="opgaveblock3"   Grid.Column="2" Grid.Row="5"/>
+        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave4" Name="opgaveblock4"   Grid.Column="2" Grid.Row="6"/>
+        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave5" Name="opgaveblock5"   Grid.Column="2" Grid.Row="7"/>
+        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave6" Name="opgaveblock6"   Grid.Column="4" Grid.Row="3"/>
+        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave7" Name="opgaveblock7"   Grid.Column="4" Grid.Row="4"/>
+        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave8" Name="opgaveblock8"   Grid.Column="4" Grid.Row="5"/>
+        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave9" Name="opgaveblock9"   Grid.Column="4" Grid.Row="6"/>
+        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave10" Name="opgaveblock10"  Grid.Column="4" Grid.Row="7"/>
 
-        <Button Name="verbeterButton" Content="Verbeter" HorizontalAlignment="Left" Margin="542,405,0,0" VerticalAlignment="Top" Width="99" Height="44" Click="verbeterButton_Click"/>
-        <TextBlock Name="Punten" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"  Text="" Margin="60,419,0,0" Height="19" Width="325"/>
+        <Button Name="verbeterButton" Margin="5" Content="Verbeter"   Click="verbeterButton_Click" Grid.Column="4" Grid.Row="9"/>
+        <TextBlock Name="Punten"  TextWrapping="Wrap" Margin="10"  Grid.ColumnSpan="3" Grid.Row="9"/>
 
         <!--AllowDrop="True" Drop="Label_Drop"-->
-        <TextBox HorizontalAlignment="Left" Margin="222,187,0,0" Text="" MinWidth="20" Name="dropLabel1"  VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
-        <TextBox HorizontalAlignment="Left" Margin="222,222,0,0" Text="" MinWidth="20" Name="dropLabel2" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
-        <TextBox HorizontalAlignment="Left" Margin="222,258,0,0" Text="" MinWidth="20" Name="dropLabel3" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
-        <TextBox HorizontalAlignment="Left" Margin="222,298,0,0" Text="" MinWidth="20" Name="dropLabel4" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
-        <TextBox HorizontalAlignment="Left" Margin="222,335,0,0" Text="" MinWidth="20" Name="dropLabel5" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
-        <TextBox HorizontalAlignment="Left" Margin="554,187,0,0" Text="" MinWidth="20" Name="dropLabel6" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
-        <TextBox HorizontalAlignment="Left" Margin="554,222,0,0" Text="" MinWidth="20" Name="dropLabel7" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
-        <TextBox HorizontalAlignment="Left" Margin="554,258,0,0" Text="" MinWidth="20" Name="dropLabel8" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
-        <TextBox HorizontalAlignment="Left" Margin="554,298,0,0" Text="" MinWidth="20" Name="dropLabel9" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
-        <TextBox HorizontalAlignment="Left" Margin="554,342,0,0" Text="" MinWidth="20" Name="dropLabel10" VerticalAlignment="Top" AllowDrop="True" Drop="Label_Drop"/>
+        <TextBox Margin="10"  Text="" MinWidth="20" Name="dropLabel1" AllowDrop="True" Drop="Label_Drop" Grid.Column="3"  Grid.Row="3" />
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel2"  AllowDrop="True" Drop="Label_Drop" Grid.Column="3"  Grid.Row="4" />
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel3"  AllowDrop="True" Drop="Label_Drop" Grid.Column="3"  Grid.Row="5" />
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel4"  AllowDrop="True" Drop="Label_Drop" Grid.Column="3"  Grid.Row="6" />
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel5"  AllowDrop="True" Drop="Label_Drop" Grid.Column="3"  Grid.Row="7" />
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel6"  AllowDrop="True" Drop="Label_Drop" Grid.Column="5" Grid.Row="3"/>
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel7"  AllowDrop="True" Drop="Label_Drop" Grid.Column="5" Grid.Row="4"/>
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel8"  AllowDrop="True" Drop="Label_Drop" Grid.Column="5" Grid.Row="5"/>
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel9"  AllowDrop="True" Drop="Label_Drop" Grid.Column="5" Grid.Row="6"/>
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel10" AllowDrop="True" Drop="Label_Drop" Grid.Column="5" Grid.Row="7"/>
 
     </Grid>
 </Page>
