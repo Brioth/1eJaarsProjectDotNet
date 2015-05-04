@@ -68,35 +68,35 @@ namespace Groepswerk
         //Date: 04/05/2015
         private void btnRekenenMak_Click(object sender, RoutedEventArgs e)
         {
-            oefeningWiskundeMakkelijk oefWiskundeMakkelijk = new oefeningWiskundeMakkelijk(ActieveGebruiker);
-             this.NavigationService.Navigate(typeof(oefeningWiskundeMakkelijk));
+            oefeningWiskundeMakkelijk oefWiskundeMakkelijkPagina = new oefeningWiskundeMakkelijk(ActieveGebruiker);
+             this.NavigationService.Navigate(oefWiskundeMakkelijkPagina);
         }
         private void btnRekenenGem_Click(object sender, RoutedEventArgs e)
         {
-            oefeningWiskundeGemiddeld oefWiskundeGemiddeld = new oefeningWiskundeGemiddeld(ActieveGebruiker);
-             this.NavigationService.Navigate(typeof(oefeningWiskundeGemiddeld));
+            oefeningWiskundeGemiddeld oefWiskundeGemiddeldPagina = new oefeningWiskundeGemiddeld(ActieveGebruiker);
+             this.NavigationService.Navigate(oefWiskundeGemiddeldPagina);
         }
         private void btnRekenenMoe_Click(object sender, RoutedEventArgs e)
         {
-            oefeningWiskundeMoeilijk oefWiskundeMoeilijk = new oefeningWiskundeMoeilijk(ActieveGebruiker);
-             this.NavigationService.Navigate(typeof(oefeningWiskundeMoeilijk));
+            oefeningWiskundeMoeilijk oefWiskundeMoeilijkPagina = new oefeningWiskundeMoeilijk(ActieveGebruiker);
+             this.NavigationService.Navigate(oefWiskundeMoeilijkPagina);
         }
 
 
         private void btnWOMak_Click(object sender, RoutedEventArgs e)
         {
             oefWoMakkelijk makkelijk = new oefWoMakkelijk();
-            this.NavigationService.Navigate(typeof(oefWoMakkelijk));
+            this.NavigationService.Navigate(makkelijk);
         }
         private void btnWOMed_Click(object sender, RoutedEventArgs e)
         {
             oefWoGemiddeld gemiddeld = new oefWoGemiddeld();
-            this.NavigationService.Navigate(typeof(oefWoGemiddeld));
+            this.NavigationService.Navigate(gemiddeld);
         }
         private void btnWOMoe_Click(object sender, RoutedEventArgs e)
         {
             oefWoMoeilijk moeilijk = new oefWoMoeilijk();
-            this.NavigationService.Navigate(typeof(oefWoMoeilijk));
+            this.NavigationService.Navigate(moeilijk);
         }
 
         private void btnTaalMak_Click(object sender, RoutedEventArgs e)
