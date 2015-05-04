@@ -69,17 +69,17 @@ namespace Groepswerk
         private void btnRekenenMak_Click(object sender, RoutedEventArgs e)
         {
             oefeningWiskundeMakkelijk oefWiskundeMakkelijk = new oefeningWiskundeMakkelijk();
-             this.NavigationService.Navigate(typeof(oefeningWiskundeMakkelijk);
+             this.NavigationService.Navigate(typeof(oefeningWiskundeMakkelijk));
         }
         private void btnRekenenGem_Click(object sender, RoutedEventArgs e)
         {
             oefeningWiskundeGemiddeld oefWiskundeGemiddeld = new oefeningWiskundeGemiddeld();
-             this.NavigationService.Navigate(typeof(oefeningWiskundeGemiddeld);
+             this.NavigationService.Navigate(typeof(oefeningWiskundeGemiddeld));
         }
         private void btnRekenenMoe_Click(object sender, RoutedEventArgs e)
         {
             oefeningWiskundeMoeilijk oefWiskundeMoeilijk = new oefeningWiskundeMoeilijk();
-             this.NavigationService.Navigate(typeof(oefeningWiskundeMoeilijk);
+             this.NavigationService.Navigate(typeof(oefeningWiskundeMoeilijk));
         }
 
 
