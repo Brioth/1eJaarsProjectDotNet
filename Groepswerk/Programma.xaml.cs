@@ -99,17 +99,17 @@ namespace Groepswerk
         //Date: 22/04/2015
         private void MnuTaalMakkelijk_Click(object sender, RoutedEventArgs e)
         {
-            OefNederlands1Makkelijk oefNederlandsMakkelijk = new OefNederlands1Makkelijk();
+            OefNederlands1Makkelijk oefNederlandsMakkelijk = new OefNederlands1Makkelijk(actieveGebruiker);
             framePages.Navigate(oefNederlandsMakkelijk);
         }
         private void MnuTaalGemiddeld_Click(object sender, RoutedEventArgs e)
         {
-            OefNederlands1Gemiddeld oefNederlandsGemiddeld = new OefNederlands1Gemiddeld();
+            OefNederlands1Gemiddeld oefNederlandsGemiddeld = new OefNederlands1Gemiddeld(actieveGebruiker);
             framePages.Navigate(oefNederlandsGemiddeld);
         }
         private void MnuTaalMoeilijk_Click(object sender, RoutedEventArgs e)
         {
-            OefNederlands1Moeilijk oefNederlandsMoeilijk = new OefNederlands1Moeilijk();
+            OefNederlands1Moeilijk oefNederlandsMoeilijk = new OefNederlands1Moeilijk(actieveGebruiker);
             framePages.Navigate(oefNederlandsMoeilijk);
         }
         //navigatie oefeningen

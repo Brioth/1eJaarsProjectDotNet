@@ -101,19 +101,19 @@ namespace Groepswerk
 
         private void btnTaalMak_Click(object sender, RoutedEventArgs e)
         {
-            OefNederlands1Makkelijk makkelijk = new OefNederlands1Makkelijk();
+            OefNederlands1Makkelijk makkelijk = new OefNederlands1Makkelijk(ActieveGebruiker);
             this.NavigationService.Navigate(makkelijk);
         }
 
         private void btnTaalGem_Click(object sender, RoutedEventArgs e)
         {
-            OefNederlands1Gemiddeld gemiddeld= new OefNederlands1Gemiddeld();
+            OefNederlands1Gemiddeld gemiddeld = new OefNederlands1Gemiddeld(ActieveGebruiker);
             this.NavigationService.Navigate(gemiddeld);
         }
 
         private void btnTaalMoe_Click(object sender, RoutedEventArgs e)
         {
-            OefNederlands1Moeilijk moeilijk = new OefNederlands1Moeilijk();
+            OefNederlands1Moeilijk moeilijk = new OefNederlands1Moeilijk(ActieveGebruiker);
             this.NavigationService.Navigate(moeilijk);
         }
     }
