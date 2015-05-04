@@ -15,6 +15,8 @@ namespace Groepswerk
         
         public wegschrijvenData(string sleutelwoord, string nieuwId, double nieuwGespendeerdeTijd, DateTime nieuwDatum, int nieuwPunten)
         {
+            Boolean inLijst;
+
             switch(sleutelwoord){
                 case "OefNederlandsMakkelijk":
                     ResultatenLijst lijstResultaten = new ResultatenLijst("Makkelijk");
@@ -24,11 +26,11 @@ namespace Groepswerk
                     {
                         if (!(lijstResultaten[i].datum.Equals(DateTime.Today)&&(lijstResultaten[i].id.Equals(nieuwId))))
                         {
-                            string resultaatString = (nieuwId + ";" + nieuwGespendeerdeTijd + ";" + nieuwDatum + ";" + nieuwPunten);   
+                            inLijst=false;
                         }
                         else
                         {
-
+                            inLijst=true;
                         }
                     }
                     //txtfile clearen en alles terug wegschrijven. Hoort wel te lukken
