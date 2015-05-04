@@ -67,7 +67,7 @@ namespace Groepswerk
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
             oefCorrect = 0;
-            if (Oplossing1.Text.Equals(lijstOefeningen[oefeningNummerLijst[0]].correcteOplossing))
+            if (oplossing1.Text.Equals(lijstOefeningen[oefeningNummerLijst[0]].correcteOplossing))
             {
                 opgave1.Text = lijstOefeningen[oefeningNummerLijst[0]].juisteAntwoordCompleet;
             }
@@ -76,7 +76,7 @@ namespace Groepswerk
                 oefCorrect++;
             }
 
-            if (Oplossing2.Text.Equals(lijstOefeningen[oefeningNummerLijst[1]].correcteOplossing))
+            if (oplossing2.Text.Equals(lijstOefeningen[oefeningNummerLijst[1]].correcteOplossing))
             {
                 opgave2.Text = lijstOefeningen[oefeningNummerLijst[1]].juisteAntwoordCompleet;
             }
@@ -85,7 +85,7 @@ namespace Groepswerk
                 oefCorrect++;
             }
 
-            if (Oplossing3.Text.Equals(lijstOefeningen[oefeningNummerLijst[2]].correcteOplossing))
+            if (oplossing3.Text.Equals(lijstOefeningen[oefeningNummerLijst[2]].correcteOplossing))
             {
                 opgave3.Text = lijstOefeningen[oefeningNummerLijst[2]].juisteAntwoordCompleet;
             }
@@ -94,7 +94,7 @@ namespace Groepswerk
                 oefCorrect++;
             }
 
-            if (Oplossing4.Text.Equals(lijstOefeningen[oefeningNummerLijst[3]].correcteOplossing))
+            if (oplossing4.Text.Equals(lijstOefeningen[oefeningNummerLijst[3]].correcteOplossing))
             {
                 opgave4.Text = lijstOefeningen[oefeningNummerLijst[3]].juisteAntwoordCompleet;
             }
