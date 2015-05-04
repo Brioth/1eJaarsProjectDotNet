@@ -146,7 +146,10 @@ namespace Groepswerk
             Punten.Text = Convert.ToString(oefCorrect) + "/5";
         }
 
-
+        private void TerugKnop_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
         }
     }
 

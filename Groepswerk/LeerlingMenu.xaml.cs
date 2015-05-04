@@ -62,5 +62,26 @@ namespace Groepswerk
 
         //Properties
         public Gebruiker ActieveGebruiker { get; set; }
+
+        private void btnRekenenMak_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        private void btnWOMak_Click(object sender, RoutedEventArgs e)
+        {
+            oefWoMakkelijk makkelijk = new oefWoMakkelijk();
+            this.NavigationService.Navigate(typeof(oefWoMakkelijk));
+        }
+        private void btnWOMed_Click(object sender, RoutedEventArgs e)
+        {
+            oefWoGemiddeld gemiddeld = new oefWoGemiddeld();
+            this.NavigationService.Navigate(typeof(oefWoGemiddeld));
+        }
+        private void btnWOMoe_Click(object sender, RoutedEventArgs e)
+        {
+            oefWoMoeilijk moeilijk = new oefWoMoeilijk();
+            this.NavigationService.Navigate(typeof(oefWoMoeilijk));
+        }
     }
 }

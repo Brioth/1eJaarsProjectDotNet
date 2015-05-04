@@ -75,6 +75,7 @@
     <Compile Include="BewerkKlasLijst.xaml.cs">
       <DependentUpon>BewerkKlasLijst.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WoLijst.cs" />
     <Compile Include="DetailsGebruiker.cs" />
     <Compile Include="Gebruiker.cs" />
     <Compile Include="Gebruikerdetails.xaml.cs">
