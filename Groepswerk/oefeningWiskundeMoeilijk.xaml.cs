@@ -44,10 +44,12 @@ namespace Groepswerk
         //Constructors
         public oefeningWiskundeMoeilijk(Gebruiker actieveGebruiker)
         {
+            InitializeComponent();
             this.actieveGebruiker = actieveGebruiker;
+            tijdTeller = new Stopwatch();
             tijdTeller.Start();
 
-            InitializeComponent();
+            
             // of 2 random getallen tss 10 laten maken en die uitkomst ervan laten berekenen en opslaan in lijst (txt bestand)
             // lijst vergelijken met de user input
 

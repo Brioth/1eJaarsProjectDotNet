@@ -42,9 +42,11 @@ namespace Groepswerk
         //constructors
         public oefeningWiskundeMakkelijk(Gebruiker actieveGebruiker)
         {
-            this.actieveGebruiker = actieveGebruiker;
-            tijdTeller.Start();
             InitializeComponent();
+            this.actieveGebruiker = actieveGebruiker;
+            tijdTeller = new Stopwatch();
+            tijdTeller.Start();
+
 
             // of 2 random getallen tss 10 laten maken en die uitkomst ervan laten berekenen en opslaan in lijst (txt bestand)
             // lijst vergelijken met de user input
