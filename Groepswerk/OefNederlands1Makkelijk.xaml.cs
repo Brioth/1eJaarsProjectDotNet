@@ -26,8 +26,10 @@ namespace Groepswerk
         private List<string> oefLijst1, oefLijst2, oefLijst3, oefLijst4, oefLijst5;
         private int oefCorrect = 0;
         private List<int> oefeningNummerLijst;
-        public OefNederlands1Makkelijk()
+        Gebruiker actieveGebruiker;
+        public OefNederlands1Makkelijk(Gebruiker actieveGebruiker)
         {
+            this.actieveGebruiker = actieveGebruiker;
             InitializeComponent();
             lijstOefeningen = new OefeningLijst("makkelijk");
 
@@ -59,7 +61,7 @@ namespace Groepswerk
                 tempOplossing3[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing3;
                 oefeningNummerLijst.Add(oefeningenNummerOpslag);
             }
-            //zo da hoort nu te werken
+
             Opgave1.Text = tempOpgave[0];
             oefLijst1.Add(tempOplossing1[0]);
             oefLijst1.Add(tempOplossing2[0]);
@@ -123,7 +125,7 @@ namespace Groepswerk
 
             if (!(Convert.ToString(Oplossing4.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[3]].correcteOplossing)))
             {
-                Opgave3.Text = lijstOefeningen[oefeningNummerLijst[3]].juisteAntwoordCompleet;
+                Opgave4.Text = lijstOefeningen[oefeningNummerLijst[3]].juisteAntwoordCompleet;
             }
             else
             {
@@ -132,13 +134,17 @@ namespace Groepswerk
 
             if (!(Convert.ToString(Oplossing5.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[4]].correcteOplossing)))
             {
-                Opgave3.Text = lijstOefeningen[oefeningNummerLijst[4]].juisteAntwoordCompleet;
+                Opgave5.Text = lijstOefeningen[oefeningNummerLijst[4]].juisteAntwoordCompleet;
             }
             else
             {
                 oefCorrect++;
             }
             Punten.Text = Convert.ToString(oefCorrect) + "/5";
+
+            //WEGSHRIJVEN
+            
+
         }
 
         private void TerugKnop_Click(object sender, RoutedEventArgs e)

@@ -65,49 +65,49 @@ namespace Groepswerk
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
             oefCorrect = 0;
-            if (!(Convert.ToString(Oplossing1.Text).Equals(lijstOefeningen[1].correcteOplossing)))
+            if (Oplossing1.Text.Equals(lijstOefeningen[oefeningNummerLijst[0]].correcteOplossing))
             {
-                opgave1.Text = lijstOefeningen[1].juisteAntwoordCompleet;
+                Opgave1.Text = lijstOefeningen[oefeningNummerLijst[0]].juisteAntwoordCompleet;
             }
             else
             {
-                oefCorrect = oefCorrect + 1;
+                oefCorrect++;
             }
 
-            if (!(Convert.ToString(Oplossing2.Text).Equals(lijstOefeningen[2].correcteOplossing)))
+            if (Oplossing2.Text.Equals(lijstOefeningen[oefeningNummerLijst[1]].correcteOplossing))
             {
-                opgave2.Text = lijstOefeningen[2].juisteAntwoordCompleet;
+                Opgave2.Text = lijstOefeningen[oefeningNummerLijst[1]].juisteAntwoordCompleet;
             }
             else
             {
-                oefCorrect = oefCorrect + 1;
+                oefCorrect++;
             }
 
-            if (!(Convert.ToString(Oplossing3.Text).Equals(lijstOefeningen[3].correcteOplossing)))
+            if (Oplossing3.Text.Equals(lijstOefeningen[oefeningNummerLijst[2]].correcteOplossing))
             {
-                opgave3.Text = lijstOefeningen[3].juisteAntwoordCompleet;
+                Opgave3.Text = lijstOefeningen[oefeningNummerLijst[2]].juisteAntwoordCompleet;
             }
             else
             {
-                oefCorrect = oefCorrect + 1;
+                oefCorrect++;
             }
 
-            if (!(Convert.ToString(Oplossing4.Text).Equals(lijstOefeningen[4].correcteOplossing)))
+            if (Oplossing4.Text.Equals(lijstOefeningen[oefeningNummerLijst[3]].correcteOplossing))
             {
-                opgave3.Text = lijstOefeningen[4].juisteAntwoordCompleet;
+                Opgave4.Text = lijstOefeningen[oefeningNummerLijst[3]].juisteAntwoordCompleet;
             }
             else
             {
-                oefCorrect = oefCorrect + 1;
+                oefCorrect++;
             }
 
-            if (!(Convert.ToString(Oplossing5.Text).Equals(lijstOefeningen[5].correcteOplossing)))
+            if (Oplossing5.Text.Equals(lijstOefeningen[oefeningNummerLijst[4]].correcteOplossing))
             {
-                opgave3.Text = lijstOefeningen[5].juisteAntwoordCompleet;
+                Opgave5.Text = lijstOefeningen[oefeningNummerLijst[4]].juisteAntwoordCompleet;
             }
             else
             {
-                oefCorrect = oefCorrect + 1;
+                oefCorrect++;
             }
             Punten.Text = Convert.ToString(oefCorrect) + "/5";
         }

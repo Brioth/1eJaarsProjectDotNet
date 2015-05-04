@@ -124,7 +124,7 @@ namespace Groepswerk
 
             if (!(Convert.ToString(Oplossing4.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[3]].correcteOplossing)))
             {
-                Opgave3.Text = lijstOefeningen[oefeningNummerLijst[3]].juisteAntwoordCompleet;
+                Opgave4.Text = lijstOefeningen[oefeningNummerLijst[3]].juisteAntwoordCompleet;
             }
             else
             {
@@ -133,7 +133,7 @@ namespace Groepswerk
 
             if (!(Convert.ToString(Oplossing5.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[4]].correcteOplossing)))
             {
-                Opgave3.Text = lijstOefeningen[oefeningNummerLijst[4]].juisteAntwoordCompleet;
+                Opgave5.Text = lijstOefeningen[oefeningNummerLijst[4]].juisteAntwoordCompleet;
             }
             else
             {
