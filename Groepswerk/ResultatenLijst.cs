@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Groepswerk
 {
     //Aangepast op 3/5/2015 door Carmen
-    //aparte dinges niet nodig, geef gewoon de txt mee in de constructor, structuur van alle files is toch hetzelfde
+    //aparte dingen niet nodig, geef gewoon de txt mee in de constructor, structuur van alle files is toch hetzelfde
 
     public class ResultatenLijst : List<Resultaat>
     {
