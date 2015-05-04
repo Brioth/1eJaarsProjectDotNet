@@ -30,6 +30,7 @@ namespace Groepswerk
     public partial class oefeningWiskundeGemiddeld : Page
     {
         //Lokale variabelen
+        Gebruiker actieveGebruiker;
         private int oefeningPunten;
         private Random RandomTest = new Random();
         private int randomGetal1;
@@ -42,8 +43,9 @@ namespace Groepswerk
         private int begin, eind;
         //private List<String> ranges = new List<String>;
         //constructors
-        public oefeningWiskundeGemiddeld()
+        public oefeningWiskundeGemiddeld(Gebruiker actieveGebruiker)
         {
+            this.actieveGebruiker = actieveGebruiker;
             InitializeComponent();
             // of 2 random getallen tss 10 laten maken en die uitkomst ervan laten berekenen en opslaan in lijst (txt bestand)
             // lijst vergelijken met de user input

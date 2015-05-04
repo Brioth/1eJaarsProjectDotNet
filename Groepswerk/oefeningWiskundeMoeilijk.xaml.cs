@@ -25,6 +25,7 @@ namespace Groepswerk
     public partial class oefeningWiskundeMoeilijk : Page
     {
         //Lokale variabelen
+        Gebruiker actieveGebruiker;
         private int oefeningPunten;
         private Random RandomTest = new Random();
         private int randomGetal1;
@@ -38,8 +39,9 @@ namespace Groepswerk
         private int begin, eind;
 
         //Constructors
-        public oefeningWiskundeMoeilijk()
+        public oefeningWiskundeMoeilijk(Gebruiker actieveGebruiker)
         {
+            this.actieveGebruiker = actieveGebruiker;
             InitializeComponent();
             // of 2 random getallen tss 10 laten maken en die uitkomst ervan laten berekenen en opslaan in lijst (txt bestand)
             // lijst vergelijken met de user input

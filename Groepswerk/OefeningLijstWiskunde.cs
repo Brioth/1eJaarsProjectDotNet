@@ -17,25 +17,25 @@ namespace Groepswerk
     {
         public OefeningLijstWiskunde(string moeilijkheid)
         {
-            switch (moeilijkheid)
-            {
+            //switch (moeilijkheid)
+            //{
 
-                case ("gemiddeld"):
+            //    case ("gemiddeld"):
 
-                    StreamReader bestandOefeningGemiddeld = File.OpenText(@"oefnWiskundeGemiddeld.txt");
-                    string regelGemiddeld = bestandOefeningGemiddeld.ReadLine();
-                    char[] scheidingGemiddeld = { ';' };
+            //        StreamReader bestandOefeningGemiddeld = File.OpenText(@"oefnWiskundeGemiddeld.txt");
+            //        string regelGemiddeld = bestandOefeningGemiddeld.ReadLine();
+            //        char[] scheidingGemiddeld = { ';' };
 
-                    while (regelGemiddeld != null)
-                    {
-                        string[] deel = regelGemiddeld.Split(scheidingGemiddeld);
+            //        while (regelGemiddeld != null)
+            //        {
+            //            string[] deel = regelGemiddeld.Split(scheidingGemiddeld);
 
-                        OefeningWiskunde oefeningWiskunde = new OefeningWiskunde(deel[0], deel[1]);
-                        this.Add(oefeningWiskunde);
-                        regelGemiddeld = bestandOefeningGemiddeld.ReadLine();
-                    }
-                    bestandOefeningGemiddeld.Close();
-                    break;
+            //            OefeningWiskunde oefeningWiskunde = new OefeningWiskunde(deel[0], deel[1]);
+            //            this.Add(oefeningWiskunde);
+            //            regelGemiddeld = bestandOefeningGemiddeld.ReadLine();
+            //        }
+            //        bestandOefeningGemiddeld.Close();
+            //        break;
 
                
 
