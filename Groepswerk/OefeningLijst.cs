@@ -13,8 +13,8 @@ namespace Groepswerk
     {
         public OefeningLijst(string moeilijkheid)
         {
-            switch (moeilijkheid)
-            {
+            switch (moeilijkheid){
+            
                 case ("makkelijk"):
 
                     StreamReader bestandOefeningMakkelijk = File.OpenText(@"OefNederlands1Makkelijk.txt");

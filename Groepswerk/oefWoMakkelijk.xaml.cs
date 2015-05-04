@@ -17,6 +17,8 @@ namespace Groepswerk
     /// <summary>
     /// Interaction logic for oefWoMakkelijk.xaml
     /// </summary>
+    /// //author: Seppe Vandezande
+    /// //Date:28/04/2015
     public partial class oefWoMakkelijk : Page
     {
         private WoLijst lijstOefeningen;
