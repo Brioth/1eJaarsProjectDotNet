@@ -46,7 +46,7 @@ namespace Groepswerk
 
             oefeningNummerLijst = new List<int>();
 
-            for (int i = 0; i > 5; i++)
+            for (int i = 0; i < 5; i++)
             {
                 oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, lijstOefeningen.Count));
 
