@@ -26,8 +26,10 @@ namespace Groepswerk
         private int oefeningenNummerOpslag, oefCorrect;
         private IList<string> oefLijst;
         private IList<int> oefeningNummerLijst;
-        public OefNederlands1Moeilijk()
+        Gebruiker actieveGebruiker;
+        public OefNederlands1Moeilijk(Gebruiker actieveGebruiker)
         {
+            this.actieveGebruiker = actieveGebruiker;
             InitializeComponent();
 
             tempOpgave = new string[5];
@@ -67,7 +69,7 @@ namespace Groepswerk
             oefCorrect = 0;
             if (Oplossing1.Text.Equals(lijstOefeningen[oefeningNummerLijst[0]].correcteOplossing))
             {
-                Opgave1.Text = lijstOefeningen[oefeningNummerLijst[0]].juisteAntwoordCompleet;
+                opgave1.Text = lijstOefeningen[oefeningNummerLijst[0]].juisteAntwoordCompleet;
             }
             else
             {
@@ -76,7 +78,7 @@ namespace Groepswerk
 
             if (Oplossing2.Text.Equals(lijstOefeningen[oefeningNummerLijst[1]].correcteOplossing))
             {
-                Opgave2.Text = lijstOefeningen[oefeningNummerLijst[1]].juisteAntwoordCompleet;
+                opgave2.Text = lijstOefeningen[oefeningNummerLijst[1]].juisteAntwoordCompleet;
             }
             else
             {
@@ -85,7 +87,7 @@ namespace Groepswerk
 
             if (Oplossing3.Text.Equals(lijstOefeningen[oefeningNummerLijst[2]].correcteOplossing))
             {
-                Opgave3.Text = lijstOefeningen[oefeningNummerLijst[2]].juisteAntwoordCompleet;
+                opgave3.Text = lijstOefeningen[oefeningNummerLijst[2]].juisteAntwoordCompleet;
             }
             else
             {
@@ -94,7 +96,7 @@ namespace Groepswerk
 
             if (Oplossing4.Text.Equals(lijstOefeningen[oefeningNummerLijst[3]].correcteOplossing))
             {
-                Opgave4.Text = lijstOefeningen[oefeningNummerLijst[3]].juisteAntwoordCompleet;
+                opgave4.Text = lijstOefeningen[oefeningNummerLijst[3]].juisteAntwoordCompleet;
             }
             else
             {
@@ -103,7 +105,7 @@ namespace Groepswerk
 
             if (Oplossing5.Text.Equals(lijstOefeningen[oefeningNummerLijst[4]].correcteOplossing))
             {
-                Opgave5.Text = lijstOefeningen[oefeningNummerLijst[4]].juisteAntwoordCompleet;
+                opgave5.Text = lijstOefeningen[oefeningNummerLijst[4]].juisteAntwoordCompleet;
             }
             else
             {

@@ -39,15 +39,15 @@
         </Grid.RowDefinitions>
         <Label Name="titel" Content="Oefeningen Nederlands: Moeilijk" FontSize="32" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1"/>
         <Label Content="Vul de volgende werkwoorden aan." Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2"/>
-        <TextBlock Name="Opgave1"  TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="3"/>
-        <TextBox Name="Oplossing1" Grid.Column="2" Grid.Row="3"/>
-        <TextBlock Name="Opgave2" TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="4"/>
-        <TextBox Name="Oplossing2" Grid.Column="2" Grid.Row="4"/>
-        <TextBlock Name="Opgave3" TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="5"/>
-        <TextBox Name="Oplossing3" Grid.Column="2" Grid.Row="5"/>
-        <TextBlock Name="Opgave4" TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="6"/>
-        <TextBox Name="Oplossing4" Grid.Column="2" Grid.Row="6"/>
-        <TextBlock Name="Opgave5"  TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="7"/>
+        <TextBlock Name="opgave1"  TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="3"/>
+        <TextBox Name="oplossing1" Grid.Column="2" Grid.Row="3"/>
+        <TextBlock Name="opgave2" TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="4"/>
+        <TextBox Name="oplossing2" Grid.Column="2" Grid.Row="4"/>
+        <TextBlock Name="opgave3" TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="5"/>
+        <TextBox Name="oplossing3" Grid.Column="2" Grid.Row="5"/>
+        <TextBlock Name="opgave4" TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="6"/>
+        <TextBox Name="oplossing4" Grid.Column="2" Grid.Row="6"/>
+        <TextBlock Name="opgave5"  TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="7"/>
         <TextBox Name="Oplossing5" Grid.Column="2" Grid.Row="7"/>
         <Button Name="verbeterButton" Content="Verbeter" Click="verbeterButton_Click" Grid.Column="2" Grid.Row="8"/>
         <TextBlock Name="Punten" Text="" TextWrapping="Wrap" Grid.Column="1" Grid.Row="8"/>
