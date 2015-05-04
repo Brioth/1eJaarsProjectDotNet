@@ -117,12 +117,12 @@ namespace Groepswerk
         }
         private void MnuWoGemiddeld_Click(object sender, RoutedEventArgs e)
         {
-            oefWoGemiddeld oefWoGemiddeld = new oefWoGemiddeld();
+            oefWoGemiddeld oefWoGemiddeld = new oefWoGemiddeld(ActieveGebruiker);
             framePages.Navigate(oefWoGemiddeld);
         }
         private void MnuWoMoeilijk_Click(object sender, RoutedEventArgs e)
         {
-            oefWoMoeilijk oefWoMoeilijk = new oefWoMoeilijk();
+            oefWoMoeilijk oefWoMoeilijk = new oefWoMoeilijk(ActieveGebruiker);
             framePages.Navigate(oefWoMoeilijk);
         }
         //aanpassen oefening

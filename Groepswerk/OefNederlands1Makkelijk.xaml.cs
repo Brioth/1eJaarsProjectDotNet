@@ -154,15 +154,26 @@ namespace Groepswerk
             }
             Punten.Text = Convert.ToString(oefCorrect) + "/5";
 
-            //WEGSHRIJVEN
-            ResultatenLijst resultatenLijst = new ResultatenLijst("OefNederlands1MakkelijkResultaten.txt");
-            Resultaat resultaat = new Resultaat(actieveGebruiker.Id, oefCorrect, gespendeerdeTijd, resultatenLijst);
-
+            
         }
 
         private void TerugKnop_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+        private void SchrijfPunten()
+        {
+
+            ResultatenLijst resultatenLijst = new ResultatenLijst("OefNederlands1MakkelijkResultaten.txt");
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect, gespendeerdeTijd, resultatenLijst);
+        if(nieuw.indexoud == -1)
+        
+        {
+            resultatenlijst.Add()
+
+        } //end if
+
+
         }
         }
     }

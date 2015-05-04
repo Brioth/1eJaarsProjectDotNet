@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -35,11 +36,14 @@ namespace Groepswerk
         private int[] oplossingLijst = new int[10];
         private List<int> randomLijst = new List<int>();
         private int begin, eind;
+        private long totaalTijd;
+        private Stopwatch tijdTeller;
 
         //constructors
         public oefeningWiskundeMakkelijk(Gebruiker actieveGebruiker)
         {
             this.actieveGebruiker = actieveGebruiker;
+            tijdTeller.Start();
             InitializeComponent();
 
             // of 2 random getallen tss 10 laten maken en die uitkomst ervan laten berekenen en opslaan in lijst (txt bestand)
@@ -175,7 +179,8 @@ namespace Groepswerk
         {
 
             oefeningPunten = 0;
-
+            tijdTeller.Stop();
+            totaalTijd = tijdTeller.ElapsedMilliseconds * 1000;
             {
 
                 try
@@ -284,13 +289,26 @@ namespace Groepswerk
             }
         }
 
-        private void dropLabel1_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void terugButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het leerlingenmenu?", "Terug", MessageBoxButton.YesNo);
+            switch (terug)
+            {
+                case MessageBoxResult.No:
+                    break;
+                case MessageBoxResult.Yes:
+                    LeerlingMenu terugMenu = new LeerlingMenu(actieveGebruiker);
+                    this.NavigationService.Navigate(terugMenu);
+                    break;
+                default:
+                    break;
+            }
         }
 
-
-
+        private void opnieuwButton_Click(object sender, RoutedEventArgs e)
+        {
+            oefeningWiskundeMakkelijk oefWiskundeMakkelijkPagina = new oefeningWiskundeMakkelijk(actieveGebruiker);
+            this.NavigationService.Navigate(oefWiskundeMakkelijkPagina);
+        }
     }
-
 }

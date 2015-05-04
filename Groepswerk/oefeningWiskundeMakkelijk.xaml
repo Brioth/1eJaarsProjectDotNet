@@ -35,7 +35,7 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text=" Sleep het juiste antwoord naar het vakje naast de opgave. Vul 0 in als je de oplossing niet weet." Margin="10"  Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="9"/>
+        <TextBlock Text=" Sleep het juiste antwoord naar het vakje naast de opgave. Vul 0 in als je de oplossing niet weet." Margin="10"  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="9"/>
 
         <Label  Margin="20,10,20,10"  Content="1" Name="antwoordlabel1" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="1" Grid.Row="2"/>
         <Label  Margin="20,10,20,10" Content="2" Name="antwoordlabel2" HorizontalAlignment="Center" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="2" Grid.Row="2" />
@@ -60,8 +60,8 @@
         <Label Margin="20,10,20,10" MinWidth="20" Content="opgave9" Name="opgaveblock9"   Grid.Column="4" Grid.Row="6"/>
         <Label Margin="20,10,20,10" MinWidth="20" Content="opgave10" Name="opgaveblock10"  Grid.Column="4" Grid.Row="7"/>
 
-        <Button Name="verbeterButton" Margin="5" Content="Verbeter"   Click="verbeterButton_Click" Grid.Column="4" Grid.Row="9"/>
-        <TextBlock Name="Punten"  TextWrapping="Wrap" Margin="10"  Grid.ColumnSpan="3" Grid.Row="9"/>
+        <Button Name="verbeterButton" Margin="5" Content="Verbeter"   Click="verbeterButton_Click" Grid.Column="7" Grid.Row="9"/>
+        <TextBlock Name="Punten" Margin="10"  Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="9"/>
 
         <!--AllowDrop="True" Drop="Label_Drop"-->
         <TextBox Margin="10"  Text="" MinWidth="20" Name="dropLabel1" AllowDrop="True" Drop="Label_Drop" Grid.Column="3"  Grid.Row="3" />
@@ -75,5 +75,18 @@
         <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel9"  AllowDrop="True" Drop="Label_Drop" Grid.Column="5" Grid.Row="6"/>
         <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel10" AllowDrop="True" Drop="Label_Drop" Grid.Column="5" Grid.Row="7"/>
 
+
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Button  Content="terug"  Margin="5"  Grid.Column="0" Grid.Row="0" Click="terugButton_Click"/>
+            <Button  Content="opnieuw"   Margin="5"   Grid.Column="1" Grid.Row="0" Click="opnieuwButton_Click"/>
+        </Grid>
     </Grid>
 </Page>
