@@ -4,8 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
-	Title="oefeningWiskundeMoeilijk" Background="#9D78989A" Height="356.511" Width="371.205" FontSize="16">
+      
+	Title="oefeningWiskundeMoeilijk" Background="#9D78989A" Height="auto" Width="auto" FontSize="16">
 
     <Grid>
 
@@ -17,8 +17,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+          
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -30,9 +29,10 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
+            
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock TextWrapping="Wrap" Text=" Schrijf het juiste antwoord in het vakje naast de opgave. Vul 0 in als je de oplossing niet weet."  Margin="10"  Grid.Column="2" Grid.Row="1"  />
+        <TextBlock  Text=" Schrijf het juiste antwoord in het vakje naast de opgave. Vul 0 in als je de oplossing niet weet."  Margin="10"  Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="9"  />
 
         <!--AllowDrop="True" Drop="Label_Drop"-->
         <Label Name="opgaveblock1"  MinWidth="20" Margin="20,10,20,10" Content="opgave1"   Grid.Column="2" Grid.Row="2"  />
@@ -46,7 +46,7 @@
         <Label  MinWidth="20" Name="opgaveblock9"  Content="opgave9" Margin="20,10,20,10" Grid.Column="4" Grid.Row="5" />
         <Label  MinWidth="20" Name="opgaveblock10" Content="opgave10" Margin="20,10,20,10" Grid.Column="4" Grid.Row="6"  />
 
-        <Button Name="verbeterButton" Margin="5" Content="Verbeter"  Click="verbeterButton_Click" Grid.Column="4" Grid.Row="7"/>
+        <Button Name="verbeterButton" Margin="5" Content="Verbeter"  Click="verbeterButton_Click" Grid.Column="5" Grid.Row="8"/>
         <TextBlock Name="Punten"  TextWrapping="Wrap"  Text="test" Margin="10"  Grid.ColumnSpan="3" Grid.Row="8"/>
 
         <!--AllowDrop="True" Drop="Label_Drop"-->

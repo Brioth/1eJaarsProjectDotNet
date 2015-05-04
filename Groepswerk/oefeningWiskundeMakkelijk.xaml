@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" Background="#9D78989A" Height="356.511" Width="371.205" FontSize="16"
+      mc:Ignorable="d" Background="#9D78989A" Height="auto" Width="auto" FontSize="16"
 	Title="Oefening Wiskunde makkelijk" >
 
     <Grid>
@@ -35,12 +35,12 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock TextWrapping="Wrap" Text=" Sleep het juiste antwoord naar het vakje naast de opgave. Vul 0 in als je de oplossing niet weet." Margin="10"  Grid.Column="2" Grid.Row="1"/>
+        <TextBlock Text=" Sleep het juiste antwoord naar het vakje naast de opgave. Vul 0 in als je de oplossing niet weet." Margin="10"  Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="9"/>
 
         <Label  Margin="20,10,20,10"  Content="1" Name="antwoordlabel1" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="1" Grid.Row="2"/>
-        <Label  Margin="20,10,20,10" Content="2" Name="antwoordlabel2" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="2" Grid.Row="2" />
+        <Label  Margin="20,10,20,10" Content="2" Name="antwoordlabel2" HorizontalAlignment="Center" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="2" Grid.Row="2" />
         <Label  Margin="20,10,20,10" Content="3" Name="antwoordlabel3" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="3" Grid.Row="2"/>
-        <Label  Margin="20,10,20,10" Content="4" Name="antwoordlabel4" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="4" Grid.Row="2"/>
+        <Label  Margin="20,10,20,10" Content="4" Name="antwoordlabel4" HorizontalAlignment="Center" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="4" Grid.Row="2"/>
         <Label   Margin="20,10,20,10" Content="5" Name="antwoordlabel5" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="5" Grid.Row="2"/>
         <Label   Margin="20,10,20,10" Content="6" Name="antwoordlabel6" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="6" Grid.Row="2"/>
         <Label   Margin="20,10,20,10" Content="7" Name="antwoordlabel7" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="7" Grid.Row="2"/>

@@ -213,6 +213,7 @@ namespace Groepswerk
                         dropLabel10.Background = Brushes.Red;
                     }
                     Punten.Text = ("u heeft  " + oefeningPunten + " behaald. ");
+                    ResultatenLijst gegBehaald = new ResultatenLijst(Punten.Text);
                 }
 
                 catch (FormatException)
