@@ -21,6 +21,7 @@ namespace Groepswerk
     /// //Date:28/04/2015
     public partial class oefWoMakkelijk : Page
     {
+        private Gebruiker actieveGebruiker;
         private OefeningLijst lijstOefeningen;
         private string[] tempOpgave, tempOplossing1;
         private Random oefeningenNummer = new Random();
@@ -29,21 +30,22 @@ namespace Groepswerk
         private int oefCorrect = 0;
         private IList<int> oefeningNummerLijst;
         public oefWoMakkelijk( Gebruiker actieveGebruiker){
-            //this.actieveGebruiker = actieveGebruiker;
-          InitializeComponent();
-            lijstOefeningen = new OefeningLijst("WoGemakkelijk");
             
-     
+          InitializeComponent();
+          this.actieveGebruiker = actieveGebruiker;
+            lijstOefeningen = new OefeningLijst("WoMakkelijk");
+            oefeningNummerLijst = new List<int>();
+
             tempOpgave = new string[5];
             tempOplossing1 = new string[5];
 
             for (int i = 0; i < 5; i++)
             {
-                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count + 1)));
+                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count )));
 
                 while (oefeningNummerLijst.Contains(oefeningenNummerOpslag))
                 {
-                    oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
+                    oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, lijstOefeningen.Count));
                 }
                 tempOpgave[i] = lijstOefeningen[oefeningenNummerOpslag].opgave;
                 tempOplossing1[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing1;
@@ -63,7 +65,7 @@ namespace Groepswerk
         
         private void controleer_Click(object sender, RoutedEventArgs e)
         {
-            if (!((textbox1.Text).Equals(lijstOefeningen[1].oplossing)))
+            if (!((textbox1.Text).Equals (lijstOefeningen[oefeningNummerLijst[0]].oplossing)))
             {
                textbox1.Background=Brushes.Red;
             }
@@ -73,47 +75,63 @@ namespace Groepswerk
                  textbox1.Background=Brushes.Green;
             }
 
-            if (!((textbox2.Text).Equals(lijstOefeningen[2].oplossing)))
+            if (!((textbox2.Text).Equals(lijstOefeningen[oefeningNummerLijst[1]].oplossing)))
                 {
-                   textbox1.Background=Brushes.Red;
+                   textbox2.Background=Brushes.Red;
                 }
             else
                 {
                     oefCorrect++;
-                 textbox1.Background=Brushes.Green;
+                 textbox2.Background=Brushes.Green;
                 }
 
-            if (!((textbox3.Text).Equals(lijstOefeningen[3].oplossing)))
+            if (!((textbox3.Text).Equals(lijstOefeningen[oefeningNummerLijst[2]].oplossing)))
                 {
-                   textbox1.Background=Brushes.Red;
+                   textbox3.Background=Brushes.Red;
                 }
             else
                 {
                     oefCorrect++;
-                 textbox1.Background=Brushes.Green;
+                 textbox3.Background=Brushes.Green;
                 }
 
-            if (!((textbox4.Text).Equals(lijstOefeningen[4].oplossing)))
+            if (!((textbox4.Text).Equals(lijstOefeningen[oefeningNummerLijst[3]].oplossing)))
                 {
-                    textbox1.Background=Brushes.Red;
+                    textbox4.Background=Brushes.Red;
             }
             else
                 {
                     oefCorrect++;
-                 textbox1.Background=Brushes.Green;
+                 textbox4.Background=Brushes.Green;
                 }
 
-            if (!((textbox5.Text).Equals(lijstOefeningen[5].oplossing)))
+            if (!((textbox5.Text).Equals(lijstOefeningen[oefeningNummerLijst[4]].oplossing)))
                 {
-                   textbox1.Background=Brushes.Red;
+                   textbox5.Background=Brushes.Red;
                 }
             else
                 {
                     oefCorrect++;
-                textbox1.Background=Brushes.Green;
+                textbox5.Background=Brushes.Green;
                 }
            
             }
+
+        private void terugButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het leerlingenmenu?", "Terug", MessageBoxButton.YesNo);
+            switch (terug)
+            {
+                case MessageBoxResult.No:
+                    break;
+                case MessageBoxResult.Yes:
+                    LeerlingMenu terugMenu = new LeerlingMenu(actieveGebruiker);
+                    this.NavigationService.Navigate(terugMenu);
+                    break;
+                default:
+                    break;
+            }
+        }
         }
     }
 

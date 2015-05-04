@@ -38,8 +38,8 @@
         <Button Name="btnRekenenGem" Content="Gemiddeld" Grid.Row="4" Grid.Column="3" Margin="5" TabIndex="5" Click="btnRekenenGem_Click"/>
         <Button Name="btnRekenenMoe" Content="Moeilijk" Grid.Row="4" Grid.Column="4" Margin="5" TabIndex="6" Click="btnRekenenMoe_Click"/>
         <Button Name="btnWOMak" Content="Makkelijk" Grid.Row="5" Grid.Column="2" Margin="5" TabIndex="7" Click="btnWOMak_Click"/>
-        <Button Name="btnWOMed" Content="Gemiddeld" Grid.Row="5" Grid.Column="3" Margin="5" TabIndex="8"/>
-        <Button Name="btnWOMoe" Content="Moeilijk" Grid.Row="5" Grid.Column="4" Margin="5" TabIndex="9"/>
+        <Button Name="btnWOMed" Content="Gemiddeld" Grid.Row="5" Grid.Column="3" Margin="5" TabIndex="8" Click="btnWoGem_Click"/>
+        <Button Name="btnWOMoe" Content="Moeilijk" Grid.Row="5" Grid.Column="4" Margin="5" TabIndex="9" Click="btnWoMoe_Click"/>
         <Button Name="btnSpel" Content="Speel bolletjesSpel" Grid.Row="7" Grid.Column="2" Margin="5" Click="BtnSpel_Click" TabIndex="10"/>
         <Button Name="btnZombie" Content="Speel ZombieEdition" Grid.Row="7" Grid.Column="4" Margin="5"  Click="BtnZombie_Click" TabIndex="11"/>
     </Grid>

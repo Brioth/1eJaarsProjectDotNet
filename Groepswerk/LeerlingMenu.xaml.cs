@@ -88,14 +88,14 @@ namespace Groepswerk
             oefWoMakkelijk makkelijk = new oefWoMakkelijk(ActieveGebruiker);
             this.NavigationService.Navigate(makkelijk);
         }
-        private void btnWOMed_Click(object sender, RoutedEventArgs e)
+        private void btnWoGem_Click(object sender, RoutedEventArgs e)
         {
-            oefWoGemiddeld gemiddeld = new oefWoGemiddeld();
+            oefWoGemiddeld gemiddeld = new oefWoGemiddeld(ActieveGebruiker);
             this.NavigationService.Navigate(gemiddeld);
         }
-        private void btnWOMoe_Click(object sender, RoutedEventArgs e)
+        private void btnWoMoe_Click(object sender, RoutedEventArgs e)
         {
-            oefWoMoeilijk moeilijk = new oefWoMoeilijk();
+            oefWoMoeilijk moeilijk = new oefWoMoeilijk(ActieveGebruiker);
             this.NavigationService.Navigate(moeilijk);
         }
 
