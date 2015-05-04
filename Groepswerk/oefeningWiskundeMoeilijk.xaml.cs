@@ -38,18 +38,17 @@ namespace Groepswerk
         private int[] oplossingLijst = new int[10];
         private List<int> randomLijst = new List<int>();
         private int begin, eind;
-        private long totaalTijd;
+        private int totaalTijd;
         private Stopwatch tijdTeller;
 
         //Constructors
         public oefeningWiskundeMoeilijk(Gebruiker actieveGebruiker)
-        {
+        {       
             InitializeComponent();
             this.actieveGebruiker = actieveGebruiker;
             tijdTeller = new Stopwatch();
             tijdTeller.Start();
 
-            
             // of 2 random getallen tss 10 laten maken en die uitkomst ervan laten berekenen en opslaan in lijst (txt bestand)
             // lijst vergelijken met de user input
 
@@ -111,6 +110,23 @@ namespace Groepswerk
             reader.Close();
         }
 
+        private void schrijfpunten()
+        {
+            ResultatenLijst lijst = new ResultatenLijst("OefResultatenWiskMoe.txt");
+            Resultaat behaaldResultaat = new Resultaat(actieveGebruiker.Id, oefeningPunten, totaalTijd, lijst);
+
+            if (behaaldResultaat.IndexOud == -1)
+            {
+                lijst.Add(behaaldResultaat);
+            }
+            else
+            {
+                lijst.Add(behaaldResultaat);
+                lijst.RemoveAt(behaaldResultaat.IndexOud);
+            }
+            lijst.SchrijfLijst("OefResultatenWiskMoe.txt");
+        }
+
         //author: Vincent Vandoninck
         //date: 28/04/2015
 
@@ -119,7 +135,7 @@ namespace Groepswerk
         {
             oefeningPunten = 0;
             tijdTeller.Stop();
-            totaalTijd = tijdTeller.ElapsedMilliseconds * 1000;
+            totaalTijd = Convert.ToInt32(tijdTeller.ElapsedMilliseconds / 1000);
             {
                 try
                 {
@@ -215,6 +231,7 @@ namespace Groepswerk
                         dropLabel10.Background = Brushes.Red;
                     }
                     Punten.Text = ("u heeft  " + oefeningPunten + " behaald. ");
+                    schrijfpunten();
                 }
 
                    
