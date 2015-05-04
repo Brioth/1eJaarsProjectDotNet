@@ -112,7 +112,7 @@ namespace Groepswerk
         //Author: Seppe
 
         private void MnuWoMakkelijk_Click(object sender, RoutedEventArgs e) {
-            oefWoMakkelijk oefWoMakkelijk = new oefWoMakkelijk();
+            oefWoMakkelijk oefWoMakkelijk = new oefWoMakkelijk(ActieveGebruiker);
             framePages.Navigate(oefWoMakkelijk);
         }
         private void MnuWoGemiddeld_Click(object sender, RoutedEventArgs e)
