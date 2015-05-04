@@ -19,6 +19,7 @@ namespace Groepswerk
     /// </summary>
     public partial class oefWoGemiddeld : Page
     {
+        private Gebruiker actieveGebruiker;
         private OefeningLijst lijstOefeningen;
         private string[] tempOpgave, tempOplossing1;
         private Random oefeningenNummer = new Random();
@@ -27,7 +28,7 @@ namespace Groepswerk
         private int oefCorrect = 0;
         private IList<int> oefeningNummerLijst;
         public oefWoGemiddeld( Gebruiker actieveGebruiker){
-           // this.actieveGebruiker = actieveGebruiker;
+           this.actieveGebruiker = actieveGebruiker;
           InitializeComponent();
             lijstOefeningen = new OefeningLijst("WoGemiddeld");
             oefeningNummerLijst = new List<int>();
@@ -112,6 +113,22 @@ namespace Groepswerk
                 }
            
             }
+
+        private void terugButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het leerlingenmenu?", "Terug", MessageBoxButton.YesNo);
+            switch (terug)
+            {
+                case MessageBoxResult.No:
+                    break;
+                case MessageBoxResult.Yes:
+                    LeerlingMenu terugMenu = new LeerlingMenu(actieveGebruiker);
+                    this.NavigationService.Navigate(terugMenu);
+                    break;
+                default:
+                    break;
+            }
+        }
         }
     }
 
