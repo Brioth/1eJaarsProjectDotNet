@@ -165,7 +165,7 @@ namespace Groepswerk
         {
 
             ResultatenLijst lijst = new ResultatenLijst("OefNederlands1MakkelijkResultaten.txt");
-            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect, gespendeerdeTijd, resultatenLijst);
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect, gespendeerdeTijd, lijst);
         if(nieuw.IndexOud == -1)
         
         {
