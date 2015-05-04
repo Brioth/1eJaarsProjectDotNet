@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,18 +39,22 @@ namespace Groepswerk
         private String[] OpgaveLijst = new String[10];
         private int[] oplossingLijst = new int[10];
         private List<int> randomLijst = new List<int>();
-
+        private int begin, eind;
+        //private List<String> ranges = new List<String>;
         //constructors
         public oefeningWiskundeGemiddeld()
         {
             InitializeComponent();
             // of 2 random getallen tss 10 laten maken en die uitkomst ervan laten berekenen en opslaan in lijst (txt bestand)
             // lijst vergelijken met de user input
+
+            VulRanges();
+
             for (int i = 0; i < 10; i++)
             {
-                randomGetal1 = RandomTest.Next(1, 11);
-                randomGetal2 = RandomTest.Next(1, 11);
-                randomGetal3 = RandomTest.Next(1, 11);
+                randomGetal1 = RandomTest.Next(begin, eind +1);
+                randomGetal2 = RandomTest.Next(begin, eind +1);
+                randomGetal3 = RandomTest.Next(begin, eind +1);
                 randomTeken1 = RandomTest.Next(0, 2);
 
                 // eerst uitkomst berekenen en die opslaan in labels
@@ -60,9 +65,6 @@ namespace Groepswerk
                     oplossingLijst[i] = randomGetal1 * randomGetal2 + randomGetal3;
                     randomLijst.Add(oplossingLijst[i]);
 
-                    //randomGetal1.ToString();
-                    //randomGetal2.ToString();
-                    //randomGetal3.ToString();
 
                     OpgaveLijst[i] = (randomGetal1.ToString() + " x " + (randomGetal2.ToString()) + " + " + (randomGetal3.ToString()));
 
@@ -71,10 +73,6 @@ namespace Groepswerk
                 {
                     oplossingLijst[i] = randomGetal1 * randomGetal2 - randomGetal3;
                     randomLijst.Add(oplossingLijst[i]);
-
-                    //randomGetal1.ToString();
-                    //randomGetal2.ToString();
-                    //randomGetal3.ToString();
 
                     OpgaveLijst[i] = (randomGetal1.ToString() + " x " + (randomGetal2.ToString()) + " - " + randomGetal3.ToString());
                 }
@@ -90,6 +88,28 @@ namespace Groepswerk
                 opgaveblock9.Content = OpgaveLijst[8];
                 opgaveblock10.Content = OpgaveLijst[9];
             }
+        }
+
+        private void VulRanges()
+        {
+            StreamReader reader = File.OpenText(@"rangesWiskunde.txt");
+            string gelezen = reader.ReadLine();
+            char[] scheiding = { ';' };
+
+            while (gelezen != null)
+            {
+                string[] deel = gelezen.Split(scheiding);
+                if (deel[0].Equals("gemiddeld"))
+                {
+                    begin = Convert.ToInt32( deel[1]);
+                    eind = Convert.ToInt32(deel[2]);
+            }
+                gelezen = reader.ReadLine();
+            }
+            reader.Close();
+
+
+         
         }
         //author: Vincent Vandoninck
         //date: 28/04/2015

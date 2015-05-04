@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,9 +26,6 @@ namespace Groepswerk
     /// </summary>
     public partial class OefWiskundeAanpGemiddelde : Page
     {
-        private int cijferBereik1Min, cijferBereik2Min, cijferBereik3Min, cijferBereik1Max, cijferBereik2Max, cijferBereik3Max;
-        
-
         public OefWiskundeAanpGemiddelde()
         {
             InitializeComponent();
@@ -37,14 +35,18 @@ namespace Groepswerk
         }
         private void AanpasKnop_Click(object sender, RoutedEventArgs e)
         {
-            //File.WriteAllText(@"oefnWiskundeGemiddeld.txt", String.Empty);
-            //StreamWriter writer = File.AppendText(@"oefnWiskundeGemiddeld.txt");
-            //foreach (Oefening oef in lijstOefeningen)
-            //{
+            String [] ranges = new string[3];
+            ranges[0] = ("makkelijk"+";"+ bereikMin1.Text +";"+bereikMax1.Text);
+            ranges[1] = ("gemiddeld" + ";" + bereikMin2.Text + ";" + bereikMax2.Text);
+            ranges[2] = ("moeilijk" + ";" + bereikMin3.Text + ";" + bereikMax3.Text);
 
-            //    writer.WriteLine(    + ";"+    );
-            //}
-            //writer.Close();
+            File.WriteAllText(@"rangesWiskunde.txt", String.Empty);
+            StreamWriter writer = File.AppendText(@"rangesWiskunde.txt");
+            foreach (String item in ranges)
+            {
+                writer.WriteLine( item );
+            }
+            writer.Close();
         }
     }
 }

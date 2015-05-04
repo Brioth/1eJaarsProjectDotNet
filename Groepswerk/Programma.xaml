@@ -10,8 +10,12 @@
                 <MenuItem Header="Exit" Click="MnuStop_Click"/>
             </MenuItem>
             <MenuItem Name="mnuOefeningen" Header="Oefeningen" IsTabStop="False" >
-                <MenuItem Header="Rekenen" Click="MnuRekenen_Click"/>
-                <MenuItem Header="Taal">
+                <MenuItem Header="Rekenen">
+                <MenuItem Header ="Rekenen - Makkelijk" Click="MnuWiskundeMakkelijk_Click"/>
+                <MenuItem Header="Rekenen - Gemmiddeld" Click="MnuWiskundeGemiddeld_Click"/>
+                <MenuItem Header="Rekenen - Moeilijk" Click="MnuWiskundeMoeilijk_Click"/>
+            </MenuItem>
+            <MenuItem Header="Taal">
                     <MenuItem Header ="Taal - Makkelijk" Click="MnuTaalMakkelijk_Click"/>
                     <MenuItem Header="Taal - Gemmiddeld" Click="MnuTaalGemiddeld_Click"/>
                     <MenuItem Header="Taal - Moeilijk" Click="MnuTaalMoeilijk_Click"/>

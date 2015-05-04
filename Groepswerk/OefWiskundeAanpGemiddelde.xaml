@@ -20,16 +20,16 @@
 
 
         <TextBox Name="bereikMin1" HorizontalAlignment="Left" Height="36" Margin="186,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="42,152,0,0" TextWrapping="Wrap" Text="cijferbereik 1 minimum" VerticalAlignment="Top" Height="36" Width="139"/>
+        <TextBlock HorizontalAlignment="Left" Margin="42,152,0,0" TextWrapping="Wrap" Text="cijferbereik makkelijk minimum" VerticalAlignment="Top" Height="36" Width="139"/>
         <TextBox x:Name="bereikMax2" HorizontalAlignment="Left" Height="36" Margin="517,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="373,209,0,0" TextWrapping="Wrap" Text="cijferbereik 2 maximum" VerticalAlignment="Top" Height="36" Width="139"/>
+        <TextBlock HorizontalAlignment="Left" Margin="373,209,0,0" TextWrapping="Wrap" Text="cijferbereik gemiddeld maximum" VerticalAlignment="Top" Height="36" Width="139"/>
         <TextBox x:Name="bereikMax3" HorizontalAlignment="Left" Height="36" Margin="517,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
-        <TextBlock HorizontalAlignment="Left" Margin="373,0,0,0" TextWrapping="Wrap" Text="cijferbereik 3 maximum" VerticalAlignment="Top" Height="36" Width="139" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="373,0,0,0" TextWrapping="Wrap" Text="cijferbereik moeilijk maximum" VerticalAlignment="Top" Height="36" Width="139" Grid.Row="1"/>
         <TextBox x:Name="bereikMin2" HorizontalAlignment="Left" Height="36" Margin="186,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="42,209,0,0" TextWrapping="Wrap" Text="cijferbereik 2 minimum" VerticalAlignment="Top" Height="36" Width="139"/>
+        <TextBlock HorizontalAlignment="Left" Margin="42,209,0,0" TextWrapping="Wrap" Text="cijferbereik gemiddeld minimum" VerticalAlignment="Top" Height="36" Width="139"/>
         <TextBox x:Name="bereikMin3" HorizontalAlignment="Left" Height="36" Margin="186,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
-        <TextBlock HorizontalAlignment="Left" Margin="42,0,0,0" TextWrapping="Wrap" Text="cijferbereik 3 minimum" VerticalAlignment="Top" Height="36" Width="139" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="42,0,0,0" TextWrapping="Wrap" Text="cijferbereik moeilijk minimum" VerticalAlignment="Top" Height="36" Width="139" Grid.Row="1"/>
         <TextBox x:Name="bereikMax1" HorizontalAlignment="Left" Height="36" Margin="517,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="373,152,0,0" TextWrapping="Wrap" Text="cijferbereik 1 maximum" VerticalAlignment="Top" Height="36" Width="139"/>
+        <TextBlock HorizontalAlignment="Left" Margin="373,152,0,0" TextWrapping="Wrap" Text="cijferbereik makkelijk maximum" VerticalAlignment="Top" Height="36" Width="139"/>
     </Grid>
 </Page>

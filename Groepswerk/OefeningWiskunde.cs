@@ -13,14 +13,14 @@ namespace Groepswerk
 
         // De gelezen gegevens vanuit OefeningLijstWiskunde in constructors gebruken
 
-        //public string cijferMinBereik, cijferMaxBereik ;
+        public string cijferMinBereik, cijferMaxBereik;
 
-        //public OefeningWiskunde(string cijferMinBereik, string cijferMaxBereik)
-        //{
-        //    this.cijferMinBereik = cijferMinBereik;
-        //    this.cijferMaxBereik = cijferMaxBereik;
-          
-        //}
+        public OefeningWiskunde(string cijferMinBereik, string cijferMaxBereik)
+        {
+            this.cijferMinBereik = cijferMinBereik;
+            this.cijferMaxBereik = cijferMaxBereik;
+
+        }
     }
 
 }

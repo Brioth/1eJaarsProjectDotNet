@@ -19,23 +19,23 @@ namespace Groepswerk
         {
             switch (moeilijkheid)
             {
-                
-                //case ("gemiddeld"):
 
-                //    StreamReader bestandOefeningGemiddeld = File.OpenText(@"oefnWiskundeGemiddeld.txt");
-                //    string regelGemiddeld = bestandOefeningGemiddeld.ReadLine();
-                //    char[] scheidingGemiddeld = { ';' };
+                case ("gemiddeld"):
 
-                //    while (regelGemiddeld != null)
-                //    {
-                //        string[] deel = regelGemiddeld.Split(scheidingGemiddeld);
+                    StreamReader bestandOefeningGemiddeld = File.OpenText(@"oefnWiskundeGemiddeld.txt");
+                    string regelGemiddeld = bestandOefeningGemiddeld.ReadLine();
+                    char[] scheidingGemiddeld = { ';' };
 
-                //        OefeningWiskunde oefeningWiskunde = new OefeningWiskunde(deel[0], deel[1]);
-                //        this.Add  (oefeningWiskunde);
-                //        regelGemiddeld = bestandOefeningGemiddeld.ReadLine();
-                //    }
-                //    bestandOefeningGemiddeld.Close();
-                //    break;
+                    while (regelGemiddeld != null)
+                    {
+                        string[] deel = regelGemiddeld.Split(scheidingGemiddeld);
+
+                        OefeningWiskunde oefeningWiskunde = new OefeningWiskunde(deel[0], deel[1]);
+                        this.Add(oefeningWiskunde);
+                        regelGemiddeld = bestandOefeningGemiddeld.ReadLine();
+                    }
+                    bestandOefeningGemiddeld.Close();
+                    break;
 
                
 
