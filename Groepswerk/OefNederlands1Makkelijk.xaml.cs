@@ -23,25 +23,31 @@ namespace Groepswerk
         private string[] tempOpgave, tempOplossing1, tempOplossing2, tempOplossing3;
         private Random oefeningenNummer = new Random();
         private int oefeningenNummerOpslag;
-        private List<string> oefLijst;
+        private List<string> oefLijst1, oefLijst2, oefLijst3, oefLijst4, oefLijst5;
         private int oefCorrect = 0;
         private List<int> oefeningNummerLijst;
         public OefNederlands1Makkelijk()
         {
             InitializeComponent();
             lijstOefeningen = new OefeningLijst("makkelijk");
+
             tempOpgave = new string[5];
             tempOplossing1 = new string[5];
             tempOplossing2 = new string[5];
             tempOplossing3 = new string[5];
 
-            oefLijst = new List<string>();
+            oefLijst1 = new List<string>();
+            oefLijst2 = new List<string>();
+            oefLijst3 = new List<string>();
+            oefLijst4 = new List<string>();
+            oefLijst5 = new List<string>();
+
             oefeningNummerLijst = new List<int>();
 
 
             for (int i = 0; i < 5; i++)
             {
-                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count)));
+                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count+1)));
 
                 while (oefeningNummerLijst.Contains(oefeningenNummerOpslag))
                 {
@@ -54,54 +60,35 @@ namespace Groepswerk
                 oefeningNummerLijst.Add(oefeningenNummerOpslag);
             }
             Opgave1.Text = tempOpgave[0];
-            oefLijst.Add(tempOplossing1[0]);
-            oefLijst.Add(tempOplossing2[0]);
-            oefLijst.Add(tempOplossing3[0]);
-            Oplossing1.ItemsSource = oefLijst;
-
-            for (int i = 0; i < 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
+            oefLijst1.Add(tempOplossing1[0]);
+            oefLijst1.Add(tempOplossing2[0]);
+            oefLijst1.Add(tempOplossing3[0]);
+            Oplossing1.ItemsSource = oefLijst1;
 
             Opgave2.Text = tempOpgave[1];
-            oefLijst.Add(tempOplossing1[1]);
-            oefLijst.Add(tempOplossing2[1]);
-            oefLijst.Add(tempOplossing3[1]);
-            Oplossing2.ItemsSource = oefLijst;
-            for (int i = 0; i < 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
+            oefLijst2.Add(tempOplossing1[1]);
+            oefLijst2.Add(tempOplossing2[1]);
+            oefLijst2.Add(tempOplossing3[1]);
+            Oplossing2.ItemsSource = oefLijst2;
 
             Opgave3.Text = tempOpgave[2];
-            oefLijst.Add(tempOplossing1[2]);
-            oefLijst.Add(tempOplossing2[2]);
-            oefLijst.Add(tempOplossing3[2]);
-            Oplossing2.ItemsSource = oefLijst;
-            for (int i = 0; i < 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
+            oefLijst3.Add(tempOplossing1[2]);
+            oefLijst3.Add(tempOplossing2[2]);
+            oefLijst3.Add(tempOplossing3[2]);
+            Oplossing3.ItemsSource = oefLijst3;
 
             Opgave4.Text = tempOpgave[3];
-            oefLijst.Add(tempOplossing1[3]);
-            oefLijst.Add(tempOplossing2[3]);
-            oefLijst.Add(tempOplossing3[3]);
-            Oplossing2.ItemsSource = oefLijst;
-            for (int i = 0; i < 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
+            oefLijst4.Add(tempOplossing1[3]);
+            oefLijst4.Add(tempOplossing2[3]);
+            oefLijst4.Add(tempOplossing3[3]);
+            Oplossing4.ItemsSource = oefLijst4;
+
             Opgave5.Text = tempOpgave[4];
-            oefLijst.Add(tempOplossing1[4]);
-            oefLijst.Add(tempOplossing2[4]);
-            oefLijst.Add(tempOplossing3[4]);
-            Oplossing2.ItemsSource = oefLijst;
-            for (int i = 0; i < 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
+            oefLijst5.Add(tempOplossing1[4]);
+            oefLijst5.Add(tempOplossing2[4]);
+            oefLijst5.Add(tempOplossing3[4]);
+            Oplossing5.ItemsSource = oefLijst5;
+
         }
 
         private void verbeterButton_Click(object sender, RoutedEventArgs e)

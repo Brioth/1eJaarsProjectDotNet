@@ -31,7 +31,13 @@ namespace Groepswerk
             InitializeComponent();
             lijstOefeningen = new OefeningLijst("gemiddeld");
 
+            tempOpgave = new string[5];
+            tempOplossing1 = new string[5];
+            tempOplossing2 = new string[5];
+            tempOplossing3 = new string[5];
 
+            oefLijst = new List<string>();
+            oefeningNummerLijst = new List<int>();
 
             for (int i = 0; i > 5; i++)
             {
