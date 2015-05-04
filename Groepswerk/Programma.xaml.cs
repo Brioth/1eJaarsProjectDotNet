@@ -138,7 +138,7 @@ namespace Groepswerk
         private void MnuBewerkenMakkelijk_Click(object sender, RoutedEventArgs e)
         {
             OefNederlands1AanpassenMakkelijk oefNederlandsAanpassenMakkelijk = new OefNederlands1AanpassenMakkelijk();
-            framePages.Navigate("OefNederlands1AanpassenMakkelijk");
+            framePages.Navigate(oefNederlandsAanpassenMakkelijk);
         }
         private void MnuBewerkenGemiddeld_Click(object sender, RoutedEventArgs e)
         {

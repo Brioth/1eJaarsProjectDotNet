@@ -98,5 +98,23 @@ namespace Groepswerk
             oefWoMoeilijk moeilijk = new oefWoMoeilijk();
             this.NavigationService.Navigate(typeof(oefWoMoeilijk));
         }
+
+        private void btnTaalMak_Click(object sender, RoutedEventArgs e)
+        {
+            OefNederlands1Makkelijk makkelijk = new OefNederlands1Makkelijk();
+            this.NavigationService.Navigate(makkelijk);
+        }
+
+        private void btnTaalGem_Click(object sender, RoutedEventArgs e)
+        {
+            OefNederlands1Gemiddeld gemiddeld= new OefNederlands1Gemiddeld();
+            this.NavigationService.Navigate(gemiddeld);
+        }
+
+        private void btnTaalMoe_Click(object sender, RoutedEventArgs e)
+        {
+            OefNederlands1Moeilijk moeilijk = new OefNederlands1Moeilijk();
+            this.NavigationService.Navigate(moeilijk);
+        }
     }
 }

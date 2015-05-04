@@ -23,18 +23,31 @@ namespace Groepswerk
         private string[] tempOpgave, tempOplossing1, tempOplossing2, tempOplossing3;
         private Random oefeningenNummer = new Random();
         private int oefeningenNummerOpslag;
-        private IList<string> oefLijst;
+        private List<string> oefLijst1, oefLijst2, oefLijst3, oefLijst4, oefLijst5;
         private int oefCorrect = 0;
-        private IList<int> oefeningNummerLijst;
+        private List<int> oefeningNummerLijst;
         public OefNederlands1Makkelijk()
         {
             InitializeComponent();
             lijstOefeningen = new OefeningLijst("makkelijk");
 
+            tempOpgave = new string[5];
+            tempOplossing1 = new string[5];
+            tempOplossing2 = new string[5];
+            tempOplossing3 = new string[5];
 
-            for (int i = 0; i > 5; i++)
+            oefLijst1 = new List<string>();
+            oefLijst2 = new List<string>();
+            oefLijst3 = new List<string>();
+            oefLijst4 = new List<string>();
+            oefLijst5 = new List<string>();
+
+            oefeningNummerLijst = new List<int>();
+
+
+            for (int i = 0; i < 5; i++)
             {
-                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count - 1)));
+                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count+1)));
 
                 while (oefeningNummerLijst.Contains(oefeningenNummerOpslag))
                 {
@@ -46,98 +59,79 @@ namespace Groepswerk
                 tempOplossing3[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing3;
                 oefeningNummerLijst.Add(oefeningenNummerOpslag);
             }
-            Opgave1.Text = tempOpgave[1];
-            oefLijst.Add(tempOplossing1[1]);
-            oefLijst.Add(tempOplossing2[1]);
-            oefLijst.Add(tempOplossing3[1]);
-            Oplossing1.ItemsSource = oefLijst;
+            Opgave1.Text = tempOpgave[0];
+            oefLijst1.Add(tempOplossing1[0]);
+            oefLijst1.Add(tempOplossing2[0]);
+            oefLijst1.Add(tempOplossing3[0]);
+            Oplossing1.ItemsSource = oefLijst1;
 
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
+            Opgave2.Text = tempOpgave[1];
+            oefLijst2.Add(tempOplossing1[1]);
+            oefLijst2.Add(tempOplossing2[1]);
+            oefLijst2.Add(tempOplossing3[1]);
+            Oplossing2.ItemsSource = oefLijst2;
 
-            Opgave2.Text = tempOpgave[2];
-            oefLijst.Add(tempOplossing1[2]);
-            oefLijst.Add(tempOplossing2[2]);
-            oefLijst.Add(tempOplossing3[2]);
-            Oplossing2.ItemsSource = oefLijst;
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
+            Opgave3.Text = tempOpgave[2];
+            oefLijst3.Add(tempOplossing1[2]);
+            oefLijst3.Add(tempOplossing2[2]);
+            oefLijst3.Add(tempOplossing3[2]);
+            Oplossing3.ItemsSource = oefLijst3;
 
-            Opgave3.Text = tempOpgave[3];
-            oefLijst.Add(tempOplossing1[3]);
-            oefLijst.Add(tempOplossing2[3]);
-            oefLijst.Add(tempOplossing3[3]);
-            Oplossing2.ItemsSource = oefLijst;
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
+            Opgave4.Text = tempOpgave[3];
+            oefLijst4.Add(tempOplossing1[3]);
+            oefLijst4.Add(tempOplossing2[3]);
+            oefLijst4.Add(tempOplossing3[3]);
+            Oplossing4.ItemsSource = oefLijst4;
 
-            Opgave4.Text = tempOpgave[4];
-            oefLijst.Add(tempOplossing1[4]);
-            oefLijst.Add(tempOplossing2[4]);
-            oefLijst.Add(tempOplossing3[4]);
-            Oplossing2.ItemsSource = oefLijst;
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
-            Opgave5.Text = tempOpgave[5];
-            oefLijst.Add(tempOplossing1[5]);
-            oefLijst.Add(tempOplossing2[5]);
-            oefLijst.Add(tempOplossing3[5]);
-            Oplossing2.ItemsSource = oefLijst;
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
+            Opgave5.Text = tempOpgave[4];
+            oefLijst5.Add(tempOplossing1[4]);
+            oefLijst5.Add(tempOplossing2[4]);
+            oefLijst5.Add(tempOplossing3[4]);
+            Oplossing5.ItemsSource = oefLijst5;
+
         }
 
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!(Convert.ToString(Oplossing1.SelectionBoxItem).Equals(lijstOefeningen[1].correcteOplossing)))
+            if (!(Convert.ToString(Oplossing1.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[0]].correcteOplossing)))
             {
-                Opgave1.Text = lijstOefeningen[1].juisteAntwoordCompleet;
+                Opgave1.Text = lijstOefeningen[oefeningNummerLijst[0]].juisteAntwoordCompleet;
             }
             else
             {
                 oefCorrect++;
             }
 
-            if (!(Convert.ToString(Oplossing2.SelectionBoxItem).Equals(lijstOefeningen[2].correcteOplossing)))
+            if (!(Convert.ToString(Oplossing2.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[1]].correcteOplossing)))
             {
-                Opgave2.Text = lijstOefeningen[2].juisteAntwoordCompleet;
+                Opgave2.Text = lijstOefeningen[oefeningNummerLijst[1]].juisteAntwoordCompleet;
             }
             else
             {
                 oefCorrect++;
             }
 
-            if (!(Convert.ToString(Oplossing3.SelectionBoxItem).Equals(lijstOefeningen[3].correcteOplossing)))
+            if (!(Convert.ToString(Oplossing3.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[2]].correcteOplossing)))
             {
-                Opgave3.Text = lijstOefeningen[3].juisteAntwoordCompleet;
+                Opgave3.Text = lijstOefeningen[oefeningNummerLijst[2]].juisteAntwoordCompleet;
             }
             else
             {
                 oefCorrect++;
             }
 
-            if (!(Convert.ToString(Oplossing4.SelectionBoxItem).Equals(lijstOefeningen[4].correcteOplossing)))
+            if (!(Convert.ToString(Oplossing4.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[3]].correcteOplossing)))
             {
-                Opgave3.Text = lijstOefeningen[4].juisteAntwoordCompleet;
+                Opgave3.Text = lijstOefeningen[oefeningNummerLijst[3]].juisteAntwoordCompleet;
             }
             else
             {
                 oefCorrect++;
             }
 
-            if (!(Convert.ToString(Oplossing5.SelectionBoxItem).Equals(lijstOefeningen[5].correcteOplossing)))
+            if (!(Convert.ToString(Oplossing5.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[4]].correcteOplossing)))
             {
-                Opgave3.Text = lijstOefeningen[5].juisteAntwoordCompleet;
+                Opgave3.Text = lijstOefeningen[oefeningNummerLijst[4]].juisteAntwoordCompleet;
             }
             else
             {

@@ -31,9 +31,9 @@
         <Label Content="Taal" Grid.Row="3" Grid.Column="1" Margin="20,10,20,10"/>
         <Label Content="Rekenen" Grid.Row="4" Grid.Column="1" Margin="20,10,20,10"/>
         <Label Content="Wereld Oriëntatie" Grid.Row="5" Grid.Column="1" Margin="20,10,20,10"/>
-        <Button Name="btnTaalMak" Content="Makkelijk" Grid.Row="3" Grid.Column="2" Margin="5" TabIndex="1"/>
-        <Button Name="btnTaalGem" Content="Gemiddeld" Grid.Row="3" Grid.Column="3" Margin="5" TabIndex="2"/>
-        <Button Name="btnTaalMoe" Content="Moeilijk" Grid.Row="3" Grid.Column="4" Margin="5" TabIndex="3"/>
+        <Button Name="btnTaalMak" Content="Makkelijk" Grid.Row="3" Grid.Column="2" Margin="5" TabIndex="1" Click="btnTaalMak_Click"/>
+        <Button Name="btnTaalGem" Content="Gemiddeld" Grid.Row="3" Grid.Column="3" Margin="5" TabIndex="2" Click="btnTaalGem_Click"/>
+        <Button Name="btnTaalMoe" Content="Moeilijk" Grid.Row="3" Grid.Column="4" Margin="5" TabIndex="3" Click="btnTaalMoe_Click"/>
         <Button Name="btnRekenenMak" Content="Makkelijk" Grid.Row="4" Grid.Column="2" Margin="5" TabIndex="4" Click="btnRekenenMak_Click"/>
         <Button Name="btnRekenenGem" Content="Gemiddeld" Grid.Row="4" Grid.Column="3" Margin="5" TabIndex="5" Click="btnRekenenGem_Click"/>
         <Button Name="btnRekenenMoe" Content="Moeilijk" Grid.Row="4" Grid.Column="4" Margin="5" TabIndex="6"/>
