@@ -46,7 +46,7 @@
         <Label  MinWidth="20" Name="opgaveblock10" Content="opgave10" Margin="20,10,20,10" Grid.Column="4" Grid.Row="6"  />
 
         <Button Name="verbeterButton" Margin="5" Content="Verbeter"  Click="verbeterButton_Click" Grid.Column="5" Grid.Row="8"/>
-        <TextBlock Name="Punten" Text="test" Margin="10"  Grid.ColumnSpan="4" Grid.Column="1" Grid.Row="8"/>
+        <TextBlock Name="Punten" Text="" Margin="10"  Grid.ColumnSpan="4" Grid.Column="1" Grid.Row="8"/>
 
         <!--AllowDrop="True" Drop="Label_Drop"-->
         <TextBox  Margin="10" Text="" MinWidth="20" Name="dropLabel1"   Grid.Column="3"  Grid.Row="2"  />

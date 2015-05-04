@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -37,11 +38,15 @@ namespace Groepswerk
         private int[] oplossingLijst = new int[10];
         private List<int> randomLijst = new List<int>();
         private int begin, eind;
+        private long totaalTijd;
+        private Stopwatch tijdTeller;
 
         //Constructors
         public oefeningWiskundeMoeilijk(Gebruiker actieveGebruiker)
         {
             this.actieveGebruiker = actieveGebruiker;
+            tijdTeller.Start();
+
             InitializeComponent();
             // of 2 random getallen tss 10 laten maken en die uitkomst ervan laten berekenen en opslaan in lijst (txt bestand)
             // lijst vergelijken met de user input
@@ -94,7 +99,7 @@ namespace Groepswerk
             while (gelezen != null)
             {
                 string[] deel = gelezen.Split(scheiding);
-                if (deel[0].Equals("meilijk"))
+                if (deel[0].Equals("moeilijk"))
                 {
                     begin = Convert.ToInt32(deel[1]);
                     eind = Convert.ToInt32(deel[2]);
@@ -111,6 +116,8 @@ namespace Groepswerk
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
             oefeningPunten = 0;
+            tijdTeller.Stop();
+            totaalTijd = tijdTeller.ElapsedMilliseconds * 1000;
             {
                 try
                 {

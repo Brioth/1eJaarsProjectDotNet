@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -41,11 +42,15 @@ namespace Groepswerk
         private int[] oplossingLijst = new int[10];
         private List<int> randomLijst = new List<int>();
         private int begin, eind;
+        private long totaalTijd;
+        private Stopwatch tijdTeller;
         //private List<String> ranges = new List<String>;
         //constructors
+
         public oefeningWiskundeGemiddeld(Gebruiker actieveGebruiker)
         {
             this.actieveGebruiker = actieveGebruiker;
+            tijdTeller.Start();
             InitializeComponent();
             // of 2 random getallen tss 10 laten maken en die uitkomst ervan laten berekenen en opslaan in lijst (txt bestand)
             // lijst vergelijken met de user input
@@ -120,6 +125,8 @@ namespace Groepswerk
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
             oefeningPunten = 0;
+            tijdTeller.Stop();
+            totaalTijd = tijdTeller.ElapsedMilliseconds * 1000;
             {
                 try
                 {
@@ -217,6 +224,7 @@ namespace Groepswerk
                     Punten.Text = ("u heeft  " + oefeningPunten + " behaald. ");
                     ResultatenLijst gegBehaald = new ResultatenLijst(Punten.Text);
                 }
+                   
 
                 catch (FormatException)
                 {
