@@ -42,7 +42,6 @@ namespace Groepswerk
             oefLijst4 = new List<string>();
             oefLijst5 = new List<string>();
 
-            oefLijst = new List<string>();
             oefeningNummerLijst = new List<int>();
 
             for (int i = 0; i > 5; i++)
@@ -61,104 +60,87 @@ namespace Groepswerk
             }
 
 
-            opgave1.Text = tempOpgave[1];
-            oefLijst.Add(tempOplossing1[1]);
-            oefLijst.Add(tempOplossing2[1]);
-            oefLijst.Add(tempOplossing3[1]);
-            Oplossing1.ItemsSource = oefLijst;
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
+            Opgave1.Text = tempOpgave[1];
+            oefLijst1.Add(tempOplossing1[1]);
+            oefLijst1.Add(tempOplossing2[1]);
+            oefLijst1.Add(tempOplossing3[1]);
+            Oplossing1.ItemsSource = oefLijst1;
 
-            opgave2.Text = tempOpgave[2];
-            oefLijst.Add(tempOplossing1[2]);
-            oefLijst.Add(tempOplossing2[2]);
-            oefLijst.Add(tempOplossing3[2]);
-            Oplossing2.ItemsSource = oefLijst;
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
+            Opgave2.Text = tempOpgave[2];
+            oefLijst2.Add(tempOplossing1[2]);
+            oefLijst2.Add(tempOplossing2[2]);
+            oefLijst2.Add(tempOplossing3[2]);
+            Oplossing2.ItemsSource = oefLijst2;
 
-            opgave3.Text = tempOpgave[3];
-            oefLijst.Add(tempOplossing1[3]);
-            oefLijst.Add(tempOplossing2[3]);
-            oefLijst.Add(tempOplossing3[3]);
-            Oplossing2.ItemsSource = oefLijst;
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
+            Opgave3.Text = tempOpgave[3];
+            oefLijst3.Add(tempOplossing1[3]);
+            oefLijst3.Add(tempOplossing2[3]);
+            oefLijst3.Add(tempOplossing3[3]);
+            Oplossing3.ItemsSource = oefLijst3;
+            
+            Opgave4.Text = tempOpgave[4];
+            oefLijst4.Add(tempOplossing1[4]);
+            oefLijst4.Add(tempOplossing2[4]);
+            oefLijst4.Add(tempOplossing3[4]);
+            Oplossing4.ItemsSource = oefLijst4;
 
-            opgave4.Text = tempOpgave[4];
-            oefLijst.Add(tempOplossing1[4]);
-            oefLijst.Add(tempOplossing2[4]);
-            oefLijst.Add(tempOplossing3[4]);
-            Oplossing2.ItemsSource = oefLijst;
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
-            opgave5.Text = tempOpgave[5];
-            oefLijst.Add(tempOplossing1[5]);
-            oefLijst.Add(tempOplossing2[5]);
-            oefLijst.Add(tempOplossing3[5]);
-            Oplossing2.ItemsSource = oefLijst;
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
+            Opgave5.Text = tempOpgave[5];
+            oefLijst5.Add(tempOplossing1[5]);
+            oefLijst5.Add(tempOplossing2[5]);
+            oefLijst5.Add(tempOplossing3[5]);
+            Oplossing5.ItemsSource = oefLijst5;
+            
         }
 
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
             oefCorrect = 0;
-            if (!(Convert.ToString(Oplossing1.SelectionBoxItem).Equals(lijstOefeningen[1].correcteOplossing)))
+            if (!(Convert.ToString(Oplossing1.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[0]].correcteOplossing)))
             {
-                opgave1.Text = lijstOefeningen[1].juisteAntwoordCompleet;
-            }
-            else
-            {
-                oefCorrect++;
-            }
-            if (!(Convert.ToString(Oplossing2.SelectionBoxItem).Equals(lijstOefeningen[2].correcteOplossing)))
-            {
-                opgave2.Text = lijstOefeningen[2].juisteAntwoordCompleet;
+                Opgave1.Text = lijstOefeningen[oefeningNummerLijst[0]].juisteAntwoordCompleet;
             }
             else
             {
                 oefCorrect++;
             }
 
-            if (!(Convert.ToString(Oplossing3.SelectionBoxItem).Equals(lijstOefeningen[3].correcteOplossing)))
+            if (!(Convert.ToString(Oplossing2.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[1]].correcteOplossing)))
             {
-                opgave3.Text = lijstOefeningen[3].juisteAntwoordCompleet;
+                Opgave2.Text = lijstOefeningen[oefeningNummerLijst[1]].juisteAntwoordCompleet;
             }
             else
             {
                 oefCorrect++;
             }
 
-            if (!(Convert.ToString(Oplossing4.SelectionBoxItem).Equals(lijstOefeningen[4].correcteOplossing)))
+            if (!(Convert.ToString(Oplossing3.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[2]].correcteOplossing)))
             {
-                opgave3.Text = lijstOefeningen[4].juisteAntwoordCompleet;
+                Opgave3.Text = lijstOefeningen[oefeningNummerLijst[2]].juisteAntwoordCompleet;
             }
             else
             {
                 oefCorrect++;
             }
 
-            if (!(Convert.ToString(Oplossing5.SelectionBoxItem).Equals(lijstOefeningen[5].correcteOplossing)))
+            if (!(Convert.ToString(Oplossing4.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[3]].correcteOplossing)))
             {
-                opgave3.Text = lijstOefeningen[5].juisteAntwoordCompleet;
+                Opgave4.Text = lijstOefeningen[oefeningNummerLijst[3]].juisteAntwoordCompleet;
+            }
+            else
+            {
+                oefCorrect++;
+            }
+
+            if (!(Convert.ToString(Oplossing5.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[4]].correcteOplossing)))
+            {
+                Opgave5.Text = lijstOefeningen[oefeningNummerLijst[4]].juisteAntwoordCompleet;
             }
             else
             {
                 oefCorrect++;
             }
             Punten.Text = Convert.ToString(oefCorrect) + "/5";
-            }
+        }
 
 
         }
