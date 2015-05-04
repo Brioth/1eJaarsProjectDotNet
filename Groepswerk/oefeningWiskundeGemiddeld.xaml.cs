@@ -239,5 +239,10 @@ namespace Groepswerk
                     break;
             }
         }
+        private void opnieuwButton_Click(object sender, RoutedEventArgs e)
+        {
+            oefeningWiskundeGemiddeld oefWiskundeGemiddeldPagina = new oefeningWiskundeGemiddeld(actieveGebruiker);
+            this.NavigationService.Navigate(oefWiskundeGemiddeldPagina);
+        }
     }
 }

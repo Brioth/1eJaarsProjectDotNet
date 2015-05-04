@@ -299,5 +299,11 @@ namespace Groepswerk
                     break;
             }
         }
+
+        private void opnieuwButton_Click(object sender, RoutedEventArgs e)
+        {
+            oefeningWiskundeMakkelijk oefWiskundeMakkelijkPagina = new oefeningWiskundeMakkelijk(actieveGebruiker);
+            this.NavigationService.Navigate(oefWiskundeMakkelijkPagina);
+        }
     }
 }

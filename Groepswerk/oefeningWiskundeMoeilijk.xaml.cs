@@ -230,5 +230,10 @@ namespace Groepswerk
                     break;
             }
         }
+        private void opnieuwButton_Click(object sender, RoutedEventArgs e)
+        {
+            oefeningWiskundeMoeilijk oefWiskundeMoeilijkPagina = new oefeningWiskundeMoeilijk(actieveGebruiker);
+            this.NavigationService.Navigate(oefWiskundeMoeilijkPagina);
+        }
     }
 }
