@@ -21,7 +21,7 @@ namespace Groepswerk
     /// //Date:28/04/2015
     public partial class oefWoMakkelijk : Page
     {
-        private WoLijst lijstOefeningen;
+        private OefeningLijst lijstOefeningen;
         private string[] tempOpgave, tempOplossing1;
         private Random oefeningenNummer = new Random();
         private int oefeningenNummerOpslag;
@@ -30,7 +30,7 @@ namespace Groepswerk
         private IList<int> oefeningNummerLijst;
         public oefWoMakkelijk(){
           InitializeComponent();
-            lijstOefeningen = new WoLijst("gemakkelijk");
+            lijstOefeningen = new OefeningLijst("WoGemakkelijk");
         
              for (int i = 0; i > 5; i++)
             {

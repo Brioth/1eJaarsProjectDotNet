@@ -64,9 +64,60 @@ namespace Groepswerk
                     bestandOefeningMoeilijk.Close();
                     break;
 
+                case ("WoMakkelijk"):
+                     StreamReader bestandOefeningMakkelijkWo = File.OpenText(@"oefWoMakkelijk.txt");
+                    string regelMakkelijkWo = bestandOefeningMakkelijkWo.ReadLine();
+                    char[] scheiding = { ';' };
+
+                    while (regelMakkelijkWo != null)
+                     {
+                    string[] deel = regelMakkelijkWo.Split(scheiding);
+
+                    Oefening oefWo = new Oefening(deel[0], deel[1]);
+                    this.Add(oefWo);
+                    regelMakkelijkWo = bestandOefeningMakkelijkWo.ReadLine();
+                     }
+                     bestandOefeningMakkelijkWo.Close();
+                     break;
+
+                case ("WoGemiddeld"):
+
+                     StreamReader bestandOefeningGemiddeldWo = File.OpenText(@"OefWoGemiddeld.txt");
+                     string regelGemiddeldWo = bestandOefeningGemiddeldWo.ReadLine();
+                     char[] scheidingGemiddeldWo = { ';' };
+
+                     while (regelGemiddeldWo != null)
+                    {
+                    string[] deel = regelGemiddeldWo.Split(scheidingGemiddeldWo);
+
+                    Oefening oefWo = new Oefening(deel[0], deel[1]);
+                    this.Add(oefWo);
+                    regelGemiddeldWo = bestandOefeningGemiddeldWo.ReadLine();
+                    }
+                     bestandOefeningGemiddeldWo.Close();
+
+                     break;
+
+                case ("WoMoeilijk"):
+                    StreamReader bestandOefeningMoeilijkWo = File.OpenText(@"OefWoMoeilijk.txt");
+                    string regelMoeilijkWo = bestandOefeningMoeilijkWo.ReadLine();
+                    char[] scheidingMoeilijkWo = { ';' };
+
+                    while (regelMoeilijkWo != null)
+                    {
+                    string[] deel = regelMoeilijkWo.Split(scheidingMoeilijkWo);
+
+                    Oefening oefWo = new Oefening(deel[0], deel[1]);
+                    this.Add(oefWo);
+                    regelMoeilijkWo = bestandOefeningMoeilijkWo.ReadLine();
+                    }
+                    bestandOefeningMoeilijkWo.Close();
+                     break;
 
              
             }
         }
+    
+      
     }
 }

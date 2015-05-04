@@ -78,17 +78,17 @@ namespace Groepswerk
         //Date: 04/05/2015
         private void MnuWiskundeMakkelijk_Click(object sender, RoutedEventArgs e)
         {
-            oefeningWiskundeMakkelijk oefWiskundeMakkelijk = new oefeningWiskundeMakkelijk();
+            oefeningWiskundeMakkelijk oefWiskundeMakkelijk = new oefeningWiskundeMakkelijk(ActieveGebruiker);
             framePages.Navigate(oefWiskundeMakkelijk);
         }
         private void MnuWiskundeGemiddeld_Click(object sender, RoutedEventArgs e)
         {
-            oefeningWiskundeGemiddeld oefWiskundeGemiddeld = new oefeningWiskundeGemiddeld();
+            oefeningWiskundeGemiddeld oefWiskundeGemiddeld = new oefeningWiskundeGemiddeld(ActieveGebruiker);
             framePages.Navigate(oefWiskundeGemiddeld);
         }
         private void MnuWiskundeMoeilijk_Click(object sender, RoutedEventArgs e)
         {
-            oefeningWiskundeMoeilijk oefWiskundeMoeilijk = new oefeningWiskundeMoeilijk();
+            oefeningWiskundeMoeilijk oefWiskundeMoeilijk = new oefeningWiskundeMoeilijk(ActieveGebruiker);
             framePages.Navigate(oefWiskundeMoeilijk);
         }
 
