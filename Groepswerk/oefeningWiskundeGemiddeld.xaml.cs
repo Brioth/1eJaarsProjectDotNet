@@ -224,5 +224,25 @@ namespace Groepswerk
                 }
             }
         }
+        private void terugButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het leerlingenmenu?", "Terug", MessageBoxButton.YesNo);
+            switch (terug)
+            {
+                case MessageBoxResult.No:
+                    break;
+                case MessageBoxResult.Yes:
+                    LeerlingMenu terugMenu = new LeerlingMenu(actieveGebruiker);
+                this.NavigationService.Navigate(terugMenu);
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void opnieuwButton_Click(object sender, RoutedEventArgs e)
+        {
+            oefeningWiskundeGemiddeld oefWiskundeGemiddeldPagina = new oefeningWiskundeGemiddeld(actieveGebruiker);
+            this.NavigationService.Navigate(oefWiskundeGemiddeldPagina);
+        }
     }
 }
