@@ -29,9 +29,6 @@ namespace Groepswerk
        
         public string correcteOplossing { get; set; }
         public string juisteAntwoordCompleet { get; set; }
-
-        
-        
     }
 
 }

@@ -95,11 +95,16 @@
     <Compile Include="IBeweegbaar.cs" />
     <Compile Include="Klas.cs" />
     <Compile Include="Klaslijst.cs" />
+    <Compile Include="OefeningLijstWiskunde.cs" />
+    <Compile Include="OefeningWiskunde.cs" />
     <Compile Include="oefeningWiskundeGemiddeld.xaml.cs">
       <DependentUpon>oefeningWiskundeGemiddeld.xaml</DependentUpon>
     </Compile>
     <Compile Include="oefeningWiskundeMoeilijk.xaml.cs">
       <DependentUpon>oefeningWiskundeMoeilijk.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OefWiskundeAanpGemiddelde.xaml.cs">
+      <DependentUpon>OefWiskundeAanpGemiddelde.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resultaat.cs" />
     <Compile Include="ResultatenLijst.cs" />
@@ -202,6 +207,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="oefWoMoeilijk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OefWiskundeAanpGemiddelde.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
