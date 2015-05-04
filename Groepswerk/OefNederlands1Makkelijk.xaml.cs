@@ -53,7 +53,7 @@ namespace Groepswerk
 
                 while (oefeningNummerLijst.Contains(oefeningenNummerOpslag))
                 {
-                    oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
+                    oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, lijstOefeningen.Count));
                 }
                 tempOpgave[i] = lijstOefeningen[oefeningenNummerOpslag].opgave;
                 tempOplossing1[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing1;
