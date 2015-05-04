@@ -71,10 +71,11 @@ namespace Groepswerk
         //aanpassen oefeningen
         private void MnuRekenen_Click(object sender, RoutedEventArgs e)
         {
-            //Author: Vincent Vandoninck
-            //Date: 04/05/2015
+            
             framePages.Navigate("oefeningWiskundeMakkelijk"); 
         }
+        //Author: Vincent Vandoninck
+        //Date: 04/05/2015
         private void MnuWiskundeMakkelijk_Click(object sender, RoutedEventArgs e)
         {
             oefeningWiskundeMakkelijk oefWiskundeMakkelijk = new oefeningWiskundeMakkelijk();

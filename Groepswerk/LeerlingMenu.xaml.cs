@@ -61,12 +61,27 @@ namespace Groepswerk
         }
 
         //Properties
+
         public Gebruiker ActieveGebruiker { get; set; }
 
+        //Author: Vincent Vandoninck
+        //Date: 04/05/2015
         private void btnRekenenMak_Click(object sender, RoutedEventArgs e)
         {
-           
+            oefeningWiskundeMakkelijk oefWiskundeMakkelijk = new oefeningWiskundeMakkelijk();
+             this.NavigationService.Navigate(typeof(oefeningWiskundeMakkelijk));
         }
+        private void btnRekenenGem_Click(object sender, RoutedEventArgs e)
+        {
+            oefeningWiskundeGemiddeld oefWiskundeGemiddeld = new oefeningWiskundeGemiddeld();
+             this.NavigationService.Navigate(typeof(oefeningWiskundeGemiddeld));
+        }
+        private void btnRekenenMoe_Click(object sender, RoutedEventArgs e)
+        {
+            oefeningWiskundeMoeilijk oefWiskundeMoeilijk = new oefeningWiskundeMoeilijk();
+             this.NavigationService.Navigate(typeof(oefeningWiskundeMoeilijk));
+        }
+
 
         private void btnWOMak_Click(object sender, RoutedEventArgs e)
         {
