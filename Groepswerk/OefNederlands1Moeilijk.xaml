@@ -10,47 +10,48 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="Auto"/>
             <!--Titel, ondertitel, oefeningen-->
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
             <!--Oplossingen + verbeterknop-->
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="Auto"/>
             <!--Titel-->
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <!--Ondertitel-->
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <!--Oefening 1-->
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <!--Oefening 2-->
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <!--Oefening 3-->
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <!--Oefening 4-->
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <!--Oefening 5-->
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <!--Verbeterknopje-->
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
 
         </Grid.RowDefinitions>
-        <Label Name="titel" Content="Oefeningen Nederlands: Moeilijk" FontSize="32" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1"/>
-        <Label Content="Vul de volgende werkwoorden aan." Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2"/>
-        <TextBlock Name="opgave1"  TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="3"/>
-        <TextBox Name="oplossing1" Grid.Column="2" Grid.Row="3"/>
-        <TextBlock Name="opgave2" TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="4"/>
-        <TextBox Name="oplossing2" Grid.Column="2" Grid.Row="4"/>
-        <TextBlock Name="opgave3" TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="5"/>
-        <TextBox Name="oplossing3" Grid.Column="2" Grid.Row="5"/>
-        <TextBlock Name="opgave4" TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="6"/>
-        <TextBox Name="oplossing4" Grid.Column="2" Grid.Row="6"/>
-        <TextBlock Name="opgave5"  TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="7"/>
-        <TextBox Name="Oplossing5" Grid.Column="2" Grid.Row="7"/>
-        <Button Name="verbeterButton" Content="Verbeter" Click="verbeterButton_Click" Grid.Column="2" Grid.Row="8"/>
-        <TextBlock Name="Punten" Text="" TextWrapping="Wrap" Grid.Column="1" Grid.Row="8"/>
+        <Label Name="titel" Content="Oefeningen Nederlands: Moeilijk" FontSize="32" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Margin="20,10,20,10"/>
+        <Label Content="Vul de volgende werkwoorden aan." Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Margin="20,10,20,10"/>
+        <TextBlock Name="opgave1"  TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="4" Margin="20,10,20,10"/>
+        <TextBox Name="oplossing1" Grid.Column="2" Grid.Row="4" Margin="10"/>
+        <TextBlock Name="opgave2" TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="5" Margin="20,10,20,10"/>
+        <TextBox Name="oplossing2" Grid.Column="2" Grid.Row="5" Margin="10"/>
+        <TextBlock Name="opgave3" TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="6" Margin="20,10,20,10"/>
+        <TextBox Name="oplossing3" Grid.Column="2" Grid.Row="6" Margin="10"/>
+        <TextBlock Name="opgave4" TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="7" Margin="20,10,20,10"/>
+        <TextBox Name="oplossing4" Grid.Column="2" Grid.Row="7" Margin="10"/>
+        <TextBlock Name="opgave5"  TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="8" Margin="20,10,20,10"/>
+        <TextBox Name="Oplossing5" Grid.Column="2" Grid.Row="8" Margin="10"/>
+        <Button Name="verbeterButton" Content="Verbeter" Click="verbeterButton_Click" Grid.Column="2" Grid.Row="9" Margin="5"/>
+        <TextBlock Name="Punten" Text="" TextWrapping="Wrap" Grid.Column="1" Grid.Row="9" Margin="20,10,20,10"/>
 
     </Grid>
 </Page>
