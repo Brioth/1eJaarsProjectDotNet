@@ -19,7 +19,7 @@ namespace Groepswerk
     /// </summary>
     public partial class oefWoMoeilijk : Page
     {
-        private wo lijstOefeningen;
+        private WoLijst lijstOefeningen;
         private string[] tempOpgave, tempOplossing1, tempOplossing2, tempOplossing3;
         private Random oefeningenNummer = new Random();
         private int oefeningenNummerOpslag;
@@ -29,7 +29,7 @@ namespace Groepswerk
         public oefWoMoeilijk()
         {
             InitializeComponent();
-            lijstOefeningen = new wo("moeilijk");
+            lijstOefeningen = new WoLijst("moeilijk");
 
             for (int i = 0; i > 5; i++)
             {
@@ -40,7 +40,7 @@ namespace Groepswerk
                     oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
                 }
                 tempOpgave[i] = lijstOefeningen[oefeningenNummerOpslag].opgave;
-                tempOplossing1[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing1;
+                tempOplossing1[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing;
                 oefeningNummerLijst.Add(oefeningenNummerOpslag);
             }
             label1.Content = tempOpgave[1];
@@ -87,7 +87,7 @@ namespace Groepswerk
 
         private void controleer_Click(object sender, RoutedEventArgs e)
         {
-            if (!((textbox1.Text).Equals(lijstOefeningen[1].correcteOplossing)))
+            if (!((textbox1.Text).Equals(lijstOefeningen[1].oplossing)))
             {
                 textbox1.Background = Brushes.Red;
             }
@@ -97,7 +97,7 @@ namespace Groepswerk
                 textbox1.Background = Brushes.Green;
             }
 
-            if (!((textbox2.Text).Equals(lijstOefeningen[2].correcteOplossing)))
+            if (!((textbox2.Text).Equals(lijstOefeningen[2].oplossing)))
             {
                 textbox1.Background = Brushes.Red;
             }
@@ -107,7 +107,7 @@ namespace Groepswerk
                 textbox1.Background = Brushes.Green;
             }
 
-            if (!((textbox3.Text).Equals(lijstOefeningen[3].correcteOplossing)))
+            if (!((textbox3.Text).Equals(lijstOefeningen[3].oplossing)))
             {
                 textbox1.Background = Brushes.Red;
             }
@@ -117,7 +117,7 @@ namespace Groepswerk
                 textbox1.Background = Brushes.Green;
             }
 
-            if (!((textbox4.Text).Equals(lijstOefeningen[4].correcteOplossing)))
+            if (!((textbox4.Text).Equals(lijstOefeningen[4].oplossing)))
             {
                 textbox1.Background = Brushes.Red;
             }
@@ -127,7 +127,7 @@ namespace Groepswerk
                 textbox1.Background = Brushes.Green;
             }
 
-            if (!((textbox5.Text).Equals(lijstOefeningen[5].correcteOplossing)))
+            if (!((textbox5.Text).Equals(lijstOefeningen[5].oplossing)))
             {
                 textbox1.Background = Brushes.Red;
             }

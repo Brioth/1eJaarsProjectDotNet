@@ -3,22 +3,54 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d"
-	Title="OefNederlands1AanpassenGemiddeld" Height="452" Width="720">
+      mc:Ignorable="d" 
+      Background="#9D78989A" Height="Auto" Width="Auto" FontSize="16"
+	Title="OefNederlands1AanpassenGemiddeld">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="10,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="701" TextAlignment="Center"><Run Text="Selecteer de opgave"/><Run Text=" en de oplossingen"/><Run Text=" die u wil "/><Run Text="aanpassen of bijvoegen"/><Run Text=". Druk hierna op de 'aanpassen' knop."/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="14,4,0,0" TextWrapping="Wrap" Text="Aanpassen gemiddelde taaloefening" VerticalAlignment="Top" Height="46" Width="697" TextAlignment="Center" FontSize="36"/>
-        <ComboBox Name="OpgaveSelecteren" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,102,0,0" SelectionChanged="OpgaveSelecteren_SelectionChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="30,152,0,0" TextWrapping="Wrap" Text="Opgave" VerticalAlignment="Top" Height="27" Width="114"/>
-        <TextBox Name="Opgave" HorizontalAlignment="Left" Height="77" Margin="149,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="548"/>
-        <Button Name="AanpasKnop" Content="Aanpassen" HorizontalAlignment="Left" Margin="149,366,0,0" VerticalAlignment="Top" Width="150" Height="59" Click="AanpasKnop_Click"/>
-        <Button Name="TerugKnop" Content="Terug naar hoofdmenu" HorizontalAlignment="Left" Margin="547,366,0,0" VerticalAlignment="Top" Width="150" Height="59"/>
-        <TextBlock HorizontalAlignment="Left" Margin="30,228,0,0" TextWrapping="Wrap" Text="Oplossingen" VerticalAlignment="Top" Height="36" Width="114"/>
-        <TextBox Name="Oplossing1" HorizontalAlignment="Left" Height="36" Margin="149,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="Oplossing2" HorizontalAlignment="Left" Height="36" Margin="363,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="Oplossing3" HorizontalAlignment="Left" Height="36" Margin="577,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="CorrecteOplossing" HorizontalAlignment="Left" Height="36" Margin="149,293,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="30,294,0,0" TextWrapping="Wrap" Text="Correcte Oplossing" VerticalAlignment="Top" Height="36" Width="114"/>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="68*"/>
+            <!--Aanpassen moeilijke taaloefening-->
+            <RowDefinition Height="41*"/>
+            <!-- Selecteer de opgave etc etc-->
+            <RowDefinition Height="Auto"/>
+            <!--Opgave echt selecteren-->
+            <RowDefinition Height="Auto"/>
+            <!--Opgave ingeven-->
+            <RowDefinition Height="Auto"/>
+            <!--Mogelijke oplossingen ingeven-->
+            <RowDefinition Height="Auto"/>
+            <!--Correcte oplossing inschrijven-->
+            <RowDefinition Height="35*"/>
+            <!--KNOPJES!-->
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <!--klaslijstdoos, opgave, corr oplossing-->
+            <ColumnDefinition Width="*"/>
+            <!--Corr oplossing, aanpassen, opgave-->
+            <ColumnDefinition Width="*"/>
+            <!--terug naar hoofdmenu, opgave -->
+            <ColumnDefinition Width="*"/>
+            <!--Terug naar hoofdmenu, oplossingmogelijkheid 3-->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Selecteer de opgave en de oplossingen die u wil aanpassen of bijvoegen. Druk hierna op de 'aanpassen' knop." TextAlignment="Center" Margin="20,10,20,10" Grid.ColumnSpan="5" Grid.Column="1" Grid.Row="2"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Aanpassen gemiddelde taaloefening" TextAlignment="Center" FontSize="36" Margin="20,10,20,10" Grid.ColumnSpan="5" Grid.Column="1" Grid.Row="1"/>
+        <ComboBox Name="OpgaveSelecteren" SelectionChanged="OpgaveSelecteren_SelectionChanged" Margin="10" Grid.Column="1" Grid.Row="3"/>
+        <TextBlock TextWrapping="Wrap" Text="Opgave" Margin="20,10,20,10" Grid.Column="1" Grid.Row="4"/>
+        <TextBox Name="Opgave" TextWrapping="Wrap" Margin="10" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="4"/>
+        <TextBox Name="Oplossing1" TextWrapping="Wrap" Grid.Column="2" Grid.Row="5" Margin="10"/>
+        <TextBox Name="Oplossing2" TextWrapping="Wrap" Grid.Column="3" Grid.Row="5" Margin="10"/>
+        <TextBox Name="Oplossing3" TextWrapping="Wrap" Grid.Column="4" Grid.Row="5" Margin="10"/>
+        <Button Name="AanpasKnop" Content="Aanpassen" Click="AanpasKnop_Click" Margin="5" Grid.Column="2" Grid.Row="7"/>
+        <Button Name="TerugKnop" Content="Terug naar hoofdmenu" Click="TerugKnop_Click" Margin="5" Grid.Column="4" Grid.Row="7"/>
+        <TextBox Name="CorrecteOplossing" TextWrapping="Wrap" Margin="10" Grid.Column="2" Grid.Row="6"/>
+        <TextBlock TextWrapping="Wrap" Text="Correcte Oplossing" Margin="20,10,20,10" Grid.Column="1" Grid.Row="6"/>
     </Grid>
 </Page>
