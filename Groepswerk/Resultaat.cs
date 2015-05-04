@@ -12,9 +12,9 @@ namespace Groepswerk
     public class Resultaat
     {
         //Lokale variabelen
-        private int totaalPunten, gespendeerdeTijd, aantalOefeningen = 0;
+        private int totaalPunten, gespendeerdeTijd, aantalOefeningen = 0, indexOud;
         //Constructors
-        public Resultaat(int id, DateTime datum , int aantalOefeningen, int punt, int gespendeerdeTijd) //Constructor om resultaat op te halen
+        public Resultaat(int id, DateTime datum, int aantalOefeningen, int punt, int gespendeerdeTijd) //Constructor om resultaat op te halen
         {
             Id = id;
             Datum = datum;
@@ -26,22 +26,24 @@ namespace Groepswerk
         {
             Id = id;
             Datum = DateTime.Today;
-            foreach (Resultaat item in lijst)
+            for (int i = 0; i < lijst.Count; i++)
             {
-                if (item.Id.Equals(this.Id) && (item.Datum.Equals(DateTime.Today)))
+                if (lijst[i].Id.Equals(this.Id) && (lijst[i].Datum.Equals(DateTime.Today)))
                 {
-                    this.totaalPunten = item.TotaalPunten;
-                    this.gespendeerdeTijd = item.GespendeerdeTijd;
-                    this.aantalOefeningen = item.AantalOefeningen;
+                    this.totaalPunten = lijst[i].TotaalPunten;
+                    this.gespendeerdeTijd = lijst[i].GespendeerdeTijd;
+                    this.aantalOefeningen = lijst[i].AantalOefeningen;
                     this.AddPunten(punt);
                     this.AddTime(gespendeerdeTijd);
                     this.aantalOefeningen++;
+                    indexOud = i;
                 }
                 else
                 {
                     totaalPunten = punt;
                     this.gespendeerdeTijd = gespendeerdeTijd;
                     aantalOefeningen = 1;
+                    indexOud = -1;
                 }
             }
         }
@@ -51,7 +53,7 @@ namespace Groepswerk
         {
             gespendeerdeTijd = gespendeerdeTijd + seconden;
         }
-        public void AddPunten(int punten) 
+        public void AddPunten(int punten)
         {
             totaalPunten = totaalPunten + punten;
         }
@@ -63,16 +65,20 @@ namespace Groepswerk
         public int Id { get; set; }
         public int GespendeerdeTijd
         {
-            get { return gespendeerdeTijd; } 
-        }        
+            get { return gespendeerdeTijd; }
+        }
         public DateTime Datum { get; set; }
-        public int TotaalPunten 
+        public int TotaalPunten
         {
-            get { return totaalPunten; }  
+            get { return totaalPunten; }
         }
         public int AantalOefeningen
         {
             get { return aantalOefeningen; }
+        }
+        public int IndexOud
+        {
+            get { return indexOud; }
         }
     }
 }
