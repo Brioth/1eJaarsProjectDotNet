@@ -59,6 +59,7 @@ namespace Groepswerk
                 tempOplossing3[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing3;
                 oefeningNummerLijst.Add(oefeningenNummerOpslag);
             }
+            //zo da hoort nu te werken
             Opgave1.Text = tempOpgave[0];
             oefLijst1.Add(tempOplossing1[0]);
             oefLijst1.Add(tempOplossing2[0]);

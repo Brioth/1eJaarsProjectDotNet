@@ -23,7 +23,7 @@ namespace Groepswerk
         private string[] tempOpgave, tempOplossing1, tempOplossing2, tempOplossing3;
         private Random oefeningenNummer = new Random();
         private int oefeningenNummerOpslag;
-        private IList<string> oefLijst;
+        private IList<string> oefLijst1, oefLijst2, oefLijst3, oefLijst4, oefLijst5;
         private int oefCorrect;
         private IList<int> oefeningNummerLijst;
         public OefNederlands1Gemiddeld()
@@ -36,12 +36,18 @@ namespace Groepswerk
             tempOplossing2 = new string[5];
             tempOplossing3 = new string[5];
 
+            oefLijst1 = new List<string>();
+            oefLijst2 = new List<string>();
+            oefLijst3 = new List<string>();
+            oefLijst4 = new List<string>();
+            oefLijst5 = new List<string>();
+
             oefLijst = new List<string>();
             oefeningNummerLijst = new List<int>();
 
             for (int i = 0; i > 5; i++)
             {
-                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count - 1)));
+                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count + 1)));
 
                 while (oefeningNummerLijst.Contains(oefeningenNummerOpslag))
                 {
