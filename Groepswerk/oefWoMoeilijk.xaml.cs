@@ -34,6 +34,7 @@ namespace Groepswerk
         public oefWoMoeilijk( Gebruiker actieveGebruiker){
             this.actieveGebruiker = actieveGebruiker;
           InitializeComponent();
+          tijdTeller = new Stopwatch();
           tijdTeller.Start();
             lijstOefeningen = new OefeningLijst("WoMoeilijk");
             oefeningNummerLijst = new List<int>();
