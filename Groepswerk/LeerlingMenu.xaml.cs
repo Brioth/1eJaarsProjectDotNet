@@ -85,7 +85,7 @@ namespace Groepswerk
 
         private void btnWOMak_Click(object sender, RoutedEventArgs e)
         {
-            oefWoMakkelijk makkelijk = new oefWoMakkelijk();
+            oefWoMakkelijk makkelijk = new oefWoMakkelijk(ActieveGebruiker);
             this.NavigationService.Navigate(typeof(oefWoMakkelijk));
         }
         private void btnWOMed_Click(object sender, RoutedEventArgs e)
