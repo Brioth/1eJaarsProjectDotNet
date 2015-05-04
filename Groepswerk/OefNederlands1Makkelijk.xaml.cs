@@ -93,45 +93,45 @@ namespace Groepswerk
 
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!(Convert.ToString(Oplossing1.SelectionBoxItem).Equals(lijstOefeningen[0].correcteOplossing)))
+            if (!(Convert.ToString(Oplossing1.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[0]].correcteOplossing)))
             {
-                Opgave1.Text = lijstOefeningen[0].juisteAntwoordCompleet;
+                Opgave1.Text = lijstOefeningen[oefeningNummerLijst[0]].juisteAntwoordCompleet;
             }
             else
             {
                 oefCorrect++;
             }
 
-            if (!(Convert.ToString(Oplossing2.SelectionBoxItem).Equals(lijstOefeningen[1].correcteOplossing)))
+            if (!(Convert.ToString(Oplossing2.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[1]].correcteOplossing)))
             {
-                Opgave2.Text = lijstOefeningen[1].juisteAntwoordCompleet;
+                Opgave2.Text = lijstOefeningen[oefeningNummerLijst[1]].juisteAntwoordCompleet;
             }
             else
             {
                 oefCorrect++;
             }
 
-            if (!(Convert.ToString(Oplossing3.SelectionBoxItem).Equals(lijstOefeningen[2].correcteOplossing)))
+            if (!(Convert.ToString(Oplossing3.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[2]].correcteOplossing)))
             {
-                Opgave3.Text = lijstOefeningen[2].juisteAntwoordCompleet;
+                Opgave3.Text = lijstOefeningen[oefeningNummerLijst[2]].juisteAntwoordCompleet;
             }
             else
             {
                 oefCorrect++;
             }
 
-            if (!(Convert.ToString(Oplossing4.SelectionBoxItem).Equals(lijstOefeningen[3].correcteOplossing)))
+            if (!(Convert.ToString(Oplossing4.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[3]].correcteOplossing)))
             {
-                Opgave3.Text = lijstOefeningen[3].juisteAntwoordCompleet;
+                Opgave3.Text = lijstOefeningen[oefeningNummerLijst[3]].juisteAntwoordCompleet;
             }
             else
             {
                 oefCorrect++;
             }
 
-            if (!(Convert.ToString(Oplossing5.SelectionBoxItem).Equals(lijstOefeningen[4].correcteOplossing)))
+            if (!(Convert.ToString(Oplossing5.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[4]].correcteOplossing)))
             {
-                Opgave3.Text = lijstOefeningen[4].juisteAntwoordCompleet;
+                Opgave3.Text = lijstOefeningen[oefeningNummerLijst[4]].juisteAntwoordCompleet;
             }
             else
             {
