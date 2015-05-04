@@ -4,36 +4,56 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="555" d:DesignWidth="769.5"
+      d:DesignHeight="555" d:DesignWidth="769.5" Background="#9D78989A" Height="Auto" Width="Auto" FontSize="16"
 	Title="gebruikerdetails">
 
-    <Grid Margin="0,-62,-18,-14" RenderTransformOrigin="0.5,0.5">
-        <Grid.RenderTransform>
-            <TransformGroup>
-                <ScaleTransform/>
-                <SkewTransform/>
-                <RotateTransform Angle="-0.477"/>
-                <TranslateTransform/>
-            </TransformGroup>
-        </Grid.RenderTransform>
-
-
-        <ComboBox HorizontalAlignment="Left" Margin="203,225,0,0" VerticalAlignment="Top" Width="120" Name="klasKeuze" IsEditable="False" SelectionChanged="klasKeuze_Changed" />
-        <TextBlock HorizontalAlignment="Left" Margin="103,225,0,0" TextWrapping="Wrap" Text="klas" VerticalAlignment="Top" Width="44"/>
-        <TextBlock Text="Voornaam"  HorizontalAlignment="Left" Margin="429,225,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="453,255,0,0" TextWrapping="Wrap" Text="Naam" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="565,218,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Name="voornaambox"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="565,255,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Name="naambox"/>
-        <TextBlock HorizontalAlignment="Left" Margin="427,325,0,0" TextWrapping="Wrap" Text="Leerling ID" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="565,318,0,0" TextWrapping="Wrap" Name="leerlingId" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="427,384,0,0" TextWrapping="Wrap" Text="gemiddelde wiskunde" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="565,384,0,0" TextWrapping="Wrap" Name="gemWiskGeg" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="427,421,0,0" TextWrapping="Wrap" Text="gemiddelde Nederlands" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="565,421,0,0" TextWrapping="Wrap" Name="gemNedGeg" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="427,451,0,0" TextWrapping="Wrap" Text="gemiddelde WO" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="565,453,0,0" TextWrapping="Wrap" Name="gemWoGeg" VerticalAlignment="Top" Width="120"/>
-        <ListBox HorizontalAlignment="Left" Height="170" Margin="203,274,0,0" VerticalAlignment="Top" Width="180" Name="listBox_llnLijst" SelectionChanged="listBox_llnLijst_Changed"/>
-
-
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ComboBox Name="klasKeuze" Grid.Column="1" Grid.Row="1" Margin="10" SelectionChanged="klasKeuze_Changed" />   
+        <ComboBox Name="boxLln" Grid.Column="2" Grid.Row="1" Margin="10" SelectionChanged="boxLln_SelectionChanged"/>
+        <DataGrid Name="gridAlgemeen" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Vak" Binding="{Binding Vak}"/>
+                <DataGridTextColumn Header="Makkelijk" Binding="{Binding Makkelijk}"/>
+                <DataGridTextColumn Header="Gemiddeld" Binding="{Binding Gemiddeld}"/>
+                <DataGridTextColumn Header="Moeilijk" Binding="{Binding Moeilijk}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox Name="boxOef" Grid.Column="1" Grid.Row="3" Margin="10" SelectionChanged="boxOef_SelectionChanged">
+            <ComboBoxItem Name="oefNedMak" Content="Taal Makkelijk"/>
+            <ComboBoxItem Name="oefNedGem" Content="Taal Gemiddeld"/>
+            <ComboBoxItem Name="oefNedMoe" Content="Taal Moeilijk"/>
+            <ComboBoxItem Name="oefWiskMak" Content="Rekenen Makkelijk"/>
+            <ComboBoxItem Name="oefWiskGem" Content="Rekenen Gemiddeld"/>
+            <ComboBoxItem Name="oefWiskMoe" Content="Rekenen Moeilijk"/>
+            <ComboBoxItem Name="oefWoMak" Content="WO Makkelijk"/>
+            <ComboBoxItem Name="oefWoMed" Content="WO Gemiddeld"/>
+            <ComboBoxItem Name="oefWoMoe" Content="WO Moeilijk"/>
+        </ComboBox>
+        <DataGrid Name="gridGemOef" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3" Margin="10"/>
+        
+        <DataGrid Name="gridAlles" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="4" Margin="10" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Datum" Binding="{Binding Datum}"/>
+                <DataGridTextColumn Header="Gemiddeld # punten" Binding="{Binding GemPunten}"/>
+                <DataGridTextColumn Header="Gemiddelde tijd" Binding="{Binding GemTijd}" />
+                <DataGridTextColumn Header="Aantal oefeningen gemaakt" Binding="{Binding AantalOefeningen}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+            
     </Grid>
 </Page>

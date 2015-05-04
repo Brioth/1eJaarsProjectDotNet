@@ -27,103 +27,129 @@ namespace Groepswerk
     public partial class HoofdSpel : Page
     {
         //Lokale variabelen
-        private HoofdSpelLijstRood entiteitenRood;
-        private HoofdSpelLijstBlauw entiteitenBlauw;
+        private Gebruiker actieveGebruiker;
+        private HoofdspelSpeler speler, computer;
 
-        private DispatcherTimer animationTimer;//Wnr alles beweegt
-        private DispatcherTimer roodTimer;//Wnr nieuw bolletje user spawnt
-        private DispatcherTimer blauwTimer;//Wnr nieuw bolletje tegenstander spawnt
+        private DispatcherTimer animationTimer, spawnTimer, speltijdTimer, aftelTimer;//Wnr alles beweegt
 
+        private int resterendeTijd;
         //Constructors
-        public HoofdSpel()
+        public HoofdSpel(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
 
-            entiteitenRood = new HoofdSpelLijstRood();
-            entiteitenBlauw = new HoofdSpelLijstBlauw();
+            this.actieveGebruiker = actieveGebruiker;
+            speler = new HoofdspelSpeler();
+            computer = new HoofdspelSpeler();
 
-            BindLijsten();
+            //BindLijsten();
+
+            speltijdTimer = new DispatcherTimer();
+            speltijdTimer.Interval = TimeSpan.FromSeconds(this.actieveGebruiker.GameTijdSec);
+            speltijdTimer.Tick += EindeSpel_Tick;
+            speltijdTimer.Start();
 
             animationTimer = new DispatcherTimer();
             animationTimer.Interval = TimeSpan.FromMilliseconds(50);
-            animationTimer.Tick += animationTimer_Tick;
-            animationTimer.IsEnabled = true;
+            animationTimer.Tick += AnimationTimer_Tick;
+            animationTimer.Start();
 
-            roodTimer = new DispatcherTimer();
-            roodTimer.Interval = TimeSpan.FromSeconds(2);
-            roodTimer.Tick += roodTimer_Tick;
-            roodTimer.IsEnabled = true;
+            spawnTimer = new DispatcherTimer();
+            spawnTimer.Interval = TimeSpan.FromSeconds(2);
+            spawnTimer.Tick += Spawner_Tick;
+            spawnTimer.Start();
 
-            blauwTimer = new DispatcherTimer();
-            blauwTimer.Interval = TimeSpan.FromSeconds(2);
-            blauwTimer.Tick += blauwTimer_Tick;
-            blauwTimer.IsEnabled = true;
+            resterendeTijd = this.actieveGebruiker.GameTijdSec;
 
-            HoofdSpelBolletje bolletjeRood = new HoofdSpelBolletje(entiteitenRood, drawingCanvas);
-            entiteitenRood.Add(bolletjeRood);
-            entiteitenRood.Bolletjes = entiteitenRood.Bolletjes + 1;
+            aftelTimer = new DispatcherTimer();
+            aftelTimer.Interval = TimeSpan.FromSeconds(1);
+            aftelTimer.Tick += Afteller_Tick;
+            aftelTimer.Start();
 
-            HoofdSpelBolletje bolletjeBlauw = new HoofdSpelBolletje(entiteitenBlauw, drawingCanvas);
-            entiteitenBlauw.Add(bolletjeBlauw);
-            entiteitenBlauw.Bolletjes = entiteitenBlauw.Bolletjes+1;
+        }
+
+        private void EindeSpel_Tick(object sender, EventArgs e)
+        {
+            speltijdTimer.Stop();
+            aftelTimer.Stop();
+            animationTimer.Stop();
+            spawnTimer.Stop();
 
 
+            MessageBox.Show("Tijd is op");
+            //scores weergeven en wegschrijven
+            TijdOp(); //Zet gameTijd op 0
         }
         //Events
-        private void animationTimer_Tick(object sender, EventArgs e)
-        {
-            entiteitenRood.Move();
-            entiteitenBlauw.Move();
-            entiteitenRood.CheckHit(entiteitenBlauw);
-            entiteitenBlauw.CheckHit(entiteitenRood);
-        }
-        private void roodTimer_Tick(object sender, EventArgs e)
-        {
-            if (entiteitenRood.Count <= 20)
-            {
-                HoofdSpelBolletje bolletje = new HoofdSpelBolletje(entiteitenRood, drawingCanvas);
-                entiteitenRood.Add(bolletje);
-                entiteitenRood.Bolletjes = entiteitenRood.Bolletjes+1;
-            }
-        }
-        private void blauwTimer_Tick(object sender, EventArgs e)
-        {
-            if (entiteitenBlauw.Count <= 20)
-            {
-                HoofdSpelBolletje bolletje = new HoofdSpelBolletje(entiteitenBlauw, drawingCanvas);
-                entiteitenBlauw.Add(bolletje);
-                entiteitenBlauw.Bolletjes = entiteitenBlauw.Bolletjes+1;
 
-            }
+           private void AnimationTimer_Tick(object sender, EventArgs e)
+        {
+            speler.Beweeg(drawingCanvas);
+            computer.Beweeg(drawingCanvas);
+            speler.CheckHit(computer.Bolletjes, computer.Vierkantjes);
+            computer.CheckHit(speler.Bolletjes, speler.Vierkantjes);
+            speler.MaakVrij(drawingCanvas, "#CB2611");
+            computer.MaakVrij(drawingCanvas, "#13737C");
+        }
+        
+        private void Spawner_Tick(object sender, EventArgs e)
+        {
+            HoofdSpelBolletje bolletjeRood = new HoofdSpelBolletje("#CB2611", drawingCanvas);
+            speler.Bolletjes.Add(bolletjeRood);
+            bolletjeRood.DisplayOn(drawingCanvas);
+            //entiteitenRood.Bolletjes = entiteitenRood.Bolletjes + 1;
 
+            HoofdSpelBolletje bolletjeBlauw = new HoofdSpelBolletje("#13737C", drawingCanvas);
+            computer.Bolletjes.Add(bolletjeBlauw);
+            bolletjeBlauw.DisplayOn(drawingCanvas);
+            //entiteitenBlauw.Bolletjes = entiteitenBlauw.Bolletjes + 1;
+        }
+        private void Afteller_Tick(object sender, EventArgs e)
+        {
+            TimeSpan t = TimeSpan.FromSeconds(resterendeTijd);
+            lblTijd.Content = String.Format("{0:D2}m:{1:D2}s", t.Minutes, t.Seconds);
+            resterendeTijd--;
+        }
+        private void TijdOp() //Zet gameTijd op 0
+        {
+            AlleGebruikersLijst lijst = new AlleGebruikersLijst();
+
+            for (int i = 0; i < lijst.Count; i++)
+            {
+                if (lijst[i].Id.Equals(actieveGebruiker.Id))
+                {
+                    lijst[i].SetGameTijdOp0();
+                }
+            }
+            lijst.SchrijfLijst();
         }
         //Methods
-        private void BindLijsten()
-        {
-            Binding b = new Binding();
-            b.Source = entiteitenRood;
-            b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-            b.Path = new PropertyPath("Bolletjes");
-            txtbRoodB.SetBinding(TextBlock.TextProperty, b);
+        //private void BindLijsten()
+        //{
+        //    Binding b = new Binding();
+        //    b.Source = entiteitenRood;
+        //    b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+        //    b.Path = new PropertyPath("Bolletjes");
+        //    txtbRoodB.SetBinding(TextBlock.TextProperty, b);
 
-            b = new Binding();
-            b.Source = entiteitenRood;
-            b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-            b.Path = new PropertyPath("Vierkantjes");
-            txtbRoodV.SetBinding(TextBlock.TextProperty, b);
+        //    b = new Binding();
+        //    b.Source = entiteitenRood;
+        //    b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+        //    b.Path = new PropertyPath("Vierkantjes");
+        //    txtbRoodV.SetBinding(TextBlock.TextProperty, b);
 
-            b = new Binding();
-            b.Source = entiteitenBlauw;
-            b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-            b.Path = new PropertyPath("Bolletjes");
-            txtbBlauwB.SetBinding(TextBlock.TextProperty, b);
+        //    b = new Binding();
+        //    b.Source = entiteitenBlauw;
+        //    b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+        //    b.Path = new PropertyPath("Bolletjes");
+        //    txtbBlauwB.SetBinding(TextBlock.TextProperty, b);
 
-            b = new Binding();
-            b.Source = entiteitenBlauw;
-            b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-            b.Path = new PropertyPath("Vierkantjes");
-            txtbBlauwV.SetBinding(TextBlock.TextProperty, b);
-        }
+        //    b = new Binding();
+        //    b.Source = entiteitenBlauw;
+        //    b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+        //    b.Path = new PropertyPath("Vierkantjes");
+        //    txtbBlauwV.SetBinding(TextBlock.TextProperty, b);
+        //}
         //Properties
 
     }

@@ -54,8 +54,6 @@ namespace Groepswerk
         {
             drawingCanvas.Children.Add(cirkel);
             drawingCanvas.Children.Add(afbeelding);
-            Console.WriteLine("Nieuwe human op " + Positie);
-            Console.WriteLine("Doelvierkant: " + doelvierkant.Location);
         }
 
         public override void UpdateElement()

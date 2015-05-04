@@ -13,7 +13,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -23,7 +24,7 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Canvas Name="drawingCanvas" Background="LightYellow" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" Margin="10" ClipToBounds="True"/>
+        <Canvas Name="drawingCanvas" Background="#FF83BD1C" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" Margin="10" ClipToBounds="True"/>
         <Label Content="Rood" Grid.Column="2" Grid.Row="1" Margin="20,10,20,10"/>
         <Label Content="Blauw" Grid.Column="3" Grid.Row="1" Margin="20,10,20,10"/>
         <TextBlock Name="txtbRoodB" Text="0" Grid.Column="2" Grid.Row="2" Margin="10" HorizontalAlignment="Center"/>
@@ -32,6 +33,6 @@
         <TextBlock x:Name="txtbBlauwV" Text="0" Grid.Column="3" Grid.Row="3" Margin="10" HorizontalAlignment="Center"/>
         <Ellipse Fill="Black" Height="11" Stroke="Black" Width="11" Grid.Column="1" Grid.Row="2" Margin="10" HorizontalAlignment="Right"/>
         <Rectangle Fill="Black" Height="11" Stroke="Black" Width="11" Grid.Column="1" Grid.Row="3" Margin="10" HorizontalAlignment="Right"/>
-
+        <Label Name="lblTijd" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="5" HorizontalAlignment="Center" Margin="20,10,20,10"/>
     </Grid>
 </Page>

@@ -8,7 +8,7 @@ using System.Windows.Controls;
 
 namespace Groepswerk
 {
-    public class ZombieSpelSpeler : IBeweegbaar
+    public class ZombieSpelSpeler : IBeweegbaarZombie
     {
         //Lokale variabelen
         private static Random richtingRandom = new Random();
@@ -125,7 +125,7 @@ namespace Groepswerk
                 }
                 foreach (ZombieSpelZombie eigenZombie in ZombiesSpeler)
                 {
-                    if (ZombiesSpeler[i].Doelvierkant.IntersectsWith(eigenZombie.Doelvierkant))
+                    if ((!(eigenZombie.Equals(ZombiesSpeler[i])))&& (ZombiesSpeler[i].Doelvierkant.IntersectsWith(eigenZombie.Doelvierkant)))
                     {
                         ZombiesSpeler[i].GeraaktDoorEigen = true;
                     }
@@ -139,7 +139,6 @@ namespace Groepswerk
                 if (HumansSpeler[i].Geraakt) //als human geraakt wordt door vijand, maak zombie
                 {
                     Point positie = new Point(HumansSpeler[i].X - HumansSpeler[i].RichtingX * HumansSpeler[i].Snelheid*5, HumansSpeler[i].Y - HumansSpeler[i].RichtingY * HumansSpeler[i].Snelheid*5);
-                    //Point positie = new Point(spelCanvas.ActualWidth / 2, spelCanvas.ActualHeight - 75);
                     ZombieSpelZombie zombieSpeler = new ZombieSpelZombie(positie, "#CB2611");
                     HumansSpeler[i].VerwijderHuman(spelCanvas);
                     HumansSpeler.RemoveAt(i);
@@ -152,7 +151,6 @@ namespace Groepswerk
                 if (ZombiesSpeler[i].GeraaktDoorEigen)
                 {
                     Point positie = new Point(ZombiesSpeler[i].X - ZombiesSpeler[i].RichtingX * ZombiesSpeler[i].Snelheid*5, ZombiesSpeler[i].Y + ZombiesSpeler[i].RichtingY * ZombiesSpeler[i].Snelheid*5);
-                    //Point positie = new Point(spelCanvas.ActualWidth / 2, spelCanvas.ActualHeight - 75);
                     ZombieSpelHuman humanSpeler = new ZombieSpelHuman(positie, "#CB2611");
                     ZombiesSpeler[i].VerwijderZombie(spelCanvas);
                     ZombiesSpeler.RemoveAt(i);

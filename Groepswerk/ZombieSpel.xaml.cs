@@ -26,6 +26,7 @@ namespace Groepswerk
      * minuutTimer: elke minuut increased de spawnsnelheid van de computer om het spel moeilijker te maken
      * vijfSecondenTimer: Skill 2 en 4 duren 5 seconden
      * skill6Timer: skill 6 kan je 2x 5 seconden, 2x 4 seconden en 2x 3 seconden gebruiker
+     * cooldownTimer: cooldown van 10 seconden eer je weer een skill kan gebruiken
      * Author: Carmen Celen
      * Date: 24/04/2015
      */
@@ -34,13 +35,13 @@ namespace Groepswerk
         //Lokale variabelen
         private ZombieSpelSpeler speler;
         private ZombieSpelComputer computer;
-        private DispatcherTimer spelTijdTimer, spawnerSpeler, spawnerComputer, animationTimer, minuutTimer, vijfSecondenTimer, skill6Timer;
+        private DispatcherTimer spelTijdTimer, spawnerSpeler, spawnerComputer, animationTimer, minuutTimer, vijfSecondenTimer, skill6Timer, cooldownTimer, aftelTimerSpel;
         private Gebruiker actieveGebruiker;
         private Point puntSpeler, puntComputer;
         private int skill1Aantal = 5;
         private int skill6Aantal = 2;
         private int skill6Tijd = 5;
-
+        private int resterendeTijd, cooldown;
         //Constructors
         public ZombieSpel(Gebruiker actieveGebruiker)
         {
@@ -82,15 +83,25 @@ namespace Groepswerk
             skill6Timer = new DispatcherTimer();
             skill6Timer.Tick += Skill6_Tick;
             skill6Timer.Stop();
-        }
 
+            cooldownTimer = new DispatcherTimer();
+            cooldownTimer.Interval = TimeSpan.FromSeconds(10);
+            cooldownTimer.Tick += Cooldown_Tick;
+            cooldownTimer.Stop();
+
+            resterendeTijd = this.actieveGebruiker.GameTijdSec;
+
+            aftelTimerSpel = new DispatcherTimer();
+            aftelTimerSpel.Interval = TimeSpan.FromSeconds(1);
+            aftelTimerSpel.Tick += Afteller_Tick;
+            aftelTimerSpel.Start();
+        }
         //Events
         private void MinuutTimer_Tick(object sender, EventArgs e)
         {
             int nieuweTijd = Convert.ToInt32(spawnerComputer.Interval.TotalMilliseconds) - 500;
             spawnerComputer.Interval = TimeSpan.FromMilliseconds(nieuweTijd);
         }
-
         private void Animation_Tick(object sender, EventArgs e)
         {
             speler.Beweeg(spelCanvas);
@@ -100,30 +111,21 @@ namespace Groepswerk
             speler.MaakVrij(spelCanvas);
             computer.MaakVrij(spelCanvas);
         }
-
         private void SpawnComputer_Tick(object sender, EventArgs e)
-        {
-            if (computer.HumansComputer.Count < 100)
-            {
+        {           
                 ZombieSpelHuman humanComputer = new ZombieSpelHuman(puntComputer, "#13737C");
                 computer.HumansComputer.Add(humanComputer);
-                humanComputer.DisplayOn(spelCanvas);
-            }
+                humanComputer.DisplayOn(spelCanvas);            
         }
-
         private void SpawnSpeler_Tick(object sender, EventArgs e)
         {
-            if (speler.HumansSpeler.Count < 100)
-            {
                 ZombieSpelHuman humanSpeler = new ZombieSpelHuman(puntSpeler, "#CB2611");
                 speler.HumansSpeler.Add(humanSpeler);
                 humanSpeler.DisplayOn(spelCanvas);
-            }
-
         }
-
         private void BtnSkill1_Click(object sender, RoutedEventArgs e)
         {
+            DisableSkills();
             Random richtingRandom = new Random();
             for (int i = 0; i < skill1Aantal; i++)
             {
@@ -139,53 +141,51 @@ namespace Groepswerk
                 skill1Aantal--;
             }
         }
-
         private void BtnSkill2_Click(object sender, RoutedEventArgs e)
         {
+            DisableSkills();
             vijfSecondenTimer.Tick += ResetSkill2_Tick;
             vijfSecondenTimer.Start();
             int nieuweTijd = Convert.ToInt32(spawnerSpeler.Interval.TotalMilliseconds)*10;
             spawnerSpeler.Interval = TimeSpan.FromMilliseconds(nieuweTijd);
         }
-
         private void ResetSkill2_Tick(object sender, EventArgs e)
         {
             vijfSecondenTimer.Stop();
             int oudeTijd = Convert.ToInt32(spawnerSpeler.Interval.TotalMilliseconds) / 10;
             spawnerSpeler.Interval = TimeSpan.FromMilliseconds(oudeTijd);
         }
-
         private void BtnSkill3_Click(object sender, RoutedEventArgs e)
         {
+            DisableSkills();
             Random generator = new Random();
             int randomIndex = generator.Next(speler.ZombiesSpeler.Count);
             speler.ZombiesSpeler[randomIndex].GeraaktDoorEigen = true;
         }
-
         private void BtnSkill4_Click(object sender, RoutedEventArgs e)
         {
+            DisableSkills();
             vijfSecondenTimer.Tick += ResetSkill4_Tick;
             vijfSecondenTimer.Start();
             int nieuweTijd = Convert.ToInt32(spawnerComputer.Interval.TotalMilliseconds) / 10;
             spawnerComputer.Interval = TimeSpan.FromMilliseconds(nieuweTijd);
         }
-
         private void ResetSkill4_Tick(object sender, EventArgs e)
         {
             vijfSecondenTimer.Stop();
             int oudeTijd = Convert.ToInt32(spawnerComputer.Interval.TotalMilliseconds) * 10;
             spawnerComputer.Interval = TimeSpan.FromMilliseconds(oudeTijd);
         }
-
         private void BtnSkill5_Click(object sender, RoutedEventArgs e)
         {
+            DisableSkills();
             Random generator = new Random();
             int randomIndex = generator.Next(computer.HumansComputer.Count);
             computer.HumansComputer[randomIndex].Geraakt = true;
         }
-
         private void BtnSkill6_Click(object sender, RoutedEventArgs e)
         {
+            DisableSkills();
             skill6Timer.Interval = TimeSpan.FromSeconds(skill6Tijd);
             skill6Timer.Start();
             spawnerComputer.IsEnabled = false;
@@ -210,16 +210,31 @@ namespace Groepswerk
                 }
             }
         }
+        private void Cooldown_Tick(object sender, EventArgs e)
+        {
+            cooldownTimer.Stop();
+            btnSkill1.IsEnabled = true;
+            btnSkill2.IsEnabled = true;
+            btnSkill3.IsEnabled = true;
+            btnSkill4.IsEnabled = true;
+            btnSkill5.IsEnabled = true;
+            btnSkill6.IsEnabled = true;
+        }
         private void EindeSpel_Tick(object sender, EventArgs e)
         {
-            //(sender as DispatcherTimer).Stop();
-            //spawnerSpeler.IsEnabled = false;
-            //spawnerComputer.IsEnabled = false;
-            //animationTimer.IsEnabled = false;
+            spelTijdTimer.Stop();
+            aftelTimerSpel.Stop();
+            spawnerSpeler.Stop();
+            spawnerComputer.Stop();
+            animationTimer.Stop();
+            minuutTimer.Stop();
+            DisableSkills();
+            cooldownTimer.Stop();
+            
 
-            //MessageBox.Show("Tijd is op");
-            ////scores weergeven en wegschrijven
-            //TijdOp(); //Zet gameTijd op 0
+            MessageBox.Show("Tijd is op");
+            //scores weergeven en wegschrijven
+            TijdOp(); //Zet gameTijd op 0
 
 
         }
@@ -232,6 +247,12 @@ namespace Groepswerk
             Canvas.SetLeft(imgComputer, puntComputer.X);
             Canvas.SetTop(imgComputer, puntComputer.Y);
         }
+        private void Afteller_Tick(object sender, EventArgs e)
+        {
+            TimeSpan t = TimeSpan.FromSeconds(resterendeTijd);
+            lblTijd.Content = String.Format("{0:D2}m:{1:D2}s", t.Minutes, t.Seconds);
+            resterendeTijd--;
+        }
         //Methods
         private void TijdOp() //Zet gameTijd op 0
         {
@@ -239,14 +260,23 @@ namespace Groepswerk
 
             for (int i = 0; i < lijst.Count; i++)
             {
-                if (lijst[i].Id == actieveGebruiker.Id)
+                if (lijst[i].Id.Equals(actieveGebruiker.Id))
                 {
                     lijst[i].SetGameTijdOp0();
                 }
             }
             lijst.SchrijfLijst();
         }
-
+        private void DisableSkills()
+        {
+            cooldownTimer.Start();
+            btnSkill1.IsEnabled = false;
+            btnSkill2.IsEnabled = false;
+            btnSkill3.IsEnabled = false;
+            btnSkill4.IsEnabled = false;
+            btnSkill5.IsEnabled = false;
+            btnSkill6.IsEnabled = false;
+        }
         //Properties
 
     }
