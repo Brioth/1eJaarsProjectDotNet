@@ -96,7 +96,7 @@ namespace Groepswerk
         private void btnWOMoe_Click(object sender, RoutedEventArgs e)
         {
             oefWoMoeilijk moeilijk = new oefWoMoeilijk();
-            this.NavigationService.Navigate(typeof(oefWoMoeilijk));
+            this.NavigationService.Navigate(oefWoMoeilijk);
         }
 
         private void btnTaalMak_Click(object sender, RoutedEventArgs e)

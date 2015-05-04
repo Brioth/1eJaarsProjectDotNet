@@ -23,13 +23,12 @@ namespace Groepswerk
         private string[] tempOpgave, tempOplossing1;
         private Random oefeningenNummer = new Random();
         private int oefeningenNummerOpslag;
-        private IList<string> oefLijst;
         private int oefCorrect = 0;
         private IList<int> oefeningNummerLijst;
         public oefWoGemiddeld()
         {
             InitializeComponent();
-            lijstOefeningen = new WoLijst("gemiddeld");
+            lijstOefeningen = new WoLijst("WoGemiddeld");
 
             for (int i = 0; i > 5; i++)
             {
@@ -44,44 +43,9 @@ namespace Groepswerk
                 oefeningNummerLijst.Add(oefeningenNummerOpslag);
             }
             label1.Content = tempOpgave[1];
-            oefLijst.Add(tempOplossing1[1]);
+           
 
 
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
-
-            label2.Content = tempOpgave[2];
-            oefLijst.Add(tempOplossing1[2]);
-
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
-
-            label5.Content = tempOpgave[3];
-            oefLijst.Add(tempOplossing1[3]);
-
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
-
-            labbel4.Content = tempOpgave[4];
-            oefLijst.Add(tempOplossing1[4]);
-
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
-            label5.Content = tempOpgave[5];
-            oefLijst.Add(tempOplossing1[5]);
-
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
         }
 
         private void controleer_Click(object sender, RoutedEventArgs e)
