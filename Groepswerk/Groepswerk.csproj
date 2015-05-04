@@ -95,8 +95,6 @@
     <Compile Include="IBeweegbaarZombie.cs" />
     <Compile Include="Klas.cs" />
     <Compile Include="Klaslijst.cs" />
-    <Compile Include="OefeningLijstWiskunde.cs" />
-    <Compile Include="OefeningWiskunde.cs" />
     <Compile Include="oefeningWiskundeGemiddeld.xaml.cs">
       <DependentUpon>oefeningWiskundeGemiddeld.xaml</DependentUpon>
     </Compile>
