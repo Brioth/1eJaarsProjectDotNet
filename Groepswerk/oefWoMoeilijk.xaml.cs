@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,9 +28,13 @@ namespace Groepswerk
         private IList<string> oefLijst;
         private int oefCorrect = 0;
         private IList<int> oefeningNummerLijst;
+        private long totaalTijd;
+        private Stopwatch tijdTeller;
+
         public oefWoMoeilijk( Gebruiker actieveGebruiker){
             this.actieveGebruiker = actieveGebruiker;
           InitializeComponent();
+          tijdTeller.Start();
             lijstOefeningen = new OefeningLijst("WoMoeilijk");
             oefeningNummerLijst = new List<int>();
 
@@ -62,6 +67,9 @@ namespace Groepswerk
         
         private void controleer_Click(object sender, RoutedEventArgs e)
         {
+            tijdTeller.Stop();
+            totaalTijd = tijdTeller.ElapsedMilliseconds * 1000;
+
             if (!((textbox1.Text).Equals (lijstOefeningen[oefeningNummerLijst[0]].oplossing)))
             {
                textbox1.Background=Brushes.Red;
