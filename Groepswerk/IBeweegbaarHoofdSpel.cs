@@ -7,10 +7,10 @@ using System.Windows.Controls;
 
 namespace Groepswerk
 {
-    interface IBeweegbaar
+    interface IBeweegbaarHoofdSpel
     {
         void Beweeg(Canvas drawingCanvas);
-        void MaakVrij(Canvas drawingCanvas);
-        void CheckHit(List<ZombieSpelHuman> humansTegenstander, List<ZombieSpelZombie> zombiesTegenstander);
+        void MaakVrij(Canvas drawingCanvas, string kleur);
+        void CheckHit(List<HoofdSpelBolletje> bolletjesTegenstander, List<HoofdSpelVierkantje> vierkantjesTegenstander);
     }
 }

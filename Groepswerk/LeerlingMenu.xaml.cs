@@ -37,7 +37,7 @@ namespace Groepswerk
         //Events
         private void BtnSpel_Click(object sender, RoutedEventArgs e)
         {
-            HoofdSpel hoofdSpel = new HoofdSpel();
+            HoofdSpel hoofdSpel = new HoofdSpel(ActieveGebruiker);
             this.NavigationService.Navigate(hoofdSpel);
         }
         private void BtnZombie_Click(object sender, RoutedEventArgs e)

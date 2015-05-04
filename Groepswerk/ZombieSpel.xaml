@@ -11,6 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -22,13 +23,13 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Canvas Name="spelCanvas" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" ClipToBounds="True" Background="#FF83BD1C" Margin="10" Loaded="SpelCanvas_Loaded">
+        <Label Name="lblTijd" Grid.Column="1" Grid.Row="1" Margin="20,10,20,10" HorizontalAlignment="Center"/>
+        <Label Name="lblCooldown" Grid.Column="2" Grid.Row="1" Margin="20,10,20,10" HorizontalAlignment="Center"/>
+        <Canvas Name="spelCanvas" Grid.Column="1" Grid.Row="2" Grid.RowSpan="3" ClipToBounds="True" Background="#FF83BD1C" Margin="10" Loaded="SpelCanvas_Loaded">
             <Image Name ="imgComputer" Source="bin/Debug/driehoekBlauw.png" Height="50" Width="50"/>
             <Image Name ="imgSpeler" Source="bin/Debug/driehoekRood.png" Height="50" Width="50"/>
         </Canvas>
-        <StackPanel Grid.Row="2" Grid.Column="2">
-
-
+        <StackPanel Grid.Row="3" Grid.Column="2">
             <Button Name="btnSkill1" Content="Spawn" Margin="5" Click="BtnSkill1_Click" ToolTip="Plaats willekeurig een aantal mannetjes"/>
             <Button x:Name="btnSkill2" Content="Sneller" Margin="5" Click="BtnSkill2_Click" ToolTip="Spawn 2 keer zo snel voor 5 seconden lang"/>
             <Button x:Name="btnSkill3" Content="Heal" Margin="5" Click="BtnSkill3_Click" ToolTip="Genees 1 Zombie"/>

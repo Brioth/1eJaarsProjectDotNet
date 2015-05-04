@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
@@ -13,92 +14,106 @@ namespace Groepswerk
 {
     public class HoofdSpelVierkantje : HoofdSpelEntiteit
     {
+        //Lokale variabelen
         private Rectangle vierkant;
-        private static Random randomPlaats = new Random(151);
+        private static Random randomPlaats = new Random();
         private Rect doelVierkant;
-
-        public HoofdSpelVierkantje(HoofdSpelEntiteitenLijst lijst, Canvas drawingCanvas)
+        private string kleur;
+        private Point positie = new Point();
+        private Canvas drawingCanvas;
+        //Constructors
+        public HoofdSpelVierkantje(Point punt, string kleur, Canvas drawingCanvas)
         {
-            Lijst = lijst;
-            CheckKleur();
             vierkant = new Rectangle();
-            doelVierkant = new Rect();
+            doelVierkant = new Rect(new Size(GROOTTE, GROOTTE));
+            Kleur = kleur;
             vierkant.Width = GROOTTE;
             vierkant.Height = GROOTTE;
             doelVierkant.Width = GROOTTE;
             doelVierkant.Height = GROOTTE;
-            DrawingCanvas = drawingCanvas;
-            vierkant.Fill = new SolidColorBrush(Kleur);
             Snelheid = 2;
-            X = randomPlaats.Next(151);
-            Y = randomPlaats.Next(151);
-            DisplayOn();
+            Positie = punt;
             do
             {
                 RichtingX = BepaalRichting();
                 RichtingY = BepaalRichting();
             } while (RichtingX == 0 && RichtingY == 0);
-        }
+            this.drawingCanvas = drawingCanvas;
+            vierkant.MouseLeftButtonDown += OnEllipseMouseLeftButtonDown;
 
-        public override void DisplayOn()
+        }
+        //Events
+        void OnEllipseMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            DrawingCanvas.Children.Add(vierkant);
+            if (kleur.Equals("#CB2611"))
+            {
+                Positie = new Point(randomPlaats.Next(Convert.ToInt32(drawingCanvas.ActualWidth)), randomPlaats.Next(Convert.ToInt32(drawingCanvas.ActualHeight)));
+            }
+        }
+        //Methods
+        public override void DisplayOn(Canvas drawingCanvas)
+        {
+            drawingCanvas.Children.Add(vierkant);
         }
         protected override void UpdateElement()
         {
             vierkant.Margin = new System.Windows.Thickness(X, Y, 0, 0);
-            doelVierkant.X = X;
-            doelVierkant.Y = Y;
+            doelVierkant.Location = Positie;
         }
-
-        public override void CheckHit(HoofdSpelEntiteitenLijst lijstTegenstander)
+        private int BepaalRichting() //0 is -, 1 is blijven staan, 2 is +
         {
-            for (int i = 0; i < lijstTegenstander.Count; i++)
+            int gekozenrichting = randomPlaats.Next(3);
+            int richting;
+
+            switch (gekozenrichting)
             {
-
-                if (lijstTegenstander[i].DoelVierkant.IntersectsWith(doelVierkant))
-                {
-                    Dood();
-                    lijstTegenstander[i].CheckHit(); //Tegenstander moet vierkantje worden of doodgaan
-                }
-
+                case 0:
+                    richting = -1;
+                    break;
+                case 1:
+                    richting = 0;
+                    break;
+                case 2:
+                    richting = 1;
+                    break;
+                default:
+                    richting = 0;
+                    MessageBox.Show("Richting is niet juist gegenereerd"); //Mag later weg, voor debug
+                    break;
             }
-            for (int i = 0; i < Lijst.Count; i++) //Als je je eigen bolletje raakt
-            {
-                if (Lijst[i].DoelVierkant.IntersectsWith(doelVierkant))
-                {
-                    HoofdSpelBolletje bolletje = new HoofdSpelBolletje(Lijst, X, Y, DrawingCanvas);
-                    Lijst.Add(bolletje);
-                    Lijst.Bolletjes = Lijst.Bolletjes + 1;
-                    Dood();
-                }
-            }
-
+            return richting;
         }
-        public override void CheckHit() //Als tegenstander vierkantje was is die nu dood
+        public void VerwijderVierkant(Canvas drawingCanvas)
         {
-            Dood();
+            drawingCanvas.Children.Remove(vierkant);
         }
-        private void CheckKleur()
+        //Properties
+        public double Snelheid { get; set; }
+        public string Kleur
         {
-            if (Lijst is HoofdSpelLijstBlauw)
+            set
             {
-                Kleur = Colors.Blue;
+                kleur = value;
+                Color geconverteerdeKleur = (Color)ColorConverter.ConvertFromString(kleur);
+                vierkant.Fill = new SolidColorBrush(geconverteerdeKleur);
             }
-            if (Lijst is HoofdSpelLijstRood)
+            get
             {
-                Kleur = Colors.Red;
+                return kleur;
             }
         }
-        public override Rect DoelVierkant
+        public Rect Doelvierkant
         {
             get { return doelVierkant; }
         }
-        public override void Dood()
+        public bool GeraaktDoorEigen { get; set; }
+        public bool GeraaktDoorVijand { get; set; }
+        public Point Positie
         {
-            Lijst.Remove(this);
-            DrawingCanvas.Children.Remove(vierkant);
-            Lijst.Vierkantjes = Lijst.Vierkantjes - 1;
+            get { return positie; }
+            set { positie = value; this.X = positie.X; this.Y = positie.Y; }
         }
+        public int RichtingX { get; set; }
+        public int RichtingY { get; set; }
     }
 }

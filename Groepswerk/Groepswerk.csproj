@@ -86,13 +86,12 @@
     <Compile Include="HoofdSpel.xaml.cs">
       <DependentUpon>HoofdSpel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HoofdSpelEntiteitenLijst.cs" />
+    <Compile Include="HoofdspelSpeler.cs" />
     <Compile Include="HoofdSpelVierkantje.cs" />
     <Compile Include="HoofdSpelBolletje.cs" />
-    <Compile Include="HoofdSpelLijstBlauw.cs" />
-    <Compile Include="HoofdSpelLijstRood.cs" />
     <Compile Include="HoofdSpelEntiteit.cs" />
-    <Compile Include="IBeweegbaar.cs" />
+    <Compile Include="IBeweegbaarHoofdSpel.cs" />
+    <Compile Include="IBeweegbaarZombie.cs" />
     <Compile Include="Klas.cs" />
     <Compile Include="Klaslijst.cs" />
     <Compile Include="oefeningWiskundeGemiddeld.xaml.cs">

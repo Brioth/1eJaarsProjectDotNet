@@ -48,8 +48,6 @@ namespace Groepswerk
         {
             drawingCanvas.Children.Add(vierkant);
             drawingCanvas.Children.Add(afbeelding);
-            Console.WriteLine("nieuwe zombie op punt " + Positie);
-            Console.WriteLine("doelvierkant: " + doelvierkant.Location);
         }
 
         public override void UpdateElement()
