@@ -4,23 +4,53 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d"
-	Title="OefNederlands1MoeilijkTitel" Height="407" Width="721">
+      Background="#9D78989A" Height="Auto" Width="Auto" FontSize="16"
+	Title="OefNederlands1MoeilijkTitel">
 
     <Grid>
-        <Label Name="titel" Content="Oefeningen Nederlands: Gemiddeld" HorizontalAlignment="Left" Margin="60,10,0,0" VerticalAlignment="Top" Height="54" Width="601" FontSize="36"/>
-        <Label Content="Vul de volgende werkwoorden aan." HorizontalAlignment="Left" Margin="60,69,0,0" VerticalAlignment="Top" Height="32" Width="356"/>
-        <TextBlock Name="opgave1"  HorizontalAlignment="Left" Margin="74,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="446"/>
-        <TextBox Name="Oplossing1" HorizontalAlignment="Left" Margin="541,106,-13,0" VerticalAlignment="Top" Width="120"/>
-        <TextBlock Name="opgave2"  HorizontalAlignment="Left" Margin="74,156,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="446"/>
-        <TextBox Name="Oplossing2" HorizontalAlignment="Left" Margin="541,156,-13,0" VerticalAlignment="Top" Width="120"/>
-        <TextBlock Name="opgave3"  HorizontalAlignment="Left" Margin="74,206,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="446"/>
-        <TextBox Name="Oplossing3" HorizontalAlignment="Left" Margin="541,206,-13,0" VerticalAlignment="Top" Width="120"/>
-        <TextBlock Name="opgave4"  HorizontalAlignment="Left" Margin="74,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="446"/>
-        <TextBox Name="Oplossing4" HorizontalAlignment="Left" Margin="541,256,-13,0" VerticalAlignment="Top" Width="120"/>
-        <TextBlock Name="opgave5"  HorizontalAlignment="Left" Margin="74,306,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="446"/>
-        <TextBox Name="Oplossing5" HorizontalAlignment="Left" Margin="541,306,-13,0" VerticalAlignment="Top" Width="120"/>
-        <Button Name="verbeterButton" Content="Verbeter" HorizontalAlignment="Left" Margin="541,353,0,0" VerticalAlignment="Top" Width="99" Height="44" Click="verbeterButton_Click"/>
-        <TextBlock Name="Punten" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="74,367,0,0" Height="19" Width="94"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <!--Titel, ondertitel, oefeningen-->
+            <ColumnDefinition Width="*"/>
+            <!--Oplossingen + verbeterknop-->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <!--Titel-->
+            <RowDefinition Height="*"/>
+            <!--Ondertitel-->
+            <RowDefinition Height="*"/>
+            <!--Oefening 1-->
+            <RowDefinition Height="*"/>
+            <!--Oefening 2-->
+            <RowDefinition Height="*"/>
+            <!--Oefening 3-->
+            <RowDefinition Height="*"/>
+            <!--Oefening 4-->
+            <RowDefinition Height="*"/>
+            <!--Oefening 5-->
+            <RowDefinition Height="*"/>
+            <!--Verbeterknopje-->
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <Label Name="titel" Content="Oefeningen Nederlands: Moeilijk" FontSize="32" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Label Content="Vul de volgende werkwoorden aan." Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2"/>
+        <TextBlock Name="opgave1"  TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="3"/>
+        <TextBox Name="Oplossing1" Grid.Column="2" Grid.Row="3"/>
+        <TextBlock Name="opgave2" TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="4"/>
+        <TextBox Name="Oplossing2" Grid.Column="2" Grid.Row="4"/>
+        <TextBlock Name="opgave3" TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="5"/>
+        <TextBox Name="Oplossing3" Grid.Column="2" Grid.Row="5"/>
+        <TextBlock Name="opgave4" TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="6"/>
+        <TextBox Name="Oplossing4" Grid.Column="2" Grid.Row="6"/>
+        <TextBlock Name="opgave5"  TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="7"/>
+        <TextBox Name="Oplossing5" Grid.Column="2" Grid.Row="7"/>
+        <Button Name="verbeterButton" Content="Verbeter" Click="verbeterButton_Click" Grid.Column="2" Grid.Row="8"/>
+        <TextBlock Name="Punten" Text="" TextWrapping="Wrap" Grid.Column="1" Grid.Row="8"/>
 
     </Grid>
 </Page>
