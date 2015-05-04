@@ -164,15 +164,20 @@ namespace Groepswerk
         private void SchrijfPunten()
         {
 
-            ResultatenLijst resultatenLijst = new ResultatenLijst("OefNederlands1MakkelijkResultaten.txt");
+            ResultatenLijst lijst = new ResultatenLijst("OefNederlands1MakkelijkResultaten.txt");
             Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect, gespendeerdeTijd, resultatenLijst);
-        if(nieuw.indexoud == -1)
+        if(nieuw.IndexOud == -1)
         
         {
-            resultatenlijst.Add()
+            lijst.Add(nieuw);
 
         } //end if
-
+        else
+        {
+            lijst.Add(nieuw);
+            lijst.RemoveAt(nieuw.IndexOud);
+        } // end else
+        lijst.SchrijfLijst("OefNederlands1MakkelijkResultaten.txt");
 
         }
         }
