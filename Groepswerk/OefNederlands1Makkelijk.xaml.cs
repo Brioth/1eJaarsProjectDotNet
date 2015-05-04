@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,16 +23,24 @@ namespace Groepswerk
         private OefeningLijst lijstOefeningen;
         private string[] tempOpgave, tempOplossing1, tempOplossing2, tempOplossing3;
         private Random oefeningenNummer = new Random();
-        private int oefeningenNummerOpslag;
+        private int oefeningenNummerOpslag, oefCorrect;
+        private int gespendeerdeTijd;
         private List<string> oefLijst1, oefLijst2, oefLijst3, oefLijst4, oefLijst5;
-        private int oefCorrect = 0;
+        private Resultaat resultaat;
+        private ResultatenLijst resultatenlijst;
         private List<int> oefeningNummerLijst;
-        Gebruiker actieveGebruiker;
+        private Gebruiker actieveGebruiker;
+        private Stopwatch tijdGespendeerd;
         public OefNederlands1Makkelijk(Gebruiker actieveGebruiker)
         {
-            this.actieveGebruiker = actieveGebruiker;
+            
             InitializeComponent();
+
+            this.actieveGebruiker = actieveGebruiker;
+            tijdGespendeerd.Start();
+            
             lijstOefeningen = new OefeningLijst("makkelijk");
+            
 
             tempOpgave = new string[5];
             tempOplossing1 = new string[5];
@@ -96,6 +105,9 @@ namespace Groepswerk
 
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
+            tijdGespendeerd.Stop();
+            gespendeerdeTijd = Convert.ToInt32(tijdGespendeerd.ElapsedMilliseconds * 1000);
+            oefCorrect = 0;
             if (!(Convert.ToString(oplossing1.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[0]].correcteOplossing)))
             {
                 opgave1.Text = lijstOefeningen[oefeningNummerLijst[0]].juisteAntwoordCompleet;
@@ -143,7 +155,8 @@ namespace Groepswerk
             Punten.Text = Convert.ToString(oefCorrect) + "/5";
 
             //WEGSHRIJVEN
-            
+            ResultatenLijst resultatenLijst = new ResultatenLijst("OefNederlands1MakkelijkResultaten.txt");
+            Resultaat resultaat = new Resultaat(actieveGebruiker.Id, oefCorrect, gespendeerdeTijd, resultatenLijst);
 
         }
 

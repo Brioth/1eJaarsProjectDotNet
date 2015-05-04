@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,15 +23,17 @@ namespace Groepswerk
         private OefeningLijst lijstOefeningen;
         private string[] tempOpgave, tempOplossing1, tempOplossing2, tempOplossing3;
         private Random oefeningenNummer = new Random();
-        private int oefeningenNummerOpslag;
-        private IList<string> oefLijst1, oefLijst2, oefLijst3, oefLijst4, oefLijst5;
-        private int oefCorrect;
-        private IList<int> oefeningNummerLijst;
+        private int oefeningenNummerOpslag, oefCorrect;
+        private long gespendeerdeTijd;
+        private List<string> oefLijst1, oefLijst2, oefLijst3, oefLijst4, oefLijst5;
+        private List<int> oefeningNummerLijst;
         Gebruiker actieveGebruiker;
+        private Stopwatch tijdGespendeerd;
         public OefNederlands1Gemiddeld(Gebruiker actieveGebruiker)
         {
             this.actieveGebruiker = actieveGebruiker;
             InitializeComponent();
+            tijdGespendeerd.Start();
             lijstOefeningen = new OefeningLijst("gemiddeld");
 
             tempOpgave = new string[5];
@@ -96,6 +99,8 @@ namespace Groepswerk
 
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
+            tijdGespendeerd.Stop();
+            gespendeerdeTijd = tijdGespendeerd.ElapsedMilliseconds * 1000;
             oefCorrect = 0;
             if (!(Convert.ToString(oplossing1.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[0]].correcteOplossing)))
             {

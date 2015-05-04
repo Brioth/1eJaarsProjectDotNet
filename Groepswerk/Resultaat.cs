@@ -13,6 +13,10 @@ namespace Groepswerk
     {
         //Lokale variabelen
         private int totaalPunten, gespendeerdeTijd, aantalOefeningen = 0;
+        private int p;
+        private int oefCorrect;
+        private System.Diagnostics.Stopwatch tijdGespendeerd;
+        private OefeningLijst lijstOefeningen;
         //Constructors
         public Resultaat(int id, DateTime datum , int aantalOefeningen, int punt, int gespendeerdeTijd) //Constructor om resultaat op te halen
         {
@@ -45,6 +49,7 @@ namespace Groepswerk
                 }
             }
         }
+
         //Events
         //Methods
         public void AddTime(int seconden)
