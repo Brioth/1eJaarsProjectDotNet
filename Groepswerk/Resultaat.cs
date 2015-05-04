@@ -14,38 +14,40 @@ namespace Groepswerk
         //Lokale variabelen
         private int totaalPunten, gespendeerdeTijd, aantalOefeningen = 0, indexOud;
         //Constructors
-        public Resultaat(int id, DateTime datum, int aantalOefeningen, int punt, int gespendeerdeTijd) //Constructor om resultaat op te halen
+        public Resultaat(int id, DateTime datum, int punt, int aantalOefeningen, int gespendeerdeTijd) //Constructor om resultaat op te halen
         {
             Id = id;
             Datum = datum;
             this.aantalOefeningen = aantalOefeningen;
             totaalPunten = punt;
-            gespendeerdeTijd = this.gespendeerdeTijd;
+            this.gespendeerdeTijd = gespendeerdeTijd;
         }
-        public Resultaat(int id, int punt, int gespendeerdeTijd, ResultatenLijst lijst) //Constructor om nieuw resultaat te maken
+        public Resultaat(int id, int puntOef, int gespendeerdeTijdOef, ResultatenLijst lijst) //Constructor om nieuw resultaat te maken
         {
             Id = id;
             Datum = DateTime.Today;
+            indexOud = -1; 
             for (int i = 0; i < lijst.Count; i++)
-            {
+            {              
                 if (lijst[i].Id.Equals(this.Id) && (lijst[i].Datum.Equals(DateTime.Today)))
                 {
-                    this.totaalPunten = lijst[i].TotaalPunten;
-                    this.gespendeerdeTijd = lijst[i].GespendeerdeTijd;
-                    this.aantalOefeningen = lijst[i].AantalOefeningen;
-                    this.AddPunten(punt);
-                    this.AddTime(gespendeerdeTijd);
+                    totaalPunten = lijst[i].TotaalPunten;
+                    gespendeerdeTijd = lijst[i].GespendeerdeTijd;
+                    aantalOefeningen = lijst[i].AantalOefeningen;
+                    this.AddPunten(puntOef);
+                    this.AddTime(gespendeerdeTijdOef);
                     this.aantalOefeningen++;
                     indexOud = i;
                 }
-                else
-                {
-                    totaalPunten = punt;
-                    this.gespendeerdeTijd = gespendeerdeTijd;
-                    aantalOefeningen = 1;
-                    indexOud = -1;
-                }
             }
+            if (indexOud == -1)
+            {
+                totaalPunten = puntOef;
+                gespendeerdeTijd = gespendeerdeTijdOef;
+                aantalOefeningen = 1;
+            }
+
+
         }
         //Events
         //Methods
