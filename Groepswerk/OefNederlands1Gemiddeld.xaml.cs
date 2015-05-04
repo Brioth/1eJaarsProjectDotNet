@@ -33,6 +33,7 @@ namespace Groepswerk
         {
             this.actieveGebruiker = actieveGebruiker;
             InitializeComponent();
+            tijdGespendeerd = new Stopwatch();
             tijdGespendeerd.Start();
             lijstOefeningen = new OefeningLijst("gemiddeld");
 
