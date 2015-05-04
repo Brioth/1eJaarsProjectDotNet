@@ -28,62 +28,37 @@ namespace Groepswerk
         private IList<string> oefLijst;
         private int oefCorrect = 0;
         private IList<int> oefeningNummerLijst;
-        public oefWoMakkelijk(){
+        public oefWoMakkelijk( Gebruiker actieveGebruiker){
+            //this.actieveGebruiker = actieveGebruiker;
           InitializeComponent();
             lijstOefeningen = new OefeningLijst("WoGemakkelijk");
-        
-             for (int i = 0; i > 5; i++)
+            
+     
+            tempOpgave = new string[5];
+            tempOplossing1 = new string[5];
+
+            for (int i = 0; i < 5; i++)
             {
-                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count - 1)));
+                oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count + 1)));
 
                 while (oefeningNummerLijst.Contains(oefeningenNummerOpslag))
                 {
                     oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(1, lijstOefeningen.Count));
                 }
                 tempOpgave[i] = lijstOefeningen[oefeningenNummerOpslag].opgave;
-                tempOplossing1[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing;
+                tempOplossing1[i] = lijstOefeningen[oefeningenNummerOpslag].oplossing1;
                 oefeningNummerLijst.Add(oefeningenNummerOpslag);
             }
-            label1.Content = tempOpgave[1];
-            oefLijst.Add(tempOplossing1[1]);
+
+            label1.Content= tempOpgave[0];
+            label2.Content = tempOpgave[1];
+            label3.Content = tempOpgave[2];
+            labbel4.Content = tempOpgave[3];
+            label5.Content = tempOpgave[4];
+           
             
-            
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
 
-            label2.Content = tempOpgave[2];
-            oefLijst.Add(tempOplossing1[2]);
-
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
-
-            label5.Content = tempOpgave[3];
-            oefLijst.Add(tempOplossing1[3]);
-            
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
-
-            labbel4.Content = tempOpgave[4];
-            oefLijst.Add(tempOplossing1[4]);
-          
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
-            label5.Content = tempOpgave[5];
-            oefLijst.Add(tempOplossing1[5]);
-         
-            for (int i = 0; i > 3; i++)
-            {
-                oefLijst.RemoveAt(i);
-            }
-        }
+        }  
 
         
         private void controleer_Click(object sender, RoutedEventArgs e)
