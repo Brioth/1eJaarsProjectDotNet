@@ -24,6 +24,7 @@ namespace Groepswerk
     {
         private Gebruiker actieveGebruiker;
         private OefeningLijst lijstOefeningen;
+        private string moeilijkheidsgraad = "MAK";
         private string[] tempOpgave, tempOplossing1;
         private Random oefeningenNummer = new Random();
         private int oefeningenNummerOpslag;
@@ -67,10 +68,11 @@ namespace Groepswerk
             
 
         }
+       
         private void SchrijfPunten() {
             ResultatenLijst lijst = new ResultatenLijst("resultaatWoMakkelijk.txt");
             Resultaat nieuw = new Resultaat(actieveGebruiker.Id,oefCorrect*2,totaalTijd, lijst);
-
+            
             if (nieuw.IndexOud == -1)
             {
                 lijst.Add(nieuw);
@@ -141,7 +143,7 @@ namespace Groepswerk
                     oefCorrect++;
                 textbox5.Background=Brushes.Green;
                 }
-
+            actieveGebruiker.SetGameTijd(oefCorrect*2, moeilijkheidsgraad);
             SchrijfPunten();
            
             }
