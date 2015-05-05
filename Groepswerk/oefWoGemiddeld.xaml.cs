@@ -28,7 +28,7 @@ namespace Groepswerk
         private IList<string> oefLijst;
         private int oefCorrect = 0;
         private IList<int> oefeningNummerLijst;
-        private long totaalTijd;
+        private int totaalTijd;
         private Stopwatch tijdTeller;
 
         public oefWoGemiddeld( Gebruiker actieveGebruiker){
@@ -69,7 +69,7 @@ namespace Groepswerk
         private void SchrijfPunten()
         {
             ResultatenLijst lijst = new ResultatenLijst("resultaatWoGemiddeld.txt");
-            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect, totaalTijd, lijst);
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect*2, totaalTijd, lijst);
 
             if (nieuw.IndexOud == -1)
             {

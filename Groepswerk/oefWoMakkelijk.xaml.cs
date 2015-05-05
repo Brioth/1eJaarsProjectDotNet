@@ -69,7 +69,7 @@ namespace Groepswerk
         }
         private void SchrijfPunten() {
             ResultatenLijst lijst = new ResultatenLijst("resultaatWoMakkelijk.txt");
-            Resultaat nieuw = new Resultaat(actieveGebruiker.Id,oefCorrect,totaalTijd, lijst);
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id,oefCorrect*2,totaalTijd, lijst);
 
             if (nieuw.IndexOud == -1)
             {
