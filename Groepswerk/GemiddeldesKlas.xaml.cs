@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,47 +26,122 @@ namespace Groepswerk
         private Klaslijst lijstKlas;
         private Accountlijst lijstAccounts;
         private List<DetailsGebruiker> detailsGebruikers;
-
+        private List<Label> labels;
         public GemiddeldesKlas()
         {
             InitializeComponent();
             lijstKlas = new Klaslijst();
             detailsGebruikers = new List<DetailsGebruiker>();
+            labels = new List<Label>();
             selecteerKlas.ItemsSource = lijstKlas;
             selecteerKlas.SelectedIndex = 0;
-
         }
 
         private void selecteerKlas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             lijstAccounts = new Accountlijst((Klas)selecteerKlas.SelectedItem);
+            detailsGebruikers.Clear();
+
             foreach (Gebruiker gebruiker in lijstAccounts)
             {
-                detailsGebruikers.Add(new DetailsGebruiker(gebruiker.Id));
+                detailsGebruikers.Add(new DetailsGebruiker(gebruiker.Id, gebruiker.ToString()));
             }
 
-            resultatenGrid.ItemsSource = detailsGebruikers;
+            MaakGrid(lijstAccounts);
 
+            for (int i = 0; i < detailsGebruikers.Count; i++)
+            {
+                double gemNed = BerekenGem("Ned", i);
+                double gemWisk = BerekenGem("Wisk", i);
+                double gemWO = BerekenGem("WO", i);
 
+                for (int j = 0; j < 4; j++)
+                {
+                    Label lbl = new Label();
+                    lbl.Margin = new Thickness(20, 10, 20, 10);
+                    switch (j)
+                    {
+                        case 0:
+                            lbl.Content = detailsGebruikers[i].Naam;
+                            break;
+                        case 1:
+                            lbl.Content = gemNed;
+                            break;
+                        case 2:
+                            lbl.Content = gemWisk;
+                            break;
+                        case 3:
+                            lbl.Content = gemWO;
+                            break;
+                    }
+                    Grid.SetColumn(lbl, j);
+                    Grid.SetRow(lbl, i + 1);
+                    resultatenGrid.Children.Add(lbl);
+                    labels.Add(lbl);
 
+                }
+            }
+        }
 
+        private double BerekenGem(string vak, int index)
+        {
+            int totaalPunten, totaalOefeningen;
+            double gemiddelde;
 
-            //MaakGrid();
-            //string gemiddeldesText = gemiddeldes.Text;
-            //gemiddeldes.Text = "Naam leerling" + '\t' + "Gemiddelde Wiskunde" + '\t' + "Gemiddelde Nederlands" + '\t' + "Gemiddelde WO";
+            switch (vak)
+            {
+                case "Ned":
+                    totaalPunten = detailsGebruikers[index].GemNedMak[0] + detailsGebruikers[index].GemNedMed[0] + detailsGebruikers[index].GemNedMoe[0];
+                    totaalOefeningen = detailsGebruikers[index].GemNedMak[2] + detailsGebruikers[index].GemNedMed[2] + detailsGebruikers[index].GemNedMoe[2];
 
+                    gemiddelde = Math.Round(totaalPunten / Convert.ToDouble(totaalOefeningen), 2);
+                    break;
+                case "Wisk":
+                    totaalPunten = detailsGebruikers[index].GemWiskMak[0] + detailsGebruikers[index].GemWiskMed[0] + detailsGebruikers[index].GemWiskMoe[0];
+                    totaalOefeningen = detailsGebruikers[index].GemWiskMak[2] + detailsGebruikers[index].GemWiskMed[2] + detailsGebruikers[index].GemWiskMoe[2];
 
+                    gemiddelde = Math.Round(totaalPunten / Convert.ToDouble(totaalOefeningen), 2);
+                    break;
+                case "WO":
+                    totaalPunten = detailsGebruikers[index].GemWoMak[0] + detailsGebruikers[index].GemWoMed[0] + detailsGebruikers[index].GemWoMoe[0];
+                    totaalOefeningen = detailsGebruikers[index].GemWoMak[2] + detailsGebruikers[index].GemWoMed[2] + detailsGebruikers[index].GemWoMoe[2];
 
-            //for (int i = 0; i < (lijstAccounts.Count); i++)
-            //{
-            //    gemiddeldesText = gemiddeldes.Text;
-            //    //gemiddeldesText = gemiddeldesText + '\n' + lijstAccount[i].Voornaam + " " + lijstAccount[i].Achternaam + '\t' + '\t' + lijstAccount[i].GemWisk + '\t' + '\t' + '\t' + lijstAccount[i].GemNed + '\t' + '\t' + '\t' + lijstAccount[i].GemWO;
-            //    gemiddeldes.Text = gemiddeldesText;
-            //}
-            
+                    gemiddelde = Math.Round(totaalPunten / Convert.ToDouble(totaalOefeningen), 2);
+                    break;
+                default:
+                    gemiddelde = 0;
+                    break;
+            }
+
+            if (double.IsNaN(gemiddelde))
+            {
+                gemiddelde = 0;
+            }
+
+            return gemiddelde;
+        }
+
+        private void MaakGrid(Accountlijst lijstAccounts)
+        {
+            foreach (Label item in labels)
+            {
+                resultatenGrid.Children.Remove(item);
+            }
+            labels.Clear();
+            if (resultatenGrid.RowDefinitions.Count > 1)
+            {
+                resultatenGrid.RowDefinitions.RemoveRange(1, resultatenGrid.RowDefinitions.Count - 1);
+            }
+            foreach (Gebruiker item in lijstAccounts)
+            {
+                RowDefinition row = new RowDefinition();
+                row.Height = GridLength.Auto;
+                resultatenGrid.RowDefinitions.Add(row);
+            }
         }
 
 
- 
-    } 
+
+
+    }
 }

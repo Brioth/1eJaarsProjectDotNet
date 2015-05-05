@@ -25,14 +25,36 @@
         </Grid.RowDefinitions>
         <ComboBox Name="klasKeuze" Grid.Column="1" Grid.Row="1" Margin="10" SelectionChanged="klasKeuze_Changed" />   
         <ComboBox Name="boxLln" Grid.Column="2" Grid.Row="1" Margin="10" SelectionChanged="boxLln_SelectionChanged"/>
-        <DataGrid Name="gridAlgemeen" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" Margin="10">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Vak" Binding="{Binding Vak}"/>
-                <DataGridTextColumn Header="Makkelijk" Binding="{Binding Makkelijk}"/>
-                <DataGridTextColumn Header="Gemiddeld" Binding="{Binding Gemiddeld}"/>
-                <DataGridTextColumn Header="Moeilijk" Binding="{Binding Moeilijk}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <Grid Name="algemeenGemGrid" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Makkelijk" Grid.Row="0" Grid.Column="1" Margin="20,10,20,10" FontWeight="SemiBold"/>
+            <Label Content="Gemiddeld" Grid.Row="0" Grid.Column="2" Margin="20,10,20,10" FontWeight="SemiBold"/>
+            <Label Content="Moeilijk" Grid.Row="0" Grid.Column="3" Margin="20,10,20,10" FontWeight="SemiBold"/>
+            <Label Content="Taal" Grid.Row="1" Grid.Column="0" Margin="20,10,20,10" FontWeight="SemiBold"/>
+            <Label Content="Rekenen" Grid.Row="2" Grid.Column="0" Margin="20,10,20,10" FontWeight="SemiBold"/>
+            <Label Content="Wo" Grid.Row="3" Grid.Column="0" Margin="20,10,20,10" FontWeight="SemiBold"/>
+            <Label Name="lblNedMak" Grid.Column="1" Grid.Row="1" Margin="20,10,20,10"/>
+            <Label Name="lblNedMed" Grid.Column="2" Grid.Row="1" Margin="20,10,20,10"/>
+            <Label Name="lblNedMoe" Grid.Column="3" Grid.Row="1" Margin="20,10,20,10"/>
+            <Label Name="lblWiskMak" Grid.Column="1" Grid.Row="2" Margin="20,10,20,10"/>
+            <Label Name="lblWiskMed" Grid.Column="2" Grid.Row="2" Margin="20,10,20,10"/>
+            <Label Name="lblWiskMoe" Grid.Column="3" Grid.Row="2" Margin="20,10,20,10"/>
+            <Label Name="lblWoMak" Grid.Column="1" Grid.Row="3" Margin="20,10,20,10"/>
+            <Label Name="lblWoMed" Grid.Column="2" Grid.Row="3" Margin="20,10,20,10"/>
+            <Label Name="lblWoMoe" Grid.Column="3" Grid.Row="3" Margin="20,10,20,10"/>
+
+        </Grid>
         <ComboBox Name="boxOef" Grid.Column="1" Grid.Row="3" Margin="10" SelectionChanged="boxOef_SelectionChanged">
             <ComboBoxItem Name="oefNedMak" Content="Taal Makkelijk"/>
             <ComboBoxItem Name="oefNedGem" Content="Taal Gemiddeld"/>
@@ -44,16 +66,37 @@
             <ComboBoxItem Name="oefWoMed" Content="WO Gemiddeld"/>
             <ComboBoxItem Name="oefWoMoe" Content="WO Moeilijk"/>
         </ComboBox>
-        <DataGrid Name="gridGemOef" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3" Margin="10"/>
-        
-        <DataGrid Name="gridAlles" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="4" Margin="10" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Datum" Binding="{Binding Datum}"/>
-                <DataGridTextColumn Header="Gemiddeld # punten" Binding="{Binding GemPunten}"/>
-                <DataGridTextColumn Header="Gemiddelde tijd" Binding="{Binding GemTijd}" />
-                <DataGridTextColumn Header="Aantal oefeningen gemaakt" Binding="{Binding AantalOefeningen}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-            
+        <Grid Name="GemiddeldeVakGrid" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3" Margin="10" Background="#FFE5E5E5" ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Gemiddelde punten" Grid.Row="0" Grid.Column="0" Margin="20,10,20,10" FontWeight="SemiBold"/>
+            <Label Content="Aantal Oefeningen" Grid.Row="0" Grid.Column="2" Margin="20,10,20,10" FontWeight="SemiBold"/>
+            <Label Content="Gemiddelde tijd" Grid.Row="0" Grid.Column="1" Margin="20,10,20,10" FontWeight="SemiBold"/>
+            <Label Name="lblGem" Grid.Row="1" Grid.Column="0" Margin="20,10,20,10"/>
+            <Label Name="lblAantal" Grid.Row="1" Grid.Column="2" Margin="20,10,20,10"/>
+            <Label Name="lblTijd" Grid.Row="1" Grid.Column="1" Margin="20,10,20,10"/>
+        </Grid>
+        <Grid Name="detailGrid" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="4" Margin="10" Background="#FFE5E5E5" ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Datum" Grid.Row="0" Grid.Column="0" Margin="20,10,20,10" FontWeight="SemiBold"/>
+            <Label Content="Aantal Oefeningen" Grid.Row="0" Grid.Column="1" Margin="20,10,20,10" FontWeight="SemiBold"/>
+            <Label Content="Punten" Grid.Row="0" Grid.Column="2" Margin="20,10,20,10" FontWeight="SemiBold"/>
+            <Label Content="Gespendeerde tijd" Grid.Row="0" Grid.Column="3" Margin="20,10,20,10" FontWeight="SemiBold"/>
+        </Grid>           
     </Grid>
 </Page>

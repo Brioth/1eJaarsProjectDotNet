@@ -28,7 +28,6 @@ namespace Groepswerk
     {
         //Lokale variabelen
         private Gebruiker actieveGebruiker;
-        private HoofdspelSpeler speler, computer;
 
         private DispatcherTimer animationTimer, spawnTimer, speltijdTimer, aftelTimer;//Wnr alles beweegt
 
@@ -39,8 +38,8 @@ namespace Groepswerk
             InitializeComponent();
 
             this.actieveGebruiker = actieveGebruiker;
-            speler = new HoofdspelSpeler();
-            computer = new HoofdspelSpeler();
+            Speler = new HoofdspelSpeler();
+            Computer = new HoofdspelSpeler();
 
             //BindLijsten();
 
@@ -84,23 +83,23 @@ namespace Groepswerk
 
            private void AnimationTimer_Tick(object sender, EventArgs e)
         {
-            speler.Beweeg(drawingCanvas);
-            computer.Beweeg(drawingCanvas);
-            speler.CheckHit(computer.Bolletjes, computer.Vierkantjes);
-            computer.CheckHit(speler.Bolletjes, speler.Vierkantjes);
-            speler.MaakVrij(drawingCanvas, "#CB2611");
-            computer.MaakVrij(drawingCanvas, "#13737C");
+            Speler.Beweeg(drawingCanvas);
+            Computer.Beweeg(drawingCanvas);
+            Speler.CheckHit(Computer.Bolletjes, Computer.Vierkantjes);
+            Computer.CheckHit(Speler.Bolletjes, Speler.Vierkantjes);
+            Speler.MaakVrij(drawingCanvas, "#CB2611");
+            Computer.MaakVrij(drawingCanvas, "#13737C");
         }
         
         private void Spawner_Tick(object sender, EventArgs e)
         {
             HoofdSpelBolletje bolletjeRood = new HoofdSpelBolletje("#CB2611", drawingCanvas);
-            speler.Bolletjes.Add(bolletjeRood);
+            Speler.Bolletjes.Add(bolletjeRood);
             bolletjeRood.DisplayOn(drawingCanvas);
             //entiteitenRood.Bolletjes = entiteitenRood.Bolletjes + 1;
 
             HoofdSpelBolletje bolletjeBlauw = new HoofdSpelBolletje("#13737C", drawingCanvas);
-            computer.Bolletjes.Add(bolletjeBlauw);
+            Computer.Bolletjes.Add(bolletjeBlauw);
             bolletjeBlauw.DisplayOn(drawingCanvas);
             //entiteitenBlauw.Bolletjes = entiteitenBlauw.Bolletjes + 1;
         }
@@ -124,33 +123,34 @@ namespace Groepswerk
             lijst.SchrijfLijst();
         }
         //Methods
-        //private void BindLijsten()
-        //{
-        //    Binding b = new Binding();
-        //    b.Source = entiteitenRood;
-        //    b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-        //    b.Path = new PropertyPath("Bolletjes");
-        //    txtbRoodB.SetBinding(TextBlock.TextProperty, b);
+        private void BindLijsten()
+        {
+            //Binding b = new Binding();
+            //b.Source = speler.Bolletjes;
+            //b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+            //b.Path = new PropertyPath("Bolletjes");
+            //txtbRoodB.SetBinding(TextBlock.TextProperty, b);
 
-        //    b = new Binding();
-        //    b.Source = entiteitenRood;
-        //    b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-        //    b.Path = new PropertyPath("Vierkantjes");
-        //    txtbRoodV.SetBinding(TextBlock.TextProperty, b);
+            //b = new Binding();
+            //b.Source = speler.Vierkantjes;
+            //b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+            //b.Path = new PropertyPath("Vierkantjes");
+            //txtbRoodV.SetBinding(TextBlock.TextProperty, b);
 
-        //    b = new Binding();
-        //    b.Source = entiteitenBlauw;
-        //    b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-        //    b.Path = new PropertyPath("Bolletjes");
-        //    txtbBlauwB.SetBinding(TextBlock.TextProperty, b);
+            //b = new Binding();
+            //b.Source = computer.Bolletjes;
+            //b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+            //b.Path = new PropertyPath("Bolletjes");
+            //txtbBlauwB.SetBinding(TextBlock.TextProperty, b);
 
-        //    b = new Binding();
-        //    b.Source = entiteitenBlauw;
-        //    b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-        //    b.Path = new PropertyPath("Vierkantjes");
-        //    txtbBlauwV.SetBinding(TextBlock.TextProperty, b);
-        //}
+            //b = new Binding();
+            //b.Source = computer.Vierkantjes;
+            //b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+            //b.Path = new PropertyPath("Vierkantjes");
+            //txtbBlauwV.SetBinding(TextBlock.TextProperty, b);
+        }
         //Properties
-
+        public HoofdspelSpeler Speler { get; set; }
+        public HoofdspelSpeler Computer { get; set; }
     }
 }

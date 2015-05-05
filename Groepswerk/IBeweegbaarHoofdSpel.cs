@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,6 @@ namespace Groepswerk
     {
         void Beweeg(Canvas drawingCanvas);
         void MaakVrij(Canvas drawingCanvas, string kleur);
-        void CheckHit(List<HoofdSpelBolletje> bolletjesTegenstander, List<HoofdSpelVierkantje> vierkantjesTegenstander);
+        void CheckHit(ObservableCollection<HoofdSpelBolletje> bolletjesTegenstander, ObservableCollection<HoofdSpelVierkantje> vierkantjesTegenstander);
     }
 }

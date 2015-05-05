@@ -16,243 +16,76 @@ namespace Groepswerk
     public class DetailsGebruiker
     {
         //Lokale variabelen
-
+        private string naam;
+        private List<Resultaat> nedMak, nedGem, nedMoe, wiskMak, wiskGem, wiskMoe, woMak, woGem, woMoe;
         //Constructors
-        public DetailsGebruiker(int id)
+        public DetailsGebruiker(int id, string naam)
         {
             Id = id;
+            this.naam = naam;
+            nedMak = MaakLijst("OefNederlands1MakkelijkResultaten.txt");
+            nedGem = MaakLijst("OefNederlands1GemiddeldResultaten.txt");
+            nedMoe = MaakLijst("OefNederlands1MoeilijkResultaten.txt");
+            wiskMak = MaakLijst("OefResultatenWiskMak.txt");
+            wiskGem = MaakLijst("OefResultatenWiskGem.txt");
+            wiskMoe = MaakLijst("OefResultatenWiskMoe.txt");
+            woMak = MaakLijst("OefResultatenWoMak.txt");
+            woGem = MaakLijst("OefResultatenWoMed.txt");
+            woMoe = MaakLijst("OefResultatenWoMoe.txt");
         }
+
+        private List<Resultaat> MaakLijst(string bestand)
+        {
+            ResultatenLijst resLijst = new ResultatenLijst(bestand);
+            List<Resultaat> gemiddeldeLijst = new List<Resultaat>();
+            foreach (Resultaat item in resLijst)
+            {
+                if (this.Id.Equals(item.Id))
+                {
+                    gemiddeldeLijst.Add(item);
+                }
+            }
+            return gemiddeldeLijst;
+        }
+        public int[] MaakGemiddelde(List<Resultaat> lijst)
+        {
+            int totaalPunten = 0;
+            int totaalSeconden = 0;
+            int totaalOefeningen = 0;
+            foreach (Resultaat item in lijst)
+            {
+                totaalPunten = totaalPunten + item.TotaalPunten;
+                totaalSeconden = totaalSeconden + item.GespendeerdeTijd;
+                totaalOefeningen = totaalOefeningen + item.AantalOefeningen;
+            }
+
+            int[] gemiddelde = { totaalPunten, totaalSeconden, totaalOefeningen };
+
+            return gemiddelde;
+        }
+
         public int Id { get; set; }
-        public List<Resultaat> ResultatenNedMak 
-        { 
-            get 
-            {
-                ResultatenLijst lijst = new ResultatenLijst("locatie");
-                foreach (Resultaat item in lijst)
-                {
-                    if (this.Id.Equals(item.Id))
-                    {
-                        ResultatenNedMak.Add(item);
-                    }
-                }
-                return ResultatenNedMak;
-            }
-                
-        }
-        public List<Resultaat> ResultatenNedMed
-        {
-            get
-            {
-                ResultatenLijst lijst = new ResultatenLijst("locatie");
-                foreach (Resultaat item in lijst)
-                {
-                    if (this.Id.Equals(item.Id))
-                    {
-                        ResultatenNedMed.Add(item);
-                    }
-                }
-                return ResultatenNedMed;
-            }
+        public string Naam { get { return naam; } }
+        public List<Resultaat> ResultatenNedMak { get { return nedMak; } }
+        public List<Resultaat> ResultatenNedMed { get { return nedGem; } }
+        public List<Resultaat> ResultatenNedMoe { get { return nedMoe; } }
+        public List<Resultaat> ResultatenWiskMak { get { return wiskMak; } }
+        public List<Resultaat> ResultatenWiskMed { get { return wiskGem; } }
+        public List<Resultaat> ResultatenWiskMoe { get { return wiskMoe; } }
+        public List<Resultaat> ResultatenWoMak { get { return woMak; } }
+        public List<Resultaat> ResultatenWoMed { get { return woGem; } }
+        public List<Resultaat> ResultatenWoMoe { get { return woMoe; } }
+        public int[] GemNedMak { get { return MaakGemiddelde(ResultatenNedMak); } }
+        public int[] GemNedMed { get { return MaakGemiddelde(ResultatenNedMed); } }
+        public int[] GemNedMoe { get { return MaakGemiddelde(ResultatenNedMoe); } }
+        public int[] GemWiskMak { get { return MaakGemiddelde(ResultatenWiskMak); } }
+        public int[] GemWiskMed { get { return MaakGemiddelde(ResultatenWiskMed); } }
+        public int[] GemWiskMoe { get { return MaakGemiddelde(ResultatenWiskMoe); } }
+        public int[] GemWoMak { get { return MaakGemiddelde(ResultatenWoMak); } }
+        public int[] GemWoMed { get { return MaakGemiddelde(ResultatenWoMed); } }
+        public int[] GemWoMoe { get { return MaakGemiddelde(ResultatenWoMoe); } }
 
-        }
-        public List<Resultaat> ResultatenNedMoe
-        {
-            get
-            {
-                ResultatenLijst lijst = new ResultatenLijst("locatie");
-                foreach (Resultaat item in lijst)
-                {
-                    if (this.Id.Equals(item.Id))
-                    {
-                        ResultatenNedMoe.Add(item);
-                    }
-                }
-                return ResultatenNedMoe;
-            }
 
-        }
-        public List<Resultaat> ResultatenWiskMak
-        {
-            get
-            {
-                ResultatenLijst lijst = new ResultatenLijst("locatie");
-                foreach (Resultaat item in lijst)
-                {
-                    if (this.Id.Equals(item.Id))
-                    {
-                        ResultatenWiskMak.Add(item);
-                    }
-                }
-                return ResultatenWiskMak;
-            }
 
-        }
-        public List<Resultaat> ResultatenWiskMed
-        {
-            get
-            {
-                ResultatenLijst lijst = new ResultatenLijst("locatie");
-                foreach (Resultaat item in lijst)
-                {
-                    if (this.Id.Equals(item.Id))
-                    {
-                        ResultatenWiskMed.Add(item);
-                    }
-                }
-                return ResultatenWiskMed;
-            }
-
-        }
-        public List<Resultaat> ResultatenWiskMoe
-        {
-            get
-            {
-                ResultatenLijst lijst = new ResultatenLijst("locatie");
-                foreach (Resultaat item in lijst)
-                {
-                    if (this.Id.Equals(item.Id))
-                    {
-                        ResultatenWiskMoe.Add(item);
-                    }
-                }
-                return ResultatenWiskMoe;
-            }
-
-        }
-        public List<Resultaat> ResultatenWoMak
-        {
-            get
-            {
-                ResultatenLijst lijst = new ResultatenLijst("locatie");
-                foreach (Resultaat item in lijst)
-                {
-                    if (this.Id.Equals(item.Id))
-                    {
-                        ResultatenWoMak.Add(item);
-                    }
-                }
-                return ResultatenWoMak;
-            }
-
-        }
-        public List<Resultaat> ResultatenWoMed
-        {
-            get
-            {
-                ResultatenLijst lijst = new ResultatenLijst("locatie");
-                foreach (Resultaat item in lijst)
-                {
-                    if (this.Id.Equals(item.Id))
-                    {
-                        ResultatenWoMed.Add(item);
-                    }
-                }
-                return ResultatenWoMed;
-            }
-
-        }
-        public List<Resultaat> ResultatenWoMoe
-        {
-            get
-            {
-                ResultatenLijst lijst = new ResultatenLijst("locatie");
-                foreach (Resultaat item in lijst)
-                {
-                    if (this.Id.Equals(item.Id))
-                    {
-                        ResultatenWoMoe.Add(item);
-                    }
-                }
-                return ResultatenWoMoe;
-            }
-
-        }
-        public int[] GemNed 
-        {
-            get
-            {
-                int totaalPunten = 0;
-                int totaalSeconden = 0;
-                int totaalOefeningen = 0;
-                foreach (Resultaat item in ResultatenNedMak)
-                {
-                    totaalPunten = totaalPunten + item.TotaalPunten;
-                    totaalSeconden = totaalSeconden + item.GespendeerdeTijd;
-                    totaalOefeningen = totaalOefeningen + item.TotaalPunten;
-                }
-                foreach (Resultaat item in ResultatenNedMed)
-                {
-                    totaalPunten = totaalPunten + item.TotaalPunten;
-                    totaalSeconden = totaalSeconden + item.GespendeerdeTijd;
-                    totaalOefeningen = totaalOefeningen + item.TotaalPunten;
-                }
-                foreach (Resultaat item in ResultatenNedMoe)
-                {
-                    totaalPunten = totaalPunten + item.TotaalPunten;
-                    totaalSeconden = totaalSeconden + item.GespendeerdeTijd;
-                    totaalOefeningen = totaalOefeningen + item.TotaalPunten;
-                }
-                int[] gemNed = { totaalPunten, totaalOefeningen, totaalSeconden };
-                return gemNed;
-            }
-        }
-        public int[] GemWisk
-        {
-            get
-            {
-                int totaalPunten = 0;
-                int totaalSeconden = 0;
-                int totaalOefeningen = 0;
-                foreach (Resultaat item in ResultatenWiskMak)
-                {
-                    totaalPunten = totaalPunten + item.TotaalPunten;
-                    totaalSeconden = totaalSeconden + item.GespendeerdeTijd;
-                    totaalOefeningen = totaalOefeningen + item.TotaalPunten;
-                }
-                foreach (Resultaat item in ResultatenWiskMed)
-                {
-                    totaalPunten = totaalPunten + item.TotaalPunten;
-                    totaalSeconden = totaalSeconden + item.GespendeerdeTijd;
-                    totaalOefeningen = totaalOefeningen + item.TotaalPunten;
-                }
-                foreach (Resultaat item in ResultatenWiskMoe)
-                {
-                    totaalPunten = totaalPunten + item.TotaalPunten;
-                    totaalSeconden = totaalSeconden + item.GespendeerdeTijd;
-                    totaalOefeningen = totaalOefeningen + item.TotaalPunten;
-                }
-                int[] gemWisk = { totaalPunten, totaalOefeningen, totaalSeconden };
-                return gemWisk;
-            }
-        }
-        public int[] GemWO
-        {
-            get
-            {
-                int totaalPunten = 0;
-                int totaalSeconden = 0;
-                int totaalOefeningen = 0;
-                foreach (Resultaat item in ResultatenWoMak)
-                {
-                    totaalPunten = totaalPunten + item.TotaalPunten;
-                    totaalSeconden = totaalSeconden + item.GespendeerdeTijd;
-                    totaalOefeningen = totaalOefeningen + item.TotaalPunten;
-                }
-                foreach (Resultaat item in ResultatenWoMed)
-                {
-                    totaalPunten = totaalPunten + item.TotaalPunten;
-                    totaalSeconden = totaalSeconden + item.GespendeerdeTijd;
-                    totaalOefeningen = totaalOefeningen + item.TotaalPunten;
-                }
-                foreach (Resultaat item in ResultatenWoMoe)
-                {
-                    totaalPunten = totaalPunten + item.TotaalPunten;
-                    totaalSeconden = totaalSeconden + item.GespendeerdeTijd;
-                    totaalOefeningen = totaalOefeningen + item.TotaalPunten;
-                }
-                int[] gemWo = { totaalPunten, totaalOefeningen, totaalSeconden };
-                return gemWo;
-            }
-        }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -15,8 +17,8 @@ namespace Groepswerk
         //Constructors
         public HoofdspelSpeler()
         {
-            Bolletjes = new List<HoofdSpelBolletje>();
-            Vierkantjes = new List<HoofdSpelVierkantje>();
+            Bolletjes = new ObservableCollection<HoofdSpelBolletje>();
+            Vierkantjes = new ObservableCollection<HoofdSpelVierkantje>();
         }
         //Methods
 
@@ -77,7 +79,7 @@ namespace Groepswerk
             }
             return richting;
         }
-        public void CheckHit(List<HoofdSpelBolletje> lijstTegenstanderBolletjes, List<HoofdSpelVierkantje> lijstTegenstanderVierkantjes)
+        public void CheckHit(ObservableCollection<HoofdSpelBolletje> lijstTegenstanderBolletjes, ObservableCollection<HoofdSpelVierkantje> lijstTegenstanderVierkantjes)
         {
             for (int i = 0; i < Bolletjes.Count; i++) //Humans geraakt door vijand
             {
@@ -161,8 +163,8 @@ namespace Groepswerk
             }
         }
         //Properties
-        public List<HoofdSpelBolletje> Bolletjes { get; set; }
-        public List<HoofdSpelVierkantje> Vierkantjes { get; set; }
+        public ObservableCollection<HoofdSpelBolletje> Bolletjes { get; set; }
+        public ObservableCollection<HoofdSpelVierkantje> Vierkantjes { get; set; }
 
     }
 }
