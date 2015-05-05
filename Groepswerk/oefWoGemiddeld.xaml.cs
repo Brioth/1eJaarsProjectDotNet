@@ -22,6 +22,7 @@ namespace Groepswerk
     {
         private Gebruiker actieveGebruiker;
         private OefeningLijst lijstOefeningen;
+        private string moeilijkheidsgraad = "MED";
         private string[] tempOpgave, tempOplossing1;
         private Random oefeningenNummer = new Random();
         private int oefeningenNummerOpslag;
@@ -138,6 +139,7 @@ namespace Groepswerk
                     oefCorrect++;
                 textbox5.Background=Brushes.Green;
                 }
+            actieveGebruiker.SetGameTijd(oefCorrect*2,moeilijkheidsgraad);
             SchrijfPunten();
             }
 

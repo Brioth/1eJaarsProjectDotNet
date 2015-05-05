@@ -21,6 +21,7 @@ namespace Groepswerk
     public partial class oefWoMoeilijk : Page
     {
         private Gebruiker actieveGebruiker;
+        private string moeilijkheidsgraad = "MOE";
          private OefeningLijst lijstOefeningen;
         private string[] tempOpgave, tempOplossing1;
         private Random oefeningenNummer = new Random();
@@ -66,7 +67,9 @@ namespace Groepswerk
 
         }
 
+       
         private void SchrijfPunten() {
+           
             ResultatenLijst lijst = new ResultatenLijst("resultaatWoMoeilijk.txt");
             Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect*2, totaalTijd, lijst);
 
@@ -136,6 +139,7 @@ namespace Groepswerk
                     oefCorrect++;
                 textbox5.Background=Brushes.Green;
                 }
+            actieveGebruiker.SetGameTijd(oefCorrect*2, moeilijkheidsgraad);
             SchrijfPunten();
             }
 
