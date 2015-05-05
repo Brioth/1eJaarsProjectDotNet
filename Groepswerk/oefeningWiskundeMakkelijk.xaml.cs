@@ -298,8 +298,10 @@ namespace Groepswerk
                     {
                         dropLabel10.Background = Brushes.Red;
                     }
-                    Punten.Text = ("u heeft  " + oefeningPunten + " behaald. ");
+                    Punten.Text = ("u heeft  " + oefeningPunten + " punten behaald. ");
                     schrijfpunten();
+                    verbeterButton.IsEnabled = false;
+                        
                 }
 
 
