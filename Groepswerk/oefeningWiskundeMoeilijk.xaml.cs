@@ -40,7 +40,7 @@ namespace Groepswerk
         private int begin, eind;
         private int totaalTijd;
         private Stopwatch tijdTeller;
-        private string moeilijkheidsgraad = "MAK";
+        private string moeilijkheidsgraad = "MOE";
 
         //Constructors
         public oefeningWiskundeMoeilijk(Gebruiker actieveGebruiker)

@@ -44,7 +44,7 @@ namespace Groepswerk
         private int begin, eind;
         private int totaalTijd;
         private Stopwatch tijdTeller;
-        private string moeilijkheidsgraad = "MAK";
+        private string moeilijkheidsgraad = "MED";
         //private List<String> ranges = new List<String>;
         //constructors
 
