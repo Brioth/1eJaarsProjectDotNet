@@ -38,7 +38,7 @@ namespace Groepswerk
         private int begin, eind;
         private int totaalTijd;
         private Stopwatch tijdTeller;
-        
+        private string moeilijkheidsgraad = "MAK";
 
         //constructors
         public oefeningWiskundeMakkelijk(Gebruiker actieveGebruiker)
@@ -300,6 +300,7 @@ namespace Groepswerk
                     }
                     Punten.Text = ("u heeft  " + oefeningPunten + " punten behaald. ");
                     schrijfpunten();
+                    actieveGebruiker.SetGameTijd(oefeningPunten, moeilijkheidsgraad);
                     verbeterButton.IsEnabled = false;
                         
                 }
