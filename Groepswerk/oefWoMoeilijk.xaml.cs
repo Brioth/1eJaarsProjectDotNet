@@ -154,5 +154,11 @@ namespace Groepswerk
                     break;
             }
         }
+
+        private void opnieuwButton_Click(object sender, RoutedEventArgs e)
+        {
+            oefWoMoeilijk moeilijk = new oefWoMoeilijk(actieveGebruiker);
+            this.NavigationService.Navigate(moeilijk);
+        }
         }
 }

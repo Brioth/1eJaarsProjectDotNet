@@ -156,6 +156,12 @@ namespace Groepswerk
                     break;
             }
         }
+
+        private void opnieuwButton_Click(object sender, RoutedEventArgs e)
+        {
+            oefWoGemiddeld gemiddeld = new oefWoGemiddeld(actieveGebruiker);
+            this.NavigationService.Navigate(gemiddeld);
+        }
         }
     }
 
