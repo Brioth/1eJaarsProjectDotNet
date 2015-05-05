@@ -86,7 +86,8 @@ namespace Groepswerk
         private void controleer_Click(object sender, RoutedEventArgs e)
         {
             tijdTeller.Stop();
-            totaalTijd = tijdTeller.ElapsedMilliseconds * 1000;
+            totaalTijd = Convert.ToInt32(tijdTeller.ElapsedMilliseconds / 1000);
+
 
             if (!((textbox1.Text).Equals (lijstOefeningen[oefeningNummerLijst[0]].oplossing)))
             {
