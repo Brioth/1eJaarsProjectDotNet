@@ -32,8 +32,9 @@ namespace Groepswerk
         private Stopwatch tijdTeller;
 
         public oefWoMoeilijk( Gebruiker actieveGebruiker){
-            this.actieveGebruiker = actieveGebruiker;
+            
           InitializeComponent();
+          this.actieveGebruiker = actieveGebruiker;
           tijdTeller = new Stopwatch();
           tijdTeller.Start();
             lijstOefeningen = new OefeningLijst("WoMoeilijk");
@@ -63,8 +64,23 @@ namespace Groepswerk
            
             
 
-        }  
+        }
 
+        private void SchrijfPunten() {
+            ResultatenLijst lijst = new ResultatenLijst("resultaatWoMoeilijk.txt");
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect, totaalTijd, lijst);
+
+            if (nieuw.IndexOud == -1)
+            {
+                lijst.Add(nieuw);
+            }
+            else
+            {
+                lijst.Add(nieuw);
+                lijst.RemoveAt(nieuw.IndexOud);
+            }
+            lijst.SchrijfLijst("resultaatWoMoeilijk.txt");
+        }
         
         private void controleer_Click(object sender, RoutedEventArgs e)
         {
@@ -120,7 +136,7 @@ namespace Groepswerk
                     oefCorrect++;
                 textbox5.Background=Brushes.Green;
                 }
-           
+            SchrijfPunten();
             }
 
         private void terugButton_Click(object sender, RoutedEventArgs e)

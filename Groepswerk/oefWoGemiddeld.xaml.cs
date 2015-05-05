@@ -64,9 +64,25 @@ namespace Groepswerk
            
             
 
-        }  
+        }
 
-        
+        private void SchrijfPunten()
+        {
+            ResultatenLijst lijst = new ResultatenLijst("resultaatWoGemiddeld.txt");
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect, totaalTijd, lijst);
+
+            if (nieuw.IndexOud == -1)
+            {
+                lijst.Add(nieuw);
+            }
+            else
+            {
+                lijst.Add(nieuw);
+                lijst.RemoveAt(nieuw.IndexOud);
+            }
+            lijst.SchrijfLijst("resultaatWoGemiddeld.txt");
+        }
+
         private void controleer_Click(object sender, RoutedEventArgs e)
         {
             tijdTeller.Stop();
@@ -121,7 +137,7 @@ namespace Groepswerk
                     oefCorrect++;
                 textbox5.Background=Brushes.Green;
                 }
-           
+            SchrijfPunten();
             }
 
         private void terugButton_Click(object sender, RoutedEventArgs e)
