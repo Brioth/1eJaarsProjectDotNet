@@ -22,13 +22,14 @@ namespace Groepswerk
     {
         private Gebruiker actieveGebruiker;
         private OefeningLijst lijstOefeningen;
+        private string moeilijkheidsgraad = "MED";
         private string[] tempOpgave, tempOplossing1;
         private Random oefeningenNummer = new Random();
         private int oefeningenNummerOpslag;
         private IList<string> oefLijst;
         private int oefCorrect = 0;
         private IList<int> oefeningNummerLijst;
-        private long totaalTijd;
+        private int totaalTijd;
         private Stopwatch tijdTeller;
 
         public oefWoGemiddeld( Gebruiker actieveGebruiker){
@@ -64,13 +65,30 @@ namespace Groepswerk
            
             
 
-        }  
+        }
 
-        
+        private void SchrijfPunten()
+        {
+            ResultatenLijst lijst = new ResultatenLijst("resultaatWoGemiddeld.txt");
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect*2, totaalTijd, lijst);
+
+            if (nieuw.IndexOud == -1)
+            {
+                lijst.Add(nieuw);
+            }
+            else
+            {
+                lijst.Add(nieuw);
+                lijst.RemoveAt(nieuw.IndexOud);
+            }
+            lijst.SchrijfLijst("resultaatWoGemiddeld.txt");
+        }
+
         private void controleer_Click(object sender, RoutedEventArgs e)
         {
             tijdTeller.Stop();
-            totaalTijd = tijdTeller.ElapsedMilliseconds * 1000;
+            totaalTijd = Convert.ToInt32(tijdTeller.ElapsedMilliseconds / 1000);
+
 
             if (!((textbox1.Text).Equals (lijstOefeningen[oefeningNummerLijst[0]].oplossing)))
             {
@@ -121,7 +139,8 @@ namespace Groepswerk
                     oefCorrect++;
                 textbox5.Background=Brushes.Green;
                 }
-           
+            actieveGebruiker.SetGameTijd(oefCorrect*2,moeilijkheidsgraad);
+            SchrijfPunten();
             }
 
         private void terugButton_Click(object sender, RoutedEventArgs e)
@@ -138,6 +157,12 @@ namespace Groepswerk
                 default:
                     break;
             }
+        }
+
+        private void opnieuwButton_Click(object sender, RoutedEventArgs e)
+        {
+            oefWoGemiddeld gemiddeld = new oefWoGemiddeld(actieveGebruiker);
+            this.NavigationService.Navigate(gemiddeld);
         }
         }
     }

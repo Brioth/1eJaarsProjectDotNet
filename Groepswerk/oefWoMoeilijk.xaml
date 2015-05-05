@@ -8,13 +8,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+           
+            <RowDefinition Height="auto"/>
+           
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             
@@ -22,24 +22,43 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
+            
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
+           
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Label x:Name="stad" Grid.Column="1" Grid.Row="1" Content="Staat" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top"/>
+        <Label x:Name="land" Grid.Column="2" Grid.Row="1" Content="Hoofdstad" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top"/>
+ <Label x:Name="label1" Grid.Column="1" Grid.Row="2" Content="Label" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top"/>
+        <TextBox x:Name="textbox1" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" Height="23" Margin="10,10,10,10" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label2" Grid.Column="1" Grid.Row="3" Content="Label" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top"/>
+        <TextBox x:Name="textbox2" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Left" Height="23"  Margin="10,10,10,10" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label3" Grid.Column="1" Grid.Row="4" Content="Label" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top"/>
+        <TextBox x:Name="textbox3" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Left" Height="23"  Margin="10,10,10,10" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="labbel4" Grid.Column="1" Grid.Row="5" Content="Label" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top"/>
+        <TextBox x:Name="textbox4" Grid.Column="2" Grid.Row="5" HorizontalAlignment="Left" Height="23"  Margin="10,10,10,10" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label5" Grid.Column="1" Grid.Row="6" Content="Label" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top"/>
+        <TextBox x:Name="textbox5" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Left" Height="23" Margin="10,10,10,10" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="controleer"  Grid.Column="5" Grid.Row="6" Margin="5" Content="controleer" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Click="controleer_Click"/>
+        <Label x:Name="antwoord1" Content="" Grid.Column="4" HorizontalAlignment="Left" Margin="20,10,20,10" Grid.Row="2" VerticalAlignment="Top"/>
+        <Label x:Name="antwoord2" Content="" Grid.Column="4" HorizontalAlignment="Left" Margin="20,10,20,10" Grid.Row="3" VerticalAlignment="Top"/>
+        <Label x:Name="antwoord3" Content="" Grid.Column="4" HorizontalAlignment="Left" Margin="20,10,20,10" Grid.Row="4" VerticalAlignment="Top"/>
+        <Label x:Name="antwoord4" Content="" Grid.Column="4" HorizontalAlignment="Left" Margin="20,10,20,10" Grid.Row="5" VerticalAlignment="Top"/>
+        <Label x:Name="antwoord5" Content="" Grid.Column="4" HorizontalAlignment="Left" Margin="20,10,20,10" Grid.Row="6" VerticalAlignment="Top"/>
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
 
-        <Label x:Name="label1" Grid.Column="1" Grid.Row="1" Content="Label" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top"/>
-        <TextBox x:Name="textbox1" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Height="23" Margin="10,10,10,10" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label2" Grid.Column="1" Grid.Row="2" Content="Label" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top"/>
-        <TextBox x:Name="textbox2" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" Height="23"  Margin="10,10,10,10" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label3" Grid.Column="1" Grid.Row="3" Content="Label" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top"/>
-        <TextBox x:Name="textbox3" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Left" Height="23"  Margin="10,10,10,10" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="labbel4" Grid.Column="1" Grid.Row="4" Content="Label" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top"/>
-        <TextBox x:Name="textbox4" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Left" Height="23"  Margin="10,10,10,10" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label5" Grid.Column="1" Grid.Row="5" Content="Label" HorizontalAlignment="Left" Margin="20,10,20,10" VerticalAlignment="Top"/>
-        <TextBox x:Name="textbox5" Grid.Column="2" Grid.Row="5" HorizontalAlignment="Left" Height="23" Margin="10,10,10,10" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="controleer"  Grid.Column="4" Grid.Row="5" Margin="5" Content="controleer" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Click="controleer_Click"/>
-        <Button  Content="terug"  Height="30" Width="100" Grid.Column="0" Grid.Row="0" Click="terugButton_Click"/>
+            <Button  Content="terug"  Margin="5"  Grid.Column="0" Grid.Row="0" Click="terugButton_Click"/>
+            <Button  Content="opnieuw"   Margin="5"   Grid.Column="1" Grid.Row="0" Click="opnieuwButton_Click"/>
+        </Grid>
+   
     </Grid>
 </Page>

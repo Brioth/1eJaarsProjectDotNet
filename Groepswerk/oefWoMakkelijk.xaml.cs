@@ -24,14 +24,16 @@ namespace Groepswerk
     {
         private Gebruiker actieveGebruiker;
         private OefeningLijst lijstOefeningen;
+        private string moeilijkheidsgraad = "MAK";
         private string[] tempOpgave, tempOplossing1;
         private Random oefeningenNummer = new Random();
         private int oefeningenNummerOpslag;
         private IList<string> oefLijst;
         private int oefCorrect = 0;
         private IList<int> oefeningNummerLijst;
-        private long totaalTijd;
+        private int totaalTijd;
         private Stopwatch tijdTeller;
+       
         public oefWoMakkelijk( Gebruiker actieveGebruiker){
             
           InitializeComponent();
@@ -65,17 +67,32 @@ namespace Groepswerk
            
             
 
-        }  
-
+        }
+       
+        private void SchrijfPunten() {
+            ResultatenLijst lijst = new ResultatenLijst("resultaatWoMakkelijk.txt");
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id,oefCorrect*2,totaalTijd, lijst);
+            
+            if (nieuw.IndexOud == -1)
+            {
+                lijst.Add(nieuw);
+            }
+            else {
+                lijst.Add(nieuw);
+                lijst.RemoveAt(nieuw.IndexOud);
+            }
+            lijst.SchrijfLijst("resultaatWoMakkelijk.txt");
+        }
         
         private void controleer_Click(object sender, RoutedEventArgs e)
         {
             tijdTeller.Stop();
-            totaalTijd = tijdTeller.ElapsedMilliseconds * 1000;
+            totaalTijd = Convert.ToInt32(tijdTeller.ElapsedMilliseconds / 1000);
 
             if (!((textbox1.Text).Equals (lijstOefeningen[oefeningNummerLijst[0]].oplossing)))
             {
                textbox1.Background=Brushes.Red;
+               antwoord1.Content = lijstOefeningen[oefeningNummerLijst[0]].oplossing;
             }
             else
             {
@@ -86,6 +103,7 @@ namespace Groepswerk
             if (!((textbox2.Text).Equals(lijstOefeningen[oefeningNummerLijst[1]].oplossing)))
                 {
                    textbox2.Background=Brushes.Red;
+                   antwoord2.Content = lijstOefeningen[oefeningNummerLijst[1]].oplossing;
                 }
             else
                 {
@@ -96,6 +114,7 @@ namespace Groepswerk
             if (!((textbox3.Text).Equals(lijstOefeningen[oefeningNummerLijst[2]].oplossing)))
                 {
                    textbox3.Background=Brushes.Red;
+                   antwoord3.Content = lijstOefeningen[oefeningNummerLijst[2]].oplossing;
                 }
             else
                 {
@@ -106,6 +125,7 @@ namespace Groepswerk
             if (!((textbox4.Text).Equals(lijstOefeningen[oefeningNummerLijst[3]].oplossing)))
                 {
                     textbox4.Background=Brushes.Red;
+                    antwoord4.Content = lijstOefeningen[oefeningNummerLijst[3]].oplossing;
             }
             else
                 {
@@ -116,12 +136,15 @@ namespace Groepswerk
             if (!((textbox5.Text).Equals(lijstOefeningen[oefeningNummerLijst[4]].oplossing)))
                 {
                    textbox5.Background=Brushes.Red;
+                   antwoord5.Content = lijstOefeningen[oefeningNummerLijst[4]].oplossing;
                 }
             else
                 {
                     oefCorrect++;
                 textbox5.Background=Brushes.Green;
                 }
+            actieveGebruiker.SetGameTijd(oefCorrect*2, moeilijkheidsgraad);
+            SchrijfPunten();
            
             }
         
@@ -140,6 +163,12 @@ namespace Groepswerk
                 default:
                     break;
             }
+        }
+
+        private void opnieuwButton_Click(object sender, RoutedEventArgs e)
+        {
+            oefWoMakkelijk makkelijk = new oefWoMakkelijk(actieveGebruiker);
+            this.NavigationService.Navigate(makkelijk);
         }
         }
     }

@@ -33,7 +33,7 @@ namespace Groepswerk
         private Stopwatch tijdGespendeerd;
         public OefNederlands1Makkelijk(Gebruiker actieveGebruiker)
         {
-            
+
             InitializeComponent();
 
             tijdGespendeerd = new Stopwatch();
@@ -41,9 +41,9 @@ namespace Groepswerk
             this.actieveGebruiker = actieveGebruiker;
 
             tijdGespendeerd.Start();
-            
+
             lijstOefeningen = new OefeningLijst("makkelijk");
-            
+
 
             tempOpgave = new string[5];
             tempOplossing1 = new string[5];
@@ -109,7 +109,7 @@ namespace Groepswerk
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
             tijdGespendeerd.Stop();
-            gespendeerdeTijd = Convert.ToInt32(tijdGespendeerd.ElapsedMilliseconds * 1000);
+            gespendeerdeTijd = Convert.ToInt32(tijdGespendeerd.ElapsedMilliseconds / 1000);
             oefCorrect = 0;
             if (!(Convert.ToString(oplossing1.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[0]].correcteOplossing)))
             {
@@ -156,33 +156,32 @@ namespace Groepswerk
                 oefCorrect++;
             }
             Punten.Text = Convert.ToString(oefCorrect) + "/5";
+            SchrijfPunten();
 
-            
         }
 
         private void TerugKnop_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
         private void SchrijfPunten()
         {
 
             ResultatenLijst lijst = new ResultatenLijst("OefNederlands1MakkelijkResultaten.txt");
             Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect, gespendeerdeTijd, lijst);
-        if(nieuw.IndexOud == -1)
-        
-        {
-            lijst.Add(nieuw);
+            if (nieuw.IndexOud == -1)
+            {
+                lijst.Add(nieuw);
 
-        } //end if
-        else
-        {
-            lijst.Add(nieuw);
-            lijst.RemoveAt(nieuw.IndexOud);
-        } // end else
-        lijst.SchrijfLijst("OefNederlands1MakkelijkResultaten.txt");
+            } //end if
+            else
+            {
+                lijst.Add(nieuw);
+                lijst.RemoveAt(nieuw.IndexOud);
+            } // end else
+            lijst.SchrijfLijst("OefNederlands1MakkelijkResultaten.txt");
 
-        }
         }
     }
+}
 
