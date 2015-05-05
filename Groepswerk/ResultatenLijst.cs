@@ -14,6 +14,18 @@ namespace Groepswerk
     {
         public ResultatenLijst(string bestand)
         {
+            try
+            {
+                StreamReader bestandResultaten = File.OpenText(bestand);
+                bestandResultaten.Close();
+            }
+            catch (Exception)
+            {
+
+                StreamWriter maakBestand = File.CreateText(bestand);
+                maakBestand.Close();
+            }
+            finally { 
                 StreamReader bestandResultaten = File.OpenText(bestand);
                 string regel = bestandResultaten.ReadLine();
                 char[] scheiding = { ';' };
@@ -27,7 +39,7 @@ namespace Groepswerk
                 }
 
                 bestandResultaten.Close();
-                    
+            }  
         }
         public void SchrijfLijst(string bestand)
         {
