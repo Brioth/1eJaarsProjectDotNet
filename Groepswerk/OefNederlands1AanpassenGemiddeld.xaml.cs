@@ -23,9 +23,11 @@ namespace Groepswerk
         private OefeningLijst lijstOefeningen;
         private IList<string> opgaves, oplossing1, oplossing2, oplossing3, correcteOplossing;
         private int geselecteerdeIndex;
-        public OefNederlands1AanpassenGemiddeld()
+        private Gebruiker actieveGebruiker;
+        public OefNederlands1AanpassenGemiddeld(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
+            this.actieveGebruiker = actieveGebruiker;
             lijstOefeningen = new OefeningLijst("gemiddeld");
             for (int i = 0; i < lijstOefeningen.Count; i++)
             {
