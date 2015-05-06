@@ -94,11 +94,11 @@
     <Compile Include="IBeweegbaarZombie.cs" />
     <Compile Include="Klas.cs" />
     <Compile Include="Klaslijst.cs" />
-    <Compile Include="oefeningWiskundeGemiddeld.xaml.cs">
-      <DependentUpon>oefeningWiskundeGemiddeld.xaml</DependentUpon>
+    <Compile Include="OefeningWiskundeGemiddeld.xaml.cs">
+      <DependentUpon>OefeningWiskundeGemiddeld.xaml</DependentUpon>
     </Compile>
-    <Compile Include="oefeningWiskundeMoeilijk.xaml.cs">
-      <DependentUpon>oefeningWiskundeMoeilijk.xaml</DependentUpon>
+    <Compile Include="OefeningWiskundeMoeilijk.xaml.cs">
+      <DependentUpon>OefeningWiskundeMoeilijk.xaml</DependentUpon>
     </Compile>
     <Compile Include="OefWiskundeAanpassen.xaml.cs">
       <DependentUpon>OefWiskundeAanpassen.xaml</DependentUpon>
@@ -167,15 +167,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="oefeningWiskundeGemiddeld.xaml">
+    <Page Include="OefeningWiskundeGemiddeld.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="oefeningWiskundeMakkelijk.xaml">
+    <Page Include="OefeningWiskundeMakkelijk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="oefeningWiskundeMoeilijk.xaml">
+    <Page Include="OefeningWiskundeMoeilijk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -246,8 +246,8 @@
       <DependentUpon>NieuweGebruiker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Oefening.cs" />
-    <Compile Include="oefeningWiskundeMakkelijk.xaml.cs">
-      <DependentUpon>oefeningWiskundeMakkelijk.xaml</DependentUpon>
+    <Compile Include="OefeningWiskundeMakkelijk.xaml.cs">
+      <DependentUpon>OefeningWiskundeMakkelijk.xaml</DependentUpon>
     </Compile>
     <Compile Include="OefNederlands1AanpassenGemiddeld.xaml.cs">
       <DependentUpon>OefNederlands1AanpassenGemiddeld.xaml</DependentUpon>

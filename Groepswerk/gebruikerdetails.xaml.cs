@@ -21,8 +21,8 @@ namespace Groepswerk
      * Grid Details krijgt rijen in code bij afhankelijk hoeveel er nodig zijn
      * Ook mogelijk met Datagrids
      * Aangepast op 04/05/2015 door Carmen Celen
-     * Author: Vincent
-     * Date:
+     * Author: Vincent Vandoninck
+     * Date: 21/04/2015
      */
     public partial class Gebruikerdetails : Page
     {
