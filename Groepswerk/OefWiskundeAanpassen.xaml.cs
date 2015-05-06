@@ -24,9 +24,9 @@ namespace Groepswerk
     /// <summary>
     /// Interaction logic for OefWiskundeAanpGemiddelde.xaml
     /// </summary>
-    public partial class OefWiskundeAanpGemiddelde : Page
+    public partial class OefWiskundeAanpassen : Page
     {
-        public OefWiskundeAanpGemiddelde()
+        public OefWiskundeAanpassen()
         {
             InitializeComponent();
 

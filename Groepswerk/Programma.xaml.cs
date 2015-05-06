@@ -87,6 +87,16 @@ namespace Groepswerk
             framePages.Navigate(oefWiskundeMoeilijk);
         }
 
+        //Author: Vincent Vandoninck
+        //Date: 06/05/2015
+        // wiskunde oefening aanpassen
+        private void WiskundeBewerken_Click(object sender, RoutedEventArgs e)
+        {
+
+            OefWiskundeAanpassen oefWiskundeAanpassen = new OefWiskundeAanpassen();
+            framePages.Navigate(oefWiskundeAanpassen);
+        }
+
         //Author: Thomas Cox
         //Date: 22/04/2015
         private void MnuTaalMakkelijk_Click(object sender, RoutedEventArgs e)
@@ -221,6 +231,11 @@ namespace Groepswerk
                 this.Title = Convert.ToString(ActieveGebruiker);
                 PasBalkAan();
             }
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
