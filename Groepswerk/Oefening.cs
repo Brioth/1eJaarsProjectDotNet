@@ -44,9 +44,6 @@ namespace Groepswerk
                 case "taal2":
                     return (opgave + ";" + correcteOplossing + ";" + juisteAntwoordCompleet);
                 break;
-                case default:
-
-                    break;
             }
         }
         public String SchrijfString()
