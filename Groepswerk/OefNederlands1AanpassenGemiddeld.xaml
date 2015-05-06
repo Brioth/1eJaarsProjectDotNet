@@ -11,7 +11,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <!--Aanpassen moeilijke taaloefening-->
             <RowDefinition Height="*"/>
             <!-- Selecteer de opgave etc etc-->
@@ -23,35 +23,37 @@
             <!--Mogelijke oplossingen ingeven-->
             <RowDefinition Height="Auto"/>
             <!--Correcte oplossing inschrijven-->
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <!--Correct Ingevulde Opgave-->
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <!--KNOPJES!-->
-            <RowDefinition Height="0*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
             <!--klaslijstdoos, opgave, corr oplossing-->
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
             <!--Corr oplossing, aanpassen, opgave-->
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
             <!--terug naar hoofdmenu, opgave -->
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
             <!--Terug naar hoofdmenu, oplossingmogelijkheid 3-->
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Selecteer de opgave en de oplossingen die u wil aanpassen of bijvoegen. Druk hierna op de 'aanpassen' knop." TextAlignment="Center" Margin="20,10,20,10" Grid.ColumnSpan="5" Grid.Column="1" Grid.Row="2"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Aanpassen gemiddelde taaloefening" TextAlignment="Center" FontSize="36" Margin="20,10,20,10" Grid.ColumnSpan="5" Grid.Column="1" Grid.Row="1"/>
-        <ComboBox Name="OpgaveSelecteren" SelectionChanged="OpgaveSelecteren_SelectionChanged" Margin="10" Grid.Column="1" Grid.Row="3"/>
+        <TextBlock TextWrapping="Wrap" Text="Selecteer de opgave en de oplossingen die u wil aanpassen of bijvoegen. Druk hierna op de 'aanpassen' knop." TextAlignment="Center" Margin="20,10,20,10" Grid.ColumnSpan="5" Grid.Column="1" Grid.Row="2"/>
+        <TextBlock TextWrapping="Wrap" Text="Aanpassen gemiddelde taaloefening" TextAlignment="Center" FontSize="36" Margin="20,10,20,10" Grid.ColumnSpan="5" Grid.Column="1" Grid.Row="1"/>
+        <ListBox Name="OpgaveSelecteren" SelectionChanged="OpgaveSelecteren_SelectionChanged" Margin="10" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="3"/>
         <TextBlock TextWrapping="Wrap" Text="Opgave" Margin="20,10,20,10" Grid.Column="1" Grid.Row="4"/>
         <TextBox Name="Opgave" TextWrapping="Wrap" Margin="10" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="4"/>
+        <TextBlock TextWrapping="Wrap" Text="Mogelijke oplossingen" Margin="20,10,20,10" Grid.Column="1" Grid.Row="5"/>
         <TextBox Name="Oplossing1" TextWrapping="Wrap" Grid.Column="2" Grid.Row="5" Margin="10"/>
         <TextBox Name="Oplossing2" TextWrapping="Wrap" Grid.Column="3" Grid.Row="5" Margin="10"/>
         <TextBox Name="Oplossing3" TextWrapping="Wrap" Grid.Column="4" Grid.Row="5" Margin="10"/>
-        <Button Name="AanpasKnop" Content="Aanpassen" Click="AanpasKnop_Click" Margin="5" Grid.Column="2" Grid.Row="8"/>
-        <Button Name="TerugKnop" Content="Terug naar hoofdmenu" Margin="5" Grid.Column="4" Grid.Row="8"/>
+        <Button Name="aanpasKnop" Content="Aanpassen" Click="AanpasKnop_Click" Margin="5" Grid.Column="2" Grid.Row="8"/>
+        <Button Name="toevoegKnop" Content="Toevoegen" Click="toevoegKnop_Click" Margin="5" Grid.Column="3" Grid.Row="8"/>
+        <Button Name="verwijderKnop" Content="Verwijder" Click="verwijderKnop_Click" Margin="5" Grid.Column="4" Grid.Row="8"/>
         <TextBox Name="CorrecteOplossing" TextWrapping="Wrap" Margin="10" Grid.Column="2" Grid.Row="6"/>
         <TextBlock Text="Correct ingevulde opgave" TextWrapping="Wrap" Margin="20,10,20,10" Grid.Column="1" Grid.Row="7"/>
         <TextBox Name="correctIngevuldeOpgave" TextWrapping="Wrap" Margin="10" Grid.Column="2" Grid.Row="7"/>
