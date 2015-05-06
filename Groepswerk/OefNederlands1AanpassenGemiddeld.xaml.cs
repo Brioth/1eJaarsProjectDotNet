@@ -44,6 +44,7 @@ namespace Groepswerk
                 oplossing2.Add(lijstOefeningen[i].oplossing2);
                 oplossing3.Add(lijstOefeningen[i].oplossing3);
                 correcteOplossing.Add(lijstOefeningen[i].correcteOplossing);
+                juisteAntwoordCompleet.Add(lijstOefeningen[i].juisteAntwoordCompleet);
             }
             OpgaveSelecteren.ItemsSource = opgaves;
         }
