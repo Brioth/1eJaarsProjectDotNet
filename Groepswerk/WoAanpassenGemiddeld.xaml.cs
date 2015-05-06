@@ -27,8 +27,10 @@ namespace Groepswerk
         public WoAanpassenGemiddeld()
         {
             InitializeComponent();
+            opgaves = new List<string>();
+            oplossing = new List<string>();
             lijstOefeningen = new OefeningLijst("WoGemiddeld");
-            for (int i = 0; i > lijstOefeningen.Count; i++)
+            for (int i = 0; i < lijstOefeningen.Count; i++)
             {
                 opgaves.Add(lijstOefeningen[i].opgave);
                 oplossing.Add(lijstOefeningen[i].oplossing); 
