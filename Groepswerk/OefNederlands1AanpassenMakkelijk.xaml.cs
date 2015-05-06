@@ -52,17 +52,22 @@ namespace Groepswerk
         private void OpgaveSelecteren_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             geselecteerdeIndex = OpgaveSelecteren.SelectedIndex;
-            Opgave.Text = opgaves[geselecteerdeIndex];
-            Oplossing1.Text = oplossing1[geselecteerdeIndex];
-            Oplossing2.Text = oplossing2[geselecteerdeIndex];
-            Oplossing3.Text = oplossing3[geselecteerdeIndex];
-            CorrecteOplossing.Text = correcteOplossing[geselecteerdeIndex];
-            juisteOpgaveCompleet.Text = juisteAntwoordCompleet[geselecteerdeIndex];
+            opgaveBox.Text = opgaves[geselecteerdeIndex];
+            oplossing1Box.Text = oplossing1[geselecteerdeIndex];
+            oplossing2Box.Text = oplossing2[geselecteerdeIndex];
+            oplossing3Box.Text = oplossing3[geselecteerdeIndex];
+            correcteOplossingBox.Text = correcteOplossing[geselecteerdeIndex];
+            juisteOpgaveCompleetBox.Text = juisteAntwoordCompleet[geselecteerdeIndex];
         }
 
         private void AanpasKnop_Click(object sender, RoutedEventArgs e)
         {
-            Oefening oefening = new Oefening(Opgave.Text, Oplossing1.Text, Oplossing2.Text, Oplossing3.Text, CorrecteOplossing.Text, juisteOpgaveCompleet.Text);
+            if((opgaveBox.Text.Contains(';'))||(oplossing1Box.Text.Contains(';'))||(oplossing2Box.Text.Contains(';'))||(oplossing3Box.Text.Contains(';')))
+            {
+                MessageBox.Show("Gelieve geen ';' in uw zinnen te zetten.");
+            }//end if
+            else { 
+            Oefening oefening = new Oefening(opgaveBox.Text, oplossing1Box.Text, oplossing2Box.Text, oplossing3Box.Text, correcteOplossingBox.Text, juisteOpgaveCompleetBox.Text);
             lijstOefeningen.RemoveAt(OpgaveSelecteren.SelectedIndex);
             lijstOefeningen.Insert(OpgaveSelecteren.SelectedIndex, oefening);
 
@@ -71,7 +76,7 @@ namespace Groepswerk
             foreach (Oefening oef in lijstOefeningen)
             {
                 writer.WriteLine(oef.opgave + ";" + oef.oplossing1 + ";" + oef.oplossing2 + ";" + oef.oplossing3 + ";" + oef.correcteOplossing + ";" + oef.juisteAntwoordCompleet);
-            }
+            }//end foreach
             writer.Close();
 
             lijstOefeningen = new OefeningLijst("makkelijk");
@@ -91,8 +96,8 @@ namespace Groepswerk
                 oplossing3.Add(lijstOefeningen[i].oplossing3);
                 correcteOplossing.Add(lijstOefeningen[i].correcteOplossing);
                 juisteAntwoordCompleet.Add(lijstOefeningen[i].juisteAntwoordCompleet);  
-            }
-
+            }//end for
+            }//end else
         }
 
         private void TerugKnop_Click(object sender, RoutedEventArgs e)
@@ -113,5 +118,10 @@ namespace Groepswerk
 
         
     }
+
+        private void toevoegKnop_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 }
 }
