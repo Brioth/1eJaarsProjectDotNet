@@ -87,6 +87,16 @@ namespace Groepswerk
             framePages.Navigate(oefWiskundeMoeilijk);
         }
 
+        //Author: Vincent Vandoninck
+        //Date: 06/05/2015
+        // wiskunde oefening aanpassen
+        private void WiskundeBewerken_Click(object sender, RoutedEventArgs e)
+        {
+
+            OefWiskundeAanpassen oefWiskundeAanpassen = new OefWiskundeAanpassen();
+            framePages.Navigate(oefWiskundeAanpassen);
+        }
+
         //Author: Thomas Cox
         //Date: 22/04/2015
         private void MnuTaalMakkelijk_Click(object sender, RoutedEventArgs e)
@@ -140,25 +150,23 @@ namespace Groepswerk
             OefNederlands1AanpassenMoeilijk nederlandsOefAanpassenMoeilijk = new OefNederlands1AanpassenMoeilijk();
             framePages.Navigate(nederlandsOefAanpassenMoeilijk);
         }
-        // navigatie aanpassen oefening WO
-        //author: Seppe Vandezande
-        //Date: 06/05/2015
 
-        private void MnuWoBewerkenMakkelijk_Click(object sender, RoutedEventArgs e)
+        private void MnuWoBewerkenMakkelijk_Click(object sendr, RoutedEventArgs e)
         {
             WoMakkelijkAanpassen WoMakkelijkAanpassen = new WoMakkelijkAanpassen();
             framePages.Navigate(WoMakkelijkAanpassen);
         }
-        private void MnuWoBewerkenGemiddeld_Click(object sender, RoutedEventArgs e)
+        private void MnuWoBewerkenGemiddeld_Click(object sendr, RoutedEventArgs e)
         {
             WoAanpassenGemiddeld WoAanpassenGemiddeld = new WoAanpassenGemiddeld();
             framePages.Navigate(WoAanpassenGemiddeld);
         }
-        private void MnuWoBewerkenMoeilijk_Click(object sender, RoutedEventArgs e)
+        private void MnuWoBewerkenMoeilijk_Click(object sendr, RoutedEventArgs e)
         {
             WoMoeilijkAanpassen WoMoeilijkAanpassen = new WoMoeilijkAanpassen();
             framePages.Navigate(WoMoeilijkAanpassen);
         }
+
         //Navigatie Leerkracht
         private void MnuIndOv_Click(object sender, RoutedEventArgs e)
         {
@@ -241,8 +249,11 @@ namespace Groepswerk
             }
         }
 
-       
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+        
 
         
     }
+}
 }
