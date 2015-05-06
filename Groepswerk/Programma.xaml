@@ -28,7 +28,7 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Name="mnuOefBew" Header="Oefeningen Bewerken" IsTabStop="False" >
-                <MenuItem Header="Wiskunde" Click="MenuItem_Click">
+                <MenuItem Header="Wiskunde" >
                     <MenuItem Header="Wiskunde aanpassen" Click="WiskundeBewerken_Click"/>
                 </MenuItem>
                 <MenuItem Header="Taal">

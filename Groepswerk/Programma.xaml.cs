@@ -164,6 +164,7 @@ namespace Groepswerk
             WoMoeilijkAanpassen WoMoeilijkAanpassen = new WoMoeilijkAanpassen();
             framePages.Navigate(WoMoeilijkAanpassen);
         }
+       
         //Navigatie Leerkracht
         private void MnuIndOv_Click(object sender, RoutedEventArgs e)
         {
@@ -245,6 +246,8 @@ namespace Groepswerk
                 PasBalkAan();
             }
         }
+
+       
 
        
 
