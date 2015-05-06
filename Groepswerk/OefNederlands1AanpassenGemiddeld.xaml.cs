@@ -21,14 +21,21 @@ namespace Groepswerk
     public partial class OefNederlands1AanpassenGemiddeld : Page
     {
         private OefeningLijst lijstOefeningen;
-        private IList<string> opgaves, oplossing1, oplossing2, oplossing3, correcteOplossing;
+        private List<string> opgaves, oplossing1, oplossing2, oplossing3, correcteOplossing;
         private int geselecteerdeIndex;
         private Gebruiker actieveGebruiker;
         public OefNederlands1AanpassenGemiddeld(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
+
+            opgaves = new List<string>();
+            oplossing1 = new List<string>();
+            oplossing2 = new List<string>();
+            oplossing3 = new List<string>();
+            correcteOplossing = new List<string>();
             this.actieveGebruiker = actieveGebruiker;
             lijstOefeningen = new OefeningLijst("gemiddeld");
+
             for (int i = 0; i < lijstOefeningen.Count; i++)
             {
                 opgaves.Add(lijstOefeningen[i].opgave);

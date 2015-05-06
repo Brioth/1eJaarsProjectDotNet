@@ -65,8 +65,8 @@ namespace Groepswerk
         {
             AanpasKnop.IsEnabled = false;
             Oefening oefening = new Oefening(Opgave.Text, Oplossing1.Text, Oplossing2.Text, Oplossing3.Text, CorrecteOplossing.Text, juisteOpgaveCompleet.Text);
-            lijstOefeningen.Add(oefening);
             lijstOefeningen.RemoveAt(OpgaveSelecteren.SelectedIndex);
+            lijstOefeningen.Insert(OpgaveSelecteren.SelectedIndex, oefening);
 
             File.WriteAllText(@"OefNederlands1Makkelijk.txt", String.Empty);
             StreamWriter writer = File.AppendText(@"OefNederlands1Makkelijk.txt");

@@ -21,28 +21,31 @@ namespace Groepswerk
     public partial class OefNederlands1AanpassenMoeilijk : Page
     {
         private OefeningLijst lijstOefeningen;
-        private IList<string> opgaves, correcteOplossing;
+        private List<string> opgaves, oplossing;
         private int geselecteerdeIndex;
         private Gebruiker actieveGebruiker;
         public OefNederlands1AanpassenMoeilijk(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
 
+            opgaves = new List<string>();
+            oplossing = new List<string>();
             this.actieveGebruiker = actieveGebruiker;
 
             lijstOefeningen = new OefeningLijst("moeilijk");
             for (int i = 0; i < lijstOefeningen.Count; i++)
             {
                 opgaves.Add(lijstOefeningen[i].opgave);
-                correcteOplossing.Add(lijstOefeningen[i].correcteOplossing);
+                oplossing.Add(lijstOefeningen[i].oplossing);
             }
             OpgaveSelecteren.ItemsSource = opgaves;
+            OpgaveSelecteren.SelectedIndex = 0;
         }
         private void OpgaveSelecteren_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             geselecteerdeIndex = OpgaveSelecteren.SelectedIndex;
             Opgave.Text = opgaves[geselecteerdeIndex];
-            CorrecteOplossing.Text = correcteOplossing[geselecteerdeIndex];
+            CorrecteOplossing.Text = oplossing[geselecteerdeIndex];
         }
 
         private void AanpasKnop_Click(object sender, RoutedEventArgs e)
@@ -51,7 +54,7 @@ namespace Groepswerk
             StreamWriter writer= File.AppendText(@"OefNederlands1Moeilijk.txt");
             foreach (Oefening oef in lijstOefeningen){
             
-                writer.WriteLine(oef.opgave + ";" + oef.correcteOplossing);
+                writer.WriteLine(oef.opgave + ";" + oef.oplossing);
             }
             writer.Close();
         }
