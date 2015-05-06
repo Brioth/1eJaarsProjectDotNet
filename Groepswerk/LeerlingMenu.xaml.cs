@@ -30,7 +30,7 @@ namespace Groepswerk
         public LeerlingMenu(Gebruiker actievegebruiker)
         {
             InitializeComponent();
-            ActieveGebruiker = actievegebruiker;
+            UpdateGebruiker(actievegebruiker);
             lblBegroeting.Content = String.Format("Dag {0}", ActieveGebruiker.Voornaam);
             btnSpel.IsEnabled = false;
             btnZombie.Visibility = Visibility.Hidden;
@@ -186,7 +186,17 @@ namespace Groepswerk
                 }
             }
         }
-
+        private void UpdateGebruiker(Gebruiker actievegebruiker)
+        {
+            AlleGebruikersLijst lijst = new AlleGebruikersLijst();
+            foreach (Gebruiker item in lijst)
+            {
+                if (actievegebruiker.Id.Equals(item.Id))
+                {
+                    ActieveGebruiker = item;
+                }
+            }
+        }
         //Properties
         public Gebruiker ActieveGebruiker { get; set; }
 
