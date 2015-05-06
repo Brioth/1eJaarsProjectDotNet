@@ -87,16 +87,6 @@ namespace Groepswerk
             framePages.Navigate(oefWiskundeMoeilijk);
         }
 
-        //Author: Vincent Vandoninck
-        //Date: 06/05/2015
-        // wiskunde oefening aanpassen
-        private void WiskundeBewerken_Click(object sender, RoutedEventArgs e)
-        {
-
-            OefWiskundeAanpassen oefWiskundeAanpassen = new OefWiskundeAanpassen();
-            framePages.Navigate(oefWiskundeAanpassen);
-        }
-
         //Author: Thomas Cox
         //Date: 22/04/2015
         private void MnuTaalMakkelijk_Click(object sender, RoutedEventArgs e)
@@ -137,36 +127,37 @@ namespace Groepswerk
         //Date: 22/04/2015
         private void MnuBewerkenMakkelijk_Click(object sender, RoutedEventArgs e)
         {
-            OefNederlands1AanpassenMakkelijk oefNederlandsAanpassenMakkelijk = new OefNederlands1AanpassenMakkelijk();
+            OefNederlands1AanpassenMakkelijk oefNederlandsAanpassenMakkelijk = new OefNederlands1AanpassenMakkelijk(actieveGebruiker);
             framePages.Navigate(oefNederlandsAanpassenMakkelijk);
         }
         private void MnuBewerkenGemiddeld_Click(object sender, RoutedEventArgs e)
         {
-            OefNederlands1AanpassenGemiddeld oefNederlandsAanpassenGemiddeld = new OefNederlands1AanpassenGemiddeld();
+            OefNederlands1AanpassenGemiddeld oefNederlandsAanpassenGemiddeld = new OefNederlands1AanpassenGemiddeld(actieveGebruiker);
             framePages.Navigate(oefNederlandsAanpassenGemiddeld);
         }
         private void MnuBewerkenMoeilijk_Click(object sender, RoutedEventArgs e)
         {
-            OefNederlands1AanpassenMoeilijk nederlandsOefAanpassenMoeilijk = new OefNederlands1AanpassenMoeilijk();
+            OefNederlands1AanpassenMoeilijk nederlandsOefAanpassenMoeilijk = new OefNederlands1AanpassenMoeilijk(actieveGebruiker);
             framePages.Navigate(nederlandsOefAanpassenMoeilijk);
         }
 
-        private void MnuWoBewerkenMakkelijk_Click(object sendr, RoutedEventArgs e)
+        //author: seppe Vandezande
+        //date:04/05/2015
+        private void MnuWoBewerkenMakkelijk_Click(object sender, RoutedEventArgs e)
         {
             WoMakkelijkAanpassen WoMakkelijkAanpassen = new WoMakkelijkAanpassen();
             framePages.Navigate(WoMakkelijkAanpassen);
         }
-        private void MnuWoBewerkenGemiddeld_Click(object sendr, RoutedEventArgs e)
+        private void MnuWoBewerkenGemiddeld_Click(object sender, RoutedEventArgs e)
         {
             WoAanpassenGemiddeld WoAanpassenGemiddeld = new WoAanpassenGemiddeld();
             framePages.Navigate(WoAanpassenGemiddeld);
         }
-        private void MnuWoBewerkenMoeilijk_Click(object sendr, RoutedEventArgs e)
+        private void MnuWoBewerkenMoeilijk_Click(object sender, RoutedEventArgs e)
         {
             WoMoeilijkAanpassen WoMoeilijkAanpassen = new WoMoeilijkAanpassen();
             framePages.Navigate(WoMoeilijkAanpassen);
         }
-
         //Navigatie Leerkracht
         private void MnuIndOv_Click(object sender, RoutedEventArgs e)
         {
@@ -249,11 +240,9 @@ namespace Groepswerk
             }
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-        
+       
 
         
     }
 }
-}
+
