@@ -32,9 +32,9 @@
 
                 </MenuItem>
                 <MenuItem Header="Taal">
-                    <MenuItem Header="Taal - Gemakkelijk" Click="MnuWoBewerkenMakkelijk_Click"/>
+                    <MenuItem Header="Taal - Gemakkelijk" Click="MnuBewerkenMakkelijk_Click"/>
                     <MenuItem Header="Taal - Gemiddeld" Click="MnuBewerkenGemiddeld_Click"/>
-                    <MenuItem Header="Taal - Moeilijk" Click="MnuWoBewerkenMoeilijk_Click"/>
+                    <MenuItem Header="Taal - Moeilijk" Click="MnuBewerkenMoeilijk_Click"/>
                 </MenuItem>
             </MenuItem>
             
