@@ -86,6 +86,11 @@ namespace Groepswerk
             oefeningWiskundeMoeilijk oefWiskundeMoeilijk = new oefeningWiskundeMoeilijk(ActieveGebruiker);
             framePages.Navigate(oefWiskundeMoeilijk);
         }
+        private void WiskundeBewerken_Click()
+        {
+            OefWiskundeAanpassen oefeningAanpassen = new OefWiskundeAanpassen(ActieveGebruiker);
+            framePages.Navigate(oefeningAanpassen);
+        }
 
         //Author: Thomas Cox
         //Date: 22/04/2015
@@ -239,6 +244,8 @@ namespace Groepswerk
                 PasBalkAan();
             }
         }
+
+       
 
        
 
