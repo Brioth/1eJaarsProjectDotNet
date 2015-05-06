@@ -146,6 +146,7 @@ namespace Groepswerk
                 }
             actieveGebruiker.SetGameTijd(oefCorrect*2, moeilijkheidsgraad);
             SchrijfPunten();
+            Score.Content = oefCorrect + "/5";
            
             }
         

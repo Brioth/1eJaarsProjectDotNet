@@ -9,11 +9,13 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="261*"/>
-            <RowDefinition Height="191*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock HorizontalAlignment="Left" Margin="13,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="701" TextAlignment="Center"><Run Text="Bij elke moelijkheidsgraad"/><Run Text=" kan u een bereik zetten"/><Run Text=" dat u wil "/><Run Text="aanpassen"/><Run Text=". Druk hierna op de 'aanpassen' knop."/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="13,10,0,0" TextWrapping="Wrap" Text="Aanpassen wiskunde oefeningen" VerticalAlignment="Top" Height="46" Width="697" TextAlignment="Center" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="701" TextAlignment="Center"><Run Text="Bij elke moelijkheidsgraad"/><Run Text=" kan u een bereik zetten"/><Run Text=" dat u wil "/><Run Text="aanpassen"/><Run Text=". Druk hierna op de 'aanpassen' knop."/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Text="Aanpassen wiskunde oefeningen" VerticalAlignment="Top" Height="46" Width="697" TextAlignment="Center" FontSize="36"/>
         <!--<ComboBox Name="OpgaveSelecteren" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,102,0,0" SelectionChanged="OpgaveSelecteren_SelectionChanged"/>-->
         <Button Name="AanpasKnop" Content="Aanpassen" HorizontalAlignment="Left" Margin="114,70,0,0" VerticalAlignment="Top" Width="150" Height="59" Click="AanpasKnop_Click" Grid.Row="1"/>
         <Button Name="TerugKnop" Content="Terug naar hoofdmenu" HorizontalAlignment="Left" Margin="472,70,0,0" VerticalAlignment="Top" Width="150" Height="59" Grid.Row="1"/>
