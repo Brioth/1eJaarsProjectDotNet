@@ -20,12 +20,13 @@
                     <MenuItem Header="Taal - Gemmiddeld" Click="MnuTaalGemiddeld_Click"/>
                     <MenuItem Header="Taal - Moeilijk" Click="MnuTaalMoeilijk_Click"/>
                 </MenuItem>
+            </MenuItem>
                 <MenuItem Header="WO" >
                     <MenuItem Header ="Wo - Makkelijk" Click="MnuWoMakkelijk_Click"/>
                     <MenuItem Header="Wo - Gemmiddeld" Click="MnuWoGemiddeld_Click"/>
                     <MenuItem Header="Wo - Moeilijk" Click="MnuWoMoeilijk_Click"/>
                 </MenuItem>
-            </MenuItem>
+            
             <MenuItem Name="mnuOefBew" Header="Oefeningen Bewerken" IsTabStop="False" >
                 <MenuItem Header="Wiskunde">
                     <MenuItem Header="Wiskunde aanpassen" Click="WiskundeBewerken_Click"/>
