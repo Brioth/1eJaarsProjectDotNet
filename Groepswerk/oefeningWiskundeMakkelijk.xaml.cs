@@ -178,6 +178,7 @@ namespace Groepswerk
         private void Label_Drop(object sender, DragEventArgs e)
         // hier wordt gedropped
         {
+            ((Label)e.Source).Content = "";
             ((Label)e.Source).Content = (string)e.Data.GetData(DataFormats.Text);
         }
 
@@ -208,7 +209,7 @@ namespace Groepswerk
 
                 try
                 {
-                    if ((oplossingLijst[0]) == Convert.ToInt32(dropLabel1.Text))
+                    if ((oplossingLijst[0]).Equals(dropLabel1.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel1.Background = Brushes.Green;
@@ -217,7 +218,7 @@ namespace Groepswerk
                     {
                         dropLabel1.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[1]) == Convert.ToInt32(dropLabel2.Text))
+                    if ((oplossingLijst[1]).Equals(dropLabel2.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel2.Background = Brushes.Green;
@@ -226,7 +227,7 @@ namespace Groepswerk
                     {
                         dropLabel2.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[2]) == Convert.ToInt32(dropLabel3.Text))
+                    if ((oplossingLijst[2]).Equals(dropLabel3.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel3.Background = Brushes.Green;
@@ -235,7 +236,7 @@ namespace Groepswerk
                     {
                         dropLabel3.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[3]) == Convert.ToInt32(dropLabel4.Text))
+                    if ((oplossingLijst[3]).Equals(dropLabel4.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel4.Background = Brushes.Green;
@@ -244,7 +245,7 @@ namespace Groepswerk
                     {
                         dropLabel4.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[4]) == Convert.ToInt32(dropLabel5.Text))
+                    if ((oplossingLijst[4]).Equals(dropLabel5.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel5.Background = Brushes.Green;
@@ -253,7 +254,7 @@ namespace Groepswerk
                     {
                         dropLabel5.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[5]) == Convert.ToInt32(dropLabel6.Text))
+                    if ((oplossingLijst[5]).Equals(dropLabel6.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel6.Background = Brushes.Green;
@@ -262,7 +263,7 @@ namespace Groepswerk
                     {
                         dropLabel6.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[6]) == Convert.ToInt32(dropLabel7.Text))
+                    if ((oplossingLijst[6]).Equals(dropLabel7.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel7.Background = Brushes.Green;
@@ -271,7 +272,7 @@ namespace Groepswerk
                     {
                         dropLabel7.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[7]) == Convert.ToInt32(dropLabel8.Text))
+                    if ((oplossingLijst[7]).Equals(dropLabel8.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel8.Background = Brushes.Green;
@@ -280,7 +281,7 @@ namespace Groepswerk
                     {
                         dropLabel8.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[8]) == Convert.ToInt32(dropLabel9.Text))
+                    if ((oplossingLijst[8]).Equals(dropLabel9.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel9.Background = Brushes.Green;
@@ -289,7 +290,7 @@ namespace Groepswerk
                     {
                         dropLabel9.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[9]) == Convert.ToInt32(dropLabel10.Text))
+                    if ((oplossingLijst[9]).Equals(dropLabel10.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel10.Background = Brushes.Green;
