@@ -36,7 +36,7 @@ namespace Groepswerk
                         woorden[i] = woorden[i].Trim();
                     }
 
-                    Klas klas = new Klas(woorden[0],Convert.ToBoolean(woorden[1]));
+                    Klas klas = new Klas(woorden[0], Convert.ToBoolean(woorden[1]));
 
                     this.Add(klas);
                     regel = bestandKlas.ReadLine();
@@ -48,6 +48,7 @@ namespace Groepswerk
                 MessageBox.Show("Bestand Klassen.txt niet gevonden");
             }
         }
+
         //Events
 
         //Methods
@@ -61,6 +62,7 @@ namespace Groepswerk
             }
             schrijver.Close();
         }
+
         //Properties
     }
 }

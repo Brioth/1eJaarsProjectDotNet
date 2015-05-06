@@ -44,8 +44,5 @@ namespace Groepswerk
             get { return y; }
             set { y = value; UpdateElement(); }
         }
-
-
-
     }
 }

@@ -19,9 +19,11 @@ using System.Windows.Threading;
 namespace Groepswerk
 {
     /* --BolletjesSpel--
-     * 2 tegenstanders met lijst pionnen worden aangemaakt, elk met eigen timer om pionnen te spawnen
-     * Timer om bewegingen te controleren
+     * 2 tegenstanders met lijst pionnen worden aangemaakt
+     * Timers om bewegingen te controleren, nieuwe pionnen te spawnen om het spel te stoppen als je tijd op is, en de overgebleven tijd laat zien
      * Basisverloop spel wordt hier gecontroleerd
+     * User interaction: Je kan op je eigen kleur klikken en dan verplaatst je pion naar een andere random plaats
+     * Score: (eigen bolletjes * 4 + eigen vierkantjes * ) - (computerbolletjes * 2 + computervierkantjes * 1)
      * Author: Carmen Celen
      * 10/04/2015
      */
@@ -29,10 +31,9 @@ namespace Groepswerk
     {
         //Lokale variabelen
         private Gebruiker actieveGebruiker;
-
         private DispatcherTimer animationTimer, spawnTimer, speltijdTimer, aftelTimer;//Wnr alles beweegt
-
         private int resterendeTijd;
+
         //Constructors
         public HoofdSpel(Gebruiker actieveGebruiker)
         {
@@ -79,9 +80,9 @@ namespace Groepswerk
             aftelTimer.Interval = TimeSpan.FromSeconds(1);
             aftelTimer.Tick += Afteller_Tick;
             aftelTimer.Start();
-
         }
 
+        //Events
         private void EindeSpel_Tick(object sender, EventArgs e)
         {
             speltijdTimer.Stop();
@@ -92,10 +93,36 @@ namespace Groepswerk
 
             MessageBox.Show("Proficiat, je score is " + score);
             SchrijfScore(score);
-            //scores weergeven en wegschrijven
             TijdOp(); //Zet gameTijd op 0
         }
+        private void AnimationTimer_Tick(object sender, EventArgs e)
+        {
+            Speler.Beweeg(drawingCanvas);
+            Computer.Beweeg(drawingCanvas);
+            Speler.CheckHit(Computer.Bolletjes, Computer.Vierkantjes);
+            Computer.CheckHit(Speler.Bolletjes, Speler.Vierkantjes);
+            Speler.MaakVrij(drawingCanvas, "#CB2611");
+            Computer.MaakVrij(drawingCanvas, "#13737C");
+        }
+        private void Spawner_Tick(object sender, EventArgs e)
+        {
+            HoofdSpelBolletje bolletjeRood = new HoofdSpelBolletje("#CB2611", drawingCanvas);
+            Speler.Bolletjes.Add(bolletjeRood);
+            bolletjeRood.DisplayOn(drawingCanvas);
 
+
+            HoofdSpelBolletje bolletjeBlauw = new HoofdSpelBolletje("#13737C", drawingCanvas);
+            Computer.Bolletjes.Add(bolletjeBlauw);
+            bolletjeBlauw.DisplayOn(drawingCanvas);
+        }
+        private void Afteller_Tick(object sender, EventArgs e)
+        {
+            TimeSpan t = TimeSpan.FromSeconds(resterendeTijd);
+            lblTijd.Content = String.Format("{0:D2}m:{1:D2}s", t.Minutes, t.Seconds);
+            resterendeTijd--;
+        }
+
+        //Methods
         private void SchrijfScore(int score)
         {
             List<int[]> scores = new List<int[]>();
@@ -116,12 +143,12 @@ namespace Groepswerk
             lezer.Close();
 
 
-            //nieuwe vervangen/toevoegen
+            //nieuwe score vervangen/toevoegen
             bool nieuw = false;
- 
+
             for (int i = 0; i < scores.Count; i++)
             {
-                if (scores[i][0]==actieveGebruiker.Id)
+                if (scores[i][0] == actieveGebruiker.Id)
                 {
                     if (scores[i][1] < score)
                     {
@@ -132,7 +159,7 @@ namespace Groepswerk
             }
             if (nieuw == false)
             {
-                int[] nieuweScore = {actieveGebruiker.Id, score};
+                int[] nieuweScore = { actieveGebruiker.Id, score };
                 scores.Add(nieuweScore);
             }
 
@@ -146,42 +173,11 @@ namespace Groepswerk
             schrijver.Close();
 
         }
-
         private int BerekenScore()
         {
             int eigen = Speler.Bolletjes.Count * 4 + Speler.Vierkantjes.Count * 2;
             int computer = Computer.Bolletjes.Count * 2 + Computer.Vierkantjes.Count;
             return eigen - computer;
-        }
-        //Events
-
-           private void AnimationTimer_Tick(object sender, EventArgs e)
-        {
-            Speler.Beweeg(drawingCanvas);
-            Computer.Beweeg(drawingCanvas);
-            Speler.CheckHit(Computer.Bolletjes, Computer.Vierkantjes);
-            Computer.CheckHit(Speler.Bolletjes, Speler.Vierkantjes);
-            Speler.MaakVrij(drawingCanvas, "#CB2611");
-            Computer.MaakVrij(drawingCanvas, "#13737C");
-        }
-        
-        private void Spawner_Tick(object sender, EventArgs e)
-        {
-            HoofdSpelBolletje bolletjeRood = new HoofdSpelBolletje("#CB2611", drawingCanvas);
-            Speler.Bolletjes.Add(bolletjeRood);
-            bolletjeRood.DisplayOn(drawingCanvas);
-      
-
-            HoofdSpelBolletje bolletjeBlauw = new HoofdSpelBolletje("#13737C", drawingCanvas);
-            Computer.Bolletjes.Add(bolletjeBlauw);
-            bolletjeBlauw.DisplayOn(drawingCanvas);
-            
-        }
-        private void Afteller_Tick(object sender, EventArgs e)
-        {
-            TimeSpan t = TimeSpan.FromSeconds(resterendeTijd);
-            lblTijd.Content = String.Format("{0:D2}m:{1:D2}s", t.Minutes, t.Seconds);
-            resterendeTijd--;
         }
         private void TijdOp() //Zet gameTijd op 0
         {
@@ -196,10 +192,9 @@ namespace Groepswerk
             }
             lijst.SchrijfLijst();
         }
-        //Methods
-       
+
         //Properties
-        public HoofdspelSpeler Speler { get; set; }
+        public HoofdspelSpeler Speler { get; set; } //Moet propertie zijn omv databinding
         public HoofdspelSpeler Computer { get; set; }
     }
 }

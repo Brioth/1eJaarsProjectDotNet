@@ -9,12 +9,12 @@ using System.Windows;
 namespace Groepswerk
 {
     /* --AlleGebruikersLijst--
-     * Klasse die lijst van alle gebruikers maakt
+     * Klasse van alle gebruikers in 1 lijst
      * Methode SchrijfLijst() om (aangepaste) lijst naar txtbestand te schrijven
      * Author: Carmen Celen
      * Date: 03/04/2015
      */
-    public class AlleGebruikersLijst : List<Gebruiker> //Alle gebruikers in 1 lijst (om gegevens aan te passen)
+    public class AlleGebruikersLijst : List<Gebruiker>
     {
         //Lokale variabelen
 
@@ -35,7 +35,7 @@ namespace Groepswerk
                         woorden[i] = woorden[i].Trim();
                     }
 
-                    Gebruiker gebruiker = new Gebruiker(woorden[0], woorden[1], Convert.ToInt32(woorden[2]), woorden[3], woorden[4], woorden[5],Convert.ToInt32(woorden[6]));
+                    Gebruiker gebruiker = new Gebruiker(woorden[0], woorden[1], Convert.ToInt32(woorden[2]), woorden[3], woorden[4], woorden[5], Convert.ToInt32(woorden[6]));
                     this.Add(gebruiker);
                     regel = bestandAcc.ReadLine();
                 }
@@ -43,10 +43,8 @@ namespace Groepswerk
             }
             catch (FileNotFoundException)
             {
-
                 MessageBox.Show("Bestand Accounts.txt niet gevonden");
             }
-
         }
 
         //Events

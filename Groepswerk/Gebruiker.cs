@@ -11,21 +11,20 @@ using System.Windows;
 namespace Groepswerk
 {
     /* --Gebruiker--
-     * Klasse Gebruiker om makkelijk om te gaan met de gegevens van diverse lln en lk
+     * Klasse Gebruiker om makkelijk om te gaan met de gegevens van de gebruikers
      * Formaat Accounts: type(lln of lk);klas;ID;voornaam;achternaam;psw;tijdVoorSpelInSec
      * Gebruik SetGameTijd(int aantalVragenJuist, string codeMoeilijkheidsgraad) om gameTijd bij te geven
      * codes moeilijkheidsgraad zijn MAK, MED en MOE
      * 3 seconden per juist antwoord, *1 voor mak, *2 voor med en *3 voor moe
      * maximum gametijd te behalven is 6 minuten (360seconden), dit kan je behalen door 4 moeilijke oefeningen volledig juist te maken
      * Gebruik SchrijfString() om de string van de gebruiker te krijgen in het formaat nodig voor de txt-bestanden
-     * psw'en worden weggeschreven als bytes
+     * psw'en worden geëncrypteerd met een caesarrotatie
      * Author: Carmen Celen
      * Date: 30/03/2015
      */
     public class Gebruiker
     {
         //Lokale variabelen
-
         private int gameTijd;
         private string encrPsw;
         private int SLEUTEL = 15;
@@ -119,6 +118,7 @@ namespace Groepswerk
         {
             gameTijd = 0;
         }
+
         //Properties
         public int Id { get; set; }
         public string Voornaam { get; set; }
@@ -127,7 +127,6 @@ namespace Groepswerk
         public string Type { get; set; }
         public string Psw
         {
-
             get
             {
                 char[] tekens = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYZ0123456789".ToCharArray();

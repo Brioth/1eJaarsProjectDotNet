@@ -9,6 +9,11 @@ using System.Windows.Controls;
 
 namespace Groepswerk
 {
+    /* --HoofdspelSpeler--
+     * Klasse om spelers te controleren
+     * Author: Carmen Celen
+     * Date: 04/05/2015
+     */
     public class HoofdspelSpeler : IBeweegbaarHoofdSpel
     {
         //Lokale variabelen
@@ -20,8 +25,10 @@ namespace Groepswerk
             Bolletjes = new ObservableCollection<HoofdSpelBolletje>();
             Vierkantjes = new ObservableCollection<HoofdSpelVierkantje>();
         }
-        //Methods
 
+        //Events
+
+        //Methods
         public void Beweeg(Canvas drawingCanvas)
         {
             for (int i = 0; i < Bolletjes.Count; i++)
@@ -54,7 +61,6 @@ namespace Groepswerk
                 Vierkantjes[i].Positie = new Point(Vierkantjes[i].X + Vierkantjes[i].RichtingX * Vierkantjes[i].Snelheid, Vierkantjes[i].Y + Vierkantjes[i].RichtingY * Vierkantjes[i].Snelheid);
 
             }
-
         }
         private int BepaalRichting() //0 is -, 1 is blijven staan, 2 is +
         {

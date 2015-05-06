@@ -18,8 +18,6 @@ using System.Windows.Threading;
 namespace Groepswerk
 {
     /* --ZombieSpel--
-     * 
-     * 
      * Timers:
      * spelTijdTimer: hoe lang het spel duurt op basis van gewonnen seconden
      * spawnerSpeler/spawnerComputer: Hoe snel er nieuwe humans spawnen
@@ -28,6 +26,8 @@ namespace Groepswerk
      * vijfSecondenTimer: Skill 2 en 4 duren 5 seconden
      * skill6Timer: skill 6 kan je 2x 5 seconden, 2x 4 seconden en 2x 3 seconden gebruiker
      * cooldownTimer: cooldown van 10 seconden eer je weer een skill kan gebruiken
+     * User interaction: 6 skills
+     * Score: zelfde als hoofdspel
      * Author: Carmen Celen
      * Date: 24/04/2015
      */
@@ -40,12 +40,13 @@ namespace Groepswerk
         private int skill1Aantal = 5;
         private int skill6Aantal = 2;
         private int skill6Tijd = 5;
-        private int resterendeTijd, cooldown;
+        private int resterendeTijd;
+
         //Constructors
         public ZombieSpel(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
-          
+
             this.actieveGebruiker = actieveGebruiker;
             Speler = new ZombieSpelSpeler();
             Computer = new ZombieSpelComputer();
@@ -111,6 +112,7 @@ namespace Groepswerk
             aftelTimerSpel.Tick += Afteller_Tick;
             aftelTimerSpel.Start();
         }
+
         //Events
         private void MinuutTimer_Tick(object sender, EventArgs e)
         {
@@ -127,16 +129,16 @@ namespace Groepswerk
             Computer.MaakVrij(spelCanvas);
         }
         private void SpawnComputer_Tick(object sender, EventArgs e)
-        {           
-                ZombieSpelHuman humanComputer = new ZombieSpelHuman(puntComputer, "#13737C");
-                Computer.HumansComputer.Add(humanComputer);
-                humanComputer.DisplayOn(spelCanvas);            
+        {
+            ZombieSpelHuman humanComputer = new ZombieSpelHuman(puntComputer, "#13737C");
+            Computer.HumansComputer.Add(humanComputer);
+            humanComputer.DisplayOn(spelCanvas);
         }
         private void SpawnSpeler_Tick(object sender, EventArgs e)
         {
-                ZombieSpelHuman humanSpeler = new ZombieSpelHuman(puntSpeler, "#CB2611");
-                Speler.HumansSpeler.Add(humanSpeler);
-                humanSpeler.DisplayOn(spelCanvas);
+            ZombieSpelHuman humanSpeler = new ZombieSpelHuman(puntSpeler, "#CB2611");
+            Speler.HumansSpeler.Add(humanSpeler);
+            humanSpeler.DisplayOn(spelCanvas);
         }
         private void BtnSkill1_Click(object sender, RoutedEventArgs e)
         {
@@ -161,7 +163,7 @@ namespace Groepswerk
             DisableSkills();
             vijfSecondenTimer.Tick += ResetSkill2_Tick;
             vijfSecondenTimer.Start();
-            int nieuweTijd = Convert.ToInt32(spawnerSpeler.Interval.TotalMilliseconds)*10;
+            int nieuweTijd = Convert.ToInt32(spawnerSpeler.Interval.TotalMilliseconds) * 10;
             spawnerSpeler.Interval = TimeSpan.FromMilliseconds(nieuweTijd);
         }
         private void ResetSkill2_Tick(object sender, EventArgs e)
@@ -212,7 +214,7 @@ namespace Groepswerk
             {
                 skill6Aantal--;
             }
-            else if (skill6Aantal == 1 )
+            else if (skill6Aantal == 1)
             {
                 skill6Aantal = 2;
                 if (skill6Tijd <= 3)
@@ -249,10 +251,53 @@ namespace Groepswerk
             int score = BerekenScore();
             MessageBox.Show("Proficiat, je score is " + score);
             SchrijfScore(score);
-            //scores weergeven en wegschrijven
             TijdOp(); //Zet gameTijd op 0
+        }
+        private void SpelCanvas_Loaded(object sender, RoutedEventArgs e)
+        {
+            puntSpeler = new Point(spelCanvas.ActualWidth / 2, spelCanvas.ActualHeight - 75);
+            puntComputer = new Point(spelCanvas.ActualWidth / 2, 25);
+            Canvas.SetLeft(imgSpeler, puntSpeler.X);
+            Canvas.SetTop(imgSpeler, puntSpeler.Y);
+            Canvas.SetLeft(imgComputer, puntComputer.X);
+            Canvas.SetTop(imgComputer, puntComputer.Y);
+        }
+        private void Afteller_Tick(object sender, EventArgs e)
+        {
+            TimeSpan t = TimeSpan.FromSeconds(resterendeTijd);
+            lblTijd.Content = String.Format("{0:D2}m:{1:D2}s", t.Minutes, t.Seconds);
+            resterendeTijd--;
+        }
 
+        //Methods
+        private void TijdOp() //Zet gameTijd op 0
+        {
+            AlleGebruikersLijst lijst = new AlleGebruikersLijst();
 
+            for (int i = 0; i < lijst.Count; i++)
+            {
+                if (lijst[i].Id.Equals(actieveGebruiker.Id))
+                {
+                    lijst[i].SetGameTijdOp0();
+                }
+            }
+            lijst.SchrijfLijst();
+        }
+        private void DisableSkills()
+        {
+            cooldownTimer.Start();
+            btnSkill1.IsEnabled = false;
+            btnSkill2.IsEnabled = false;
+            btnSkill3.IsEnabled = false;
+            btnSkill4.IsEnabled = false;
+            btnSkill5.IsEnabled = false;
+            btnSkill6.IsEnabled = false;
+        }
+        private int BerekenScore()
+        {
+            int eigen = Speler.HumansSpeler.Count * 4 + Speler.ZombiesSpeler.Count * 2;
+            int computer = Computer.HumansComputer.Count * 2 + Computer.ZombiesComputer.Count;
+            return eigen - computer;
         }
         private void SchrijfScore(int score)
         {
@@ -302,53 +347,6 @@ namespace Groepswerk
                 schrijver.WriteLine(scores[i][0] + ";" + scores[i][1]);
             }
             schrijver.Close();
-
-        }
-
-        private int BerekenScore()
-        {
-            int eigen = Speler.HumansSpeler.Count * 4 + Speler.ZombiesSpeler.Count * 2;
-            int computer = Computer.HumansComputer.Count * 2 + Computer.ZombiesComputer.Count;
-            return eigen - computer;
-        }
-        private void SpelCanvas_Loaded(object sender, RoutedEventArgs e)
-        {
-            puntSpeler = new Point(spelCanvas.ActualWidth / 2, spelCanvas.ActualHeight - 75);
-            puntComputer = new Point(spelCanvas.ActualWidth / 2, 25);
-            Canvas.SetLeft(imgSpeler, puntSpeler.X);
-            Canvas.SetTop(imgSpeler, puntSpeler.Y);
-            Canvas.SetLeft(imgComputer, puntComputer.X);
-            Canvas.SetTop(imgComputer, puntComputer.Y);
-        }
-        private void Afteller_Tick(object sender, EventArgs e)
-        {
-            TimeSpan t = TimeSpan.FromSeconds(resterendeTijd);
-            lblTijd.Content = String.Format("{0:D2}m:{1:D2}s", t.Minutes, t.Seconds);
-            resterendeTijd--;
-        }
-        //Methods
-        private void TijdOp() //Zet gameTijd op 0
-        {
-            AlleGebruikersLijst lijst = new AlleGebruikersLijst();
-
-            for (int i = 0; i < lijst.Count; i++)
-            {
-                if (lijst[i].Id.Equals(actieveGebruiker.Id))
-                {
-                    lijst[i].SetGameTijdOp0();
-                }
-            }
-            lijst.SchrijfLijst();
-        }
-        private void DisableSkills()
-        {
-            cooldownTimer.Start();
-            btnSkill1.IsEnabled = false;
-            btnSkill2.IsEnabled = false;
-            btnSkill3.IsEnabled = false;
-            btnSkill4.IsEnabled = false;
-            btnSkill5.IsEnabled = false;
-            btnSkill6.IsEnabled = false;
         }
         //Properties
         public ZombieSpelSpeler Speler { get; set; }

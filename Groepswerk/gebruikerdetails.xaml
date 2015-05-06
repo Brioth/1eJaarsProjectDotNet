@@ -55,7 +55,7 @@
             <Label Name="lblWoMoe" Grid.Column="3" Grid.Row="3" Margin="20,10,20,10"/>
 
         </Grid>
-        <ComboBox Name="boxOef" Grid.Column="1" Grid.Row="3" Margin="10" SelectionChanged="boxOef_SelectionChanged">
+        <ComboBox Name="boxOef" Grid.Column="1" Grid.Row="3" Margin="10" SelectionChanged="boxOef_SelectionChanged" FontWeight="SemiBold">
             <ComboBoxItem Name="oefNedMak" Content="Taal Makkelijk"/>
             <ComboBoxItem Name="oefNedGem" Content="Taal Gemiddeld"/>
             <ComboBoxItem Name="oefNedMoe" Content="Taal Moeilijk"/>

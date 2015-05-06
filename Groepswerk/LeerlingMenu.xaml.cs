@@ -18,7 +18,7 @@ namespace Groepswerk
 {
     /* --LeerlingenMenu--
     * Leerlingen navigeren naar oefeningen
-    * Spel wordt zichtbaar gezet indien ok
+    * Spel wordt zichtbaar gezet indien deze week elk vak 1x gespeeld is, eventueel ook zombiespel als flag van klas op true staat
     * Author: Carmen Celen
     * Date: 29/03/2015
     */
@@ -47,6 +47,58 @@ namespace Groepswerk
         {
             ZombieSpel zombieSpel = new ZombieSpel(ActieveGebruiker);
             this.NavigationService.Navigate(zombieSpel);
+        }
+        //Author: Vincent Vandoninck
+        //Date: 04/05/2015
+        private void btnRekenenMak_Click(object sender, RoutedEventArgs e)
+        {
+            oefeningWiskundeMakkelijk oefWiskundeMakkelijkPagina = new oefeningWiskundeMakkelijk(ActieveGebruiker);
+            this.NavigationService.Navigate(oefWiskundeMakkelijkPagina);
+        }
+        private void btnRekenenGem_Click(object sender, RoutedEventArgs e)
+        {
+            oefeningWiskundeGemiddeld oefWiskundeGemiddeldPagina = new oefeningWiskundeGemiddeld(ActieveGebruiker);
+            this.NavigationService.Navigate(oefWiskundeGemiddeldPagina);
+        }
+        private void btnRekenenMoe_Click(object sender, RoutedEventArgs e)
+        {
+            oefeningWiskundeMoeilijk oefWiskundeMoeilijkPagina = new oefeningWiskundeMoeilijk(ActieveGebruiker);
+            this.NavigationService.Navigate(oefWiskundeMoeilijkPagina);
+        }
+
+        //Buttons Seppe
+        private void btnWOMak_Click(object sender, RoutedEventArgs e)
+        {
+            oefWoMakkelijk makkelijk = new oefWoMakkelijk(ActieveGebruiker);
+            this.NavigationService.Navigate(makkelijk);
+        }
+        private void btnWoGem_Click(object sender, RoutedEventArgs e)
+        {
+            oefWoGemiddeld gemiddeld = new oefWoGemiddeld(ActieveGebruiker);
+            this.NavigationService.Navigate(gemiddeld);
+        }
+        private void btnWoMoe_Click(object sender, RoutedEventArgs e)
+        {
+            oefWoMoeilijk moeilijk = new oefWoMoeilijk(ActieveGebruiker);
+            this.NavigationService.Navigate(moeilijk);
+        }
+        //Buttons Thomas
+        private void btnTaalMak_Click(object sender, RoutedEventArgs e)
+        {
+            OefNederlands1Makkelijk makkelijk = new OefNederlands1Makkelijk(ActieveGebruiker);
+            this.NavigationService.Navigate(makkelijk);
+        }
+
+        private void btnTaalGem_Click(object sender, RoutedEventArgs e)
+        {
+            OefNederlands1Gemiddeld gemiddeld = new OefNederlands1Gemiddeld(ActieveGebruiker);
+            this.NavigationService.Navigate(gemiddeld);
+        }
+
+        private void btnTaalMoe_Click(object sender, RoutedEventArgs e)
+        {
+            OefNederlands1Moeilijk moeilijk = new OefNederlands1Moeilijk(ActieveGebruiker);
+            this.NavigationService.Navigate(moeilijk);
         }
 
         //Methods
@@ -136,60 +188,8 @@ namespace Groepswerk
         }
 
         //Properties
-
         public Gebruiker ActieveGebruiker { get; set; }
 
-        //Author: Vincent Vandoninck
-        //Date: 04/05/2015
-        private void btnRekenenMak_Click(object sender, RoutedEventArgs e)
-        {
-            oefeningWiskundeMakkelijk oefWiskundeMakkelijkPagina = new oefeningWiskundeMakkelijk(ActieveGebruiker);
-            this.NavigationService.Navigate(oefWiskundeMakkelijkPagina);
-        }
-        private void btnRekenenGem_Click(object sender, RoutedEventArgs e)
-        {
-            oefeningWiskundeGemiddeld oefWiskundeGemiddeldPagina = new oefeningWiskundeGemiddeld(ActieveGebruiker);
-            this.NavigationService.Navigate(oefWiskundeGemiddeldPagina);
-        }
-        private void btnRekenenMoe_Click(object sender, RoutedEventArgs e)
-        {
-            oefeningWiskundeMoeilijk oefWiskundeMoeilijkPagina = new oefeningWiskundeMoeilijk(ActieveGebruiker);
-            this.NavigationService.Navigate(oefWiskundeMoeilijkPagina);
-        }
-
-
-        private void btnWOMak_Click(object sender, RoutedEventArgs e)
-        {
-            oefWoMakkelijk makkelijk = new oefWoMakkelijk(ActieveGebruiker);
-            this.NavigationService.Navigate(makkelijk);
-        }
-        private void btnWoGem_Click(object sender, RoutedEventArgs e)
-        {
-            oefWoGemiddeld gemiddeld = new oefWoGemiddeld(ActieveGebruiker);
-            this.NavigationService.Navigate(gemiddeld);
-        }
-        private void btnWoMoe_Click(object sender, RoutedEventArgs e)
-        {
-            oefWoMoeilijk moeilijk = new oefWoMoeilijk(ActieveGebruiker);
-            this.NavigationService.Navigate(moeilijk);
-        }
-
-        private void btnTaalMak_Click(object sender, RoutedEventArgs e)
-        {
-            OefNederlands1Makkelijk makkelijk = new OefNederlands1Makkelijk(ActieveGebruiker);
-            this.NavigationService.Navigate(makkelijk);
-        }
-
-        private void btnTaalGem_Click(object sender, RoutedEventArgs e)
-        {
-            OefNederlands1Gemiddeld gemiddeld = new OefNederlands1Gemiddeld(ActieveGebruiker);
-            this.NavigationService.Navigate(gemiddeld);
-        }
-
-        private void btnTaalMoe_Click(object sender, RoutedEventArgs e)
-        {
-            OefNederlands1Moeilijk moeilijk = new OefNederlands1Moeilijk(ActieveGebruiker);
-            this.NavigationService.Navigate(moeilijk);
-        }
+        
     }
 }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Groepswerk
 {
-    /*
-     * 
-     * 
-     * 
+    /* --DetailsGebruiker--
+     * Klasse om met alle resultaten van een gebruiker te werken
+     * Lijst met alle gemaakte oefeningen per gebruiker (elke oefening/vak aparte lijst)
+     * Array met totaalPunten, totaalSeconden en totaalOefeningen  (elke oefening/vak aparte array)
      * Author: Carmen Celen
      * Date: 3/05/2015
      */
@@ -18,6 +18,7 @@ namespace Groepswerk
         //Lokale variabelen
         private string naam;
         private List<Resultaat> nedMak, nedGem, nedMoe, wiskMak, wiskGem, wiskMoe, woMak, woGem, woMoe;
+
         //Constructors
         public DetailsGebruiker(int id, string naam)
         {
@@ -34,6 +35,9 @@ namespace Groepswerk
             woMoe = MaakLijst("OefResultatenWoMoe.txt");
         }
 
+        //Events
+
+        //Methods
         private List<Resultaat> MaakLijst(string bestand)
         {
             ResultatenLijst resLijst = new ResultatenLijst(bestand);
@@ -64,6 +68,7 @@ namespace Groepswerk
             return gemiddelde;
         }
 
+        //Properties       
         public int Id { get; set; }
         public string Naam { get { return naam; } }
         public List<Resultaat> ResultatenNedMak { get { return nedMak; } }
@@ -84,8 +89,5 @@ namespace Groepswerk
         public int[] GemWoMak { get { return MaakGemiddelde(ResultatenWoMak); } }
         public int[] GemWoMed { get { return MaakGemiddelde(ResultatenWoMed); } }
         public int[] GemWoMoe { get { return MaakGemiddelde(ResultatenWoMoe); } }
-
-
-
     }
 }

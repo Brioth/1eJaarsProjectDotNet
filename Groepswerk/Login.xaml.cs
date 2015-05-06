@@ -23,7 +23,7 @@ namespace Groepswerk
      * Author: Carmen Celen
      * Date: 30/03/2015
      */
-    
+
     public partial class Login : Page
     {
         //Lokale variabelen
@@ -55,7 +55,7 @@ namespace Groepswerk
         }
         private void BoxKlas_Changed(object sender, SelectionChangedEventArgs e)
         {
-           selectedKlas =(Klas)boxKlas.SelectedItem;
+            selectedKlas = (Klas)boxKlas.SelectedItem;
             if (accountLijst != null)
             {
                 accountLijst.Clear();
@@ -69,12 +69,12 @@ namespace Groepswerk
         {
             pswBox.Clear();
         }
-        //Methods
 
+        //Methods
         private void LoginHandler()
         {
-            selectedGebruiker = (Gebruiker)boxLogin.SelectedItem;           
-            bool pswOk = CheckPsw(selectedGebruiker);           
+            selectedGebruiker = (Gebruiker)boxLogin.SelectedItem;
+            bool pswOk = CheckPsw(selectedGebruiker);
 
             if (pswOk == true)
             {
@@ -100,8 +100,8 @@ namespace Groepswerk
         private bool CheckPsw(Gebruiker selectedGebruiker)
         {
             string gok = pswBox.Password;
-          
-           if (selectedGebruiker.Psw.Equals(gok))
+
+            if (selectedGebruiker.Psw.Equals(gok))
             {
                 return true;
             }
@@ -110,8 +110,6 @@ namespace Groepswerk
                 return false;
             }
         }
-
-
 
         //Properties
     }

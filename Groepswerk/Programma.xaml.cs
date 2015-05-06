@@ -68,7 +68,6 @@ namespace Groepswerk
                     break;
             }
         }
-        //aanpassen oefeningen
 
         //Author: Vincent Vandoninck
         //Date: 04/05/2015
@@ -88,9 +87,6 @@ namespace Groepswerk
             framePages.Navigate(oefWiskundeMoeilijk);
         }
 
-
-
-
         //Author: Thomas Cox
         //Date: 22/04/2015
         private void MnuTaalMakkelijk_Click(object sender, RoutedEventArgs e)
@@ -108,10 +104,11 @@ namespace Groepswerk
             OefNederlands1Moeilijk oefNederlandsMoeilijk = new OefNederlands1Moeilijk(actieveGebruiker);
             framePages.Navigate(oefNederlandsMoeilijk);
         }
+
         //navigatie oefeningen
         //Author: Seppe
-
-        private void MnuWoMakkelijk_Click(object sender, RoutedEventArgs e) {
+        private void MnuWoMakkelijk_Click(object sender, RoutedEventArgs e)
+        {
             oefWoMakkelijk oefWoMakkelijk = new oefWoMakkelijk(ActieveGebruiker);
             framePages.Navigate(oefWoMakkelijk);
         }
@@ -144,9 +141,7 @@ namespace Groepswerk
             framePages.Navigate(nederlandsOefAanpassenMoeilijk);
         }
 
-
-
-
+        //Navigatie Leerkracht
         private void MnuIndOv_Click(object sender, RoutedEventArgs e)
         {
             Gebruikerdetails detailsMenu = new Gebruikerdetails();
@@ -226,6 +221,6 @@ namespace Groepswerk
                 this.Title = Convert.ToString(ActieveGebruiker);
                 PasBalkAan();
             }
-        }        
+        }
     }
 }

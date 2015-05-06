@@ -12,6 +12,9 @@ namespace Groepswerk
 
     public class ResultatenLijst : List<Resultaat>
     {
+        //Lokale variabelen
+
+        //Constructors
         public ResultatenLijst(string bestand)
         {
             try
@@ -25,22 +28,27 @@ namespace Groepswerk
                 StreamWriter maakBestand = File.CreateText(bestand);
                 maakBestand.Close();
             }
-            finally { 
+            finally
+            {
                 StreamReader bestandResultaten = File.OpenText(bestand);
                 string regel = bestandResultaten.ReadLine();
                 char[] scheiding = { ';' };
 
                 while (regel != null)
                 {
-                        string[] deel = regel.Split(scheiding);
-                        Resultaat oefeningenResultaten = new Resultaat(Convert.ToInt32(deel[0]), Convert.ToDateTime(deel[1]), Convert.ToInt32(deel[2]), Convert.ToInt32(deel[3]), Convert.ToInt32(deel[4]));
-                        this.Add(oefeningenResultaten);
-                        regel = bestandResultaten.ReadLine();
+                    string[] deel = regel.Split(scheiding);
+                    Resultaat oefeningenResultaten = new Resultaat(Convert.ToInt32(deel[0]), Convert.ToDateTime(deel[1]), Convert.ToInt32(deel[2]), Convert.ToInt32(deel[3]), Convert.ToInt32(deel[4]));
+                    this.Add(oefeningenResultaten);
+                    regel = bestandResultaten.ReadLine();
                 }
 
                 bestandResultaten.Close();
-            }  
+            }
         }
+
+        //Events
+
+        //Methods
         public void SchrijfLijst(string bestand)
         {
             File.WriteAllText(bestand, String.Empty);
@@ -51,5 +59,7 @@ namespace Groepswerk
             }
             schrijver.Close();
         }
+
+        //Properties
     }
 }

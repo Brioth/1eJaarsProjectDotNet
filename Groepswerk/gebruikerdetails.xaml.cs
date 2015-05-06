@@ -16,12 +16,17 @@ using System.Windows.Shapes;
 
 namespace Groepswerk
 {
-    /// <summary>
-    /// Interaction logic for gebruikerdetails.xaml
-    /// </summary>
+    /* --GebruikerDetails
+     * Pagina om individuele statistieken op te vragen per leerling.
+     * Grid Details krijgt rijen in code bij afhankelijk hoeveel er nodig zijn
+     * Ook mogelijk met Datagrids
+     * Aangepast op 04/05/2015 door Carmen Celen
+     * Author: Vincent
+     * Date:
+     */
     public partial class Gebruikerdetails : Page
     {
-        //variabelen
+        //Lokale Variabelen
         private List<Gebruiker> accountLijst;
         private List<Klas> klasLijst;
         private Klas selectedKlas;
@@ -38,13 +43,11 @@ namespace Groepswerk
             klasKeuze.ItemsSource = klasLijst;
             // de bron van deze box is de lijst
             klasKeuze.SelectedIndex = 0;
-
         }
 
-        //events
+        //Events
         private void klasKeuze_Changed(object sender, SelectionChangedEventArgs e)
         {
-
             if (accountLijst != null)
             {
                 accountLijst = null;
@@ -57,11 +60,7 @@ namespace Groepswerk
             // elke student in de lijst is nu zchtbaar want de hele lijst is de source
             boxLln.SelectedIndex = 0;
             // om het netjes te houden begin je bij de eerste al als geselecteerde waarde
-
         }
-        // methodes
-
-
         private void boxLln_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (boxLln.SelectedIndex != -1)
@@ -72,9 +71,9 @@ namespace Groepswerk
                 boxOef.SelectedIndex = -1; //Als die al op 0 stond veranderd hij niet en gaat hij niet naar boxOef_SelectionChanged
                 boxOef.SelectedIndex = 0;
             }
-
         }
 
+        // Methods
         private void VulAlgemeenGemiddeldes()
         {
             double tekst;
@@ -134,7 +133,6 @@ namespace Groepswerk
             }
             lblWoMoe.Content = tekst;
         }
-
         private void boxOef_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             List<Resultaat> detailLijst = new List<Resultaat>();
@@ -243,8 +241,6 @@ namespace Groepswerk
 
                 }
             }
-
-
         }
         private void MaakGrid(List<Resultaat> lijst)
         {
@@ -264,9 +260,7 @@ namespace Groepswerk
                 detailGrid.RowDefinitions.Add(row);
             }
         }
+
         //properties
-
-
-
     }
 }

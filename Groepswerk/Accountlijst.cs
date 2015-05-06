@@ -51,7 +51,6 @@ namespace Groepswerk
             catch (FileNotFoundException)
             {
                 MessageBox.Show("Bestand Accounts.txt niet gevonden");
-
             }
 
             //Events

@@ -10,16 +10,21 @@ using System.Windows.Shapes;
 
 namespace Groepswerk
 {
+    /* --ZombiespelZombie--
+     * Gedrag zombie
+     * Author: Carmen Celen
+     * Date: 25/04/2015
+     */
     public class ZombieSpelZombie : ZombieSpelSprite
     {
         //Lokale variabelen
-
         private Rectangle vierkant;
         private string kleur;
         private Image afbeelding;
         private Rect doelvierkant;
         private static Random richtingRandom = new Random();
         private Point positie = new Point();
+
         //Constructors
         public ZombieSpelZombie(Point punt, string kleur)
         {
@@ -42,14 +47,13 @@ namespace Groepswerk
         }
 
         //Events
-        //Methods
 
+        //Methods
         public override void DisplayOn(Canvas drawingCanvas)
         {
             drawingCanvas.Children.Add(vierkant);
             drawingCanvas.Children.Add(afbeelding);
         }
-
         public override void UpdateElement()
         {
             vierkant.Margin = new Thickness(Positie.X, Positie.Y, 0, 0);
@@ -84,6 +88,7 @@ namespace Groepswerk
             drawingCanvas.Children.Remove(vierkant);
             drawingCanvas.Children.Remove(afbeelding);
         }
+
         //Properties
         public double Snelheid { get; set; }
         public bool GeraaktDoorEigen { get; set; }

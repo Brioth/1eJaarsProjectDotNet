@@ -11,20 +11,20 @@ using System.Windows.Shapes;
 namespace Groepswerk
 {
     /* --Zombiespel Human--
-     * aanmaken en gedrag bolletjes
+     * Aanmaken en gedrag bolletjes
      * Author: Carmen Celen
      * Date: 24/04/2015
      */
     public class ZombieSpelHuman : ZombieSpelSprite
     {
         //Lokale variabelen
-
         private Ellipse cirkel;
         private string kleur;
         private Image afbeelding;
         private Point positie = new Point();
         private Rect doelvierkant;
         private static Random richtingRandom = new Random();
+
         //Constructors
         public ZombieSpelHuman(Point punt, string kleur)
         {
@@ -43,23 +43,21 @@ namespace Groepswerk
             {
                 RichtingX = BepaalRichting();
                 RichtingY = BepaalRichting();
-            } while (RichtingX ==0 && RichtingY ==0);
-
+            } while (RichtingX == 0 && RichtingY == 0);
         }
 
         //Events
-        //Methods
 
+        //Methods
         public override void DisplayOn(Canvas drawingCanvas)
         {
             drawingCanvas.Children.Add(cirkel);
             drawingCanvas.Children.Add(afbeelding);
         }
-
         public override void UpdateElement()
         {
-            cirkel.Margin = new Thickness(this.X, this.Y, 0,0);
-            afbeelding.Margin = new Thickness(this.X, this.Y, 0,0);
+            cirkel.Margin = new Thickness(this.X, this.Y, 0, 0);
+            afbeelding.Margin = new Thickness(this.X, this.Y, 0, 0);
             doelvierkant.Location = Positie;
         }
         private int BepaalRichting() //0 is -, 1 is blijven staan, 2 is +
@@ -90,10 +88,11 @@ namespace Groepswerk
             drawingCanvas.Children.Remove(cirkel);
             drawingCanvas.Children.Remove(afbeelding);
         }
+
         //Properties
         public double Snelheid { get; set; }
         public bool Geraakt { get; set; }
-        public Point Positie 
+        public Point Positie
         {
             get { return positie; }
             set { positie = value; this.X = positie.X; this.Y = positie.Y; }
