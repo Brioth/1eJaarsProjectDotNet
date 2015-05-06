@@ -66,7 +66,7 @@ namespace Groepswerk
 
         private void UpdateLijst()
         {
-            lijstOefeningen = new OefeningLijst("Makkelijk");
+            lijstOefeningen = new OefeningLijst("makkelijk");
             OpgaveSelecteren.ItemsSource = lijstOefeningen;
             OpgaveSelecteren.SelectedIndex = -1;
             OpgaveSelecteren.SelectedIndex = 0;
