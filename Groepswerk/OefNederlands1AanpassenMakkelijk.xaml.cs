@@ -24,10 +24,12 @@ namespace Groepswerk
         private Oefening oefening;
         private List<string> opgaves, oplossing1, oplossing2, oplossing3, correcteOplossing, juisteAntwoordCompleet;
         private int geselecteerdeIndex;
-        public OefNederlands1AanpassenMakkelijk()
+        Gebruiker actieveGebruiker;
+        public OefNederlands1AanpassenMakkelijk(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
-           
+            opgaves = new List<string>();
+            oplossing1 = new List<string>();
             oplossing2 = new List<string>();
             oplossing3 = new List<string>();
             correcteOplossing = new List<string>();
@@ -70,7 +72,7 @@ namespace Groepswerk
             StreamWriter writer = File.AppendText(@"OefNederlands1Makkelijk.txt");
             foreach (Oefening oef in lijstOefeningen)
             {
-                writer.WriteLine(oef.opgave + ";" + oef.oplossing1 + ";" + oef.oplossing2 + ";" + oef.oplossing3 + ";" + oef.correcteOplossing +";" + oef.juisteAntwoordCompleet);
+                writer.WriteLine(oef.opgave + ";" + oef.oplossing1 + ";" + oef.oplossing2 + ";" + oef.oplossing3 + ";" + oef.correcteOplossing + ";" + oef.juisteAntwoordCompleet);
             }
             writer.Close();
 
@@ -82,6 +84,7 @@ namespace Groepswerk
             oplossing3.Clear();
             correcteOplossing.Clear();
             juisteAntwoordCompleet.Clear();
+
             for (int i = 0; i < lijstOefeningen.Count; i++)
             {
                 opgaves.Add(lijstOefeningen[i].opgave);
@@ -94,7 +97,23 @@ namespace Groepswerk
             OpgaveSelecteren.ItemsSource = opgaves;
         }
 
+        private void TerugKnop_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult terug = MessageBox.Show("Bent u zeker dat u terug wilt naar het menu?", "Terug", MessageBoxButton.YesNo);
+            switch (terug)
+            {
+                case MessageBoxResult.No:
+                    break;
+                case MessageBoxResult.Yes:
+                    Programma terugMenu = new Programma();
+                    this.NavigationService.Navigate(terugMenu);
+                    break;
+                default:
+                    break;
+            }
+
 
         
     }
+}
 }

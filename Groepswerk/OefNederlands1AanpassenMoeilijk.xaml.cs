@@ -23,9 +23,13 @@ namespace Groepswerk
         private OefeningLijst lijstOefeningen;
         private IList<string> opgaves, correcteOplossing;
         private int geselecteerdeIndex;
-        public OefNederlands1AanpassenMoeilijk()
+        private Gebruiker actieveGebruiker;
+        public OefNederlands1AanpassenMoeilijk(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
+
+            this.actieveGebruiker = actieveGebruiker;
+
             lijstOefeningen = new OefeningLijst("moeilijk");
             for (int i = 0; i < lijstOefeningen.Count; i++)
             {
@@ -54,7 +58,7 @@ namespace Groepswerk
 
         private void TerugKnop_Click(object sender, RoutedEventArgs e)
         {
-            //navigation. Ik snap da dus echt nie eh... this.Frame.Navigate(typeof(Programma));
+            
         }
 
         
