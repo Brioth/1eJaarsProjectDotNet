@@ -48,6 +48,7 @@ namespace Groepswerk
             this.actieveGebruiker = actieveGebruiker;
             tijdTeller = new Stopwatch();
             tijdTeller.Start();
+            
 
             // of 2 random getallen tss 10 laten maken en die uitkomst ervan laten berekenen en opslaan in lijst (txt bestand)
             // lijst vergelijken met de user input
@@ -171,15 +172,21 @@ namespace Groepswerk
         {
             DataObject data = new DataObject(DataFormats.Text, ((Label)e.Source).Content);
 
-            DragDrop.DoDragDrop((DependencyObject)e.Source, data, DragDropEffects.Copy);
+            DragDrop.DoDragDrop((DependencyObject)e.Source, data, DragDropEffects.Move);
+            
             //slepen
+        }
+        private void tbox_previewDrop(object sender,DragEventArgs e)
+        {
+            (sender as TextBox).Text = String.Empty;
         }
 
         private void Label_Drop(object sender, DragEventArgs e)
         // hier wordt gedropped
         {
-           
+            
             ((Label)e.Source).Content = (string)e.Data.GetData(DataFormats.Text);
+           
         }
 
         private void Label_GiveFeedback(object sender, GiveFeedbackEventArgs e)
@@ -348,5 +355,6 @@ namespace Groepswerk
             oefeningWiskundeMakkelijk oefWiskundeMakkelijkPagina = new oefeningWiskundeMakkelijk(actieveGebruiker);
             this.NavigationService.Navigate(oefWiskundeMakkelijkPagina);
         }
+
     }
 }

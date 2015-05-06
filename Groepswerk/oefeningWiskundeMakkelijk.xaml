@@ -48,7 +48,6 @@
         <Label  Margin="20,10,20,10" Content="9" Name="antwoordlabel9" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="9" Grid.Row="2"/>
         <Label  Margin="20,10,20,10" Content="10" Name="antwoordlabel10" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="10" Grid.Row="2"/>
 
-        <!--AllowDrop="True" Drop="Label_Drop"-->
         <Label Name="opgaveblock1" Margin="20,10,20,10" MinWidth="20"  Content="opgave1"   Grid.Column="2" Grid.Row="3" />
         <Label Margin="20,10,20,10" MinWidth="20" Content="opgave2" Name="opgaveblock2"   Grid.Column="2" Grid.Row="4"/>
         <Label Margin="20,10,20,10" MinWidth="20" Content="opgave3" Name="opgaveblock3"   Grid.Column="2" Grid.Row="5"/>
@@ -63,18 +62,16 @@
         <Button Name="verbeterButton" Margin="5" Content="Verbeter"   Click="verbeterButton_Click" Grid.Column="7" Grid.Row="9"/>
         <TextBlock Name="Punten" Margin="10"  Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="9"/>
 
-        <!--AllowDrop="True" Drop="Label_Drop"-->
-        <TextBox Margin="10"  Text="" MinWidth="20" Name="dropLabel1" AllowDrop="True" Drop="Label_Drop" Grid.Column="3"  Grid.Row="3" />
-        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel2"  AllowDrop="True" Drop="Label_Drop" Grid.Column="3"  Grid.Row="4" />
-        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel3"  AllowDrop="True" Drop="Label_Drop" Grid.Column="3"  Grid.Row="5" />
-        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel4"  AllowDrop="True" Drop="Label_Drop" Grid.Column="3"  Grid.Row="6" />
-        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel5"  AllowDrop="True" Drop="Label_Drop" Grid.Column="3"  Grid.Row="7" />
-        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel6"  AllowDrop="True" Drop="Label_Drop" Grid.Column="5" Grid.Row="3"/>
-        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel7"  AllowDrop="True" Drop="Label_Drop" Grid.Column="5" Grid.Row="4"/>
-        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel8"  AllowDrop="True" Drop="Label_Drop" Grid.Column="5" Grid.Row="5"/>
-        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel9"  AllowDrop="True" Drop="Label_Drop" Grid.Column="5" Grid.Row="6"/>
-        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel10" AllowDrop="True" Drop="Label_Drop" Grid.Column="5" Grid.Row="7"/>
-
+        <TextBox Margin="10"  Text="" MinWidth="20" Name="dropLabel1" AllowDrop="True" Drop="Label_Drop" Grid.Column="3"  Grid.Row="3" PreviewDrop="tbox_previewDrop"  />
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel2"  AllowDrop="True" Drop="Label_Drop" Grid.Column="3"  Grid.Row="4" PreviewDrop="tbox_previewDrop" />
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel3"  AllowDrop="True" Drop="Label_Drop" Grid.Column="3"  Grid.Row="5" PreviewDrop="tbox_previewDrop" />
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel4"  AllowDrop="True" Drop="Label_Drop" Grid.Column="3"  Grid.Row="6" PreviewDrop="tbox_previewDrop" />
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel5"  AllowDrop="True" Drop="Label_Drop" Grid.Column="3"  Grid.Row="7" PreviewDrop="tbox_previewDrop" />
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel6"  AllowDrop="True" Drop="Label_Drop" Grid.Column="5" Grid.Row="3" PreviewDrop="tbox_previewDrop"/>
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel7"  AllowDrop="True" Drop="Label_Drop" Grid.Column="5" Grid.Row="4" PreviewDrop="tbox_previewDrop"/>
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel8"  AllowDrop="True" Drop="Label_Drop" Grid.Column="5" Grid.Row="5" PreviewDrop="tbox_previewDrop"/>
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel9"  AllowDrop="True" Drop="Label_Drop" Grid.Column="5" Grid.Row="6" PreviewDrop="tbox_previewDrop"/>
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropLabel10" AllowDrop="True" Drop="Label_Drop" Grid.Column="5" Grid.Row="7" PreviewDrop="tbox_previewDrop"/>
 
         <Grid Grid.Column="0" Grid.Row="0">
             <Grid.ColumnDefinitions>
