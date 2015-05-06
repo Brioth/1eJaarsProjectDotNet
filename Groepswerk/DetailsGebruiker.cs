@@ -30,9 +30,9 @@ namespace Groepswerk
             wiskMak = MaakLijst("OefResultatenWiskMak.txt");
             wiskGem = MaakLijst("OefResultatenWiskGem.txt");
             wiskMoe = MaakLijst("OefResultatenWiskMoe.txt");
-            woMak = MaakLijst("OefResultatenWoMak.txt");
-            woGem = MaakLijst("OefResultatenWoMed.txt");
-            woMoe = MaakLijst("OefResultatenWoMoe.txt");
+            woMak = MaakLijst("resultaatWoMakkelijk.txt");
+            woGem = MaakLijst("resultaatWoGemiddeld.txt");
+            woMoe = MaakLijst("resultaatWoMoeilijk.txt");
         }
 
         //Events
