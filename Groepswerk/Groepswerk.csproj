@@ -105,6 +105,15 @@
     </Compile>
     <Compile Include="Resultaat.cs" />
     <Compile Include="ResultatenLijst.cs" />
+    <Compile Include="WoAanpassenGemiddeld.xaml.cs">
+      <DependentUpon>WoAanpassenGemiddeld.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WoMakkelijkAanpassen.xaml.cs">
+      <DependentUpon>WoMakkelijkAanpassen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WoMoeilijkAanpassen.xaml.cs">
+      <DependentUpon>WoMoeilijkAanpassen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ZombieSpel.xaml.cs">
       <DependentUpon>ZombieSpel.xaml</DependentUpon>
     </Compile>
@@ -211,6 +220,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Programma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WoAanpassenGemiddeld.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WoMakkelijkAanpassen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WoMoeilijkAanpassen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
