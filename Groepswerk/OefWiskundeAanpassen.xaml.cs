@@ -22,7 +22,7 @@ namespace Groepswerk
     // De ingevoerde informatie uitschrijven in oefnWiskundeGemiddeld.txt en deze gebruiken als de nieuwe waarden in de oefening.
 
     /// <summary>
-    /// Interaction logic for OefWiskundeAanpGemiddelde.xaml
+    /// Interaction logic for OefWiskundeAanpassen.xaml
     /// </summary>
     public partial class OefWiskundeAanpassen : Page
     {
