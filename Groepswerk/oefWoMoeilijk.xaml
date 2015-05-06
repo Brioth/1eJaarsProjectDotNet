@@ -59,6 +59,7 @@
             <Button  Content="terug"  Margin="5"  Grid.Column="0" Grid.Row="0" Click="terugButton_Click"/>
             <Button  Content="opnieuw"   Margin="5"   Grid.Column="1" Grid.Row="0" Click="opnieuwButton_Click"/>
         </Grid>
-   
+        <Label x:Name="Score" Grid.Column="5" HorizontalAlignment="Left" Margin="20,10,20,10" Grid.Row="2" VerticalAlignment="Top"/>
+
     </Grid>
 </Page>

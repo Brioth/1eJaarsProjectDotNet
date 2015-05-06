@@ -17,13 +17,13 @@
             </MenuItem>
             <MenuItem Header="Taal">
                     <MenuItem Header ="Taal - Makkelijk" Click="MnuTaalMakkelijk_Click"/>
-                    <MenuItem Header="Taal - Gemmiddeld" Click="MnuTaalGemiddeld_Click"/>
+                    <MenuItem Header="Taal - Gemiddeld" Click="MnuTaalGemiddeld_Click"/>
                     <MenuItem Header="Taal - Moeilijk" Click="MnuTaalMoeilijk_Click"/>
             </MenuItem>
             
                 <MenuItem Header="WO" >
                     <MenuItem Header ="Wo - Makkelijk" Click="MnuWoMakkelijk_Click"/>
-                    <MenuItem Header="Wo - Gemmiddeld" Click="MnuWoGemiddeld_Click"/>
+                    <MenuItem Header="Wo - Gemiddeld" Click="MnuWoGemiddeld_Click"/>
                     <MenuItem Header="Wo - Moeilijk" Click="MnuWoMoeilijk_Click"/>
                 </MenuItem>
             </MenuItem>

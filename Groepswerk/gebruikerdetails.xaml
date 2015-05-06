@@ -40,7 +40,7 @@
             </Grid.ColumnDefinitions>
             <Label Content="Makkelijk" Grid.Row="0" Grid.Column="1" Margin="20,10,20,10" FontWeight="SemiBold"/>
             <Label Content="Gemiddeld" Grid.Row="0" Grid.Column="2" Margin="20,10,20,10" FontWeight="SemiBold"/>
-            <Label Content="Moeilijk" Grid.Row="0" Grid.Column="3" Margin="20,10,20,10" FontWeight="SemiBold"/>
+            <Label Content="Moeilijk /10" Grid.Row="0" Grid.Column="3" Margin="20,10,20,10" FontWeight="SemiBold"/>
             <Label Content="Taal" Grid.Row="1" Grid.Column="0" Margin="20,10,20,10" FontWeight="SemiBold"/>
             <Label Content="Rekenen" Grid.Row="2" Grid.Column="0" Margin="20,10,20,10" FontWeight="SemiBold"/>
             <Label Content="Wo" Grid.Row="3" Grid.Column="0" Margin="20,10,20,10" FontWeight="SemiBold"/>
@@ -55,7 +55,7 @@
             <Label Name="lblWoMoe" Grid.Column="3" Grid.Row="3" Margin="20,10,20,10"/>
 
         </Grid>
-        <ComboBox Name="boxOef" Grid.Column="1" Grid.Row="3" Margin="10" SelectionChanged="boxOef_SelectionChanged" FontWeight="SemiBold">
+        <ComboBox Name="boxOef" Grid.Column="1" Grid.Row="3" Margin="10" VerticalAlignment="Center" SelectionChanged="boxOef_SelectionChanged">
             <ComboBoxItem Name="oefNedMak" Content="Taal Makkelijk"/>
             <ComboBoxItem Name="oefNedGem" Content="Taal Gemiddeld"/>
             <ComboBoxItem Name="oefNedMoe" Content="Taal Moeilijk"/>
