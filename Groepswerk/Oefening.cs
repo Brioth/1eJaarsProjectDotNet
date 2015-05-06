@@ -25,7 +25,18 @@ namespace Groepswerk
         public Oefening(string opgave, string oplossing)
         {
             this.opgave = opgave;
-            this.oplossing = oplossing;            
+            this.oplossing = oplossing;
+            
+        }
+
+        public String SchrijfString()
+        {
+            return (opgave + ";" + oplossing);
+        }
+
+        public override string ToString() 
+        {
+            return opgave;
         }
       
         public string opgave { get; set; }

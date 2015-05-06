@@ -11,8 +11,10 @@ namespace Groepswerk
     //Date: 14/04/2015
     class OefeningLijst : List<Oefening> //alle oefeningen in een lijst gooien!
     {
+        private string moeilijkheid;
         public OefeningLijst(string moeilijkheid)
         {
+            this.moeilijkheid = moeilijkheid;
             switch (moeilijkheid){
             
                 case ("makkelijk"):
@@ -117,7 +119,20 @@ namespace Groepswerk
              
             }
         }
-
+        public void SchrijfLijst(string bestand)
+        {
+            File.WriteAllText(bestand, String.Empty);
+            StreamWriter schrijver = File.AppendText(bestand);
+            foreach (Oefening item in this)
+            {
+                schrijver.WriteLine(item.SchrijfString());
+            }
+            schrijver.Close();
+        }
       
+        }
+
+
+       
+
     }
-}
