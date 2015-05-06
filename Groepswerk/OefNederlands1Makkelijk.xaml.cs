@@ -30,17 +30,17 @@ namespace Groepswerk
         private ResultatenLijst resultatenlijst;
         private List<int> oefeningNummerLijst;
         private Gebruiker actieveGebruiker;
-        private Stopwatch tijdGespendeerd;
+        private Stopwatch tijdTeller;
         public OefNederlands1Makkelijk(Gebruiker actieveGebruiker)
         {
 
             InitializeComponent();
 
-            tijdGespendeerd = new Stopwatch();
+            tijdTeller = new Stopwatch();
 
             this.actieveGebruiker = actieveGebruiker;
 
-            tijdGespendeerd.Start();
+            tijdTeller.Start();
 
             lijstOefeningen = new OefeningLijst("makkelijk");
 
@@ -108,8 +108,8 @@ namespace Groepswerk
 
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
-            tijdGespendeerd.Stop();
-            gespendeerdeTijd = Convert.ToInt32(tijdGespendeerd.ElapsedMilliseconds / 1000);
+            tijdTeller.Stop();
+            gespendeerdeTijd = Convert.ToInt32(tijdTeller.ElapsedMilliseconds / 1000);
             oefCorrect = 0;
             if (!(Convert.ToString(oplossing1.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[0]].correcteOplossing)))
             {

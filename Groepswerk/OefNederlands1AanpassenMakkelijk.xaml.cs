@@ -21,21 +21,32 @@ namespace Groepswerk
     public partial class OefNederlands1AanpassenMakkelijk : Page
     {
         private OefeningLijst lijstOefeningen;
-        private IList<string> opgaves, oplossing1, oplossing2, oplossing3, correcteOplossing;
+        private Oefening oefening;
+        private List<string> opgaves, oplossing1, oplossing2, oplossing3, correcteOplossing, juisteAntwoordCompleet;
         private int geselecteerdeIndex;
         public OefNederlands1AanpassenMakkelijk()
         {
             InitializeComponent();
+            opgaves = new List<string>();
+            oplossing1 = new List<string>();
+            oplossing2 = new List<string>();
+            oplossing3 = new List<string>();
+            correcteOplossing = new List<string>();
+            juisteAntwoordCompleet = new List<string>();
             lijstOefeningen = new OefeningLijst("makkelijk");
-            for (int i = 0; i > lijstOefeningen.Count; i++)
+            
+            
+            for (int i = 0; i < lijstOefeningen.Count; i++)
             {
                 opgaves.Add(lijstOefeningen[i].opgave);
                 oplossing1.Add(lijstOefeningen[i].oplossing1);
                 oplossing2.Add(lijstOefeningen[i].oplossing2);
                 oplossing3.Add(lijstOefeningen[i].oplossing3);
                 correcteOplossing.Add(lijstOefeningen[i].correcteOplossing);
+                juisteAntwoordCompleet.Add(lijstOefeningen[i].juisteAntwoordCompleet);
             }
             OpgaveSelecteren.ItemsSource = opgaves;
+            OpgaveSelecteren.SelectedIndex = 0;
         }
         private void OpgaveSelecteren_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -45,19 +56,40 @@ namespace Groepswerk
             Oplossing2.Text = oplossing2[geselecteerdeIndex];
             Oplossing3.Text = oplossing3[geselecteerdeIndex];
             CorrecteOplossing.Text = correcteOplossing[geselecteerdeIndex];
+            juisteOpgaveCompleet.Text = juisteAntwoordCompleet[geselecteerdeIndex];
+            AanpasKnop.IsEnabled = true;
         }
 
         private void AanpasKnop_Click(object sender, RoutedEventArgs e)
         {
+            AanpasKnop.IsEnabled = false;
+            Oefening oefening = new Oefening(Opgave.Text, Oplossing1.Text, Oplossing2.Text, Oplossing3.Text, CorrecteOplossing.Text, juisteOpgaveCompleet.Text);
+            lijstOefeningen.Add(oefening);
+            lijstOefeningen.RemoveAt(OpgaveSelecteren.SelectedIndex);
+
+
             File.WriteAllText(@"OefNederlands1Makkelijk.txt", String.Empty);
             StreamWriter writer = File.AppendText(@"OefNederlands1Makkelijk.txt");
             foreach (Oefening oef in lijstOefeningen)
             {
-
-                writer.WriteLine(oef.opgave + ";" + oef.oplossing1 + ";" + oef.oplossing2 + ";" + oef.oplossing3 + ";" + oef.correcteOplossing);
+                writer.WriteLine(oef.opgave + ";" + oef.oplossing1 + ";" + oef.oplossing2 + ";" + oef.oplossing3 + ";" + oef.correcteOplossing +";" + oef.juisteAntwoordCompleet);
             }
             writer.Close();
+
+            lijstOefeningen = new OefeningLijst("makkelijk");
+
+            opgaves.Clear();
+            for (int i = 0; i < lijstOefeningen.Count; i++)
+            {
+                opgaves.Add(lijstOefeningen[i].opgave);
+                oplossing1.Add(lijstOefeningen[i].oplossing1);
+                oplossing2.Add(lijstOefeningen[i].oplossing2);
+                oplossing3.Add(lijstOefeningen[i].oplossing3);
+                correcteOplossing.Add(lijstOefeningen[i].correcteOplossing);
+                juisteAntwoordCompleet.Add(lijstOefeningen[i].juisteAntwoordCompleet);
+            }
         }
+
 
         
     }

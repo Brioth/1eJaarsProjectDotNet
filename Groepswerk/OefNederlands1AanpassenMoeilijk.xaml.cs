@@ -27,7 +27,7 @@ namespace Groepswerk
         {
             InitializeComponent();
             lijstOefeningen = new OefeningLijst("moeilijk");
-            for (int i = 0; i > lijstOefeningen.Count; i++)
+            for (int i = 0; i < lijstOefeningen.Count; i++)
             {
                 opgaves.Add(lijstOefeningen[i].opgave);
                 correcteOplossing.Add(lijstOefeningen[i].correcteOplossing);
