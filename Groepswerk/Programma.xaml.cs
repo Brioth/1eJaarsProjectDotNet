@@ -137,17 +137,17 @@ namespace Groepswerk
         //Date: 22/04/2015
         private void MnuBewerkenMakkelijk_Click(object sender, RoutedEventArgs e)
         {
-            OefNederlands1AanpassenMakkelijk oefNederlandsAanpassenMakkelijk = new OefNederlands1AanpassenMakkelijk();
+            OefNederlands1AanpassenMakkelijk oefNederlandsAanpassenMakkelijk = new OefNederlands1AanpassenMakkelijk(ActieveGebruiker);
             framePages.Navigate(oefNederlandsAanpassenMakkelijk);
         }
         private void MnuBewerkenGemiddeld_Click(object sender, RoutedEventArgs e)
         {
-            OefNederlands1AanpassenGemiddeld oefNederlandsAanpassenGemiddeld = new OefNederlands1AanpassenGemiddeld();
+            OefNederlands1AanpassenGemiddeld oefNederlandsAanpassenGemiddeld = new OefNederlands1AanpassenGemiddeld(ActieveGebruiker);
             framePages.Navigate(oefNederlandsAanpassenGemiddeld);
         }
         private void MnuBewerkenMoeilijk_Click(object sender, RoutedEventArgs e)
         {
-            OefNederlands1AanpassenMoeilijk nederlandsOefAanpassenMoeilijk = new OefNederlands1AanpassenMoeilijk();
+            OefNederlands1AanpassenMoeilijk nederlandsOefAanpassenMoeilijk = new OefNederlands1AanpassenMoeilijk(ActieveGebruiker);
             framePages.Navigate(nederlandsOefAanpassenMoeilijk);
         }
 

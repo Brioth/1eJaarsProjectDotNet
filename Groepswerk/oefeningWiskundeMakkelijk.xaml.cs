@@ -218,7 +218,7 @@ namespace Groepswerk
                     {
                         dropLabel1.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[1]) == Convert.ToString(dropLabel2.Text.Trim()))
+                    if ((oplossingLijst[1]) == Convert.ToInt32(dropLabel2.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel2.Background = Brushes.Green;
