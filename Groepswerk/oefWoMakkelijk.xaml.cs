@@ -156,6 +156,7 @@ namespace Groepswerk
 
 
             SchrijfPunten();
+            Score.Content = oefCorrect + "/5";
            
             }
         

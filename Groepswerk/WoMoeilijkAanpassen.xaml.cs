@@ -46,14 +46,31 @@ namespace Groepswerk
         }
         private void Aanpassen_Click(object sender, RoutedEventArgs e)
         {
-            File.WriteAllText(@"oefWoMakkelijk.txt", String.Empty);
+            Oefening oefening = new Oefening(Convert.ToString(Landbox.SelectedValue), Stadbox.Text);
+            lijstOefeningen.RemoveAt(Landbox.SelectedIndex);
+            lijstOefeningen.Insert(Landbox.SelectedIndex, oefening);
+
+            File.WriteAllText(@"oefWoMoeilijk.txt", String.Empty);
             StreamWriter writer = File.AppendText(@"oefWoMoeilijk.txt");
             foreach (Oefening oef in lijstOefeningen)
             {
-
                 writer.WriteLine(oef.opgave + ";" + oef.oplossing);
             }
             writer.Close();
+
+
+            lijstOefeningen = new OefeningLijst("WoMoeilijk");
+
+            opgaves.Clear();
+            oplossing.Clear();
+
+            for (int i = 0; i < lijstOefeningen.Count; i++)
+            {
+                opgaves.Add(lijstOefeningen[i].opgave);
+                oplossing.Add(lijstOefeningen[i].oplossing);
+                Landbox.ItemsSource = opgaves;
+
+            }
         }
     }
 }
