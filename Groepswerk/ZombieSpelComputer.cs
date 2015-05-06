@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shapes;
 using System.Windows.Media.Imaging;
+using System.Collections.ObjectModel;
 
 namespace Groepswerk
 {
@@ -17,8 +18,8 @@ namespace Groepswerk
         //Constructors
         public ZombieSpelComputer()
         {
-            HumansComputer = new List<ZombieSpelHuman>();
-            ZombiesComputer = new List<ZombieSpelZombie>();
+            HumansComputer = new ObservableCollection<ZombieSpelHuman>();
+            ZombiesComputer = new ObservableCollection<ZombieSpelZombie>();
         }
 
         //Methods
@@ -80,7 +81,7 @@ namespace Groepswerk
             }
             return richting;
         }
-        public void CheckHit(List<ZombieSpelHuman> lijstTegenstanderHumans, List<ZombieSpelZombie> lijstTegenstanderZombies)
+        public void CheckHit(ObservableCollection<ZombieSpelHuman> lijstTegenstanderHumans, ObservableCollection<ZombieSpelZombie> lijstTegenstanderZombies)
         {
             for (int i = 0; i < HumansComputer.Count; i++) //Humans geraakt door vijand
             {
@@ -165,7 +166,7 @@ namespace Groepswerk
 
         }
         //Properties
-        public List<ZombieSpelHuman> HumansComputer { get; set; }
-        public List<ZombieSpelZombie> ZombiesComputer { get; set; }
+        public ObservableCollection<ZombieSpelHuman> HumansComputer { get; set; }
+        public ObservableCollection<ZombieSpelZombie> ZombiesComputer { get; set; }
     }
 }

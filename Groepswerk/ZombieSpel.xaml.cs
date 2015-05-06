@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,8 +34,6 @@ namespace Groepswerk
     public partial class ZombieSpel : Page
     {
         //Lokale variabelen
-        private ZombieSpelSpeler speler;
-        private ZombieSpelComputer computer;
         private DispatcherTimer spelTijdTimer, spawnerSpeler, spawnerComputer, animationTimer, minuutTimer, vijfSecondenTimer, skill6Timer, cooldownTimer, aftelTimerSpel;
         private Gebruiker actieveGebruiker;
         private Point puntSpeler, puntComputer;
@@ -48,8 +47,24 @@ namespace Groepswerk
             InitializeComponent();
           
             this.actieveGebruiker = actieveGebruiker;
-            speler = new ZombieSpelSpeler();
-            computer = new ZombieSpelComputer();
+            Speler = new ZombieSpelSpeler();
+            Computer = new ZombieSpelComputer();
+
+            Binding BSpeler = new Binding("HumansSpeler.Count");
+            BSpeler.Source = Speler;
+            txtbRoodB.SetBinding(TextBlock.TextProperty, BSpeler);
+
+            Binding VSpeler = new Binding("ZombiesSpeler.Count");
+            VSpeler.Source = Speler;
+            txtbRoodV.SetBinding(TextBlock.TextProperty, VSpeler);
+
+            Binding BComputer = new Binding("HumansComputer.Count");
+            BComputer.Source = Computer;
+            txtbBlauwB.SetBinding(TextBlock.TextProperty, BComputer);
+
+            Binding VComputer = new Binding("ZombiesComputer.Count");
+            VComputer.Source = Computer;
+            txtbBlauwV.SetBinding(TextBlock.TextProperty, VComputer);
 
             spelTijdTimer = new DispatcherTimer();
             spelTijdTimer.Interval = TimeSpan.FromSeconds(this.actieveGebruiker.GameTijdSec);
@@ -104,23 +119,23 @@ namespace Groepswerk
         }
         private void Animation_Tick(object sender, EventArgs e)
         {
-            speler.Beweeg(spelCanvas);
-            computer.Beweeg(spelCanvas);
-            speler.CheckHit(computer.HumansComputer, computer.ZombiesComputer);
-            computer.CheckHit(speler.HumansSpeler, speler.ZombiesSpeler);
-            speler.MaakVrij(spelCanvas);
-            computer.MaakVrij(spelCanvas);
+            Speler.Beweeg(spelCanvas);
+            Computer.Beweeg(spelCanvas);
+            Speler.CheckHit(Computer.HumansComputer, Computer.ZombiesComputer);
+            Computer.CheckHit(Speler.HumansSpeler, Speler.ZombiesSpeler);
+            Speler.MaakVrij(spelCanvas);
+            Computer.MaakVrij(spelCanvas);
         }
         private void SpawnComputer_Tick(object sender, EventArgs e)
         {           
                 ZombieSpelHuman humanComputer = new ZombieSpelHuman(puntComputer, "#13737C");
-                computer.HumansComputer.Add(humanComputer);
+                Computer.HumansComputer.Add(humanComputer);
                 humanComputer.DisplayOn(spelCanvas);            
         }
         private void SpawnSpeler_Tick(object sender, EventArgs e)
         {
                 ZombieSpelHuman humanSpeler = new ZombieSpelHuman(puntSpeler, "#CB2611");
-                speler.HumansSpeler.Add(humanSpeler);
+                Speler.HumansSpeler.Add(humanSpeler);
                 humanSpeler.DisplayOn(spelCanvas);
         }
         private void BtnSkill1_Click(object sender, RoutedEventArgs e)
@@ -133,7 +148,7 @@ namespace Groepswerk
                 double y = richtingRandom.Next(Convert.ToInt32(spelCanvas.ActualHeight));
                 Point randomPunt = new Point(x, y);
                 ZombieSpelHuman humanSpeler = new ZombieSpelHuman(randomPunt, "#CB2611");
-                speler.HumansSpeler.Add(humanSpeler);
+                Speler.HumansSpeler.Add(humanSpeler);
                 humanSpeler.DisplayOn(spelCanvas);
             }
             if (skill1Aantal > 1)
@@ -159,8 +174,8 @@ namespace Groepswerk
         {
             DisableSkills();
             Random generator = new Random();
-            int randomIndex = generator.Next(speler.ZombiesSpeler.Count);
-            speler.ZombiesSpeler[randomIndex].GeraaktDoorEigen = true;
+            int randomIndex = generator.Next(Speler.ZombiesSpeler.Count);
+            Speler.ZombiesSpeler[randomIndex].GeraaktDoorEigen = true;
         }
         private void BtnSkill4_Click(object sender, RoutedEventArgs e)
         {
@@ -180,8 +195,8 @@ namespace Groepswerk
         {
             DisableSkills();
             Random generator = new Random();
-            int randomIndex = generator.Next(computer.HumansComputer.Count);
-            computer.HumansComputer[randomIndex].Geraakt = true;
+            int randomIndex = generator.Next(Computer.HumansComputer.Count);
+            Computer.HumansComputer[randomIndex].Geraakt = true;
         }
         private void BtnSkill6_Click(object sender, RoutedEventArgs e)
         {
@@ -230,13 +245,71 @@ namespace Groepswerk
             minuutTimer.Stop();
             DisableSkills();
             cooldownTimer.Stop();
-            
 
-            MessageBox.Show("Tijd is op");
+            int score = BerekenScore();
+            MessageBox.Show("Proficiat, je score is " + score);
+            SchrijfScore(score);
             //scores weergeven en wegschrijven
             TijdOp(); //Zet gameTijd op 0
 
 
+        }
+        private void SchrijfScore(int score)
+        {
+            List<int[]> scores = new List<int[]>();
+
+            //oude scores inlezen
+            StreamReader lezer = File.OpenText(@"HighscoresZombies.txt");
+            string regel = lezer.ReadLine();
+            char[] scheiding = { ';' };
+
+            while (regel != null)
+            {
+                string[] deel = regel.Split(scheiding);
+                int[] getallen = { Convert.ToInt32(deel[0].Trim()), Convert.ToInt32(deel[1].Trim()) };
+                scores.Add(getallen);
+                regel = lezer.ReadLine();
+            }
+
+            lezer.Close();
+
+
+            //nieuwe vervangen/toevoegen
+            bool nieuw = false;
+
+            for (int i = 0; i < scores.Count; i++)
+            {
+                if (scores[i][0] == actieveGebruiker.Id)
+                {
+                    if (scores[i][1] < score)
+                    {
+                        scores[i][1] = score;
+                    }
+                    nieuw = true;
+                }
+            }
+            if (nieuw == false)
+            {
+                int[] nieuweScore = { actieveGebruiker.Id, score };
+                scores.Add(nieuweScore);
+            }
+
+            //Schrijf lijst
+            File.WriteAllText(@"HighscoresZombies.txt", String.Empty);
+            StreamWriter schrijver = File.AppendText(@"HighscoresZombies.txt");
+            for (int i = 0; i < scores.Count; i++)
+            {
+                schrijver.WriteLine(scores[i][0] + ";" + scores[i][1]);
+            }
+            schrijver.Close();
+
+        }
+
+        private int BerekenScore()
+        {
+            int eigen = Speler.HumansSpeler.Count * 4 + Speler.ZombiesSpeler.Count * 2;
+            int computer = Computer.HumansComputer.Count * 2 + Computer.ZombiesComputer.Count;
+            return eigen - computer;
         }
         private void SpelCanvas_Loaded(object sender, RoutedEventArgs e)
         {
@@ -278,6 +351,7 @@ namespace Groepswerk
             btnSkill6.IsEnabled = false;
         }
         //Properties
-
+        public ZombieSpelSpeler Speler { get; set; }
+        public ZombieSpelComputer Computer { get; set; }
     }
 }

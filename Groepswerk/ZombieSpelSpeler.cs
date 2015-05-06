@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,8 +17,8 @@ namespace Groepswerk
         //Constructors
         public ZombieSpelSpeler()
         {
-            HumansSpeler = new List<ZombieSpelHuman>();
-            ZombiesSpeler = new List<ZombieSpelZombie>();
+            HumansSpeler = new ObservableCollection<ZombieSpelHuman>();
+            ZombiesSpeler = new ObservableCollection<ZombieSpelZombie>();
         }
 
         //Methods
@@ -81,7 +82,7 @@ namespace Groepswerk
             }
             return richting;
         }
-        public void CheckHit(List<ZombieSpelHuman> lijstTegenstanderHumans, List<ZombieSpelZombie> lijstTegenstanderZombies)
+        public void CheckHit(ObservableCollection<ZombieSpelHuman> lijstTegenstanderHumans, ObservableCollection<ZombieSpelZombie> lijstTegenstanderZombies)
         {
             for (int i = 0; i < HumansSpeler.Count; i++) //Humans geraakt door vijand
             {
@@ -165,8 +166,8 @@ namespace Groepswerk
             }
         }
         //Properties
-        public List<ZombieSpelHuman> HumansSpeler { get; set; }
-        public List<ZombieSpelZombie> ZombiesSpeler { get; set; }
+        public ObservableCollection<ZombieSpelHuman> HumansSpeler { get; set; }
+        public ObservableCollection<ZombieSpelZombie> ZombiesSpeler { get; set; }
 
     }
 }

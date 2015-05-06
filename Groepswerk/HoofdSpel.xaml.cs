@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +42,21 @@ namespace Groepswerk
             Speler = new HoofdspelSpeler();
             Computer = new HoofdspelSpeler();
 
-            //BindLijsten();
+            Binding BSpeler = new Binding("Bolletjes.Count");
+            BSpeler.Source = Speler;
+            txtbRoodB.SetBinding(TextBlock.TextProperty, BSpeler);
+
+            Binding VSpeler = new Binding("Vierkantjes.Count");
+            VSpeler.Source = Speler;
+            txtbRoodV.SetBinding(TextBlock.TextProperty, VSpeler);
+
+            Binding BComputer = new Binding("Bolletjes.Count");
+            BComputer.Source = Computer;
+            txtbBlauwB.SetBinding(TextBlock.TextProperty, BComputer);
+
+            Binding VComputer = new Binding("Vierkantjes.Count");
+            VComputer.Source = Computer;
+            txtbBlauwV.SetBinding(TextBlock.TextProperty, VComputer);
 
             speltijdTimer = new DispatcherTimer();
             speltijdTimer.Interval = TimeSpan.FromSeconds(this.actieveGebruiker.GameTijdSec);
@@ -73,11 +88,70 @@ namespace Groepswerk
             aftelTimer.Stop();
             animationTimer.Stop();
             spawnTimer.Stop();
+            int score = BerekenScore();
 
-
-            MessageBox.Show("Tijd is op");
+            MessageBox.Show("Proficiat, je score is " + score);
+            SchrijfScore(score);
             //scores weergeven en wegschrijven
             TijdOp(); //Zet gameTijd op 0
+        }
+
+        private void SchrijfScore(int score)
+        {
+            List<int[]> scores = new List<int[]>();
+
+            //oude scores inlezen
+            StreamReader lezer = File.OpenText(@"HighscoresBolletjes.txt");
+            string regel = lezer.ReadLine();
+            char[] scheiding = { ';' };
+
+            while (regel != null)
+            {
+                string[] deel = regel.Split(scheiding);
+                int[] getallen = { Convert.ToInt32(deel[0].Trim()), Convert.ToInt32(deel[1].Trim()) };
+                scores.Add(getallen);
+                regel = lezer.ReadLine();
+            }
+
+            lezer.Close();
+
+
+            //nieuwe vervangen/toevoegen
+            bool nieuw = false;
+ 
+            for (int i = 0; i < scores.Count; i++)
+            {
+                if (scores[i][0]==actieveGebruiker.Id)
+                {
+                    if (scores[i][1] < score)
+                    {
+                        scores[i][1] = score;
+                    }
+                    nieuw = true;
+                }
+            }
+            if (nieuw == false)
+            {
+                int[] nieuweScore = {actieveGebruiker.Id, score};
+                scores.Add(nieuweScore);
+            }
+
+            //Schrijf lijst
+            File.WriteAllText(@"HighscoresBolletjes.txt", String.Empty);
+            StreamWriter schrijver = File.AppendText(@"HighscoresBolletjes.txt");
+            for (int i = 0; i < scores.Count; i++)
+            {
+                schrijver.WriteLine(scores[i][0] + ";" + scores[i][1]);
+            }
+            schrijver.Close();
+
+        }
+
+        private int BerekenScore()
+        {
+            int eigen = Speler.Bolletjes.Count * 4 + Speler.Vierkantjes.Count * 2;
+            int computer = Computer.Bolletjes.Count * 2 + Computer.Vierkantjes.Count;
+            return eigen - computer;
         }
         //Events
 
@@ -96,12 +170,12 @@ namespace Groepswerk
             HoofdSpelBolletje bolletjeRood = new HoofdSpelBolletje("#CB2611", drawingCanvas);
             Speler.Bolletjes.Add(bolletjeRood);
             bolletjeRood.DisplayOn(drawingCanvas);
-            //entiteitenRood.Bolletjes = entiteitenRood.Bolletjes + 1;
+      
 
             HoofdSpelBolletje bolletjeBlauw = new HoofdSpelBolletje("#13737C", drawingCanvas);
             Computer.Bolletjes.Add(bolletjeBlauw);
             bolletjeBlauw.DisplayOn(drawingCanvas);
-            //entiteitenBlauw.Bolletjes = entiteitenBlauw.Bolletjes + 1;
+            
         }
         private void Afteller_Tick(object sender, EventArgs e)
         {
@@ -123,32 +197,7 @@ namespace Groepswerk
             lijst.SchrijfLijst();
         }
         //Methods
-        private void BindLijsten()
-        {
-            //Binding b = new Binding();
-            //b.Source = speler.Bolletjes;
-            //b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-            //b.Path = new PropertyPath("Bolletjes");
-            //txtbRoodB.SetBinding(TextBlock.TextProperty, b);
-
-            //b = new Binding();
-            //b.Source = speler.Vierkantjes;
-            //b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-            //b.Path = new PropertyPath("Vierkantjes");
-            //txtbRoodV.SetBinding(TextBlock.TextProperty, b);
-
-            //b = new Binding();
-            //b.Source = computer.Bolletjes;
-            //b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-            //b.Path = new PropertyPath("Bolletjes");
-            //txtbBlauwB.SetBinding(TextBlock.TextProperty, b);
-
-            //b = new Binding();
-            //b.Source = computer.Vierkantjes;
-            //b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-            //b.Path = new PropertyPath("Vierkantjes");
-            //txtbBlauwV.SetBinding(TextBlock.TextProperty, b);
-        }
+       
         //Properties
         public HoofdspelSpeler Speler { get; set; }
         public HoofdspelSpeler Computer { get; set; }

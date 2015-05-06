@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Globalization;
 
 namespace Groepswerk
 {
@@ -31,6 +32,8 @@ namespace Groepswerk
             InitializeComponent();
             ActieveGebruiker = actievegebruiker;
             lblBegroeting.Content = String.Format("Dag {0}", ActieveGebruiker.Voornaam);
+            btnSpel.IsEnabled = false;
+            btnZombie.Visibility = Visibility.Hidden;
             CheckButton();
         }
 
@@ -49,14 +52,86 @@ namespace Groepswerk
         //Methods
         private void CheckButton() //check of gebruiker afgelopen week alles 1 maal gespeeld heeft
         {
-            if (true)
+            bool flagNed = false;
+            bool flagWisk = false;
+            bool flagWo = false;
+
+            DetailsGebruiker details = new DetailsGebruiker(ActieveGebruiker.Id, ActieveGebruiker.ToString());
+            DateTimeFormatInfo dfi = DateTimeFormatInfo.CurrentInfo;
+            System.Globalization.Calendar cal = dfi.Calendar;
+
+            foreach (Resultaat item in details.ResultatenNedMak)
             {
-                //zet button aan
-                btnZombie.IsEnabled = Convert.ToBoolean(ActieveGebruiker.Klas.Zombie);
+                if (cal.GetWeekOfYear(item.Datum, dfi.CalendarWeekRule, dfi.FirstDayOfWeek).Equals(cal.GetWeekOfYear(DateTime.Today, dfi.CalendarWeekRule, dfi.FirstDayOfWeek)))
+                {
+                    flagNed = true;
+                }
             }
-            else
+            foreach (Resultaat item in details.ResultatenNedMed)
             {
-                //zet button disabled
+                if (cal.GetWeekOfYear(item.Datum, dfi.CalendarWeekRule, dfi.FirstDayOfWeek).Equals(cal.GetWeekOfYear(DateTime.Today, dfi.CalendarWeekRule, dfi.FirstDayOfWeek)))
+                {
+                    flagNed = true;
+                }
+            }
+            foreach (Resultaat item in details.ResultatenNedMoe)
+            {
+                if (cal.GetWeekOfYear(item.Datum, dfi.CalendarWeekRule, dfi.FirstDayOfWeek).Equals(cal.GetWeekOfYear(DateTime.Today, dfi.CalendarWeekRule, dfi.FirstDayOfWeek)))
+                {
+                    flagNed = true;
+                }
+            }
+            foreach (Resultaat item in details.ResultatenWiskMak)
+            {
+                if (cal.GetWeekOfYear(item.Datum, dfi.CalendarWeekRule, dfi.FirstDayOfWeek).Equals(cal.GetWeekOfYear(DateTime.Today, dfi.CalendarWeekRule, dfi.FirstDayOfWeek)))
+                {
+                    flagWisk = true;
+                }
+            }
+            foreach (Resultaat item in details.ResultatenWiskMed)
+            {
+                if (cal.GetWeekOfYear(item.Datum, dfi.CalendarWeekRule, dfi.FirstDayOfWeek).Equals(cal.GetWeekOfYear(DateTime.Today, dfi.CalendarWeekRule, dfi.FirstDayOfWeek)))
+                {
+                    flagWisk = true;
+                }
+            }
+            foreach (Resultaat item in details.ResultatenWiskMoe)
+            {
+                if (cal.GetWeekOfYear(item.Datum, dfi.CalendarWeekRule, dfi.FirstDayOfWeek).Equals(cal.GetWeekOfYear(DateTime.Today, dfi.CalendarWeekRule, dfi.FirstDayOfWeek)))
+                {
+                    flagWisk = true;
+                }
+            }
+            foreach (Resultaat item in details.ResultatenWoMak)
+            {
+                if (cal.GetWeekOfYear(item.Datum, dfi.CalendarWeekRule, dfi.FirstDayOfWeek).Equals(cal.GetWeekOfYear(DateTime.Today, dfi.CalendarWeekRule, dfi.FirstDayOfWeek)))
+                {
+                    flagWo = true;
+                }
+            }
+            foreach (Resultaat item in details.ResultatenWoMed)
+            {
+                if (cal.GetWeekOfYear(item.Datum, dfi.CalendarWeekRule, dfi.FirstDayOfWeek).Equals(cal.GetWeekOfYear(DateTime.Today, dfi.CalendarWeekRule, dfi.FirstDayOfWeek)))
+                {
+                    flagWo = true;
+                }
+            }
+            foreach (Resultaat item in details.ResultatenWoMoe)
+            {
+                if (cal.GetWeekOfYear(item.Datum, dfi.CalendarWeekRule, dfi.FirstDayOfWeek).Equals(cal.GetWeekOfYear(DateTime.Today, dfi.CalendarWeekRule, dfi.FirstDayOfWeek)))
+                {
+                    flagWo = true;
+                }
+            }
+
+
+            if (flagNed&&flagWisk&&flagWo)
+            {
+                btnSpel.IsEnabled = true;
+                if (ActieveGebruiker.Klas.Zombie)
+                {
+                    btnZombie.Visibility = Visibility.Visible;
+                }
             }
         }
 
@@ -69,17 +144,17 @@ namespace Groepswerk
         private void btnRekenenMak_Click(object sender, RoutedEventArgs e)
         {
             oefeningWiskundeMakkelijk oefWiskundeMakkelijkPagina = new oefeningWiskundeMakkelijk(ActieveGebruiker);
-             this.NavigationService.Navigate(oefWiskundeMakkelijkPagina);
+            this.NavigationService.Navigate(oefWiskundeMakkelijkPagina);
         }
         private void btnRekenenGem_Click(object sender, RoutedEventArgs e)
         {
             oefeningWiskundeGemiddeld oefWiskundeGemiddeldPagina = new oefeningWiskundeGemiddeld(ActieveGebruiker);
-             this.NavigationService.Navigate(oefWiskundeGemiddeldPagina);
+            this.NavigationService.Navigate(oefWiskundeGemiddeldPagina);
         }
         private void btnRekenenMoe_Click(object sender, RoutedEventArgs e)
         {
             oefeningWiskundeMoeilijk oefWiskundeMoeilijkPagina = new oefeningWiskundeMoeilijk(ActieveGebruiker);
-             this.NavigationService.Navigate(oefWiskundeMoeilijkPagina);
+            this.NavigationService.Navigate(oefWiskundeMoeilijkPagina);
         }
 
 
