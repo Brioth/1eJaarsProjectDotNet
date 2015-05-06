@@ -18,60 +18,74 @@ namespace Groepswerk
     /// <summary>
     /// Interaction logic for WoMakkelijkAanpassen.xaml
     /// </summary>
+    /// 
     public partial class WoMakkelijkAanpassen : Page
     {
-        private OefeningLijst lijstOefeningen;
-        private IList<string> opgaves, oplossing;
-        private int geselecteerdeIndex;
+        private OefeningLijst Oeflijst;
+        private Oefening Oefening;
+        private string bestand = "oefWoMakkelijk.txt";
         public WoMakkelijkAanpassen()
         {
             InitializeComponent();
-            opgaves = new List<string>();
-            oplossing = new List<string>();
-            lijstOefeningen = new OefeningLijst("WoMakkelijk");
-            for (int i = 0; i < lijstOefeningen.Count; i++)
+            Oeflijst = new OefeningLijst("WoMakkelijk");
+            lboxItemsLijst.ItemsSource = Oeflijst;
+            lboxItemsLijst.SelectedIndex = 0;
+        }
+        private void ItemsLijst_Changed(object sender, SelectionChangedEventArgs e)
+        {
+            if (lboxItemsLijst.SelectedIndex != -1)
             {
-                opgaves.Add(lijstOefeningen[i].opgave);
-                oplossing.Add(lijstOefeningen[i].oplossing); 
+                Oefening = (Oefening)lboxItemsLijst.SelectedItem;
+                txtbLand.Text = Oefening.opgave;
+                txtbHoofdstad.Text = Oefening.oplossing;
             }
-            Landbox.ItemsSource = opgaves;
+        }
+        private void BtnNieuw_Click(object sender, RoutedEventArgs e)
+        {
+            Oefening nieuwItem = new Oefening(txtbLand.Text, txtbHoofdstad.Text);
+            Oeflijst.Add(nieuwItem);
+            Oeflijst.SchrijfLijst(bestand);
+            UpdateLijst();
+
+
         }
 
-        private void Landbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void UpdateLijst()
         {
-            geselecteerdeIndex = Landbox.SelectedIndex;
-            Stadbox.Text = oplossing[geselecteerdeIndex];
-          
+            Oeflijst = new OefeningLijst("WoMakkelijk");
+            lboxItemsLijst.ItemsSource = Oeflijst;
+            lboxItemsLijst.SelectedIndex = 0;
         }
-        private void Aanpassen_Click(object sender, RoutedEventArgs e)
+
+        private void BtnPasAan_Click(object sender, RoutedEventArgs e)
         {
-            Oefening oefening = new Oefening(Convert.ToString(Landbox.SelectedValue), Stadbox.Text);
-            lijstOefeningen.RemoveAt(Landbox.SelectedIndex);
-            lijstOefeningen.Insert(Landbox.SelectedIndex, oefening);
 
-            File.WriteAllText(@"oefWoMakkelijk.txt", String.Empty);
-            StreamWriter writer = File.AppendText(@"oefWoMakkelijk.txt");
-            foreach (Oefening oef in lijstOefeningen)
+            Oefening aangepasteOef = new Oefening(txtbLand.Text, txtbHoofdstad.Text);
+            Oeflijst.Add(aangepasteOef);
+            Oeflijst.Remove(Oefening);
+            Oeflijst.SchrijfLijst(bestand);
+            UpdateLijst();
+
+
+        }
+        private void BtnVerwijder_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBoxResult stoppen = MessageBox.Show("Bent u zeker dat u dit wilt verwijderen ?", "Stop", MessageBoxButton.YesNo);
+            switch (stoppen)
             {
-                writer.WriteLine(oef.opgave + ";" + oef.oplossing );
+                case MessageBoxResult.No:
+                    break;
+                case MessageBoxResult.Yes:
+                    Oeflijst.Remove(Oefening);
+                    Oeflijst.SchrijfLijst(bestand);
+                    UpdateLijst();
+                    break;
+                default:
+                    break;
+
             }
-            writer.Close();
 
-
-            lijstOefeningen = new OefeningLijst("WoMakkelijk");
-
-            opgaves.Clear();
-            oplossing.Clear();
-            
-            for (int i = 0; i < lijstOefeningen.Count; i++)
-            {
-                opgaves.Add(lijstOefeningen[i].opgave);
-                oplossing.Add(lijstOefeningen[i].oplossing);
-                Landbox.ItemsSource = opgaves;
-               
-            }
-            
-            
         }
     }
 }
