@@ -19,7 +19,8 @@
                     <MenuItem Header ="Taal - Makkelijk" Click="MnuTaalMakkelijk_Click"/>
                     <MenuItem Header="Taal - Gemmiddeld" Click="MnuTaalGemiddeld_Click"/>
                     <MenuItem Header="Taal - Moeilijk" Click="MnuTaalMoeilijk_Click"/>
-                </MenuItem>
+            </MenuItem>
+            
                 <MenuItem Header="WO" >
                     <MenuItem Header ="Wo - Makkelijk" Click="MnuWoMakkelijk_Click"/>
                     <MenuItem Header="Wo - Gemmiddeld" Click="MnuWoGemiddeld_Click"/>
@@ -34,6 +35,11 @@
                     <MenuItem Header="Taal - Gemakkelijk" Click="MnuBewerkenMakkelijk_Click"/>
                     <MenuItem Header="Taal - Gemiddeld" Click="MnuBewerkenGemiddeld_Click"/>
                     <MenuItem Header="Taal - Moeilijk" Click="MnuBewerkenMoeilijk_Click"/>
+                </MenuItem>
+                <MenuItem Header="WO">
+                    <MenuItem Header="Wo - Gemakkelijk" Click="MnuWoBewerkenMakkelijk_Click"/>
+                    <MenuItem Header="Wo - Gemiddeld" Click="MnuWoBewerkenGemiddeld_Click"/>
+                    <MenuItem Header="Wo - Moeilijk" Click="MnuWoBewerkenMoeilijk_Click"/>
                 </MenuItem>
             </MenuItem>
             
