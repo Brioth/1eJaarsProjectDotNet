@@ -28,9 +28,9 @@
             </MenuItem>
             <MenuItem Name="mnuOefBew" Header="Oefeningen Bewerken" IsTabStop="False" >
                 <MenuItem Header="Taal">
-                    <MenuItem Header="Taal - Gemakkelijk" Click="MnuWoBewerkenMakkelijk_Click"/>
+                    <MenuItem Header="Taal - Gemakkelijk" Click="MnuBewerkenMakkelijk_Click"/>
                     <MenuItem Header="Taal - Gemiddeld" Click="MnuBewerkenGemiddeld_Click"/>
-                    <MenuItem Header="Taal - Moeilijk" Click="MnuWoBewerkenMoeilijk_Click"/>
+                    <MenuItem Header="Taal - Moeilijk" Click="MnuBewerkenMoeilijk_Click"/>
                 </MenuItem>
                 <MenuItem Header="Wo">
                     <MenuItem Header="Wo - Gemakkelijk" Click="MnuWoBewerkenMakkelijk_Click"/>
