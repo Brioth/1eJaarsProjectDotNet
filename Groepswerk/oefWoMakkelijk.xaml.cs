@@ -144,8 +144,19 @@ namespace Groepswerk
                     oefCorrect++;
                 textbox5.Background=Brushes.Green;
                 }
-            actieveGebruiker.SetGameTijd(oefCorrect*2, moeilijkheidsgraad);
+            AlleGebruikersLijst lijst = new AlleGebruikersLijst();
+            foreach (Gebruiker item in lijst)
+            {
+                if (actieveGebruiker.Id.Equals(item.Id))
+                {
+                    item.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
+                }
+            }
+            lijst.SchrijfLijst();
+
+
             SchrijfPunten();
+            Score.Content = oefCorrect + "/5";
            
             }
         

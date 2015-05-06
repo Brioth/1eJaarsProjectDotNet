@@ -46,8 +46,8 @@ namespace Groepswerk
         private void Aanpassen_Click(object sender, RoutedEventArgs e)
         {
             Oefening oefening = new Oefening(Convert.ToString(Landbox.SelectedValue), Stadbox.Text);
-            lijstOefeningen.Add(oefening);
             lijstOefeningen.RemoveAt(Landbox.SelectedIndex);
+            lijstOefeningen.Insert(Landbox.SelectedIndex, oefening);
 
             File.WriteAllText(@"oefWoMakkelijk.txt", String.Empty);
             StreamWriter writer = File.AppendText(@"oefWoMakkelijk.txt");
