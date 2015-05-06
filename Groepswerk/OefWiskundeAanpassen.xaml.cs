@@ -26,15 +26,18 @@ namespace Groepswerk
     /// </summary>
     public partial class OefWiskundeAanpassen : Page
     {
-        public OefWiskundeAanpassen()
+        Gebruiker actieveGebruiker;
+
+        public OefWiskundeAanpassen(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
 
-            //lijstOefeningen = new OefeningLijstWiskunde("gemiddeld");
+           
             //
         }
         private void AanpasKnop_Click(object sender, RoutedEventArgs e)
         {
+            
             String [] ranges = new string[3];
             ranges[0] = ("makkelijk"+";"+ bereikMin1.Text +";"+bereikMax1.Text);
             ranges[1] = ("gemiddeld" + ";" + bereikMin2.Text + ";" + bereikMax2.Text);
