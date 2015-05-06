@@ -301,10 +301,20 @@ namespace Groepswerk
                     }
                     Punten.Text = ("u heeft  " + oefeningPunten + " punten behaald. ");
                     schrijfpunten();
-                    actieveGebruiker.SetGameTijd(oefeningPunten, moeilijkheidsgraad);
+                    
                     verbeterButton.IsEnabled = false;
-                        
-                }
+
+                    AlleGebruikersLijst lijst = new AlleGebruikersLijst();
+                     foreach (Gebruiker item in lijst)
+                      {
+                        if (actieveGebruiker.Id.Equals(item.Id))
+                        {
+                           item.SetGameTijd(oefeningPunten , moeilijkheidsgraad);
+                        }
+                      }
+                    lijst.SchrijfLijst();
+                     }
+                
 
 
 
