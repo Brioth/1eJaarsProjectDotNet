@@ -1,8 +1,8 @@
 ﻿<Page x:Class="Groepswerk.WoMakkelijkAanpassen"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      Background="#9D78989A"
-        Title="WoMakkelijkAanpassen" Height="300" Width="468">
+      
+        Background="#9D78989A" Title="WoMakkelijkAanpassen" Height="auto" Width="auto">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
