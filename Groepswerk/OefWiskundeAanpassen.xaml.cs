@@ -50,6 +50,7 @@ namespace Groepswerk
                 writer.WriteLine( item );
             }
             writer.Close();
+            MessageBox.Show("u heeft nu de moeilijkheid van de oefeningen aangepast");
         }
         
     }
