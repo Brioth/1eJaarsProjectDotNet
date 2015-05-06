@@ -21,7 +21,7 @@ namespace Groepswerk
     public partial class OefNederlands1AanpassenGemiddeld : Page
     {
         private OefeningLijst lijstOefeningen;
-        private List<string> opgaves, oplossing1, oplossing2, oplossing3, correcteOplossing;
+        private List<string> opgaves, oplossing1, oplossing2, oplossing3, correcteOplossing, juisteAntwoordCompleet;
         private int geselecteerdeIndex;
         private Gebruiker actieveGebruiker;
         public OefNederlands1AanpassenGemiddeld(Gebruiker actieveGebruiker)
@@ -33,6 +33,7 @@ namespace Groepswerk
             oplossing2 = new List<string>();
             oplossing3 = new List<string>();
             correcteOplossing = new List<string>();
+            juisteAntwoordCompleet = new List<string>();
             this.actieveGebruiker = actieveGebruiker;
             lijstOefeningen = new OefeningLijst("gemiddeld");
 
@@ -54,18 +55,42 @@ namespace Groepswerk
             Oplossing2.Text = oplossing2[geselecteerdeIndex];
             Oplossing3.Text = oplossing3[geselecteerdeIndex];
             CorrecteOplossing.Text = correcteOplossing[geselecteerdeIndex];
+            correctIngevuldeOpgave.Text = juisteAntwoordCompleet[geselecteerdeIndex];
         }
 
         private void AanpasKnop_Click(object sender, RoutedEventArgs e)
         {
-            File.WriteAllText(@"OefNederlands1Gemiddeld.txt", String.Empty);
-            StreamWriter writer = File.AppendText(@"OefNederlands1Gemiddeld.txt");
+            AanpasKnop.IsEnabled = false;
+            Oefening oefening = new Oefening(Opgave.Text, Oplossing1.Text, Oplossing2.Text, Oplossing3.Text, CorrecteOplossing.Text, juisteOpgaveCompleet.Text);
+            lijstOefeningen.RemoveAt(OpgaveSelecteren.SelectedIndex);
+            lijstOefeningen.Insert(OpgaveSelecteren.SelectedIndex, oefening);
+
+            File.WriteAllText(@"OefNederlands1Makkelijk.txt", String.Empty);
+            StreamWriter writer = File.AppendText(@"OefNederlands1Makkelijk.txt");
             foreach (Oefening oef in lijstOefeningen)
             {
-
-                writer.WriteLine(oef.opgave + ";" + oef.oplossing1 + ";" + oef.oplossing2 + ";" + oef.oplossing3 + ";" + oef.correcteOplossing);
+                writer.WriteLine(oef.opgave + ";" + oef.oplossing1 + ";" + oef.oplossing2 + ";" + oef.oplossing3 + ";" + oef.correcteOplossing + ";" + oef.juisteAntwoordCompleet);
             }
             writer.Close();
+
+            lijstOefeningen = new OefeningLijst("makkelijk");
+
+            opgaves.Clear();
+            oplossing1.Clear();
+            oplossing2.Clear();
+            oplossing3.Clear();
+            correcteOplossing.Clear();
+            juisteAntwoordCompleet.Clear();
+
+            for (int i = 0; i < lijstOefeningen.Count; i++)
+            {
+                opgaves.Add(lijstOefeningen[i].opgave);
+                oplossing1.Add(lijstOefeningen[i].oplossing1);
+                oplossing2.Add(lijstOefeningen[i].oplossing2);
+                oplossing3.Add(lijstOefeningen[i].oplossing3);
+                correcteOplossing.Add(lijstOefeningen[i].correcteOplossing);
+                juisteAntwoordCompleet.Add(lijstOefeningen[i].juisteAntwoordCompleet);
+            }
         }
 
         
