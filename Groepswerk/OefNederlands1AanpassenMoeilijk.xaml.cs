@@ -50,18 +50,33 @@ namespace Groepswerk
 
         private void AanpasKnop_Click(object sender, RoutedEventArgs e)
         {
+            Oefening oefening = new Oefening(Opgave.Text, CorrecteOplossing.Text);
+            lijstOefeningen.RemoveAt(OpgaveSelecteren.SelectedIndex);
+            lijstOefeningen.Insert(OpgaveSelecteren.SelectedIndex, oefening);
+
             File.WriteAllText(@"OefNederlands1Moeilijk.txt", String.Empty);
-            StreamWriter writer= File.AppendText(@"OefNederlands1Moeilijk.txt");
-            foreach (Oefening oef in lijstOefeningen){
-            
-                writer.WriteLine(oef.opgave + ";" + oef.oplossing);
+            StreamWriter writer = File.AppendText(@"OefNederlands1Moeilijk.txt");
+            foreach (Oefening oef in lijstOefeningen)
+            {
+                writer.WriteLine(oef.opgave + ";" + oef.correcteOplossing);
             }
             writer.Close();
+
+            lijstOefeningen = new OefeningLijst("moeilijk");
+
+            opgaves.Clear();
+            oplossing.Clear();
+
+            for (int i = 0; i < lijstOefeningen.Count; i++)
+            {
+                opgaves.Add(lijstOefeningen[i].opgave);
+                oplossing.Add(lijstOefeningen[i].oplossing);
+            }
         }
 
         private void terugButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het leerlingenmenu?", "Terug", MessageBoxButton.YesNo);
+            MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het menu?", "Terug", MessageBoxButton.YesNo);
             switch (terug)
             {
                 case MessageBoxResult.No:
