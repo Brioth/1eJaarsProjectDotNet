@@ -148,6 +148,7 @@ namespace Groepswerk
 
         //author: seppe Vandezande
         //date:04/05/2015
+       
         private void MnuWoBewerkenMakkelijk_Click(object sender, RoutedEventArgs e)
         {
             WoMakkelijkAanpassen WoMakkelijkAanpassen = new WoMakkelijkAanpassen();
