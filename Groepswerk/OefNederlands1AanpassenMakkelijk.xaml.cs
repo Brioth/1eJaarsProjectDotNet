@@ -28,9 +28,6 @@ namespace Groepswerk
         public OefNederlands1AanpassenMakkelijk(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
-
-            this.actieveGebruiker = actieveGebruiker;
-
             opgaves = new List<string>();
             oplossing1 = new List<string>();
             oplossing2 = new List<string>();
@@ -38,8 +35,8 @@ namespace Groepswerk
             correcteOplossing = new List<string>();
             juisteAntwoordCompleet = new List<string>();
             lijstOefeningen = new OefeningLijst("makkelijk");
-
-
+            
+            
             for (int i = 0; i < lijstOefeningen.Count; i++)
             {
                 opgaves.Add(lijstOefeningen[i].opgave);
@@ -95,7 +92,7 @@ namespace Groepswerk
                 oplossing2.Add(lijstOefeningen[i].oplossing2);
                 oplossing3.Add(lijstOefeningen[i].oplossing3);
                 correcteOplossing.Add(lijstOefeningen[i].correcteOplossing);
-                juisteAntwoordCompleet.Add(lijstOefeningen[i].juisteAntwoordCompleet);
+                juisteAntwoordCompleet.Add(lijstOefeningen[i].juisteAntwoordCompleet);  
             }
             OpgaveSelecteren.ItemsSource = opgaves;
         }
@@ -116,7 +113,7 @@ namespace Groepswerk
             }
 
 
-
-        }
+        
     }
+}
 }
