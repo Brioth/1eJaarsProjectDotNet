@@ -37,8 +37,12 @@ namespace Groepswerk
         }
         private void AanpasKnop_Click(object sender, RoutedEventArgs e)
         {
-            
-            String [] ranges = new string[3];
+            if( Convert.ToInt32(bereikMin1.Text) <0 | Convert.ToInt32(bereikMin2.Text) <0 |Convert.ToInt32(bereikMin3.Text) <0  )
+            {
+            MessageBox.Show("minimum range mag niet kleiner zijn dan 0");
+
+            }else{
+            String[] ranges = new string[3];
             ranges[0] = ("makkelijk"+";"+ bereikMin1.Text +";"+bereikMax1.Text);
             ranges[1] = ("gemiddeld" + ";" + bereikMin2.Text + ";" + bereikMax2.Text);
             ranges[2] = ("moeilijk" + ";" + bereikMin3.Text + ";" + bereikMax3.Text);
@@ -50,7 +54,9 @@ namespace Groepswerk
                 writer.WriteLine( item );
             }
             writer.Close();
+        
             MessageBox.Show("u heeft nu de moeilijkheid van de oefeningen aangepast");
+        }
         }
         
     }
