@@ -83,6 +83,9 @@
     <Compile Include="GemiddeldesKlas.xaml.cs">
       <DependentUpon>GemiddeldesKlas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HighScores.xaml.cs">
+      <DependentUpon>HighScores.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HoofdSpel.xaml.cs">
       <DependentUpon>HoofdSpel.xaml</DependentUpon>
     </Compile>
@@ -135,6 +138,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AccountBeheer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HighScores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

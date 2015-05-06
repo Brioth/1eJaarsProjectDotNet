@@ -68,7 +68,11 @@ namespace Groepswerk
                     break;
             }
         }
-
+        private void HighScores_Click(object sender, RoutedEventArgs e)
+        {
+            HighScores paginaScores = new HighScores(ActieveGebruiker);
+            framePages.Navigate(paginaScores);
+        }        
         //Author: Vincent Vandoninck
         //Date: 04/05/2015
         private void MnuWiskundeMakkelijk_Click(object sender, RoutedEventArgs e)
@@ -205,6 +209,7 @@ namespace Groepswerk
                         mnuOefBew.Visibility = Visibility.Collapsed;
                         mnuOefeningen.Visibility = Visibility.Visible;
                         mnuStat.Visibility = Visibility.Collapsed;
+                        mnuHighScores.Visibility = Visibility.Visible;
                         break;
                     case "lk":
                         MaakMenuLeeg();
@@ -212,6 +217,7 @@ namespace Groepswerk
                         mnuOefBew.Visibility = Visibility.Visible;
                         mnuOefeningen.Visibility = Visibility.Collapsed;
                         mnuStat.Visibility = Visibility.Visible;
+                        mnuHighScores.Visibility = Visibility.Collapsed;
                         break;
                     default:
                         MaakMenuLeeg();
@@ -230,6 +236,7 @@ namespace Groepswerk
             mnuOefBew.Visibility = Visibility.Collapsed;
             mnuOefeningen.Visibility = Visibility.Collapsed;
             mnuStat.Visibility = Visibility.Collapsed;
+            mnuHighScores.Visibility = Visibility.Collapsed;
         }
 
         //Properties
@@ -247,13 +254,6 @@ namespace Groepswerk
             }
         }
 
-       
-
-       
-
-       
-
-        
     }
 }
 
