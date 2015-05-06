@@ -23,6 +23,26 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Grid HorizontalAlignment="Right"  Grid.Row="3" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Rood" Grid.Column="1" Grid.Row="0" Margin="20,10,20,10"/>
+            <Label Content="Blauw" Grid.Column="2" Grid.Row="0" Margin="20,10,20,10"/>
+            <TextBlock Name="txtbRoodB" Grid.Column="1" Grid.Row="1" Margin="10" HorizontalAlignment="Center" Text=""/>
+            <TextBlock x:Name="txtbBlauwB" Grid.Column="1" Grid.Row="2" Margin="10" HorizontalAlignment="Center" Text=""/>
+            <TextBlock x:Name="txtbRoodV" Grid.Column="2" Grid.Row="1" Margin="10" HorizontalAlignment="Center" Text="" />
+            <TextBlock x:Name="txtbBlauwV" Grid.Column="2" Grid.Row="2" Margin="10" HorizontalAlignment="Center" Text=""/>
+            <Ellipse Fill="Black" Height="11" Stroke="Black" Width="11" Grid.Column="0" Grid.Row="1" Margin="10" HorizontalAlignment="Right"/>
+            <Rectangle Fill="Black" Height="11" Stroke="Black" Width="11" Grid.Column="0" Grid.Row="2" Margin="10" HorizontalAlignment="Right"/>
+        </Grid>        
         <Label Name="lblTijd" Grid.Column="1" Grid.Row="1" Margin="20,10,20,10" HorizontalAlignment="Center"/>
         <Label Name="lblCooldown" Grid.Column="2" Grid.Row="1" Margin="20,10,20,10" HorizontalAlignment="Center"/>
         <Canvas Name="spelCanvas" Grid.Column="1" Grid.Row="2" Grid.RowSpan="3" ClipToBounds="True" Background="#FF83BD1C" Margin="10" Loaded="SpelCanvas_Loaded">

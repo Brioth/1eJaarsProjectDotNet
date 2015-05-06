@@ -55,11 +55,11 @@ namespace Groepswerk
             accountlijst = new Accountlijst(selectedKlas);
             boxAccounts.ItemsSource = accountlijst;
             boxAccounts.SelectedIndex = 0;
-            
+
         }
         private void BoxAccounts_SelectionChanged(object sender, SelectionChangedEventArgs e)//Vincent
         {
-            if (boxAccounts.SelectedIndex!=-1)
+            if (boxAccounts.SelectedIndex != -1)
             {
                 selectedGebruiker = (Gebruiker)boxAccounts.SelectedItem;
                 txtbVoornaam.Text = selectedGebruiker.Voornaam;
@@ -67,10 +67,10 @@ namespace Groepswerk
                 pswBox.Text = selectedGebruiker.Psw;
                 boxNieuweKlas.SelectedIndex = boxKlas.SelectedIndex;
             }
-        }       
+        }
         private void BtnVerwijder_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult verwijderen = MessageBox.Show(String.Format("Ben je zeker dat je {0} wilt verwijderen?",selectedGebruiker), "Delete", MessageBoxButton.YesNo);
+            MessageBoxResult verwijderen = MessageBox.Show(String.Format("Ben je zeker dat je {0} wilt verwijderen?", selectedGebruiker), "Delete", MessageBoxButton.YesNo);
             switch (verwijderen)
             {
                 case MessageBoxResult.No:
@@ -84,7 +84,7 @@ namespace Groepswerk
                 default:
                     break;
             }
-        }        
+        }
         private void BtnPasAan_Click(object sender, RoutedEventArgs e)
         {
             selectedGebruiker.Voornaam = txtbVoornaam.Text;
@@ -107,14 +107,14 @@ namespace Groepswerk
                     alleGebruikersLijst.RemoveAt(i);
                 }
             }
-            alleGebruikersLijst.SchrijfLijst();          
+            alleGebruikersLijst.SchrijfLijst();
         }
         private void WisselGebruiker()
         {
             alleGebruikersLijst = new AlleGebruikersLijst();
             for (int i = 0; i < alleGebruikersLijst.Count; i++)
             {
-                if (alleGebruikersLijst[i].Id==selectedGebruiker.Id)
+                if (alleGebruikersLijst[i].Id == selectedGebruiker.Id)
                 {
                     alleGebruikersLijst[i] = selectedGebruiker;
                 }

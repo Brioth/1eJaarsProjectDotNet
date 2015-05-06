@@ -12,6 +12,11 @@ using System.Windows.Shapes;
 
 namespace Groepswerk
 {
+    /* --HoofdSpelVierkantje--
+     * Klasse om vierkantje te maken en gedrag te bepalen
+     * Author: Carmen Celen
+     * Date: 10/04/2015
+     */
     public class HoofdSpelVierkantje : HoofdSpelEntiteit
     {
         //Lokale variabelen
@@ -21,6 +26,7 @@ namespace Groepswerk
         private string kleur;
         private Point positie = new Point();
         private Canvas drawingCanvas;
+
         //Constructors
         public HoofdSpelVierkantje(Point punt, string kleur, Canvas drawingCanvas)
         {
@@ -42,6 +48,7 @@ namespace Groepswerk
             vierkant.MouseLeftButtonDown += OnEllipseMouseLeftButtonDown;
 
         }
+
         //Events
         void OnEllipseMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -50,6 +57,7 @@ namespace Groepswerk
                 Positie = new Point(randomPlaats.Next(Convert.ToInt32(drawingCanvas.ActualWidth)), randomPlaats.Next(Convert.ToInt32(drawingCanvas.ActualHeight)));
             }
         }
+
         //Methods
         public override void DisplayOn(Canvas drawingCanvas)
         {
@@ -87,6 +95,7 @@ namespace Groepswerk
         {
             drawingCanvas.Children.Remove(vierkant);
         }
+
         //Properties
         public double Snelheid { get; set; }
         public string Kleur

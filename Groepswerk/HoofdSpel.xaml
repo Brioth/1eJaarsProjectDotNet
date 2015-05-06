@@ -27,10 +27,10 @@
         <Canvas Name="drawingCanvas" Background="#FF83BD1C" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" Margin="10" ClipToBounds="True"/>
         <Label Content="Rood" Grid.Column="2" Grid.Row="1" Margin="20,10,20,10"/>
         <Label Content="Blauw" Grid.Column="3" Grid.Row="1" Margin="20,10,20,10"/>
-        <TextBlock Name="txtbRoodB" Grid.Column="2" Grid.Row="2" Margin="10" HorizontalAlignment="Center" Text="{Binding Path = speler.Bolletjes.Count}"/>
-        <TextBlock x:Name="txtbBlauwB" Grid.Column="3" Grid.Row="2" Margin="10" HorizontalAlignment="Center" Text="{Binding Path = speler.Vierkantjes.Count}"/>
-        <TextBlock x:Name="txtbRoodV" Grid.Column="2" Grid.Row="3" Margin="10" HorizontalAlignment="Center" Text="{Binding Path = speler.Bolletjes.Count}" />
-        <TextBlock x:Name="txtbBlauwV" Grid.Column="3" Grid.Row="3" Margin="10" HorizontalAlignment="Center" Text="{Binding Path = speler.Vierkantjes.Count}"/>
+        <TextBlock Name="txtbRoodB" Grid.Column="2" Grid.Row="2" Margin="10" HorizontalAlignment="Center" Text=""/>
+        <TextBlock x:Name="txtbBlauwB" Grid.Column="3" Grid.Row="2" Margin="10" HorizontalAlignment="Center" Text=""/>
+        <TextBlock x:Name="txtbRoodV" Grid.Column="2" Grid.Row="3" Margin="10" HorizontalAlignment="Center" Text="" />
+        <TextBlock x:Name="txtbBlauwV" Grid.Column="3" Grid.Row="3" Margin="10" HorizontalAlignment="Center" Text=""/>
         <Ellipse Fill="Black" Height="11" Stroke="Black" Width="11" Grid.Column="1" Grid.Row="2" Margin="10" HorizontalAlignment="Right"/>
         <Rectangle Fill="Black" Height="11" Stroke="Black" Width="11" Grid.Column="1" Grid.Row="3" Margin="10" HorizontalAlignment="Right"/>
         <Label Name="lblTijd" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="5" HorizontalAlignment="Center" Margin="20,10,20,10"/>

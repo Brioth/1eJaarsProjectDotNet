@@ -15,18 +15,23 @@ using System.Windows.Shapes;
 
 namespace Groepswerk
 {
-    /* Author: Thomas Cox
+    /* --GemiddeldesKlas--
+     * Pagina waar je als eerste terechtkomt als leerkracht
+     * Algemeene statistieken per klas
+     * Ook hier was een datagrid mogelijk
+     * Aangepast op 03/05/2015 door Carmen Celen
+     * Author: Thomas Cox
      * Date: 5/04/2015
-     * 
-     * Aangepast op 3/5 door Carmen
-     * 
     */
     public partial class GemiddeldesKlas : Page
     {
+        //Lokale Variabelen
         private Klaslijst lijstKlas;
         private Accountlijst lijstAccounts;
         private List<DetailsGebruiker> detailsGebruikers;
         private List<Label> labels;
+
+        //Constructors
         public GemiddeldesKlas()
         {
             InitializeComponent();
@@ -37,6 +42,7 @@ namespace Groepswerk
             selecteerKlas.SelectedIndex = 0;
         }
 
+        //Events
         private void selecteerKlas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             lijstAccounts = new Accountlijst((Klas)selecteerKlas.SelectedItem);
@@ -78,11 +84,11 @@ namespace Groepswerk
                     Grid.SetRow(lbl, i + 1);
                     resultatenGrid.Children.Add(lbl);
                     labels.Add(lbl);
-
                 }
             }
         }
 
+        //Methods
         private double BerekenGem(string vak, int index)
         {
             int totaalPunten, totaalOefeningen;
@@ -120,7 +126,6 @@ namespace Groepswerk
 
             return gemiddelde;
         }
-
         private void MaakGrid(Accountlijst lijstAccounts)
         {
             foreach (Label item in labels)
@@ -139,9 +144,5 @@ namespace Groepswerk
                 resultatenGrid.RowDefinitions.Add(row);
             }
         }
-
-
-
-
     }
 }

@@ -9,22 +9,22 @@ using System.Windows.Media.Imaging;
 
 namespace Groepswerk
 {
+    /* --ZombiespelSprite--
+     * Algemene klasse voor zombies en humans
+     * Author: Carmen Celen
+     * Date: 25/04/2015
+     */
     public abstract class ZombieSpelSprite : UIElement
     {
+        //Lokale variabelen
         private double x, y;
         public static int GROOTTE = 30;
 
-        public double X
-        {
-            get { return x; }
-            set { x = value; UpdateElement(); }
-        }
-        public double Y
-        {
-            get { return y; }
-            set { y = value; UpdateElement(); }
-        }
+        //Constructors
 
+        //Events
+
+        //Methods
         public abstract void DisplayOn(Canvas drawingCanvas);
         public abstract void UpdateElement();
         public BitmapImage CreateBitmap(string imagepath)
@@ -35,6 +35,18 @@ namespace Groepswerk
             bi.DecodePixelHeight = GROOTTE;
             bi.EndInit();
             return bi;
+        }
+
+        //Properties
+        public double X
+        {
+            get { return x; }
+            set { x = value; UpdateElement(); }
+        }
+        public double Y
+        {
+            get { return y; }
+            set { y = value; UpdateElement(); }
         }
     }
 }

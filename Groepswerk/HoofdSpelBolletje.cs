@@ -38,7 +38,7 @@ namespace Groepswerk
             cirkel.Height = GROOTTE;
             doelVierkant.Width = GROOTTE;
             doelVierkant.Height = GROOTTE;
-            Positie = new Point(randomPlaats.Next(Convert.ToInt32(drawingCanvas.ActualWidth)),randomPlaats.Next(Convert.ToInt32(drawingCanvas.ActualHeight)));
+            Positie = new Point(randomPlaats.Next(Convert.ToInt32(drawingCanvas.ActualWidth)), randomPlaats.Next(Convert.ToInt32(drawingCanvas.ActualHeight)));
             Snelheid = 5;
             do
             {
@@ -60,7 +60,7 @@ namespace Groepswerk
             doelVierkant.Width = GROOTTE;
             doelVierkant.Height = GROOTTE;
             Snelheid = 5;
-            Positie = punt; 
+            Positie = punt;
             do
             {
                 RichtingX = BepaalRichting();
@@ -77,9 +77,9 @@ namespace Groepswerk
             if (kleur.Equals("#CB2611"))
             {
                 Positie = new Point(randomPlaats.Next(Convert.ToInt32(drawingCanvas.ActualWidth)), randomPlaats.Next(Convert.ToInt32(drawingCanvas.ActualHeight)));
-
             }
         }
+
         //Methods
         public override void DisplayOn(Canvas drawingCanvas)
         {
@@ -90,7 +90,6 @@ namespace Groepswerk
             cirkel.Margin = new System.Windows.Thickness(X, Y, 0, 0);
             doelVierkant.Location = Positie;
         }
-
         private int BepaalRichting() //0 is -, 1 is blijven staan, 2 is +
         {
             int gekozenrichting = randomPlaats.Next(3);
@@ -118,6 +117,7 @@ namespace Groepswerk
         {
             drawingCanvas.Children.Remove(cirkel);
         }
+
         //Properties
         public double Snelheid { get; set; }
         public bool Geraakt { get; set; }
@@ -145,8 +145,5 @@ namespace Groepswerk
         }
         public int RichtingX { get; set; }
         public int RichtingY { get; set; }
-
-
-
     }
 }

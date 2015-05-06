@@ -7,22 +7,28 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shapes;
 using System.Windows.Media.Imaging;
+using System.Collections.ObjectModel;
 
 namespace Groepswerk
 {
+    /* --ZombiespelComputer
+     * Klasse die gedrag tegenspeler bepaalt
+     * Author: Carmen Celen
+     * Date: 25/04/2015
+     */
     public class ZombieSpelComputer : IBeweegbaarZombie
     {
         //Lokale variabelen
         private static Random richtingRandom = new Random();
+
         //Constructors
         public ZombieSpelComputer()
         {
-            HumansComputer = new List<ZombieSpelHuman>();
-            ZombiesComputer = new List<ZombieSpelZombie>();
+            HumansComputer = new ObservableCollection<ZombieSpelHuman>();
+            ZombiesComputer = new ObservableCollection<ZombieSpelZombie>();
         }
 
         //Methods
-
         public void Beweeg(Canvas drawingCanvas)
         {
             for (int i = 0; i < HumansComputer.Count; i++) //Laat humans bewegen
@@ -56,7 +62,6 @@ namespace Groepswerk
                 ZombiesComputer[i].Positie = new Point(ZombiesComputer[i].X + ZombiesComputer[i].RichtingX * ZombiesComputer[i].Snelheid, ZombiesComputer[i].Y + ZombiesComputer[i].RichtingY * ZombiesComputer[i].Snelheid);
             }
         }
-
         private int BepaalRichting() //0 is -, 1 is blijven staan en 2 is +
         {
             int gekozenrichting = richtingRandom.Next(3);
@@ -80,7 +85,7 @@ namespace Groepswerk
             }
             return richting;
         }
-        public void CheckHit(List<ZombieSpelHuman> lijstTegenstanderHumans, List<ZombieSpelZombie> lijstTegenstanderZombies)
+        public void CheckHit(ObservableCollection<ZombieSpelHuman> lijstTegenstanderHumans, ObservableCollection<ZombieSpelZombie> lijstTegenstanderZombies)
         {
             for (int i = 0; i < HumansComputer.Count; i++) //Humans geraakt door vijand
             {
@@ -124,7 +129,7 @@ namespace Groepswerk
                 }
                 foreach (ZombieSpelZombie eigenZombie in ZombiesComputer)
                 {
-                    if ((!(eigenZombie.Equals(ZombiesComputer[i])))&&(ZombiesComputer[i].Doelvierkant.IntersectsWith(eigenZombie.Doelvierkant)))
+                    if ((!(eigenZombie.Equals(ZombiesComputer[i]))) && (ZombiesComputer[i].Doelvierkant.IntersectsWith(eigenZombie.Doelvierkant)))
                     {
                         ZombiesComputer[i].GeraaktDoorEigen = true;
                     }
@@ -137,7 +142,7 @@ namespace Groepswerk
             {
                 if (HumansComputer[i].Geraakt) //als human geraakt door vijand maak zombie
                 {
-                    Point positie = new Point(HumansComputer[i].X - HumansComputer[i].RichtingX * HumansComputer[i].Snelheid*5, HumansComputer[i].Y - HumansComputer[i].RichtingY * HumansComputer[i].Snelheid*5);
+                    Point positie = new Point(HumansComputer[i].X - HumansComputer[i].RichtingX * HumansComputer[i].Snelheid * 5, HumansComputer[i].Y - HumansComputer[i].RichtingY * HumansComputer[i].Snelheid * 5);
                     ZombieSpelZombie zombieComputer = new ZombieSpelZombie(positie, "#13737C");
                     HumansComputer[i].VerwijderHuman(spelCanvas);
                     HumansComputer.RemoveAt(i);
@@ -149,7 +154,7 @@ namespace Groepswerk
             {
                 if (ZombiesComputer[i].GeraaktDoorEigen)
                 {
-                    Point positie = new Point(ZombiesComputer[i].X - ZombiesComputer[i].RichtingX * ZombiesComputer[i].Snelheid*5, ZombiesComputer[i].Y - ZombiesComputer[i].RichtingY * ZombiesComputer[i].Snelheid*5);
+                    Point positie = new Point(ZombiesComputer[i].X - ZombiesComputer[i].RichtingX * ZombiesComputer[i].Snelheid * 5, ZombiesComputer[i].Y - ZombiesComputer[i].RichtingY * ZombiesComputer[i].Snelheid * 5);
                     ZombieSpelHuman humanComputer = new ZombieSpelHuman(positie, "#13737C");
                     ZombiesComputer[i].VerwijderZombie(spelCanvas);
                     ZombiesComputer.RemoveAt(i);
@@ -162,10 +167,10 @@ namespace Groepswerk
                     ZombiesComputer.RemoveAt(i);
                 }
             }
-
         }
+
         //Properties
-        public List<ZombieSpelHuman> HumansComputer { get; set; }
-        public List<ZombieSpelZombie> ZombiesComputer { get; set; }
+        public ObservableCollection<ZombieSpelHuman> HumansComputer { get; set; }
+        public ObservableCollection<ZombieSpelZombie> ZombiesComputer { get; set; }
     }
 }

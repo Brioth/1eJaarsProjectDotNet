@@ -13,6 +13,7 @@ namespace Groepswerk
     {
         //Lokale variabelen
         private int totaalPunten, gespendeerdeTijd, aantalOefeningen = 0, indexOud;
+
         //Constructors
         public Resultaat(int id, DateTime datum, int punt, int aantalOefeningen, int gespendeerdeTijd) //Constructor om resultaat op te halen
         {
@@ -46,10 +47,10 @@ namespace Groepswerk
                 gespendeerdeTijd = gespendeerdeTijdOef;
                 aantalOefeningen = 1;
             }
-
-
         }
+
         //Events
+
         //Methods
         public void AddTime(int seconden)
         {
@@ -63,6 +64,7 @@ namespace Groepswerk
         {
             return (Id + ";" + Datum + ";" + TotaalPunten + ";" + AantalOefeningen + ";" + GespendeerdeTijd);
         }
+
         //Properties
         public int Id { get; set; }
         public int GespendeerdeTijd

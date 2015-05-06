@@ -13,16 +13,24 @@ namespace Groepswerk
      */
     public class Klas
     {
+        //Lokale variabelen
+
+        //Constructors
         public Klas(String naam, bool zombie = false)
         {
             Naam = naam;
             Zombie = zombie;
         }
+
+        //Events
+
+        //Methods
         public String SchrijfString()
         {
             return (Naam + ";" + Zombie);
         }
 
+        //Properties
         public String Naam { get; set; }
         public bool Zombie { get; set; }
         public override string ToString()

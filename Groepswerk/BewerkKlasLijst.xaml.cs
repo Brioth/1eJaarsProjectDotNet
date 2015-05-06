@@ -45,13 +45,11 @@ namespace Groepswerk
                 chboxZombie.IsChecked = selectedKlas.Zombie;
                 txtbIndex.Text = "" + (lboxKlasLijst.SelectedIndex + 1);
             }
-
         }
         private void BtnNieuw_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-
                 int index = Convert.ToInt32(txtbIndex.Text) - 1;
                 if (index > klasLijst.Count)
                 {
@@ -77,7 +75,7 @@ namespace Groepswerk
                     index = klasLijst.Count;
                 }
                 Klas aangepasteKlas = new Klas(txtbOmschr.Text, Convert.ToBoolean(chboxZombie.IsChecked));
-                PasKlasGebruikersAan(aangepasteKlas);                
+                PasKlasGebruikersAan(aangepasteKlas);
                 klasLijst.Insert(index, aangepasteKlas);
                 klasLijst.Remove(selectedKlas);
                 klasLijst.SchrijfLijst();
@@ -88,7 +86,6 @@ namespace Groepswerk
                 MessageBox.Show("De index moet een cijfer zijn");
             }
         }
-
         private void PasKlasGebruikersAan(Klas nieuweKlas)
         {
             AlleGebruikersLijst lijst = new AlleGebruikersLijst();
@@ -115,10 +112,9 @@ namespace Groepswerk
             lboxKlasLijst.ItemsSource = klasLijst;
             lboxKlasLijst.SelectedIndex = 0;
         }
-
         private void chboxZombie_Checked(object sender, RoutedEventArgs e)
         {
-
+            //Moet hier blijven staan want anders werkt checkbox niet
         }
 
         //Properties
