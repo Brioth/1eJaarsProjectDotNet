@@ -61,7 +61,7 @@ namespace Groepswerk
         private void AanpasKnop_Click(object sender, RoutedEventArgs e)
         {
             AanpasKnop.IsEnabled = false;
-            Oefening oefening = new Oefening(Opgave.Text, Oplossing1.Text, Oplossing2.Text, Oplossing3.Text, CorrecteOplossing.Text, juisteOpgaveCompleet.Text);
+            Oefening oefening = new Oefening(Opgave.Text, Oplossing1.Text, Oplossing2.Text, Oplossing3.Text, CorrecteOplossing.Text, correctIngevuldeOpgave.Text);
             lijstOefeningen.RemoveAt(OpgaveSelecteren.SelectedIndex);
             lijstOefeningen.Insert(OpgaveSelecteren.SelectedIndex, oefening);
 
