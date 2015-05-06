@@ -44,6 +44,9 @@ namespace Groepswerk
                 case "taal2":
                     return (opgave + ";" + correcteOplossing + ";" + juisteAntwoordCompleet);
                 break;
+                default:
+                    return ("Er is iets fout gelopen, gelieve de helpdesk te contacteren!");
+                break;
             }
         }
         public String SchrijfString()

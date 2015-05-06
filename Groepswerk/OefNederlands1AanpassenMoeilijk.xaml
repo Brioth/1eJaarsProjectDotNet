@@ -34,7 +34,7 @@
         <TextBlock TextWrapping="Wrap" Text="Opgave" Margin="20,10,20,10" Grid.Column="1" Grid.Row="4"/>
         <TextBox Name="opgaveBox" TextWrapping="Wrap" Margin="10" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4"/>
         <Button Name="AanpasKnop" Content="Aanpassen" Click="AanpasKnop_Click" Margin="5" Grid.Column="1" Grid.Row="7"/>
-        <Button Name="bijvoegKnop" Content="Toevoegen" Click="bijvoegKnop_Click" Margin="5" Grid.Column="2" Grid.Row="7"/>
+        <Button Name="toevoegKnop" Content="Toevoegen" Click="toevoegKnop_Click" Margin="5" Grid.Column="2" Grid.Row="7"/>
         <Button Name="verwijderKnop" Content="Verwijder" Click="verwijderKnop_Click" Margin="5" Grid.Column="3" Grid.Row="7"/>
         <TextBox Name="correcteOplossingBox" TextWrapping="Wrap" Margin="10" Grid.Column="2" Grid.Row="5"/>
         <TextBlock TextWrapping="Wrap" Text="Correcte Oplossing" Margin="20,10,20,10" Grid.Column="1" Grid.Row="5"/>
