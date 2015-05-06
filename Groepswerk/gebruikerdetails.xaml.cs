@@ -207,7 +207,7 @@ namespace Groepswerk
             }
 
             lblAantal.Content = aantal;
-            lblGem.Content = gemPunten;
+            lblGem.Content = gemPunten + "/10";
             lblTijd.Content = gemTijd;
 
             MaakGrid(detailLijst);
