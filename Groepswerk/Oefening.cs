@@ -25,8 +25,7 @@ namespace Groepswerk
         public Oefening(string opgave, string oplossing)
         {
             this.opgave = opgave;
-            this.oplossing = oplossing;
-            
+            this.oplossing = oplossing;            
         }
       
         public string opgave { get; set; }

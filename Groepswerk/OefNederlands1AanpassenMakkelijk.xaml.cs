@@ -92,7 +92,7 @@ namespace Groepswerk
                 correcteOplossing.Add(lijstOefeningen[i].correcteOplossing);
                 juisteAntwoordCompleet.Add(lijstOefeningen[i].juisteAntwoordCompleet);  
             }
-            OpgaveSelecteren.ItemsSource = opgaves;
+
         }
 
         private void TerugKnop_Click(object sender, RoutedEventArgs e)

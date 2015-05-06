@@ -62,10 +62,10 @@ namespace Groepswerk
             }
             writer.Close();
 
-            lijstOefeningen = new OefeningLijst("moeilijk");
-
             opgaves.Clear();
             oplossing.Clear();
+
+            lijstOefeningen = new OefeningLijst("moeilijk");
 
             for (int i = 0; i < lijstOefeningen.Count; i++)
             {
@@ -88,6 +88,16 @@ namespace Groepswerk
                 default:
                     break;
             }
+        }
+
+        private void bijvoegKnop_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void verwijderKnop_Click(object sender, RoutedEventArgs e)
+        {
+
         }
         
 
