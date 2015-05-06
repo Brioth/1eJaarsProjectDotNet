@@ -86,7 +86,7 @@ namespace Groepswerk
             oefeningWiskundeMoeilijk oefWiskundeMoeilijk = new oefeningWiskundeMoeilijk(ActieveGebruiker);
             framePages.Navigate(oefWiskundeMoeilijk);
         }
-        private void WiskundeBewerken_Click()
+        private void WiskundeBewerken_Click(object sender, RoutedEventArgs e)
         {
             OefWiskundeAanpassen oefeningAanpassen = new OefWiskundeAanpassen(ActieveGebruiker);
             framePages.Navigate(oefeningAanpassen);
