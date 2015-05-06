@@ -4,32 +4,51 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      Height="452" Width="720"
-	Title="Page1">
+       Background="#9D78989A" Height="auto" Width="auto" FontSize="16" d:DesignWidth="1062.177" d:DesignHeight="322.493">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="261*"/>
-            <RowDefinition Height="191*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock HorizontalAlignment="Left" Margin="13,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="701" TextAlignment="Center"><Run Text="Bij elke moelijkheidsgraad"/><Run Text=" kan u een bereik zetten"/><Run Text=" dat u wil "/><Run Text="aanpassen"/><Run Text=". Druk hierna op de 'aanpassen' knop."/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="13,10,0,0" TextWrapping="Wrap" Text="Aanpassen wiskunde oefeningen" VerticalAlignment="Top" Height="46" Width="697" TextAlignment="Center" FontSize="36"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Margin="10" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="7" Text="Bij elke moelijkheidsgraad kan u een bereik zetten dat u wil aanpassen Druk hierna op de 'aanpassen' knop."/>
         <!--<ComboBox Name="OpgaveSelecteren" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,102,0,0" SelectionChanged="OpgaveSelecteren_SelectionChanged"/>-->
-        <Button Name="AanpasKnop" Content="Aanpassen" HorizontalAlignment="Left" Margin="114,70,0,0" VerticalAlignment="Top" Width="150" Height="59" Click="AanpasKnop_Click" Grid.Row="1"/>
-        <Button Name="TerugKnop" Content="Terug naar hoofdmenu" HorizontalAlignment="Left" Margin="472,70,0,0" VerticalAlignment="Top" Width="150" Height="59" Grid.Row="1"/>
+        <Button Margin="5" Name="AanpasKnop" Content="Aanpassen" Click="AanpasKnop_Click" Grid.Column="1" Grid.Row="6" />
+        <Button Margin="5" Name="TerugKnop" Content="Terug naar hoofdmenu"  Grid.Column="7" Grid.Row="6" />
 
 
-        <TextBox Name="bereikMin1" HorizontalAlignment="Left" Height="36" Margin="186,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="42,152,0,0" TextWrapping="Wrap" Text="cijferbereik makkelijk minimum" VerticalAlignment="Top" Height="36" Width="139"/>
-        <TextBox x:Name="bereikMax2" HorizontalAlignment="Left" Height="36" Margin="517,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="373,209,0,0" TextWrapping="Wrap" Text="cijferbereik gemiddeld maximum" VerticalAlignment="Top" Height="36" Width="139"/>
-        <TextBox x:Name="bereikMax3" HorizontalAlignment="Left" Height="36" Margin="517,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
-        <TextBlock HorizontalAlignment="Left" Margin="373,0,0,0" TextWrapping="Wrap" Text="cijferbereik moeilijk maximum" VerticalAlignment="Top" Height="36" Width="139" Grid.Row="1"/>
-        <TextBox x:Name="bereikMin2" HorizontalAlignment="Left" Height="36" Margin="186,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="42,209,0,0" TextWrapping="Wrap" Text="cijferbereik gemiddeld minimum" VerticalAlignment="Top" Height="36" Width="139"/>
-        <TextBox x:Name="bereikMin3" HorizontalAlignment="Left" Height="36" Margin="186,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
-        <TextBlock HorizontalAlignment="Left" Margin="42,0,0,0" TextWrapping="Wrap" Text="cijferbereik moeilijk minimum" VerticalAlignment="Top" Height="36" Width="139" Grid.Row="1"/>
-        <TextBox x:Name="bereikMax1" HorizontalAlignment="Left" Height="36" Margin="517,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="373,152,0,0" TextWrapping="Wrap" Text="cijferbereik makkelijk maximum" VerticalAlignment="Top" Height="36" Width="139"/>
+        <TextBox Margin="10"  Name="bereikMin1" Grid.Column="3" Grid.Row="3"  />
+        <TextBlock Margin="10" Text="cijferbereik makkelijk minimum" Grid.Column="2" Grid.Row="3"/>
+        <TextBox Margin="10" x:Name="bereikMin2" Grid.Column="3" Grid.Row="4"/>
+        <TextBlock Margin="10" Text="cijferbereik gemiddeld minimum" Grid.Column="2" Grid.Row="4"/>
+        <TextBox  Margin="10" x:Name="bereikMin3" Grid.Column="3" Grid.Row="5"/>
+        <TextBlock  Margin="10" Text="cijferbereik moeilijk minimum"  Grid.Column="2" Grid.Row="5"/>
+
+        <TextBox  Margin="10" x:Name="bereikMax1" Grid.Column="7" Grid.Row="3"/>
+        <TextBlock  Margin="10,10,3,10" Text="cijferbereik makkelijk maximum" Grid.Column="6" Grid.Row="3" />
+        <TextBox Margin="10" x:Name="bereikMax2" Grid.Column="7" Grid.Row="4"/>
+        <TextBlock Text="cijferbereik gemiddeld maximum" Grid.Column="6" Grid.Row="4"/>
+        <TextBox Margin="10" x:Name="bereikMax3"  Grid.Column="7" Grid.Row="5"/>
+        <TextBlock  Text="cijferbereik moeilijk maximum"  Grid.Column="6" Grid.Row="5"/>
+
+
     </Grid>
 </Page>

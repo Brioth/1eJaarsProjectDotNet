@@ -178,7 +178,7 @@ namespace Groepswerk
         private void Label_Drop(object sender, DragEventArgs e)
         // hier wordt gedropped
         {
-           // ((Label)e.Source).Content = "";
+           
             ((Label)e.Source).Content = (string)e.Data.GetData(DataFormats.Text);
         }
 
