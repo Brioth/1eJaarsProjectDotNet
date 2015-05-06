@@ -29,7 +29,6 @@
             <MenuItem Name="mnuOefBew" Header="Oefeningen Bewerken" IsTabStop="False" >
                 <MenuItem Header="Wiskunde" Click="MenuItem_Click">
                     <MenuItem Header="Wiskunde aanpassen" Click="WiskundeBewerken_Click"/>
-
                 </MenuItem>
                 <MenuItem Header="Taal">
                     <MenuItem Header="Taal - Gemakkelijk" Click="MnuBewerkenMakkelijk_Click"/>
@@ -38,13 +37,6 @@
                 </MenuItem>
             </MenuItem>
             
-            <MenuItem Header="Wo">
-                    <MenuItem Header="Wo - Gemakkelijk" Click="MnuWoBewerkenMakkelijk_Click"/>
-                    <MenuItem Header="Wo - Gemiddeld" Click="MnuWoBewerkenGemiddeld_Click"/>
-                    <MenuItem Header="Wo - Moeilijk" Click="MnuWoBewerkenMoeilijk_Click"/>
-                </MenuItem>
-            
-
             <MenuItem Name="mnuStat" Header="Statistieken" IsTabStop="False">
                 <MenuItem Header="Individueel Overzicht" Click="MnuIndOv_Click"/>
                 <MenuItem Header="Klassikaal Overzicht" Click="MnuKlasOver_Click"/>
