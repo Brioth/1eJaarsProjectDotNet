@@ -59,7 +59,7 @@ namespace Groepswerk
                     {
                         string[] deel = regelMoeilijk.Split(scheidingMoeilijk);
 
-                        Oefening oefeningNederlands = new Oefening(deel[0], deel[1]);
+                        Oefening oefeningNederlands = new Oefening(deel[0], deel[1], deel[2]);
                         this.Add(oefeningNederlands);
                         regelMoeilijk = bestandOefeningMoeilijk.ReadLine();
                     }
@@ -130,13 +130,13 @@ namespace Groepswerk
             schrijver.Close();
         }
 
-        public void SchrijfLijstTaal(string bestand)
+        public void SchrijfLijstTaal(string bestand, string sleutelwoord)
         {
             File.WriteAllText(bestand, String.Empty);
             StreamWriter schrijver = File.AppendText(bestand);
             foreach (Oefening item in this)
             {
-                schrijver.WriteLine(item.SchrijfStringTaal());
+                schrijver.WriteLine(item.SchrijfStringTaal(sleutelwoord));
             }
             schrijver.Close();
         }

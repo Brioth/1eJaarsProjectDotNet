@@ -13,10 +13,11 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/> <!--Aanpassen moeilijke taaloefening-->
             <RowDefinition Height="*"/> <!-- Selecteer de opgave etc etc-->
-            <RowDefinition Height="Auto"/> <!--Opgave actually aanpassen-->
-            <RowDefinition Height="Auto"/> 
+            <RowDefinition Height="Auto"/><!--Listbox-->
+            <RowDefinition Height="Auto"/><!--Opgave actually aanpassen-->
             <RowDefinition Height="Auto"/><!--Correcte oplossing inschrijven-->
-            <RowDefinition Height="*"/> <!--KNOPJES!-->
+            <RowDefinition Height="Auto"/><!--Volledige correcte oplossing-->
+            <RowDefinition Height="Auto"/> <!--KNOPJES!-->
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -31,12 +32,14 @@
         <TextBlock TextWrapping="Wrap" Text="Aanpassen moeilijke taaloefening" TextAlignment="Center" FontSize="36" Margin="20,10,20,10" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="1"/>
         <ListBox Name="OpgaveSelecteren" SelectionChanged="OpgaveSelecteren_SelectionChanged" Margin="10" Grid.Column="1" Grid.ColumnSpan="3"  Grid.Row="3"/>
         <TextBlock TextWrapping="Wrap" Text="Opgave" Margin="20,10,20,10" Grid.Column="1" Grid.Row="4"/>
-        <TextBox Name="Opgave" TextWrapping="Wrap" Margin="10" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4"/>
-        <Button Name="AanpasKnop" Content="Aanpassen" Click="AanpasKnop_Click" Margin="5" Grid.Column="1" Grid.Row="6"/>
-        <Button Name="bijvoegKnop" Content="Toevoegen" Click="bijvoegKnop_Click" Margin="5" Grid.Column="2" Grid.Row="6"/>
-        <Button Name="verwijderKnop" Content="Verwijder" Click="verwijderKnop_Click" Margin="5" Grid.Column="3" Grid.Row="6"/>
-        <TextBox Name="CorrecteOplossing" TextWrapping="Wrap" Margin="10" Grid.Column="2" Grid.Row="5"/>
+        <TextBox Name="opgaveBox" TextWrapping="Wrap" Margin="10" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4"/>
+        <Button Name="AanpasKnop" Content="Aanpassen" Click="AanpasKnop_Click" Margin="5" Grid.Column="1" Grid.Row="7"/>
+        <Button Name="bijvoegKnop" Content="Toevoegen" Click="bijvoegKnop_Click" Margin="5" Grid.Column="2" Grid.Row="7"/>
+        <Button Name="verwijderKnop" Content="Verwijder" Click="verwijderKnop_Click" Margin="5" Grid.Column="3" Grid.Row="7"/>
+        <TextBox Name="correcteOplossingBox" TextWrapping="Wrap" Margin="10" Grid.Column="2" Grid.Row="5"/>
         <TextBlock TextWrapping="Wrap" Text="Correcte Oplossing" Margin="20,10,20,10" Grid.Column="1" Grid.Row="5"/>
+        <TextBlock TextWrapping="Wrap" Text="Correct ingevulde opgave" Margin="20,10,20,10" Grid.Column="1" Grid.Row="6"/>
+        <TextBox Name="juisteAntwoordCompleetBox" TextWrapping="Wrap" Margin="10" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="6"/>
         <Grid Grid.Column="0" Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>

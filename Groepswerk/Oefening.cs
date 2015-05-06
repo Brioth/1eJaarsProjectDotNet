@@ -22,15 +22,29 @@ namespace Groepswerk
             this.juisteAntwoordCompleet = juisteAntwoordCompleet;
         }
 
+        public Oefening(string opgave, string oplossing, string juisteAntwoordCompleet)
+        {
+            this.opgave = opgave;
+            this.oplossing = oplossing;
+            this.juisteAntwoordCompleet = juisteAntwoordCompleet;
+            
+        }
         public Oefening(string opgave, string oplossing)
         {
             this.opgave = opgave;
             this.oplossing = oplossing;
-            
         }
-        public String SchrijfStringTaal()
+        public String SchrijfStringTaal(string sleutelwoord)
         {
-            return (opgave + ";" + oplossing1 + ";" + oplossing2 + ";" + oplossing3 + ";" + correcteOplossing + ";" + juisteAntwoordCompleet);
+            switch (sleutelwoord) 
+            { 
+                case "taal1":
+                    return (opgave + ";" + oplossing1 + ";" + oplossing2 + ";" + oplossing3 + ";" + correcteOplossing + ";" + juisteAntwoordCompleet);
+                break;
+                case "taal2":
+                    return (opgave + ";" + correcteOplossing + ";" + juisteAntwoordCompleet);
+                break;
+            }
         }
         public String SchrijfString()
         {
