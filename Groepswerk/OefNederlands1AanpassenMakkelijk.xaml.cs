@@ -59,7 +59,7 @@ namespace Groepswerk
             Oefening nieuwItem = new Oefening(opgaveBox.Text, oplossing1Box.Text, oplossing2Box.Text, oplossing3Box.Text, correcteOplossingBox.Text, juisteAntwoordCompleetBox.Text);
             lijstOefeningen.Add(nieuwItem);
             lijstOefeningen.Remove(selectedOefening);
-            lijstOefeningen.SchrijfLijstTaal(bestand);
+            lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
             UpdateLijst();
             }//end else
         }
@@ -82,7 +82,7 @@ namespace Groepswerk
                     break;
                 case MessageBoxResult.Yes:
                     lijstOefeningen.Remove(selectedOefening);
-                    lijstOefeningen.SchrijfLijstTaal(bestand);
+                    lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
                     UpdateLijst();
                     break;
                 default:
@@ -96,7 +96,7 @@ namespace Groepswerk
         {
             Oefening nieuwOefening = new Oefening(opgaveBox.Text, oplossing1Box.Text, oplossing2Box.Text, oplossing3Box.Text, correcteOplossingBox.Text, juisteAntwoordCompleetBox.Text);
             lijstOefeningen.Add(nieuwOefening);
-            lijstOefeningen.SchrijfLijstTaal(bestand);
+            lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
             UpdateLijst();
         }
 }
