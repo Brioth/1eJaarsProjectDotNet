@@ -96,6 +96,7 @@ namespace Groepswerk
             OefWiskundeAanpassen oefWiskundeAanpassen = new OefWiskundeAanpassen();
             framePages.Navigate(oefWiskundeAanpassen);
         }
+      
 
         //Author: Thomas Cox
         //Date: 22/04/2015
