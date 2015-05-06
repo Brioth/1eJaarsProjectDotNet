@@ -62,10 +62,10 @@ namespace Groepswerk
             }
             writer.Close();
 
+            lijstOefeningen = new OefeningLijst("moeilijk");
+
             opgaves.Clear();
             oplossing.Clear();
-
-            lijstOefeningen = new OefeningLijst("moeilijk");
 
             for (int i = 0; i < lijstOefeningen.Count; i++)
             {
@@ -74,22 +74,7 @@ namespace Groepswerk
             }
         }
 
-        private void terugButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het menu?", "Terug", MessageBoxButton.YesNo);
-            switch (terug)
-            {
-                case MessageBoxResult.No:
-                    break;
-                case MessageBoxResult.Yes:
-                    LeerlingMenu terugMenu = new LeerlingMenu(actieveGebruiker);
-                    this.NavigationService.Navigate(terugMenu);
-                    break;
-                default:
-                    break;
-            }
-        }
-
+        
         private void bijvoegKnop_Click(object sender, RoutedEventArgs e)
         {
 

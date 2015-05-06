@@ -129,6 +129,17 @@ namespace Groepswerk
             }
             schrijver.Close();
         }
+
+        public void SchrijfLijstTaal(string bestand)
+        {
+            File.WriteAllText(bestand, String.Empty);
+            StreamWriter schrijver = File.AppendText(bestand);
+            foreach (Oefening item in this)
+            {
+                schrijver.WriteLine(item.SchrijfStringTaal());
+            }
+            schrijver.Close();
+        }
       
         }
 

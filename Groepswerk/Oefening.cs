@@ -28,7 +28,10 @@ namespace Groepswerk
             this.oplossing = oplossing;
             
         }
-
+        public String SchrijfStringTaal()
+        {
+            return (opgave + ";" + oplossing1 + ";" + oplossing2 + ";" + oplossing3 + ";" + correcteOplossing + ";" + juisteAntwoordCompleet);
+        }
         public String SchrijfString()
         {
             return (opgave + ";" + oplossing);

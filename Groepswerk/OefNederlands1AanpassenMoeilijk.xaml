@@ -45,7 +45,7 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-            <Button  Content="terug"   Margin="5"   Grid.Column="0" Grid.Row="0" Click="terugButton_Click"/>
+            <Button  Content="terug"   Margin="5"   Grid.Column="0" Grid.Row="0" />
         </Grid>
     </Grid>
 </Page>
