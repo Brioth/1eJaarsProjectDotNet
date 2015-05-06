@@ -34,7 +34,7 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Margin="10" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="8" FontSize="24" Text="Bij elke moelijkheidsgraad kan u een bereik zetten dat u wil aanpassen." />
-                   <TextBlock Margin="10" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="8" FontSize="24" Text="Druk hierna op de 'aanpassen' knop." />
+                   <TextBlock Margin="10" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="6" FontSize="24" Text="Druk hierna op de 'aanpassen' knop." />
         
                    
                    
@@ -51,11 +51,11 @@
         <TextBlock  Margin="10" Text="cijferbereik moeilijk minimum"  Grid.Column="1" Grid.Row="6"/>
 
         <TextBox  Margin="10" x:Name="bereikMax1" Grid.Column="7" Grid.Row="4"/>
-        <TextBlock  Margin="10,10,3,10" Text="cijferbereik makkelijk maximum" Grid.Column="6" Grid.Row="4" />
+        <TextBlock  Margin="10" Text="cijferbereik makkelijk maximum" Grid.Column="6" Grid.Row="4" />
         <TextBox Margin="10" x:Name="bereikMax2" Grid.Column="7" Grid.Row="5"/>
-        <TextBlock Text="cijferbereik gemiddeld maximum" Grid.Column="6" Grid.Row="5"/>
+        <TextBlock Margin="10" Text="cijferbereik gemiddeld maximum" Grid.Column="6" Grid.Row="5"/>
         <TextBox Margin="10" x:Name="bereikMax3"  Grid.Column="7" Grid.Row="6"/>
-        <TextBlock  Text="cijferbereik moeilijk maximum"  Grid.Column="6" Grid.Row="6"/>
+        <TextBlock Margin="10" Text="cijferbereik moeilijk maximum"  Grid.Column="6" Grid.Row="6"/>
 
 
     </Grid>
