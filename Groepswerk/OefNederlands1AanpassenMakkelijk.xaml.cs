@@ -67,7 +67,6 @@ namespace Groepswerk
             lijstOefeningen.Add(oefening);
             lijstOefeningen.RemoveAt(OpgaveSelecteren.SelectedIndex);
 
-
             File.WriteAllText(@"OefNederlands1Makkelijk.txt", String.Empty);
             StreamWriter writer = File.AppendText(@"OefNederlands1Makkelijk.txt");
             foreach (Oefening oef in lijstOefeningen)
@@ -79,6 +78,11 @@ namespace Groepswerk
             lijstOefeningen = new OefeningLijst("makkelijk");
 
             opgaves.Clear();
+            oplossing1.Clear();
+            oplossing2.Clear();
+            oplossing3.Clear();
+            correcteOplossing.Clear();
+            juisteAntwoordCompleet.Clear();
             for (int i = 0; i < lijstOefeningen.Count; i++)
             {
                 opgaves.Add(lijstOefeningen[i].opgave);
@@ -86,8 +90,9 @@ namespace Groepswerk
                 oplossing2.Add(lijstOefeningen[i].oplossing2);
                 oplossing3.Add(lijstOefeningen[i].oplossing3);
                 correcteOplossing.Add(lijstOefeningen[i].correcteOplossing);
-                juisteAntwoordCompleet.Add(lijstOefeningen[i].juisteAntwoordCompleet);
+                juisteAntwoordCompleet.Add(lijstOefeningen[i].juisteAntwoordCompleet);  
             }
+            OpgaveSelecteren.ItemsSource = opgaves;
         }
 
 

@@ -86,6 +86,7 @@ namespace Groepswerk
 
         private void controleer_Click(object sender, RoutedEventArgs e)
         {
+            controleer.IsEnabled = false;
             tijdTeller.Stop();
             totaalTijd = Convert.ToInt32(tijdTeller.ElapsedMilliseconds / 1000);
 
