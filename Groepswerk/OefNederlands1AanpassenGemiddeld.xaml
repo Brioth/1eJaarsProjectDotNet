@@ -10,10 +10,10 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="0*"/>
-            <RowDefinition Height="68*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <!--Aanpassen moeilijke taaloefening-->
-            <RowDefinition Height="41*"/>
+            <RowDefinition Height="*"/>
             <!-- Selecteer de opgave etc etc-->
             <RowDefinition Height="Auto"/>
             <!--Opgave echt selecteren-->
@@ -23,7 +23,7 @@
             <!--Mogelijke oplossingen ingeven-->
             <RowDefinition Height="Auto"/>
             <!--Correcte oplossing inschrijven-->
-            <RowDefinition Height="35*"/>
+            <RowDefinition Height="*"/>
             <!--KNOPJES!-->
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>

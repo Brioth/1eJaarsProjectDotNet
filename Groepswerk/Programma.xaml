@@ -26,15 +26,16 @@
                     <MenuItem Header="Wo - Moeilijk" Click="MnuWoMoeilijk_Click"/>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Name="mnuOefBew" Header="Oefeningen Bewerken" IsTabStop="False">
-                <MenuItem Header="Taal" Click="MenuItem_Click">
-                    <MenuItem Header="Taal - Gemakkelijk" Click="MnuBewerkenMakkelijk_Click"/>
-                    <MenuItem Header="Taal - Gemiddeld" Click="MnuBewerkenGemiddeld_Click"/>
-                    <MenuItem Header="Taal - Moeilijk" Click="MnuBewerkenMoeilijk_Click"/>
-                </MenuItem>
+            <MenuItem Name="mnuOefBew" Header="Oefeningen Bewerken" IsTabStop="False" >
                 <MenuItem Header="Taal">
-                    <MenuItem Header="Wiskunde" Click="WiskundeBewerken_Click"/>
-                    
+                    <MenuItem Header="Taal - Gemakkelijk" Click="MnuWoBewerkenMakkelijk_Click"/>
+                    <MenuItem Header="Taal - Gemiddeld" Click="MnuBewerkenGemiddeld_Click"/>
+                    <MenuItem Header="Taal - Moeilijk" Click="MnuWoBewerkenMoeilijk_Click"/>
+                </MenuItem>
+                <MenuItem Header="Wo">
+                    <MenuItem Header="Wo - Gemakkelijk" Click="MnuWoBewerkenMakkelijk_Click"/>
+                    <MenuItem Header="Wo - Gemiddeld" Click="MnuWoBewerkenGemiddeld_Click"/>
+                    <MenuItem Header="Wo - Moeilijk" Click="MnuWoBewerkenMoeilijk_Click"/>
                 </MenuItem>
             </MenuItem>
 

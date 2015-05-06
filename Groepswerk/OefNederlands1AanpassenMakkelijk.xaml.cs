@@ -27,8 +27,7 @@ namespace Groepswerk
         public OefNederlands1AanpassenMakkelijk()
         {
             InitializeComponent();
-            opgaves = new List<string>();
-            oplossing1 = new List<string>();
+           
             oplossing2 = new List<string>();
             oplossing3 = new List<string>();
             correcteOplossing = new List<string>();
