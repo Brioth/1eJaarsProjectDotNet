@@ -100,8 +100,8 @@
     <Compile Include="oefeningWiskundeMoeilijk.xaml.cs">
       <DependentUpon>oefeningWiskundeMoeilijk.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OefWiskundeAanpGemiddelde.xaml.cs">
-      <DependentUpon>OefWiskundeAanpGemiddelde.xaml</DependentUpon>
+    <Compile Include="OefWiskundeAanpassen.xaml.cs">
+      <DependentUpon>OefWiskundeAanpassen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resultaat.cs" />
     <Compile Include="ResultatenLijst.cs" />
@@ -215,7 +215,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="OefWiskundeAanpGemiddelde.xaml">
+    <Page Include="OefWiskundeAanpassen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
