@@ -39,11 +39,18 @@ namespace Groepswerk
         //Events
         private void BtnVoegToe_Click(object sender, RoutedEventArgs e)
         {
-            MaakGebruiker();
-            MaakNieuweAccountLijst();
-            accountlijst.SchrijfLijst();
-            MessageBox.Show(String.Format("{0} {1} is toegevoegd aan {2}", nieuweGebruiker.Type, nieuweGebruiker, nieuweGebruiker.Klas));
-            MaakVakjesLeeg();
+            if (txtboxAchternaam.Text.Equals("")||txtbVoornaam.Text.Equals("")||pswBox.Password.Equals(""))
+            {
+                MessageBox.Show("Gelieve alle velden in te vullen");
+            }
+            else
+            {
+                MaakGebruiker();
+                MaakNieuweAccountLijst();
+                accountlijst.SchrijfLijst();
+                MessageBox.Show(String.Format("{0} {1} is toegevoegd aan {2}", nieuweGebruiker.Type, nieuweGebruiker, nieuweGebruiker.Klas));
+                MaakVakjesLeeg();
+            }
         }
 
         //Methods

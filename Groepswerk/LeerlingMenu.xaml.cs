@@ -31,7 +31,7 @@ namespace Groepswerk
         {
             InitializeComponent();
             UpdateGebruiker(actievegebruiker);
-            lblBegroeting.Content = String.Format("Dag {0}", ActieveGebruiker.Voornaam);
+            lblBegroeting.Content = String.Format("Dag {0}, je hebt {1} seconden speltijd", ActieveGebruiker.Voornaam, ActieveGebruiker.GameTijdSec);
             btnSpel.IsEnabled = false;
             btnZombie.Visibility = Visibility.Hidden;
             CheckButton();

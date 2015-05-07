@@ -47,65 +47,72 @@ namespace Groepswerk
         {
             InitializeComponent();
 
-            this.actieveGebruiker = actieveGebruiker;
-            Speler = new ZombieSpelSpeler();
-            Computer = new ZombieSpelComputer();
+            if (actieveGebruiker.GameTijdSec!=0)
+            {
+                this.actieveGebruiker = actieveGebruiker;
+                Speler = new ZombieSpelSpeler();
+                Computer = new ZombieSpelComputer();
 
-            Binding BSpeler = new Binding("HumansSpeler.Count");
-            BSpeler.Source = Speler;
-            txtbRoodB.SetBinding(TextBlock.TextProperty, BSpeler);
+                Binding BSpeler = new Binding("HumansSpeler.Count");
+                BSpeler.Source = Speler;
+                txtbRoodB.SetBinding(TextBlock.TextProperty, BSpeler);
 
-            Binding VSpeler = new Binding("ZombiesSpeler.Count");
-            VSpeler.Source = Speler;
-            txtbRoodV.SetBinding(TextBlock.TextProperty, VSpeler);
+                Binding VSpeler = new Binding("ZombiesSpeler.Count");
+                VSpeler.Source = Speler;
+                txtbRoodV.SetBinding(TextBlock.TextProperty, VSpeler);
 
-            Binding BComputer = new Binding("HumansComputer.Count");
-            BComputer.Source = Computer;
-            txtbBlauwB.SetBinding(TextBlock.TextProperty, BComputer);
+                Binding BComputer = new Binding("HumansComputer.Count");
+                BComputer.Source = Computer;
+                txtbBlauwB.SetBinding(TextBlock.TextProperty, BComputer);
 
-            Binding VComputer = new Binding("ZombiesComputer.Count");
-            VComputer.Source = Computer;
-            txtbBlauwV.SetBinding(TextBlock.TextProperty, VComputer);
+                Binding VComputer = new Binding("ZombiesComputer.Count");
+                VComputer.Source = Computer;
+                txtbBlauwV.SetBinding(TextBlock.TextProperty, VComputer);
 
-            minuutTimer = new DispatcherTimer();
-            minuutTimer.Interval = TimeSpan.FromMinutes(1);
-            minuutTimer.Tick += MinuutTimer_Tick;
-            minuutTimer.Start();
+                minuutTimer = new DispatcherTimer();
+                minuutTimer.Interval = TimeSpan.FromMinutes(1);
+                minuutTimer.Tick += MinuutTimer_Tick;
+                minuutTimer.Start();
 
-            spawnerSpeler = new DispatcherTimer();
-            spawnerSpeler.Interval = TimeSpan.FromSeconds(1);
-            spawnerSpeler.Tick += SpawnSpeler_Tick;
-            spawnerSpeler.Start();
+                spawnerSpeler = new DispatcherTimer();
+                spawnerSpeler.Interval = TimeSpan.FromSeconds(1);
+                spawnerSpeler.Tick += SpawnSpeler_Tick;
+                spawnerSpeler.Start();
 
-            spawnerComputer = new DispatcherTimer();
-            spawnerComputer.Interval = TimeSpan.FromMilliseconds(3000);
-            spawnerComputer.Tick += SpawnComputer_Tick;
-            spawnerComputer.Start();
+                spawnerComputer = new DispatcherTimer();
+                spawnerComputer.Interval = TimeSpan.FromMilliseconds(3000);
+                spawnerComputer.Tick += SpawnComputer_Tick;
+                spawnerComputer.Start();
 
-            animationTimer = new DispatcherTimer();
-            animationTimer.Interval = TimeSpan.FromMilliseconds(50);
-            animationTimer.Tick += Animation_Tick;
-            animationTimer.Start();
+                animationTimer = new DispatcherTimer();
+                animationTimer.Interval = TimeSpan.FromMilliseconds(50);
+                animationTimer.Tick += Animation_Tick;
+                animationTimer.Start();
 
-            vijfSecondenTimer = new DispatcherTimer();
-            vijfSecondenTimer.Interval = TimeSpan.FromSeconds(5);
-            vijfSecondenTimer.Stop();
+                vijfSecondenTimer = new DispatcherTimer();
+                vijfSecondenTimer.Interval = TimeSpan.FromSeconds(5);
+                vijfSecondenTimer.Stop();
 
-            skill6Timer = new DispatcherTimer();
-            skill6Timer.Tick += Skill6_Tick;
-            skill6Timer.Stop();
+                skill6Timer = new DispatcherTimer();
+                skill6Timer.Tick += Skill6_Tick;
+                skill6Timer.Stop();
 
-            cooldownTimer = new DispatcherTimer();
-            cooldownTimer.Interval = TimeSpan.FromSeconds(10);
-            cooldownTimer.Tick += Cooldown_Tick;
-            cooldownTimer.Stop();
+                cooldownTimer = new DispatcherTimer();
+                cooldownTimer.Interval = TimeSpan.FromSeconds(10);
+                cooldownTimer.Tick += Cooldown_Tick;
+                cooldownTimer.Stop();
 
-            resterendeTijd = this.actieveGebruiker.GameTijdSec;
+                resterendeTijd = this.actieveGebruiker.GameTijdSec;
 
-            aftelTimerSpel = new DispatcherTimer();
-            aftelTimerSpel.Interval = TimeSpan.FromSeconds(1);
-            aftelTimerSpel.Tick += Afteller_Tick;
-            aftelTimerSpel.Start();
+                aftelTimerSpel = new DispatcherTimer();
+                aftelTimerSpel.Interval = TimeSpan.FromSeconds(1);
+                aftelTimerSpel.Tick += Afteller_Tick;
+                aftelTimerSpel.Start();
+            }
+            else
+            {
+                MessageBox.Show("Je hebt momenteel geen speltijd, je kan deze verdienen door oefeningen te maken!")
+            }            
         }
 
         //Events
