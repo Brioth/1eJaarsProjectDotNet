@@ -57,5 +57,18 @@
             <Button x:Name="btnSkill5" Content="Poison" Margin="5" Click="BtnSkill5_Click" ToolTip="Maak van 1 Computer mannetje een zombie"/>
             <Button x:Name="btnSkill6" Content="Bevries" Margin="5" Click="BtnSkill6_Click" ToolTip="Bevries de spawner van de computer"/>
         </StackPanel>
+
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Button  Content="terug"   Margin="5"   Grid.Column="0" Grid.Row="0" Click="TerugButton_Click"/>
+
+        </Grid>
+
     </Grid>
 </Page>
