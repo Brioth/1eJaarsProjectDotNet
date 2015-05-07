@@ -70,46 +70,56 @@ namespace Groepswerk
             if (!(oplossing1.Text.Equals(lijstOefeningen[oefeningNummerLijst[0]].oplossing)))
             {
                 opgave1.Text = lijstOefeningen[oefeningNummerLijst[0]].juisteAntwoordCompleet;
+                opgave1.Background = Brushes.Red;
             }
             else
             {
                 oefCorrect++;
+                opgave1.Background = Brushes.Green;
             }
 
             if (!(oplossing2.Text.Equals(lijstOefeningen[oefeningNummerLijst[1]].oplossing)))
             {
                 opgave2.Text = lijstOefeningen[oefeningNummerLijst[1]].juisteAntwoordCompleet;
+                opgave2.Background = Brushes.Red;
             }
             else
             {
                 oefCorrect++;
+                opgave2.Background = Brushes.Green;
             }
 
             if (!(oplossing3.Text.Equals(lijstOefeningen[oefeningNummerLijst[2]].oplossing)))
             {
                 opgave3.Text = lijstOefeningen[oefeningNummerLijst[2]].juisteAntwoordCompleet;
+                opgave3.Background = Brushes.Red;
             }
             else
             {
                 oefCorrect++;
+                opgave3.Background = Brushes.Green;
             }
 
             if (!(oplossing4.Text.Equals(lijstOefeningen[oefeningNummerLijst[3]].oplossing)))
             {
                 opgave4.Text = lijstOefeningen[oefeningNummerLijst[3]].juisteAntwoordCompleet;
+                opgave4.Background = Brushes.Red;
             }
             else
             {
                 oefCorrect++;
+                opgave4.Background = Brushes.Green;
             }
 
             if (!(Oplossing5.Text.Equals(lijstOefeningen[oefeningNummerLijst[4]].oplossing)))
             {
                 opgave5.Text = lijstOefeningen[oefeningNummerLijst[4]].juisteAntwoordCompleet;
+                opgave5.Background = Brushes.Red;
             }
             else
             {
                 oefCorrect++;
+                opgave5.Background = Brushes.Green;
             }
             Punten.Text = Convert.ToString(oefCorrect) + "/5";
         }

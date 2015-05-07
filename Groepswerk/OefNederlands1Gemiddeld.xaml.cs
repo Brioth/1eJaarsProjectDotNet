@@ -106,46 +106,56 @@ namespace Groepswerk
             if (!(Convert.ToString(oplossing1.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[0]].correcteOplossing)))
             {
                 opgave1.Text = lijstOefeningen[oefeningNummerLijst[0]].juisteAntwoordCompleet;
+                opgave1.Background = Brushes.Red;
             }
             else
             {
                 oefCorrect++;
+                opgave1.Background = Brushes.Green;
             }
 
             if (!(Convert.ToString(oplossing2.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[1]].correcteOplossing)))
             {
                 opgave2.Text = lijstOefeningen[oefeningNummerLijst[1]].juisteAntwoordCompleet;
+                opgave2.Background = Brushes.Red;
             }
             else
             {
                 oefCorrect++;
+                opgave1.Background = Brushes.Green;
             }
 
             if (!(Convert.ToString(oplossing3.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[2]].correcteOplossing)))
             {
                 opgave3.Text = lijstOefeningen[oefeningNummerLijst[2]].juisteAntwoordCompleet;
+                opgave3.Background = Brushes.Red;
             }
             else
             {
                 oefCorrect++;
+                opgave3.Background = Brushes.Green;
             }
 
             if (!(Convert.ToString(oplossing4.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[3]].correcteOplossing)))
             {
                 opgave4.Text = lijstOefeningen[oefeningNummerLijst[3]].juisteAntwoordCompleet;
+                opgave4.Background = Brushes.Red;
             }
             else
             {
                 oefCorrect++;
+                opgave4.Background = Brushes.Green;
             }
 
             if (!(Convert.ToString(oplossing5.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[4]].correcteOplossing)))
             {
-                opgave5.Text = lijstOefeningen[oefeningNummerLijst[4]].juisteAntwoordCompleet;
+                opgave5.Text = lijstOefeningen[oefeningNummerLijst[4]].juisteAntwoordCompleet; 
+                opgave5.Background = Brushes.Red;
             }
             else
             {
                 oefCorrect++;
+                opgave5.Background = Brushes.Green;
             }
             Punten.Text = Convert.ToString(oefCorrect) + "/5";
         }
