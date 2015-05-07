@@ -238,7 +238,7 @@ namespace Groepswerk
                     {
                         dropLabel10.Background = Brushes.Red;
                     }
-                    Punten.Text = ("U heeft  " + oefeningPunten + " punten behaald. ");
+                    Punten.Text = ("U heeft " + oefeningPunten + " punt(en) behaald. ");
                     Schrijfpunten();
 
                     verbeterButton.IsEnabled = false;
@@ -258,7 +258,7 @@ namespace Groepswerk
                 // Als er letters worden ingegeven in plaats van cijfers worden deze als fout beschouwd.
                 catch (FormatException)
                 {
-                    MessageBox.Show("Zet 0 als je het antwoord niet weet");
+                    MessageBox.Show("Zet 0 als je het antwoord niet weet en gebruik enkel cijfers");
                 }
             
         }
