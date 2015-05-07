@@ -21,87 +21,83 @@ namespace Groepswerk
     public partial class OefNederlands1AanpassenMoeilijk : Page
     {
         private OefeningLijst lijstOefeningen;
-        private List<string> opgaves, oplossing;
-        private int geselecteerdeIndex;
-        private Gebruiker actieveGebruiker;
+        private Oefening selectedOefening;
+        private string bestand = "OefNederlands1Moeilijk.txt";
         public OefNederlands1AanpassenMoeilijk(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
 
-            opgaves = new List<string>();
-            oplossing = new List<string>();
-            this.actieveGebruiker = actieveGebruiker;
-
             lijstOefeningen = new OefeningLijst("moeilijk");
-            for (int i = 0; i < lijstOefeningen.Count; i++)
-            {
-                opgaves.Add(lijstOefeningen[i].opgave);
-                oplossing.Add(lijstOefeningen[i].oplossing);
-            }
-            OpgaveSelecteren.ItemsSource = opgaves;
+            OpgaveSelecteren.ItemsSource = lijstOefeningen;
             OpgaveSelecteren.SelectedIndex = 0;
+
         }
         private void OpgaveSelecteren_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            geselecteerdeIndex = OpgaveSelecteren.SelectedIndex;
-            Opgave.Text = opgaves[geselecteerdeIndex];
-            CorrecteOplossing.Text = oplossing[geselecteerdeIndex];
+            if (OpgaveSelecteren.SelectedIndex != -1)
+            {
+                selectedOefening = (Oefening)OpgaveSelecteren.SelectedItem;
+                opgaveBox.Text = selectedOefening.opgave;
+                correcteOplossingBox.Text = selectedOefening.correcteOplossing;
+                juisteAntwoordCompleetBox.Text = selectedOefening.juisteAntwoordCompleet;
+
+            }
         }
 
         private void AanpasKnop_Click(object sender, RoutedEventArgs e)
         {
-            Oefening oefening = new Oefening(Opgave.Text, CorrecteOplossing.Text);
-            lijstOefeningen.RemoveAt(OpgaveSelecteren.SelectedIndex);
-            lijstOefeningen.Insert(OpgaveSelecteren.SelectedIndex, oefening);
-
-            File.WriteAllText(@"OefNederlands1Moeilijk.txt", String.Empty);
-            StreamWriter writer = File.AppendText(@"OefNederlands1Moeilijk.txt");
-            foreach (Oefening oef in lijstOefeningen)
+            if ((opgaveBox.Text.Contains(';')) || (correcteOplossingBox.Text.Contains(';')) || (juisteAntwoordCompleetBox.Text.Contains(';')))
             {
-                writer.WriteLine(oef.opgave + ";" + oef.correcteOplossing);
-            }
-            writer.Close();
-
-            opgaves.Clear();
-            oplossing.Clear();
-
-            lijstOefeningen = new OefeningLijst("moeilijk");
-
-            for (int i = 0; i < lijstOefeningen.Count; i++)
+                MessageBox.Show("Gelieve geen ';' in uw zinnen te zetten.");
+            }//end if
+            else
             {
-                opgaves.Add(lijstOefeningen[i].opgave);
-                oplossing.Add(lijstOefeningen[i].oplossing);
+                Oefening nieuwItem = new Oefening(opgaveBox.Text, correcteOplossingBox.Text, juisteAntwoordCompleetBox.Text);
+                lijstOefeningen.Add(nieuwItem);
+                lijstOefeningen.Remove(selectedOefening);
+                lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
+                UpdateLijst();
             }
         }
 
-        private void terugButton_Click(object sender, RoutedEventArgs e)
+        private void UpdateLijst()
         {
-            MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het menu?", "Terug", MessageBoxButton.YesNo);
-            switch (terug)
-            {
-                case MessageBoxResult.No:
-                    break;
-                case MessageBoxResult.Yes:
-                    LeerlingMenu terugMenu = new LeerlingMenu(actieveGebruiker);
-                    this.NavigationService.Navigate(terugMenu);
-                    break;
-                default:
-                    break;
-            }
+            lijstOefeningen = new OefeningLijst("gemiddeld");
+            OpgaveSelecteren.ItemsSource = lijstOefeningen;
+            OpgaveSelecteren.SelectedIndex = -1;
+            OpgaveSelecteren.SelectedIndex = 0;
         }
 
-        private void bijvoegKnop_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void toevoegKnop_Click(object sender, RoutedEventArgs e)
+        {
+            Oefening nieuwOefening = new Oefening(opgaveBox.Text, correcteOplossingBox.Text, juisteAntwoordCompleetBox.Text);
+            lijstOefeningen.Add(nieuwOefening);
+            lijstOefeningen.SchrijfLijstTaal(bestand, "taal2");
+            UpdateLijst();
         }
 
         private void verwijderKnop_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-        
+            MessageBoxResult stoppen = MessageBox.Show("Bent u zeker dat u dit wilt verwijderen ?", "Stop", MessageBoxButton.YesNo);
+            switch (stoppen)
+            {
+                case MessageBoxResult.No:
+                    break;
+                case MessageBoxResult.Yes:
+                    lijstOefeningen.Remove(selectedOefening);
+                    lijstOefeningen.SchrijfLijstTaal(bestand, "taal2");
+                    UpdateLijst();
+                    break;
+                default:
+                    break;
 
-        
+            }
+
+
+
+        }
+
     }
-    
 }

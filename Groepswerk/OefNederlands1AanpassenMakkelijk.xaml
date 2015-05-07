@@ -47,14 +47,15 @@
         <ListBox Name="OpgaveSelecteren" SelectionChanged="OpgaveSelecteren_SelectionChanged" Margin="10" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="3"/>
         <TextBlock TextWrapping="Wrap" Text="Opgave" Grid.Column="1" Grid.Row="4" Margin="20,10,20,10"/>
         <TextBox Name="opgaveBox" TextWrapping="Wrap" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="4" Margin="10"/>
+        <TextBlock TextWrapping="Wrap" Text="Mogelijke Oplossing" Grid.Column="1" Grid.Row="5" Margin="20,10,20,10"/> 
         <TextBox Name="oplossing1Box" TextWrapping="Wrap" Grid.Column="2" Grid.Row="5" Margin="10"/>
         <TextBox Name="oplossing2Box" TextWrapping="Wrap" Grid.Column="3" Grid.Row="5" Margin="10"/>
         <TextBox Name="oplossing3Box" TextWrapping="Wrap" Grid.Column="4" Grid.Row="5" Margin="10"/>
         <TextBlock TextWrapping="Wrap" Text="Correct ingevulde opgave" Grid.Column="1" Grid.Row="7" Margin="20,10,20,10"/>
-        <TextBox Name="juisteOpgaveCompleetBox" TextWrapping="Wrap" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="7" Margin="10"/>
+        <TextBox Name="juisteAntwoordCompleetBox" TextWrapping="Wrap" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="7" Margin="10"/>
         <Button Name="aanpasKnop" Content="Aanpassen" Click="AanpasKnop_Click" Margin="5" Grid.Column="2" Grid.Row="8"/>
-        <Button Name="toevoegKnop" Content="Toevoegen" Click="toevoegKnop_Click" Margin="5" Grid.Column="3" Grid.Row="8"/>
-        <Button Name="verwijderKnop" Content="Verwijder" Margin="5" Grid.Column="4" Grid.Row="8"/>
+        <Button Name="toevoegKnop" Content="Toevoegen" Margin="5" Grid.Column="3" Grid.Row="8" Click="toevoegKnop_Click"/>
+        <Button Name="verwijderKnop" Content="Verwijder" Margin="5" Grid.Column="4" Grid.Row="8" Click="verwijderKnop_Click"/>
         <TextBox Name="correcteOplossingBox" TextWrapping="Wrap" Margin="10" Grid.Column="2" Grid.Row="6"/>
         <TextBlock TextWrapping="Wrap" Text="Correcte Oplossing" Margin="20,10,20,10" Grid.Column="1" Grid.Row="6"/>
     </Grid>

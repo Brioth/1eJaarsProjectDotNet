@@ -21,85 +21,81 @@ namespace Groepswerk
     public partial class OefNederlands1AanpassenGemiddeld : Page
     {
         private OefeningLijst lijstOefeningen;
-        private List<string> opgaves, oplossing1, oplossing2, oplossing3, correcteOplossing, juisteAntwoordCompleet;
-        private int geselecteerdeIndex;
-        private Gebruiker actieveGebruiker;
+        private Oefening selectedOefening;
+        private string bestand = "OefNederlands1Gemiddeld.txt";
         public OefNederlands1AanpassenGemiddeld(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
 
-            opgaves = new List<string>();
-            oplossing1 = new List<string>();
-            oplossing2 = new List<string>();
-            oplossing3 = new List<string>();
-            correcteOplossing = new List<string>();
-            juisteAntwoordCompleet = new List<string>();
-            this.actieveGebruiker = actieveGebruiker;
             lijstOefeningen = new OefeningLijst("gemiddeld");
-
-            for (int i = 0; i < lijstOefeningen.Count; i++)
-            {
-                opgaves.Add(lijstOefeningen[i].opgave);
-                oplossing1.Add(lijstOefeningen[i].oplossing1);
-                oplossing2.Add(lijstOefeningen[i].oplossing2);
-                oplossing3.Add(lijstOefeningen[i].oplossing3);
-                correcteOplossing.Add(lijstOefeningen[i].correcteOplossing);
-                juisteAntwoordCompleet.Add(lijstOefeningen[i].juisteAntwoordCompleet);
-            }
-            OpgaveSelecteren.ItemsSource = opgaves;
+            OpgaveSelecteren.ItemsSource = lijstOefeningen;
+            OpgaveSelecteren.SelectedIndex = 0;
         }
+
         private void OpgaveSelecteren_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            geselecteerdeIndex = OpgaveSelecteren.SelectedIndex;
-            Opgave.Text = opgaves[geselecteerdeIndex];
-            Oplossing1.Text = oplossing1[geselecteerdeIndex];
-            Oplossing2.Text = oplossing2[geselecteerdeIndex];
-            Oplossing3.Text = oplossing3[geselecteerdeIndex];
-            CorrecteOplossing.Text = correcteOplossing[geselecteerdeIndex];
-            correctIngevuldeOpgave.Text = juisteAntwoordCompleet[geselecteerdeIndex];
+            if (OpgaveSelecteren.SelectedIndex != -1)
+            {
+                selectedOefening = (Oefening)OpgaveSelecteren.SelectedItem;
+                opgaveBox.Text = selectedOefening.opgave;
+                oplossing1Box.Text = selectedOefening.oplossing1;
+                oplossing2Box.Text = selectedOefening.oplossing2;
+                oplossing3Box.Text = selectedOefening.oplossing3;
+                correcteOplossingBox.Text = selectedOefening.correcteOplossing;
+                juisteAntwoordCompleetBox.Text = selectedOefening.juisteAntwoordCompleet;
+
+            }
         }
 
         private void AanpasKnop_Click(object sender, RoutedEventArgs e)
         {
-            Oefening oefening = new Oefening(Opgave.Text, Oplossing1.Text, Oplossing2.Text, Oplossing3.Text, CorrecteOplossing.Text, correctIngevuldeOpgave.Text);
-            lijstOefeningen.RemoveAt(OpgaveSelecteren.SelectedIndex);
-            lijstOefeningen.Insert(OpgaveSelecteren.SelectedIndex, oefening);
-
-            File.WriteAllText(@"OefNederlands1Gemiddeld.txt", String.Empty);
-            StreamWriter writer = File.AppendText(@"OefNederlands1Gemiddeld.txt");
-            foreach (Oefening oef in lijstOefeningen)
+            if ((opgaveBox.Text.Contains(';')) || (oplossing1Box.Text.Contains(';')) || (oplossing2Box.Text.Contains(';')) || (oplossing3Box.Text.Contains(';')))
             {
-                writer.WriteLine(oef.opgave + ";" + oef.oplossing1 + ";" + oef.oplossing2 + ";" + oef.oplossing3 + ";" + oef.correcteOplossing + ";" + oef.juisteAntwoordCompleet);
+                MessageBox.Show("Gelieve geen ';' in uw zinnen te zetten.");
+            }//end if
+            else
+            {
+                Oefening nieuwItem = new Oefening(opgaveBox.Text, oplossing1Box.Text, oplossing2Box.Text, oplossing3Box.Text, correcteOplossingBox.Text, juisteAntwoordCompleetBox.Text);
+                lijstOefeningen.Add(nieuwItem);
+                lijstOefeningen.Remove(selectedOefening);
+                lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
+                UpdateLijst();
             }
-            writer.Close();
-
+        }//end else
+            private void UpdateLijst()
+        {
             lijstOefeningen = new OefeningLijst("gemiddeld");
+            OpgaveSelecteren.ItemsSource = lijstOefeningen;
+            OpgaveSelecteren.SelectedIndex = -1;
+            OpgaveSelecteren.SelectedIndex = 0;
+        }
 
-            opgaves.Clear();
-            oplossing1.Clear();
-            oplossing2.Clear();
-            oplossing3.Clear();
-            correcteOplossing.Clear();
-            juisteAntwoordCompleet.Clear();
 
-            for (int i = 0; i < lijstOefeningen.Count; i++)
+         private void toevoegKnop_Click(object sender, RoutedEventArgs e)
+        {
+            Oefening nieuwOefening = new Oefening(opgaveBox.Text, oplossing1Box.Text, oplossing2Box.Text, oplossing3Box.Text, correcteOplossingBox.Text, juisteAntwoordCompleetBox.Text);
+            lijstOefeningen.Add(nieuwOefening);
+            lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
+            UpdateLijst();
+        }
+
+         private void verwijderKnop_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBoxResult stoppen = MessageBox.Show("Bent u zeker dat u dit wilt verwijderen ?", "Stop", MessageBoxButton.YesNo);
+            switch (stoppen)
             {
-                opgaves.Add(lijstOefeningen[i].opgave);
-                oplossing1.Add(lijstOefeningen[i].oplossing1);
-                oplossing2.Add(lijstOefeningen[i].oplossing2);
-                oplossing3.Add(lijstOefeningen[i].oplossing3);
-                correcteOplossing.Add(lijstOefeningen[i].correcteOplossing);
-                juisteAntwoordCompleet.Add(lijstOefeningen[i].juisteAntwoordCompleet);
+                case MessageBoxResult.No:
+                    break;
+                case MessageBoxResult.Yes:
+                    lijstOefeningen.Remove(selectedOefening);
+                    lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
+                    UpdateLijst();
+                    break;
+                default:
+                    break;
+
             }
-        }
-
-        private void toevoegKnop_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void verwijderKnop_Click(object sender, RoutedEventArgs e)
-        {
 
         }
 
