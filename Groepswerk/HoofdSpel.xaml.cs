@@ -39,42 +39,49 @@ namespace Groepswerk
         {
             InitializeComponent();
 
-            this.actieveGebruiker = actieveGebruiker;
-            Speler = new HoofdspelSpeler();
-            Computer = new HoofdspelSpeler();
+            if (actieveGebruiker.GameTijdSec!=0)
+            {
+                this.actieveGebruiker = actieveGebruiker;
+                Speler = new HoofdspelSpeler();
+                Computer = new HoofdspelSpeler();
 
-            Binding BSpeler = new Binding("Bolletjes.Count");
-            BSpeler.Source = Speler;
-            txtbRoodB.SetBinding(TextBlock.TextProperty, BSpeler);
+                Binding BSpeler = new Binding("Bolletjes.Count");
+                BSpeler.Source = Speler;
+                txtbRoodB.SetBinding(TextBlock.TextProperty, BSpeler);
 
-            Binding VSpeler = new Binding("Vierkantjes.Count");
-            VSpeler.Source = Speler;
-            txtbRoodV.SetBinding(TextBlock.TextProperty, VSpeler);
+                Binding VSpeler = new Binding("Vierkantjes.Count");
+                VSpeler.Source = Speler;
+                txtbRoodV.SetBinding(TextBlock.TextProperty, VSpeler);
 
-            Binding BComputer = new Binding("Bolletjes.Count");
-            BComputer.Source = Computer;
-            txtbBlauwB.SetBinding(TextBlock.TextProperty, BComputer);
+                Binding BComputer = new Binding("Bolletjes.Count");
+                BComputer.Source = Computer;
+                txtbBlauwB.SetBinding(TextBlock.TextProperty, BComputer);
 
-            Binding VComputer = new Binding("Vierkantjes.Count");
-            VComputer.Source = Computer;
-            txtbBlauwV.SetBinding(TextBlock.TextProperty, VComputer);
+                Binding VComputer = new Binding("Vierkantjes.Count");
+                VComputer.Source = Computer;
+                txtbBlauwV.SetBinding(TextBlock.TextProperty, VComputer);
 
-            resterendeTijd = this.actieveGebruiker.GameTijdSec;
+                resterendeTijd = this.actieveGebruiker.GameTijdSec;
 
-            aftelTimer = new DispatcherTimer();
-            aftelTimer.Interval = TimeSpan.FromSeconds(1);
-            aftelTimer.Tick += Afteller_Tick;
-            aftelTimer.Start();
+                aftelTimer = new DispatcherTimer();
+                aftelTimer.Interval = TimeSpan.FromSeconds(1);
+                aftelTimer.Tick += Afteller_Tick;
+                aftelTimer.Start();
 
-            animationTimer = new DispatcherTimer();
-            animationTimer.Interval = TimeSpan.FromMilliseconds(50);
-            animationTimer.Tick += AnimationTimer_Tick;
-            animationTimer.Start();
+                animationTimer = new DispatcherTimer();
+                animationTimer.Interval = TimeSpan.FromMilliseconds(50);
+                animationTimer.Tick += AnimationTimer_Tick;
+                animationTimer.Start();
 
-            spawnTimer = new DispatcherTimer();
-            spawnTimer.Interval = TimeSpan.FromSeconds(2);
-            spawnTimer.Tick += Spawner_Tick;
-            spawnTimer.Start();           
+                spawnTimer = new DispatcherTimer();
+                spawnTimer.Interval = TimeSpan.FromSeconds(2);
+                spawnTimer.Tick += Spawner_Tick;
+                spawnTimer.Start();
+            }
+            else
+            {
+                MessageBox.Show("Je hebt momenteel geen speltijd, je kan deze verdienen door oefeningen te maken!")
+            }                     
         }
 
         //Events
