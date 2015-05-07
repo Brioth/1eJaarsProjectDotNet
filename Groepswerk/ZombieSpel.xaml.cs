@@ -19,7 +19,7 @@ namespace Groepswerk
 {
     /* --ZombieSpel--
      * Timers:
-     * spelTijdTimer: hoe lang het spel duurt op basis van gewonnen seconden
+     * aftelTimer: telt tijd af en stopt het spel
      * spawnerSpeler/spawnerComputer: Hoe snel er nieuwe humans spawnen
      * animationTimer: timer bewegingen
      * minuutTimer: elke minuut increased de spawnsnelheid van de computer om het spel moeilijker te maken
@@ -34,7 +34,7 @@ namespace Groepswerk
     public partial class ZombieSpel : Page
     {
         //Lokale variabelen
-        private DispatcherTimer spelTijdTimer, spawnerSpeler, spawnerComputer, animationTimer, minuutTimer, vijfSecondenTimer, skill6Timer, cooldownTimer, aftelTimerSpel;
+        private DispatcherTimer spawnerSpeler, spawnerComputer, animationTimer, minuutTimer, vijfSecondenTimer, skill6Timer, cooldownTimer, aftelTimerSpel;
         private Gebruiker actieveGebruiker;
         private Point puntSpeler, puntComputer;
         private int skill1Aantal = 5;
@@ -66,11 +66,6 @@ namespace Groepswerk
             Binding VComputer = new Binding("ZombiesComputer.Count");
             VComputer.Source = Computer;
             txtbBlauwV.SetBinding(TextBlock.TextProperty, VComputer);
-
-            spelTijdTimer = new DispatcherTimer();
-            spelTijdTimer.Interval = TimeSpan.FromSeconds(this.actieveGebruiker.GameTijdSec);
-            spelTijdTimer.Tick += EindeSpel_Tick;
-            spelTijdTimer.Start();
 
             minuutTimer = new DispatcherTimer();
             minuutTimer.Interval = TimeSpan.FromMinutes(1);
@@ -239,7 +234,6 @@ namespace Groepswerk
         }
         private void EindeSpel_Tick(object sender, EventArgs e)
         {
-            spelTijdTimer.Stop();
             aftelTimerSpel.Stop();
             spawnerSpeler.Stop();
             spawnerComputer.Stop();
@@ -266,7 +260,26 @@ namespace Groepswerk
         {
             TimeSpan t = TimeSpan.FromSeconds(resterendeTijd);
             lblTijd.Content = String.Format("{0:D2}m:{1:D2}s", t.Minutes, t.Seconds);
-            resterendeTijd--;
+
+            if (resterendeTijd == 0)
+            {
+                aftelTimerSpel.Stop();
+                spawnerSpeler.Stop();
+                spawnerComputer.Stop();
+                animationTimer.Stop();
+                minuutTimer.Stop();
+                DisableSkills();
+                cooldownTimer.Stop();
+
+                int score = BerekenScore();
+                MessageBox.Show("Proficiat, je score is " + score);
+                SchrijfScore(score);
+                TijdOp(); //Zet gameTijd op 0
+            }
+            else
+            {
+                resterendeTijd--;
+            }
         }
 
         private void TerugButton_Click(object sender, RoutedEventArgs e)
