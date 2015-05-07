@@ -6,6 +6,14 @@
       mc:Ignorable="d" 
        Background="#9D78989A" Height="auto" Width="auto" FontSize="16" d:DesignWidth="1062.177" d:DesignHeight="322.493">
 
+    <!--
+    Author: Vincent Vandoninck
+    Date: 06/05/2015
+    
+    layout gemaakt op 06/05/2015
+    -->
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

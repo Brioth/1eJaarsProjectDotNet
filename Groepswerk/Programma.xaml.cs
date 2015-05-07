@@ -71,19 +71,20 @@ namespace Groepswerk
 
         //Author: Vincent Vandoninck
         //Date: 04/05/2015
+        // navigatie events
         private void MnuWiskundeMakkelijk_Click(object sender, RoutedEventArgs e)
         {
-            oefeningWiskundeMakkelijk oefWiskundeMakkelijk = new oefeningWiskundeMakkelijk(ActieveGebruiker);
+            OefeningWiskundeMakkelijk oefWiskundeMakkelijk = new OefeningWiskundeMakkelijk(ActieveGebruiker);
             framePages.Navigate(oefWiskundeMakkelijk);
         }
         private void MnuWiskundeGemiddeld_Click(object sender, RoutedEventArgs e)
         {
-            oefeningWiskundeGemiddeld oefWiskundeGemiddeld = new oefeningWiskundeGemiddeld(ActieveGebruiker);
+            OefeningWiskundeGemiddeld oefWiskundeGemiddeld = new OefeningWiskundeGemiddeld(ActieveGebruiker);
             framePages.Navigate(oefWiskundeGemiddeld);
         }
         private void MnuWiskundeMoeilijk_Click(object sender, RoutedEventArgs e)
         {
-            oefeningWiskundeMoeilijk oefWiskundeMoeilijk = new oefeningWiskundeMoeilijk(ActieveGebruiker);
+            OefeningWiskundeMoeilijk oefWiskundeMoeilijk = new OefeningWiskundeMoeilijk(ActieveGebruiker);
             framePages.Navigate(oefWiskundeMoeilijk);
         }
         private void WiskundeBewerken_Click(object sender, RoutedEventArgs e)

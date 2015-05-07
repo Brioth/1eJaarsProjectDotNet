@@ -17,48 +17,47 @@ using System.Windows.Shapes;
 
 namespace Groepswerk
 {
-    //Author: Vincent Vandoninck
-    //Date: 03/05/2015
+    /* Author: Vincent Vandoninck
+     * Date: 28/04/2015
+     * Op 28/04/2015 werd duidelijk dat de oefening niet ging werken in het project, dus ben opnieuw begonnen.
+     * 
+     * Random getallen genereren en gebruiken om oefeningen te berekenen. De uitkomst hiervan opslaan in een lijst.
+     * Deze lijst vergelijken met de ingevoerde antwoorden van de gebruiker en het aantal juiste antwoorden weergeven als punten.
+     * gespendeerde tijd wordt bijgehouden.
+    */
 
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class oefeningWiskundeMakkelijk : Page
+
+
+    public partial class OefeningWiskundeMakkelijk : Page
     {
-
         // lokale variabelen
         Gebruiker actieveGebruiker;
         private int oefeningPunten;
-        private Random RandomTest = new Random();
-        private int randomGetal1;
-        private int randomGetal2;
-        private String[] OpgaveLijst = new String[10];
+        private Random randomTest = new Random();
+        private int randomGetal1,randomGetal2;
+        private String[] opgaveLijst = new String[10];
         private int[] oplossingLijst = new int[10];
         private List<int> randomLijst = new List<int>();
-        private int begin, eind;
+        private int beginBereik, eindBereik;
         private int totaalTijd;
         private Stopwatch tijdTeller;
         private string moeilijkheidsgraad = "MAK";
 
-        //constructors
-        public oefeningWiskundeMakkelijk(Gebruiker actieveGebruiker)
+        //Constructors
+        public OefeningWiskundeMakkelijk(Gebruiker actieveGebruiker)
         {
            
             InitializeComponent();
             this.actieveGebruiker = actieveGebruiker;
             tijdTeller = new Stopwatch();
             tijdTeller.Start();
-            
-
-            // of 2 random getallen tss 10 laten maken en die uitkomst ervan laten berekenen en opslaan in lijst (txt bestand)
-            // lijst vergelijken met de user input
 
             VulRanges();
 
             for (int i = 0; i < 10; i++)
             {
-                randomGetal1 = RandomTest.Next(begin, eind + 1);
-                randomGetal2 = RandomTest.Next(begin, eind + 1);
+                randomGetal1 = randomTest.Next(beginBereik, eindBereik + 1);
+                randomGetal2 = randomTest.Next(beginBereik, eindBereik + 1);
 
                 // eerst uitkomst berekenen en die opslaan in labels
                 // uitkomst ingeven als gebruiker en testen met verbeterknop
@@ -71,65 +70,67 @@ namespace Groepswerk
                 randomGetal2.ToString();
 
 
-                OpgaveLijst[i] = (randomGetal1.ToString() + " x " + (randomGetal2.ToString()));
+                opgaveLijst[i] = (randomGetal1.ToString() + " x " + (randomGetal2.ToString()));
 
             }
-            opgaveblock1.Content = OpgaveLijst[0];
-            opgaveblock2.Content = OpgaveLijst[1];
-            opgaveblock3.Content = OpgaveLijst[2];
-            opgaveblock4.Content = OpgaveLijst[3];
-            opgaveblock5.Content = OpgaveLijst[4];
-            opgaveblock6.Content = OpgaveLijst[5];
-            opgaveblock7.Content = OpgaveLijst[6];
-            opgaveblock8.Content = OpgaveLijst[7];
-            opgaveblock9.Content = OpgaveLijst[8];
-            opgaveblock10.Content = OpgaveLijst[9];
+            opgaveblock1.Content = opgaveLijst[0];
+            opgaveblock2.Content = opgaveLijst[1];
+            opgaveblock3.Content = opgaveLijst[2];
+            opgaveblock4.Content = opgaveLijst[3];
+            opgaveblock5.Content = opgaveLijst[4];
+            opgaveblock6.Content = opgaveLijst[5];
+            opgaveblock7.Content = opgaveLijst[6];
+            opgaveblock8.Content = opgaveLijst[7];
+            opgaveblock9.Content = opgaveLijst[8];
+            opgaveblock10.Content = opgaveLijst[9];
 
 
-            int randomGetal = RandomTest.Next(randomLijst.Count());
+            int randomGetal = randomTest.Next(randomLijst.Count());
 
             antwoordlabel1.Content = randomLijst[randomGetal];
             randomLijst.RemoveAt(randomGetal);
 
-            randomGetal = RandomTest.Next(randomLijst.Count());
+            randomGetal = randomTest.Next(randomLijst.Count());
             antwoordlabel2.Content = randomLijst[randomGetal];
             randomLijst.RemoveAt(randomGetal);
 
-            randomGetal = RandomTest.Next(randomLijst.Count());
+            randomGetal = randomTest.Next(randomLijst.Count());
             antwoordlabel3.Content = randomLijst[randomGetal];
             randomLijst.RemoveAt(randomGetal);
 
-            randomGetal = RandomTest.Next(randomLijst.Count());
+            randomGetal = randomTest.Next(randomLijst.Count());
             antwoordlabel4.Content = randomLijst[randomGetal];
             randomLijst.RemoveAt(randomGetal);
 
-            randomGetal = RandomTest.Next(randomLijst.Count());
+            randomGetal = randomTest.Next(randomLijst.Count());
             antwoordlabel5.Content = randomLijst[randomGetal];
             randomLijst.RemoveAt(randomGetal);
 
-            randomGetal = RandomTest.Next(randomLijst.Count());
+            randomGetal = randomTest.Next(randomLijst.Count());
             antwoordlabel6.Content = randomLijst[randomGetal];
             randomLijst.RemoveAt(randomGetal);
 
-            randomGetal = RandomTest.Next(randomLijst.Count());
+            randomGetal = randomTest.Next(randomLijst.Count());
             antwoordlabel7.Content = randomLijst[randomGetal];
             randomLijst.RemoveAt(randomGetal);
 
-            randomGetal = RandomTest.Next(randomLijst.Count());
+            randomGetal = randomTest.Next(randomLijst.Count());
             antwoordlabel8.Content = randomLijst[randomGetal];
             randomLijst.RemoveAt(randomGetal);
 
-            randomGetal = RandomTest.Next(randomLijst.Count());
+            randomGetal = randomTest.Next(randomLijst.Count());
             antwoordlabel9.Content = randomLijst[randomGetal];
             randomLijst.RemoveAt(randomGetal);
 
-            randomGetal = RandomTest.Next(randomLijst.Count());
+            randomGetal = randomTest.Next(randomLijst.Count());
             antwoordlabel10.Content = randomLijst[randomGetal];
             randomLijst.RemoveAt(randomGetal);
 
         }
 
-        // methode
+        // Methodes
+
+        // Het bereik van de oefening wordt hier uit het .txt-bestand gelezen.
         private void VulRanges()
         {
             StreamReader reader = File.OpenText(@"rangesWiskunde.txt");
@@ -141,15 +142,16 @@ namespace Groepswerk
                 string[] deel = gelezen.Split(scheiding);
                 if (deel[0].Equals("makkelijk"))
                 {
-                    begin = Convert.ToInt32(deel[1]);
-                    eind = Convert.ToInt32(deel[2]);
+                    beginBereik = Convert.ToInt32(deel[1]);
+                    eindBereik = Convert.ToInt32(deel[2]);
                 }
                 gelezen = reader.ReadLine();
             }
             reader.Close();
         }
 
-        private void schrijfpunten()
+        // Gegevens over hoe goed de leerling de oefening gemaakt heeft worden hier weggeschreven naar .txt-bestand
+        private void Schrijfpunten()
         {
             ResultatenLijst lijst = new ResultatenLijst("OefResultatenWiskMak.txt");
             Resultaat behaaldResultaat = new Resultaat(actieveGebruiker.Id, oefeningPunten, totaalTijd,lijst);
@@ -166,33 +168,40 @@ namespace Groepswerk
             lijst.SchrijfLijst("OefResultatenWiskMak.txt");
         }
 
+    /* Author: Vincent Vandoninck
+     * Date: 01/05/2015
+     * Op 28/04/2015 werd duidelijk dat de oefening niet ging werken in het project, dus ben opnieuw begonnen.
+    */
 
         //Events
+
+        // http://stackoverflow.com/questions/17872707/wpf-c-sharp-drag-and-drop
+        // Voor elke "drop" actie wordt de inhoud verwijderd voor de inhoud gedropped wordt. 
+        private void TboxPreviewDrop(object sender, DragEventArgs e)
+        {
+            (sender as TextBox).Text = String.Empty;
+        }
+
+        //http://wpf.2000things.com/tag/drag-and-drop/
+        //https://msdn.microsoft.com/en-us/library/ms742859(v=vs.110).aspx
+        // De inhoud van de bron (antwoordLabel[0-9]) wordt tjdelijk opgeslagen als data en naar het object (dropTextbox[0-9]) doorgegeven.
         private void Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DataObject data = new DataObject(DataFormats.Text, ((Label)e.Source).Content);
 
             DragDrop.DoDragDrop((DependencyObject)e.Source, data, DragDropEffects.Move);
-            
-            //slepen
-        }
-        private void tbox_previewDrop(object sender,DragEventArgs e)
-        {
-            (sender as TextBox).Text = String.Empty;
         }
 
-        private void Label_Drop(object sender, DragEventArgs e)
-        // hier wordt gedropped
+        private void LabelDrop(object sender, DragEventArgs e)
         {
-
             ((Label)e.Source).Content = (string)e.Data.GetData(DataFormats.Text);
-
         }
 
-        private void Label_GiveFeedback(object sender, GiveFeedbackEventArgs e)
-        // als je boven een drop object staat veranderd je cursor
+        // als je boven een object staat waar je kan op droppen veranderd je cursor.
+        private void LabelGiveFeedback(object sender, GiveFeedbackEventArgs e)
+        
         {
-            if (e.Effects == DragDropEffects.Copy)
+            if (e.Effects == DragDropEffects.Move)
             {
                 e.UseDefaultCursors = false;
                 Mouse.SetCursor(Cursors.Hand);
@@ -206,7 +215,13 @@ namespace Groepswerk
 
         //author: Vincent Vandoninck
         //date: 28/04/2015
-        private void verbeterButton_Click(object sender, RoutedEventArgs e)
+
+        // Punten worden eerst terug op 0 gezet, opnieuw berekend en toonbaar gemaakt. 
+        // De ingegeven oplossingen worden vergelekekn met de oplossingen die in de lijst staan opgeslagen.
+        // De achtergrond van de label's veranderd aan de hand of deze correct is of niet. 
+        // De behaalde punten en tijd wordt opgeslagen.
+
+        private void VerbeterButton_Click(object sender, RoutedEventArgs e)
         {
 
             oefeningPunten = 0;
@@ -216,98 +231,98 @@ namespace Groepswerk
 
                 try
                 {
-                    if ((oplossingLijst[0]) == Convert.ToInt32(dropLabel1.Text.Trim()))
+                    if ((oplossingLijst[0]) == Convert.ToInt32(dropTextbox1.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel1.Background = Brushes.Green;
+                        dropTextbox1.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel1.Background = Brushes.Red;
+                        dropTextbox1.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[1]) == Convert.ToInt32(dropLabel2.Text.Trim()))
+                    if ((oplossingLijst[1]) == Convert.ToInt32(dropTextbox2.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel2.Background = Brushes.Green;
+                        dropTextbox2.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel2.Background = Brushes.Red;
+                        dropTextbox2.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[2]) == Convert.ToInt32(dropLabel3.Text.Trim()))
+                    if ((oplossingLijst[2]) == Convert.ToInt32(dropTextbox3.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel3.Background = Brushes.Green;
+                        dropTextbox3.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel3.Background = Brushes.Red;
+                        dropTextbox3.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[3]) == Convert.ToInt32(dropLabel4.Text.Trim()))
+                    if ((oplossingLijst[3]) == Convert.ToInt32(dropTextbox4.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel4.Background = Brushes.Green;
+                        dropTextbox4.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel4.Background = Brushes.Red;
+                        dropTextbox4.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[4]) == Convert.ToInt32(dropLabel5.Text.Trim()))
+                    if ((oplossingLijst[4]) == Convert.ToInt32(dropTextbox5.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel5.Background = Brushes.Green;
+                        dropTextbox5.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel5.Background = Brushes.Red;
+                        dropTextbox5.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[5]) == Convert.ToInt32(dropLabel6.Text.Trim()))
+                    if ((oplossingLijst[5]) == Convert.ToInt32(dropTextbox6.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel6.Background = Brushes.Green;
+                        dropTextbox6.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel6.Background = Brushes.Red;
+                        dropTextbox6.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[6]) == Convert.ToInt32(dropLabel7.Text.Trim()))
+                    if ((oplossingLijst[6]) == Convert.ToInt32(dropTextbox7.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel7.Background = Brushes.Green;
+                        dropTextbox7.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel7.Background = Brushes.Red;
+                        dropTextbox7.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[7]) == Convert.ToInt32(dropLabel8.Text.Trim()))
+                    if ((oplossingLijst[7]) == Convert.ToInt32(dropTextbox8.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel8.Background = Brushes.Green;
+                        dropTextbox8.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel8.Background = Brushes.Red;
+                        dropTextbox8.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[8]) == Convert.ToInt32(dropLabel9.Text.Trim()))
+                    if ((oplossingLijst[8]) == Convert.ToInt32(dropTextbox9.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel9.Background = Brushes.Green;
+                        dropTextbox9.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel9.Background = Brushes.Red;
+                        dropTextbox9.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[9])== Convert.ToInt32(dropLabel10.Text.Trim()))
+                    if ((oplossingLijst[9]) == Convert.ToInt32(dropTextbox10.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel10.Background = Brushes.Green;
+                        dropTextbox10.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel10.Background = Brushes.Red;
+                        dropTextbox10.Background = Brushes.Red;
                     }
                     Punten.Text = ("u heeft  " + oefeningPunten + " punten behaald. ");
-                    schrijfpunten();
+                    Schrijfpunten();
                     
                     verbeterButton.IsEnabled = false;
 
@@ -321,10 +336,9 @@ namespace Groepswerk
                       }
                     lijst.SchrijfLijst();
                      }
-                
 
-
-
+                    // Deze catch zorgt ervoor dat er altijd een antwoord moet ingevuld worden.
+                // Als er letters worden ingegeven in plaats van cijfers worden deze als fout beschouwd.
                 catch (FormatException)
                 {
                     MessageBox.Show("zet 0 als je het antwoord niet weet");
@@ -333,8 +347,11 @@ namespace Groepswerk
 
             }
         }
+        //author: Vincent Vandoninck
+        //date: 04/05/2015
 
-        private void terugButton_Click(object sender, RoutedEventArgs e)
+        // Navigatie terug naar het leerlingenmenu.
+        private void TerugButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het leerlingenmenu?", "Terug", MessageBoxButton.YesNo);
             switch (terug)
@@ -350,9 +367,11 @@ namespace Groepswerk
             }
         }
 
-        private void opnieuwButton_Click(object sender, RoutedEventArgs e)
+        // Er wordt een nieuwe pagina geladen.
+        // De gebruiker merkt dit niet, deze merkt enkel dat de oefeningen veranderen.
+        private void OpnieuwButton_Click(object sender, RoutedEventArgs e)
         {
-            oefeningWiskundeMakkelijk oefWiskundeMakkelijkPagina = new oefeningWiskundeMakkelijk(actieveGebruiker);
+            OefeningWiskundeMakkelijk oefWiskundeMakkelijkPagina = new OefeningWiskundeMakkelijk(actieveGebruiker);
             this.NavigationService.Navigate(oefWiskundeMakkelijkPagina);
         }
 

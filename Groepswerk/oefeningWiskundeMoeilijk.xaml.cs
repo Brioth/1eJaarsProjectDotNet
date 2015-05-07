@@ -17,33 +17,32 @@ using System.Windows.Shapes;
 
 namespace Groepswerk
 {
-    //Author: Vincent Vandoninck
-    //Date: 03/05/2015
-
-    /// <summary>
-    /// Interaction logic for oefeningWiskundeMoeilijk.xaml
-    /// </summary>
-    public partial class oefeningWiskundeMoeilijk : Page
+    /* Author: Vincent Vandoninck
+     * Date: 03/05/2015
+     * Op 28/04/2015 werd duidelijk dat de oefening niet ging werken in het project, dus ben opnieuw begonnen.
+     * 
+     * Random getallen genereren en gebruiken om oefeningen te berekenen. De uitkomst hiervan opslaan in een lijst.
+     * Deze lijst vergelijken met de ingevoerde antwoorden van de gebruiker en het aantal juiste antwoorden weergeven als punten.
+     * gespendeerde tijd wordt bijgehouden.
+     */
+    public partial class OefeningWiskundeMoeilijk : Page
     {
         //Lokale variabelen
         Gebruiker actieveGebruiker;
         private int oefeningPunten;
         private Random RandomTest = new Random();
-        private int randomGetal1;
-        private int randomGetal2;
-        private int randomGetal3;
-        private int randomGetal4;
+        private int randomGetal1,randomGetal2,randomGetal3,randomGetal4;
         private int randomTeken1;
-        private String[] OpgaveLijst = new String[10];
+        private String[] opgaveLijst = new String[10];
         private int[] oplossingLijst = new int[10];
         private List<int> randomLijst = new List<int>();
-        private int begin, eind;
+        private int beginBereik, eindBereik;
         private int totaalTijd;
         private Stopwatch tijdTeller;
         private string moeilijkheidsgraad = "MOE";
 
         //Constructors
-        public oefeningWiskundeMoeilijk(Gebruiker actieveGebruiker)
+        public OefeningWiskundeMoeilijk(Gebruiker actieveGebruiker)
         {       
             InitializeComponent();
             this.actieveGebruiker = actieveGebruiker;
@@ -57,10 +56,10 @@ namespace Groepswerk
 
             for (int i = 0; i < 10; i++)
             {
-                randomGetal1 = RandomTest.Next(begin, eind + 1);
-                randomGetal2 = RandomTest.Next(begin, eind + 1);
-                randomGetal3 = RandomTest.Next(begin, eind + 1);
-                randomGetal4 = RandomTest.Next(begin, eind + 1);
+                randomGetal1 = RandomTest.Next(beginBereik, eindBereik + 1);
+                randomGetal2 = RandomTest.Next(beginBereik, eindBereik + 1);
+                randomGetal3 = RandomTest.Next(beginBereik, eindBereik + 1);
+                randomGetal4 = RandomTest.Next(beginBereik, eindBereik + 1);
                 randomTeken1 = RandomTest.Next(0, 2);
 
                 // eerst uitkomst berekenen en die opslaan in labels
@@ -70,28 +69,30 @@ namespace Groepswerk
                 {
                     oplossingLijst[i] = randomGetal1 * randomGetal2 + randomGetal3 * randomGetal4;
                     randomLijst.Add(oplossingLijst[i]);
-                    OpgaveLijst[i] = (randomGetal1.ToString() + " x " + (randomGetal2.ToString()) + " + " + (randomGetal3.ToString()) + " x " + (randomGetal4.ToString()));
+                    opgaveLijst[i] = (randomGetal1.ToString() + " x " + (randomGetal2.ToString()) + " + " + (randomGetal3.ToString()) + " x " + (randomGetal4.ToString()));
                 }
                 else
                 {
                     oplossingLijst[i] = randomGetal1 * randomGetal2 - randomGetal3 * randomGetal4;
                     randomLijst.Add(oplossingLijst[i]);
-                    OpgaveLijst[i] = (randomGetal1.ToString() + " x " + (randomGetal2.ToString()) + " - " + randomGetal3.ToString() + " x " + (randomGetal4.ToString()));
+                    opgaveLijst[i] = (randomGetal1.ToString() + " x " + (randomGetal2.ToString()) + " - " + randomGetal3.ToString() + " x " + (randomGetal4.ToString()));
                 }
 
-                opgaveblock1.Content = OpgaveLijst[0];
-                opgaveblock2.Content = OpgaveLijst[1];
-                opgaveblock3.Content = OpgaveLijst[2];
-                opgaveblock4.Content = OpgaveLijst[3];
-                opgaveblock5.Content = OpgaveLijst[4];
-                opgaveblock6.Content = OpgaveLijst[5];
-                opgaveblock7.Content = OpgaveLijst[6];
-                opgaveblock8.Content = OpgaveLijst[7];
-                opgaveblock9.Content = OpgaveLijst[8];
-                opgaveblock10.Content = OpgaveLijst[9];
+                opgaveblock1.Content = opgaveLijst[0];
+                opgaveblock2.Content = opgaveLijst[1];
+                opgaveblock3.Content = opgaveLijst[2];
+                opgaveblock4.Content = opgaveLijst[3];
+                opgaveblock5.Content = opgaveLijst[4];
+                opgaveblock6.Content = opgaveLijst[5];
+                opgaveblock7.Content = opgaveLijst[6];
+                opgaveblock8.Content = opgaveLijst[7];
+                opgaveblock9.Content = opgaveLijst[8];
+                opgaveblock10.Content = opgaveLijst[9];
             }
         }
+        //Methodes
 
+        // Het bereik van de oefening wordt hier uit het .txt-bestand gelezen.
         private void VulRanges()
         {
             StreamReader reader = File.OpenText(@"rangesWiskunde.txt");
@@ -103,15 +104,16 @@ namespace Groepswerk
                 string[] deel = gelezen.Split(scheiding);
                 if (deel[0].Equals("moeilijk"))
                 {
-                    begin = Convert.ToInt32(deel[1]);
-                    eind = Convert.ToInt32(deel[2]);
+                    beginBereik = Convert.ToInt32(deel[1]);
+                    eindBereik = Convert.ToInt32(deel[2]);
                 }
                 gelezen = reader.ReadLine();
             }
             reader.Close();
         }
 
-        private void schrijfpunten()
+        // Gegevens over hoe goed de leerling de oefening gemaakt heeft worden hier weggeschreven naar .txt-bestand
+        private void Schrijfpunten()
         {
             ResultatenLijst lijst = new ResultatenLijst("OefResultatenWiskMoe.txt");
             Resultaat behaaldResultaat = new Resultaat(actieveGebruiker.Id, oefeningPunten, totaalTijd, lijst);
@@ -128,11 +130,17 @@ namespace Groepswerk
             lijst.SchrijfLijst("OefResultatenWiskMoe.txt");
         }
 
-        //author: Vincent Vandoninck
-        //date: 28/04/2015
+       /* Author: Vincent Vandoninck
+        * Date: 28/04/2015
 
-        //events
-        private void verbeterButton_Click(object sender, RoutedEventArgs e)
+        *Events
+
+        * Punten worden eerst terug op 0 gezet, opnieuw berekend en toonbaar gemaakt. 
+        * De ingegeven oplossingen worden vergelekekn met de oplossingen die in de lijst staan opgeslagen.
+        * De achtergrond van de label's veranderd aan de hand of deze correct is of niet. 
+        * De behaalde punten en tijd wordt opgeslagen.
+        */
+        private void VerbeterButton_Click(object sender, RoutedEventArgs e)
         {
             oefeningPunten = 0;
             tijdTeller.Stop();
@@ -232,7 +240,7 @@ namespace Groepswerk
                         dropLabel10.Background = Brushes.Red;
                     }
                     Punten.Text = ("u heeft  " + oefeningPunten + " punten behaald. ");
-                    schrijfpunten();
+                    Schrijfpunten();
                     
                     verbeterButton.IsEnabled = false;
                     AlleGebruikersLijst lijst = new AlleGebruikersLijst();
@@ -245,16 +253,21 @@ namespace Groepswerk
                       }
                     lijst.SchrijfLijst();
                      }
-                
 
-                   
+                    // Deze catch zorgt ervoor dat er altijd een antwoord moet ingevuld worden.
+                // Als er letters worden ingegeven in plaats van cijfers worden deze als fout beschouwd.
                 catch (FormatException)
                 {
                     MessageBox.Show("zet 0 als je het antwoord niet weet");
                 }
             }
         }
-        private void terugButton_Click(object sender, RoutedEventArgs e)
+
+        //author: Vincent Vandoninck
+        //date: 04/05/2015
+
+        // Navigatie terug naar het leerlingenmenu.
+        private void TerugButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het leerlingenmenu?", "Terug", MessageBoxButton.YesNo);
             switch (terug)
@@ -269,9 +282,12 @@ namespace Groepswerk
                     break;
             }
         }
-        private void opnieuwButton_Click(object sender, RoutedEventArgs e)
+
+        // Er wordt een nieuwe pagina geladen.
+        // De gebruiker merkt dit niet, deze merkt enkel dat de oefeningen veranderen.
+        private void OpnieuwButton_Click(object sender, RoutedEventArgs e)
         {
-            oefeningWiskundeMoeilijk oefWiskundeMoeilijkPagina = new oefeningWiskundeMoeilijk(actieveGebruiker);
+            OefeningWiskundeMoeilijk oefWiskundeMoeilijkPagina = new OefeningWiskundeMoeilijk(actieveGebruiker);
             this.NavigationService.Navigate(oefWiskundeMoeilijkPagina);
         }
     }
