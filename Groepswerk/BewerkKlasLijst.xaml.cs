@@ -17,6 +17,7 @@ namespace Groepswerk
 {
     /* --BewerkKlasLijst--
      * Pagina om klassen aan te passen/verwijderen/toe te voegen
+     * Klas Leerkracht kan niet verwijderd worden en/of van naam veranderen
      * Author: Carmen Celen
      * Date: 20/04/015
      */
@@ -93,16 +94,29 @@ namespace Groepswerk
             {
                 if (gebruiker.Klas.Naam.Equals(selectedKlas.Naam))
                 {
-                    gebruiker.Klas = nieuweKlas;
+                    if (selectedKlas.Naam.Equals("Leerkracht")&&txtbOmschr.Text!="Leerkracht")
+                    {
+                        txtbOmschr.Text = "Leerkracht";
+                        nieuweKlas.Naam = "Leerkracht";
+                        MessageBox.Show("U kan de klas Leerkracht niet van naam veranderen");
+                    }
+                        gebruiker.Klas = nieuweKlas;                   
                 }
             }
             lijst.SchrijfLijst();
         }
         private void BtnVerwijder_Click(object sender, RoutedEventArgs e)
         {
-            klasLijst.Remove(selectedKlas);
-            klasLijst.SchrijfLijst();
-            UpdateLijst();
+            if (!(selectedKlas.Naam.Equals("Leerkracht")))
+            {
+                klasLijst.Remove(selectedKlas);
+                klasLijst.SchrijfLijst();
+                UpdateLijst();
+            }
+            else
+            {
+                MessageBox.Show("U kan de klas Leerkracht niet verwijderen");
+            }
         }
 
         //Methods
