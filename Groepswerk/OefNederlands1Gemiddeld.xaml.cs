@@ -25,6 +25,7 @@ namespace Groepswerk
         private Random oefeningenNummer = new Random();
         private int oefeningenNummerOpslag, oefCorrect;
         private long gespendeerdeTijd;
+        private const string moeilijkheidsgraad = "GEM";
         private List<string> oefLijst1, oefLijst2, oefLijst3, oefLijst4, oefLijst5;
         private List<int> oefeningNummerLijst;
         Gebruiker actieveGebruiker;
@@ -158,6 +159,14 @@ namespace Groepswerk
                 opgave5.Background = Brushes.Green;
             }
             Punten.Text = Convert.ToString(oefCorrect) + "/5";
+
+
+            AlleGebruikersLijst lijst = new AlleGebruikersLijst();
+            foreach (Gebruiker item in lijst)
+            {
+                if (actieveGebruiker.Id.Equals(item.Id))
+                    actieveGebruiker.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
+            }
         }
 
         private void terugButton_Click(object sender, RoutedEventArgs e)
