@@ -35,8 +35,8 @@ namespace Groepswerk
         {
             try
             {
-                if (Convert.ToInt32(bereikMin1.Text) < 0 | Convert.ToInt32(bereikMin2.Text) < 0 | Convert.ToInt32(bereikMin3.Text) < 0 | 
-                    Convert.ToInt32(bereikMax1.Text) < 0 | Convert.ToInt32(bereikMax2.Text) < 0  | Convert.ToInt32(bereikMax3.Text) < 0)
+                if (Convert.ToInt32(bereikMin1.Text) < 0 | Convert.ToInt32(bereikMin2.Text) < 0 | Convert.ToInt32(bereikMin3.Text) < 0 |
+                    Convert.ToInt32(bereikMax1.Text) < 0 | Convert.ToInt32(bereikMax2.Text) < 0 | Convert.ToInt32(bereikMax3.Text) < 0)
                 {
                     MessageBox.Show("range mag niet kleiner zijn dan 0");
 
@@ -59,7 +59,7 @@ namespace Groepswerk
                     MessageBox.Show("u heeft nu de moeilijkheid van de oefeningen aangepast");
                 }
             }
-                // Negatieve getallen getallen en letters worden niet aanvaard.
+            // Negatieve getallen getallen en letters worden niet aanvaard.
             catch (FormatException)
             {
                 MessageBox.Show("Enkel cijfers en positieve getallen gebruiken");

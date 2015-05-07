@@ -12,9 +12,9 @@
     
     layout gemaakt op 04/05/2015
     -->
-    
+
     <Grid>
-         <Grid.RowDefinitions>
+        <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -39,7 +39,7 @@
         </Grid.ColumnDefinitions>
         <TextBlock  Text=" Schrijf het juiste antwoord in het vakje naast de opgave."  Margin="10" FontWeight="SemiBold" FontSize="20" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="6"  />
         <TextBlock  Text=" Vul 0 in als je de oplossing niet weet."  Margin="10" FontWeight="SemiBold" FontSize="20" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="6"  />
-        
+
         <!--AllowDrop="True" Drop="Label_Drop"-->
         <Label Name="opgaveblock1"  MinWidth="20" Margin="20,10,20,10" Content="opgave1"   Grid.Column="2" Grid.Row="3"  />
         <Label   MinWidth="20" Name="opgaveblock2" Content="opgave2" Margin="20,10,20,10" Grid.Column="2" Grid.Row="4"/>
@@ -55,7 +55,7 @@
         <Button Name="verbeterButton" Margin="5" Content="Verbeter"  Click="VerbeterButton_Click" Grid.Column="5" Grid.Row="8"/>
         <TextBlock Name="Punten" Text="" Margin="10"  Grid.ColumnSpan="4" Grid.Column="1" Grid.Row="8"/>
 
-        
+
         <TextBox  Margin="10" Text="" MinWidth="20" Name="dropLabel1"   Grid.Column="3"  Grid.Row="3"  />
         <TextBox  Margin="10" Text="" MinWidth="20" Name="dropLabel2"  Grid.Column="3"  Grid.Row="4" />
         <TextBox  Margin="10" Text="" MinWidth="20" Name="dropLabel3"  Grid.Column="3"  Grid.Row="5"  />
@@ -73,9 +73,9 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
-              </Grid.RowDefinitions>
-                
-                <Button  Content="terug"  Margin="5"  Grid.Column="0" Grid.Row="0" Click="TerugButton_Click"/>
+            </Grid.RowDefinitions>
+
+            <Button  Content="terug"  Margin="5"  Grid.Column="0" Grid.Row="0" Click="TerugButton_Click"/>
             <Button  Content="opnieuw"   Margin="5"   Grid.Column="1" Grid.Row="0" Click="OpnieuwButton_Click"/>
         </Grid>
     </Grid>

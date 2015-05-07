@@ -17,14 +17,14 @@ using System.Windows.Shapes;
 
 namespace Groepswerk
 {
-   /* Author: Vincent Vandoninck
-    * Date: 03/05/2015
-    * Op 28/04/2015 werd duidelijk dat de oefening niet ging werken in het project, dus ben opnieuw begonnen.
-    *
-    *Random getallen genereren en gebruiken om oefeningen te berekenen. De uitkomst hiervan opslaan in een lijst.
-    *Deze lijst vergelijken met de ingevoerde antwoorden van de gebruiker en het aantal juiste antwoorden weergeven als punten.
-    *gespendeerde tijd wordt bijgehouden
-    */
+    /* Author: Vincent Vandoninck
+     * Date: 03/05/2015
+     * Op 28/04/2015 werd duidelijk dat de oefening niet ging werken in het project, dus ben opnieuw begonnen.
+     *
+     *Random getallen genereren en gebruiken om oefeningen te berekenen. De uitkomst hiervan opslaan in een lijst.
+     *Deze lijst vergelijken met de ingevoerde antwoorden van de gebruiker en het aantal juiste antwoorden weergeven als punten.
+     *gespendeerde tijd wordt bijgehouden
+     */
     public partial class OefeningWiskundeGemiddeld : Page
     {
         //Lokale variabelen
@@ -40,11 +40,11 @@ namespace Groepswerk
         private int totaalTijd;
         private Stopwatch tijdTeller;
         private string moeilijkheidsgraad = "MED";
-       
+
         //constructors
         public OefeningWiskundeGemiddeld(Gebruiker actieveGebruiker)
         {
-           
+
             InitializeComponent();
             this.actieveGebruiker = actieveGebruiker;
             tijdTeller = new Stopwatch();
@@ -54,9 +54,9 @@ namespace Groepswerk
 
             for (int i = 0; i < 10; i++)
             {
-                randomGetal1 = randomTest.Next(beginBereik, eindBereik +1);
-                randomGetal2 = randomTest.Next(beginBereik, eindBereik +1);
-                randomGetal3 = randomTest.Next(beginBereik, eindBereik +1);
+                randomGetal1 = randomTest.Next(beginBereik, eindBereik + 1);
+                randomGetal2 = randomTest.Next(beginBereik, eindBereik + 1);
+                randomGetal3 = randomTest.Next(beginBereik, eindBereik + 1);
                 randomTeken1 = randomTest.Next(0, 2);
 
                 if (randomTeken1 == 1)
@@ -102,9 +102,9 @@ namespace Groepswerk
                 string[] deel = gelezen.Split(scheiding);
                 if (deel[0].Equals("gemiddeld"))
                 {
-                    beginBereik = Convert.ToInt32( deel[1]);
+                    beginBereik = Convert.ToInt32(deel[1]);
                     eindBereik = Convert.ToInt32(deel[2]);
-            }
+                }
                 gelezen = reader.ReadLine();
             }
             reader.Close();
@@ -143,123 +143,123 @@ namespace Groepswerk
             oefeningPunten = 0;
             tijdTeller.Stop();
             totaalTijd = Convert.ToInt32(tijdTeller.ElapsedMilliseconds / 1000);
-            {
-                try
-                {
-                    if ((oplossingLijst[0]).Equals(dropLabel1.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropLabel1.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropLabel1.Background = Brushes.Red;
-                    }
-                    if ((oplossingLijst[1]).Equals(dropLabel2.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropLabel2.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropLabel2.Background = Brushes.Red;
-                    }
-                    if ((oplossingLijst[2]).Equals(dropLabel3.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropLabel3.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropLabel3.Background = Brushes.Red;
-                    }
-                    if ((oplossingLijst[3]).Equals(dropLabel4.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropLabel4.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropLabel4.Background = Brushes.Red;
-                    }
-                    if ((oplossingLijst[4]).Equals(dropLabel5.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropLabel5.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropLabel5.Background = Brushes.Red;
-                    }
-                    if ((oplossingLijst[5]).Equals(dropLabel6.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropLabel6.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropLabel6.Background = Brushes.Red;
-                    }
-                    if ((oplossingLijst[6]).Equals(dropLabel7.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropLabel7.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropLabel7.Background = Brushes.Red;
-                    }
-                    if ((oplossingLijst[7]).Equals(dropLabel8.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropLabel8.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropLabel8.Background = Brushes.Red;
-                    }
-                    if ((oplossingLijst[8]).Equals(dropLabel9.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropLabel9.Background = Brushes.Green;
-                    }
 
-                    else
-                    {
-                        dropLabel9.Background = Brushes.Red;
-                    }
-                    if ((oplossingLijst[9]).Equals(dropLabel10.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropLabel10.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropLabel10.Background = Brushes.Red;
-                    }
-                    Punten.Text = ("u heeft  " + oefeningPunten + " punten behaald. ");
-                    Schrijfpunten();
-                 
-                    verbeterButton.IsEnabled = false;
-                    AlleGebruikersLijst lijst = new AlleGebruikersLijst();
-                     foreach (Gebruiker item in lijst)
-                      {
-                        if (actieveGebruiker.Id.Equals(item.Id))
-                        {
-                           item.SetGameTijd(oefeningPunten , moeilijkheidsgraad);
-                        }
-                      }
-                    lijst.SchrijfLijst();
-                     
-                }
-                   
-                    // Deze catch zorgt ervoor dat er altijd een antwoord moet ingevuld worden.
-                    // Als er letters worden ingegeven in plaats van cijfers worden deze als fout beschouwd.
-                catch (FormatException)
+            try
+            {
+                if ((oplossingLijst[0]).Equals(dropLabel1.Text.Trim()))
                 {
-                    MessageBox.Show("zet 0 als je het antwoord niet weet");
+                    oefeningPunten++;
+                    dropLabel1.Background = Brushes.Green;
                 }
+                else
+                {
+                    dropLabel1.Background = Brushes.Red;
+                }
+                if ((oplossingLijst[1]).Equals(dropLabel2.Text.Trim()))
+                {
+                    oefeningPunten++;
+                    dropLabel2.Background = Brushes.Green;
+                }
+                else
+                {
+                    dropLabel2.Background = Brushes.Red;
+                }
+                if ((oplossingLijst[2]).Equals(dropLabel3.Text.Trim()))
+                {
+                    oefeningPunten++;
+                    dropLabel3.Background = Brushes.Green;
+                }
+                else
+                {
+                    dropLabel3.Background = Brushes.Red;
+                }
+                if ((oplossingLijst[3]).Equals(dropLabel4.Text.Trim()))
+                {
+                    oefeningPunten++;
+                    dropLabel4.Background = Brushes.Green;
+                }
+                else
+                {
+                    dropLabel4.Background = Brushes.Red;
+                }
+                if ((oplossingLijst[4]).Equals(dropLabel5.Text.Trim()))
+                {
+                    oefeningPunten++;
+                    dropLabel5.Background = Brushes.Green;
+                }
+                else
+                {
+                    dropLabel5.Background = Brushes.Red;
+                }
+                if ((oplossingLijst[5]).Equals(dropLabel6.Text.Trim()))
+                {
+                    oefeningPunten++;
+                    dropLabel6.Background = Brushes.Green;
+                }
+                else
+                {
+                    dropLabel6.Background = Brushes.Red;
+                }
+                if ((oplossingLijst[6]).Equals(dropLabel7.Text.Trim()))
+                {
+                    oefeningPunten++;
+                    dropLabel7.Background = Brushes.Green;
+                }
+                else
+                {
+                    dropLabel7.Background = Brushes.Red;
+                }
+                if ((oplossingLijst[7]).Equals(dropLabel8.Text.Trim()))
+                {
+                    oefeningPunten++;
+                    dropLabel8.Background = Brushes.Green;
+                }
+                else
+                {
+                    dropLabel8.Background = Brushes.Red;
+                }
+                if ((oplossingLijst[8]).Equals(dropLabel9.Text.Trim()))
+                {
+                    oefeningPunten++;
+                    dropLabel9.Background = Brushes.Green;
+                }
+
+                else
+                {
+                    dropLabel9.Background = Brushes.Red;
+                }
+                if ((oplossingLijst[9]).Equals(dropLabel10.Text.Trim()))
+                {
+                    oefeningPunten++;
+                    dropLabel10.Background = Brushes.Green;
+                }
+                else
+                {
+                    dropLabel10.Background = Brushes.Red;
+                }
+                Punten.Text = ("u heeft  " + oefeningPunten + " punten behaald. ");
+                Schrijfpunten();
+
+                verbeterButton.IsEnabled = false;
+                AlleGebruikersLijst lijst = new AlleGebruikersLijst();
+                foreach (Gebruiker item in lijst)
+                {
+                    if (actieveGebruiker.Id.Equals(item.Id))
+                    {
+                        item.SetGameTijd(oefeningPunten, moeilijkheidsgraad);
+                    }
+                }
+                lijst.SchrijfLijst();
+
             }
+
+                // Deze catch zorgt ervoor dat er altijd een antwoord moet ingevuld worden.
+            // Als er letters worden ingegeven in plaats van cijfers worden deze als fout beschouwd.
+            catch (FormatException)
+            {
+                MessageBox.Show("zet 0 als je het antwoord niet weet");
+            }
+
         }
         //author: Vincent Vandoninck
         //date: 04/05/2015
@@ -274,7 +274,7 @@ namespace Groepswerk
                     break;
                 case MessageBoxResult.Yes:
                     LeerlingMenu terugMenu = new LeerlingMenu(actieveGebruiker);
-                this.NavigationService.Navigate(terugMenu);
+                    this.NavigationService.Navigate(terugMenu);
                     break;
                 default:
                     break;

@@ -130,10 +130,7 @@ namespace Groepswerk
             lijst.SchrijfLijst("OefResultatenWiskMoe.txt");
         }
 
-       /* Author: Vincent Vandoninck
-        * Date: 28/04/2015
-
-        *Events
+       /*Events
 
         * Punten worden eerst terug op 0 gezet, opnieuw berekend en toonbaar gemaakt. 
         * De ingegeven oplossingen worden vergelekekn met de oplossingen die in de lijst staan opgeslagen.
@@ -145,7 +142,7 @@ namespace Groepswerk
             oefeningPunten = 0;
             tijdTeller.Stop();
             totaalTijd = Convert.ToInt32(tijdTeller.ElapsedMilliseconds / 1000);
-            {
+            
                 try
                 {
                     if ((oplossingLijst[0]).Equals(dropLabel1.Text.Trim()))
@@ -260,7 +257,7 @@ namespace Groepswerk
                 {
                     MessageBox.Show("zet 0 als je het antwoord niet weet");
                 }
-            }
+            
         }
 
         //author: Vincent Vandoninck

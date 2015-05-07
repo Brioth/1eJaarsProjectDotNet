@@ -34,7 +34,7 @@ namespace Groepswerk
         Gebruiker actieveGebruiker;
         private int oefeningPunten;
         private Random randomTest = new Random();
-        private int randomGetal1,randomGetal2;
+        private int randomGetal1, randomGetal2;
         private String[] opgaveLijst = new String[10];
         private int[] oplossingLijst = new int[10];
         private List<int> randomLijst = new List<int>();
@@ -46,7 +46,7 @@ namespace Groepswerk
         //Constructors
         public OefeningWiskundeMakkelijk(Gebruiker actieveGebruiker)
         {
-           
+
             InitializeComponent();
             this.actieveGebruiker = actieveGebruiker;
             tijdTeller = new Stopwatch();
@@ -61,18 +61,15 @@ namespace Groepswerk
 
                 // eerst uitkomst berekenen en die opslaan in labels
                 // uitkomst ingeven als gebruiker en testen met verbeterknop
-                //
-                //
                 oplossingLijst[i] = randomGetal1 * randomGetal2;
                 randomLijst.Add(oplossingLijst[i]);
 
                 randomGetal1.ToString();
                 randomGetal2.ToString();
 
-
                 opgaveLijst[i] = (randomGetal1.ToString() + " x " + (randomGetal2.ToString()));
-
             }
+
             opgaveblock1.Content = opgaveLijst[0];
             opgaveblock2.Content = opgaveLijst[1];
             opgaveblock3.Content = opgaveLijst[2];
@@ -83,7 +80,6 @@ namespace Groepswerk
             opgaveblock8.Content = opgaveLijst[7];
             opgaveblock9.Content = opgaveLijst[8];
             opgaveblock10.Content = opgaveLijst[9];
-
 
             int randomGetal = randomTest.Next(randomLijst.Count());
 
@@ -125,7 +121,6 @@ namespace Groepswerk
             randomGetal = randomTest.Next(randomLijst.Count());
             antwoordlabel10.Content = randomLijst[randomGetal];
             randomLijst.RemoveAt(randomGetal);
-
         }
 
         // Methodes
@@ -154,7 +149,7 @@ namespace Groepswerk
         private void Schrijfpunten()
         {
             ResultatenLijst lijst = new ResultatenLijst("OefResultatenWiskMak.txt");
-            Resultaat behaaldResultaat = new Resultaat(actieveGebruiker.Id, oefeningPunten, totaalTijd,lijst);
+            Resultaat behaaldResultaat = new Resultaat(actieveGebruiker.Id, oefeningPunten, totaalTijd, lijst);
 
             if (behaaldResultaat.IndexOud == -1)
             {
@@ -168,10 +163,10 @@ namespace Groepswerk
             lijst.SchrijfLijst("OefResultatenWiskMak.txt");
         }
 
-    /* Author: Vincent Vandoninck
-     * Date: 01/05/2015
-     * Op 28/04/2015 werd duidelijk dat de oefening niet ging werken in het project, dus ben opnieuw begonnen.
-    */
+        /* Author: Vincent Vandoninck
+         * Date: 01/05/2015
+         * Op 28/04/2015 werd duidelijk dat de oefening niet ging werken in het project, dus ben opnieuw begonnen.
+        */
 
         //Events
 
@@ -199,7 +194,6 @@ namespace Groepswerk
 
         // als je boven een object staat waar je kan op droppen veranderd je cursor.
         private void LabelGiveFeedback(object sender, GiveFeedbackEventArgs e)
-        
         {
             if (e.Effects == DragDropEffects.Move)
             {
@@ -211,7 +205,6 @@ namespace Groepswerk
 
             e.Handled = true;
         }
-
 
         //author: Vincent Vandoninck
         //date: 28/04/2015
@@ -227,126 +220,123 @@ namespace Groepswerk
             oefeningPunten = 0;
             tijdTeller.Stop();
             totaalTijd = Convert.ToInt32(tijdTeller.ElapsedMilliseconds / 1000);
+
+            try
             {
-
-                try
+                if ((oplossingLijst[0]) == Convert.ToInt32(dropTextbox1.Text.Trim()))
                 {
-                    if ((oplossingLijst[0]) == Convert.ToInt32(dropTextbox1.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropTextbox1.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropTextbox1.Background = Brushes.Red;
-                    }
-                    if ((oplossingLijst[1]) == Convert.ToInt32(dropTextbox2.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropTextbox2.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropTextbox2.Background = Brushes.Red;
-                    }
-                    if ((oplossingLijst[2]) == Convert.ToInt32(dropTextbox3.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropTextbox3.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropTextbox3.Background = Brushes.Red;
-                    }
-                    if ((oplossingLijst[3]) == Convert.ToInt32(dropTextbox4.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropTextbox4.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropTextbox4.Background = Brushes.Red;
-                    }
-                    if ((oplossingLijst[4]) == Convert.ToInt32(dropTextbox5.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropTextbox5.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropTextbox5.Background = Brushes.Red;
-                    }
-                    if ((oplossingLijst[5]) == Convert.ToInt32(dropTextbox6.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropTextbox6.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropTextbox6.Background = Brushes.Red;
-                    }
-                    if ((oplossingLijst[6]) == Convert.ToInt32(dropTextbox7.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropTextbox7.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropTextbox7.Background = Brushes.Red;
-                    }
-                    if ((oplossingLijst[7]) == Convert.ToInt32(dropTextbox8.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropTextbox8.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropTextbox8.Background = Brushes.Red;
-                    }
-                    if ((oplossingLijst[8]) == Convert.ToInt32(dropTextbox9.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropTextbox9.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropTextbox9.Background = Brushes.Red;
-                    }
-                    if ((oplossingLijst[9]) == Convert.ToInt32(dropTextbox10.Text.Trim()))
-                    {
-                        oefeningPunten++;
-                        dropTextbox10.Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        dropTextbox10.Background = Brushes.Red;
-                    }
-                    Punten.Text = ("u heeft  " + oefeningPunten + " punten behaald. ");
-                    Schrijfpunten();
-                    
-                    verbeterButton.IsEnabled = false;
-
-                    AlleGebruikersLijst lijst = new AlleGebruikersLijst();
-                     foreach (Gebruiker item in lijst)
-                      {
-                        if (actieveGebruiker.Id.Equals(item.Id))
-                        {
-                           item.SetGameTijd(oefeningPunten , moeilijkheidsgraad);
-                        }
-                      }
-                    lijst.SchrijfLijst();
-                     }
-
-                    // Deze catch zorgt ervoor dat er altijd een antwoord moet ingevuld worden.
-                // Als er letters worden ingegeven in plaats van cijfers worden deze als fout beschouwd.
-                catch (FormatException)
-                {
-                    MessageBox.Show("zet 0 als je het antwoord niet weet");
+                    oefeningPunten++;
+                    dropTextbox1.Background = Brushes.Green;
                 }
+                else
+                {
+                    dropTextbox1.Background = Brushes.Red;
+                }
+                if ((oplossingLijst[1]) == Convert.ToInt32(dropTextbox2.Text.Trim()))
+                {
+                    oefeningPunten++;
+                    dropTextbox2.Background = Brushes.Green;
+                }
+                else
+                {
+                    dropTextbox2.Background = Brushes.Red;
+                }
+                if ((oplossingLijst[2]) == Convert.ToInt32(dropTextbox3.Text.Trim()))
+                {
+                    oefeningPunten++;
+                    dropTextbox3.Background = Brushes.Green;
+                }
+                else
+                {
+                    dropTextbox3.Background = Brushes.Red;
+                }
+                if ((oplossingLijst[3]) == Convert.ToInt32(dropTextbox4.Text.Trim()))
+                {
+                    oefeningPunten++;
+                    dropTextbox4.Background = Brushes.Green;
+                }
+                else
+                {
+                    dropTextbox4.Background = Brushes.Red;
+                }
+                if ((oplossingLijst[4]) == Convert.ToInt32(dropTextbox5.Text.Trim()))
+                {
+                    oefeningPunten++;
+                    dropTextbox5.Background = Brushes.Green;
+                }
+                else
+                {
+                    dropTextbox5.Background = Brushes.Red;
+                }
+                if ((oplossingLijst[5]) == Convert.ToInt32(dropTextbox6.Text.Trim()))
+                {
+                    oefeningPunten++;
+                    dropTextbox6.Background = Brushes.Green;
+                }
+                else
+                {
+                    dropTextbox6.Background = Brushes.Red;
+                }
+                if ((oplossingLijst[6]) == Convert.ToInt32(dropTextbox7.Text.Trim()))
+                {
+                    oefeningPunten++;
+                    dropTextbox7.Background = Brushes.Green;
+                }
+                else
+                {
+                    dropTextbox7.Background = Brushes.Red;
+                }
+                if ((oplossingLijst[7]) == Convert.ToInt32(dropTextbox8.Text.Trim()))
+                {
+                    oefeningPunten++;
+                    dropTextbox8.Background = Brushes.Green;
+                }
+                else
+                {
+                    dropTextbox8.Background = Brushes.Red;
+                }
+                if ((oplossingLijst[8]) == Convert.ToInt32(dropTextbox9.Text.Trim()))
+                {
+                    oefeningPunten++;
+                    dropTextbox9.Background = Brushes.Green;
+                }
+                else
+                {
+                    dropTextbox9.Background = Brushes.Red;
+                }
+                if ((oplossingLijst[9]) == Convert.ToInt32(dropTextbox10.Text.Trim()))
+                {
+                    oefeningPunten++;
+                    dropTextbox10.Background = Brushes.Green;
+                }
+                else
+                {
+                    dropTextbox10.Background = Brushes.Red;
+                }
+                Punten.Text = ("u heeft  " + oefeningPunten + " punten behaald. ");
+                Schrijfpunten();
 
+                verbeterButton.IsEnabled = false;
 
+                AlleGebruikersLijst lijst = new AlleGebruikersLijst();
+                foreach (Gebruiker item in lijst)
+                {
+                    if (actieveGebruiker.Id.Equals(item.Id))
+                    {
+                        item.SetGameTijd(oefeningPunten, moeilijkheidsgraad);
+                    }
+                }
+                lijst.SchrijfLijst();
+            }
+
+                // Deze catch zorgt ervoor dat er altijd een antwoord moet ingevuld worden.
+            // Als er letters worden ingegeven in plaats van cijfers worden deze als fout beschouwd.
+            catch (FormatException)
+            {
+                MessageBox.Show("zet 0 als je het antwoord niet weet");
             }
         }
+
         //author: Vincent Vandoninck
         //date: 04/05/2015
 

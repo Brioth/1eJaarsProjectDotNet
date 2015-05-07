@@ -12,7 +12,7 @@
     
     layout gemaakt op 04/05/2015
     -->
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -91,6 +91,7 @@
 
             <Button  Content="terug"  Margin="5"  Grid.Column="0" Grid.Row="0" Click="TerugButton_Click"/>
             <Button  Content="opnieuw"   Margin="5"   Grid.Column="1" Grid.Row="0" Click="OpnieuwButton_Click"/>
+
         </Grid>
     </Grid>
 </Page>
