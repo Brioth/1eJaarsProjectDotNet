@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,14 +25,18 @@ namespace Groepswerk
         private string[] tempOpgave;
         private const string moeilijkheidsgraad = "MOE";
         private Random oefeningenNummer = new Random();
-        private int oefeningenNummerOpslag, oefCorrect;
+        private int oefeningenNummerOpslag, oefCorrect, gespendeerdeTijd;
         private IList<string> oefLijst;
         private IList<int> oefeningNummerLijst;
         Gebruiker actieveGebruiker;
+        private Stopwatch tijdGespendeerd;
         public OefNederlands1Moeilijk(Gebruiker actieveGebruiker)
         {
-            this.actieveGebruiker = actieveGebruiker;
             InitializeComponent();
+
+            this.actieveGebruiker = actieveGebruiker;
+            tijdGespendeerd = new Stopwatch();
+            tijdGespendeerd.Start();
 
             tempOpgave = new string[5];
 
@@ -67,6 +72,8 @@ namespace Groepswerk
 
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
+            tijdGespendeerd.Stop();
+            gespendeerdeTijd = Convert.ToInt32(tijdGespendeerd.ElapsedMilliseconds * 1000);
             oefCorrect = 0;
             if (!(oplossing1.Text.Equals(lijstOefeningen[oefeningNummerLijst[0]].oplossing)))
             {
