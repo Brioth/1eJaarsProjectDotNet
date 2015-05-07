@@ -165,7 +165,7 @@ namespace Groepswerk
                 opgave5.Background = Brushes.Green;
             }
             Punten.Text = Convert.ToString(oefCorrect) + "/5";
-            SchrijfPunten();
+            
             verbeterButton.IsEnabled = false;
 
 
@@ -175,6 +175,9 @@ namespace Groepswerk
                 if (actieveGebruiker.Id.Equals(item.Id))
                     actieveGebruiker.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
             }
+            lijst.SchrijfLijst();
+
+            SchrijfPunten();
         }
 
         private void TerugKnop_Click(object sender, RoutedEventArgs e)

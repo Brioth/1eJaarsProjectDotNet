@@ -23,8 +23,7 @@ namespace Groepswerk
         private OefeningLijst lijstOefeningen;
         private string[] tempOpgave, tempOplossing1, tempOplossing2, tempOplossing3;
         private Random oefeningenNummer = new Random();
-        private int oefeningenNummerOpslag, oefCorrect;
-        private long gespendeerdeTijd;
+        private int oefeningenNummerOpslag, oefCorrect, gespendeerdeTijd;
         private const string moeilijkheidsgraad = "GEM";
         private List<string> oefLijst1, oefLijst2, oefLijst3, oefLijst4, oefLijst5;
         private List<int> oefeningNummerLijst;
@@ -102,7 +101,7 @@ namespace Groepswerk
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
             tijdGespendeerd.Stop();
-            gespendeerdeTijd = tijdGespendeerd.ElapsedMilliseconds * 1000;
+            gespendeerdeTijd = Convert.ToInt32(tijdGespendeerd.ElapsedMilliseconds * 1000);
             oefCorrect = 0;
             if (!(Convert.ToString(oplossing1.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[0]].correcteOplossing)))
             {
@@ -167,6 +166,26 @@ namespace Groepswerk
                 if (actieveGebruiker.Id.Equals(item.Id))
                     actieveGebruiker.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
             }
+            lijst.SchrijfLijst();
+
+            SchrijfPunten();
+        }
+
+        private void SchrijfPunten()
+        {
+            ResultatenLijst lijst = new ResultatenLijst("resultaatNederlands1Gemiddeld.txt");
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect * 2, gespendeerdeTijd, lijst);
+
+            if (nieuw.IndexOud == -1)
+            {
+                lijst.Add(nieuw);
+            }
+            else
+            {
+                lijst.Add(nieuw);
+                lijst.RemoveAt(nieuw.IndexOud);
+            }
+            lijst.SchrijfLijst("resultaatNederlands1Gemiddeld.txt");
         }
 
         private void terugButton_Click(object sender, RoutedEventArgs e)

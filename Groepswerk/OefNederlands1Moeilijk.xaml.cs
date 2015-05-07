@@ -124,14 +124,32 @@ namespace Groepswerk
             }
             Punten.Text = Convert.ToString(oefCorrect) + "/5";
 
-
             AlleGebruikersLijst lijst = new AlleGebruikersLijst();
             foreach (Gebruiker item in lijst)
             {
                 if (actieveGebruiker.Id.Equals(item.Id))
                     actieveGebruiker.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
             }
+            lijst.SchrijfLijst();
 
+            SchrijfPunten();
+        }
+
+        private void SchrijfPunten()
+        {
+            ResultatenLijst lijst = new ResultatenLijst("resultaatNederlands1Gemiddeld.txt");
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect * 2, gespendeerdeTijd, lijst);
+
+            if (nieuw.IndexOud == -1)
+            {
+                lijst.Add(nieuw);
+            }
+            else
+            {
+                lijst.Add(nieuw);
+                lijst.RemoveAt(nieuw.IndexOud);
+            }
+            lijst.SchrijfLijst("resultaatNederlands1Gemiddeld.txt");
         }
 
         private void terugButton_Click(object sender, RoutedEventArgs e)
