@@ -26,6 +26,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -42,43 +43,44 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text=" Sleep het juiste antwoord naar het vakje naast de opgave of vul het in. Vul 0 in als je de oplossing niet weet." Margin="10" FontSize="20" FontWeight="SemiBold" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="9"/>
+        <TextBlock  Text="Wiskunde oefening makkelijk"  Margin="11,10,9,10" FontWeight="SemiBold" FontSize="40" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="6"  />
+        <TextBlock Text=" Sleep het juiste antwoord naar het vakje naast de opgave of vul het in. Vul 0 in als je de oplossing niet weet." Margin="10" FontSize="20" FontWeight="SemiBold" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="9"/>
 
-        <Label  Margin="20,10,20,10"  Content="1" Name="antwoordlabel1" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="1" Grid.Row="2"/>
-        <Label  Margin="20,10,20,10" Content="2" Name="antwoordlabel2" HorizontalAlignment="Center" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="2" Grid.Row="2" />
-        <Label  Margin="20,10,20,10" Content="3" Name="antwoordlabel3" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="3" Grid.Row="2"/>
-        <Label  Margin="20,10,20,10" Content="4" Name="antwoordlabel4" HorizontalAlignment="Center" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="4" Grid.Row="2"/>
-        <Label   Margin="20,10,20,10" Content="5" Name="antwoordlabel5" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="5" Grid.Row="2"/>
-        <Label   Margin="20,10,20,10" Content="6" Name="antwoordlabel6" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="6" Grid.Row="2"/>
-        <Label   Margin="20,10,20,10" Content="7" Name="antwoordlabel7" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="7" Grid.Row="2"/>
-        <Label  Margin="20,10,20,10" Content="8" Name="antwoordlabel8" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="8" Grid.Row="2"/>
-        <Label  Margin="20,10,20,10" Content="9" Name="antwoordlabel9" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="9" Grid.Row="2"/>
-        <Label  Margin="20,10,20,10" Content="10" Name="antwoordlabel10" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="10" Grid.Row="2"/>
+        <Label  Margin="20,10,20,10"  Content="1" Name="antwoordlabel1" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="1" Grid.Row="3"/>
+        <Label  Margin="20,10,20,10" Content="2" Name="antwoordlabel2" HorizontalAlignment="Center" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="2" Grid.Row="3" />
+        <Label  Margin="20,10,20,10" Content="3" Name="antwoordlabel3" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="3" Grid.Row="3"/>
+        <Label  Margin="20,10,20,10" Content="4" Name="antwoordlabel4" HorizontalAlignment="Center" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="4" Grid.Row="3"/>
+        <Label   Margin="20,10,20,10" Content="5" Name="antwoordlabel5" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="5" Grid.Row="3"/>
+        <Label   Margin="20,10,20,10" Content="6" Name="antwoordlabel6" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="6" Grid.Row="3"/>
+        <Label   Margin="20,10,20,10" Content="7" Name="antwoordlabel7" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="7" Grid.Row="3"/>
+        <Label  Margin="20,10,20,10" Content="8" Name="antwoordlabel8" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="8" Grid.Row="3"/>
+        <Label  Margin="20,10,20,10" Content="9" Name="antwoordlabel9" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="9" Grid.Row="3"/>
+        <Label  Margin="20,10,20,10" Content="10" Name="antwoordlabel10" MouseLeftButtonDown="Label_MouseLeftButtonDown" Grid.Column="10" Grid.Row="3"/>
 
-        <Label Name="opgaveblock1" Margin="20,10,20,10" MinWidth="20"  Content="opgave1"   Grid.Column="2" Grid.Row="3" />
-        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave2" Name="opgaveblock2"   Grid.Column="2" Grid.Row="4"/>
-        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave3" Name="opgaveblock3"   Grid.Column="2" Grid.Row="5"/>
-        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave4" Name="opgaveblock4"   Grid.Column="2" Grid.Row="6"/>
-        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave5" Name="opgaveblock5"   Grid.Column="2" Grid.Row="7"/>
-        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave6" Name="opgaveblock6"   Grid.Column="4" Grid.Row="3"/>
-        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave7" Name="opgaveblock7"   Grid.Column="4" Grid.Row="4"/>
-        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave8" Name="opgaveblock8"   Grid.Column="4" Grid.Row="5"/>
-        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave9" Name="opgaveblock9"   Grid.Column="4" Grid.Row="6"/>
-        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave10" Name="opgaveblock10"  Grid.Column="4" Grid.Row="7"/>
+        <Label Name="opgaveblock1" Margin="20,10,20,10" MinWidth="20"  Content="opgave1"   Grid.Column="2" Grid.Row="4" />
+        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave2" Name="opgaveblock2"   Grid.Column="2" Grid.Row="5"/>
+        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave3" Name="opgaveblock3"   Grid.Column="2" Grid.Row="6"/>
+        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave4" Name="opgaveblock4"   Grid.Column="2" Grid.Row="7"/>
+        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave5" Name="opgaveblock5"   Grid.Column="2" Grid.Row="8"/>
+        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave6" Name="opgaveblock6"   Grid.Column="4" Grid.Row="4"/>
+        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave7" Name="opgaveblock7"   Grid.Column="4" Grid.Row="5"/>
+        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave8" Name="opgaveblock8"   Grid.Column="4" Grid.Row="6"/>
+        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave9" Name="opgaveblock9"   Grid.Column="4" Grid.Row="7"/>
+        <Label Margin="20,10,20,10" MinWidth="20" Content="opgave10" Name="opgaveblock10"  Grid.Column="4" Grid.Row="8"/>
 
-        <Button Name="verbeterButton" Margin="5" Content="Verbeter"   Click="VerbeterButton_Click" Grid.Column="7" Grid.Row="9"/>
-        <TextBlock Name="Punten" Margin="10"  Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="9"/>
+        <Button Name="verbeterButton" Margin="5" Content="Verbeter"   Click="VerbeterButton_Click" Grid.Column="7" Grid.Row="10"/>
+        <TextBlock Name="Punten" Margin="10"  Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="10"/>
 
-        <TextBox Margin="10"  Text="" MinWidth="20" Name="dropTextbox1" AllowDrop="True" Drop="LabelDrop" Grid.Column="3"  Grid.Row="3" PreviewDrop="TboxPreviewDrop"  />
-        <TextBox Margin="10" Text="" MinWidth="20" Name="dropTextbox2"  AllowDrop="True" Drop="LabelDrop" Grid.Column="3"  Grid.Row="4" PreviewDrop="TboxPreviewDrop" />
-        <TextBox Margin="10" Text="" MinWidth="20" Name="dropTextbox3"  AllowDrop="True" Drop="LabelDrop" Grid.Column="3"  Grid.Row="5" PreviewDrop="TboxPreviewDrop" />
-        <TextBox Margin="10" Text="" MinWidth="20" Name="dropTextbox4"  AllowDrop="True" Drop="LabelDrop" Grid.Column="3"  Grid.Row="6" PreviewDrop="TboxPreviewDrop" />
-        <TextBox Margin="10" Text="" MinWidth="20" Name="dropTextbox5"  AllowDrop="True" Drop="LabelDrop" Grid.Column="3"  Grid.Row="7" PreviewDrop="TboxPreviewDrop" />
-        <TextBox Margin="10" Text="" MinWidth="20" Name="dropTextbox6"  AllowDrop="True" Drop="LabelDrop" Grid.Column="5" Grid.Row="3" PreviewDrop="TboxPreviewDrop"/>
-        <TextBox Margin="10" Text="" MinWidth="20" Name="dropTextbox7"  AllowDrop="True" Drop="LabelDrop" Grid.Column="5" Grid.Row="4" PreviewDrop="TboxPreviewDrop"/>
-        <TextBox Margin="10" Text="" MinWidth="20" Name="dropTextbox8"  AllowDrop="True" Drop="LabelDrop" Grid.Column="5" Grid.Row="5" PreviewDrop="TboxPreviewDrop"/>
-        <TextBox Margin="10" Text="" MinWidth="20" Name="dropTextbox9"  AllowDrop="True" Drop="LabelDrop" Grid.Column="5" Grid.Row="6" PreviewDrop="TboxPreviewDrop"/>
-        <TextBox Margin="10" Text="" MinWidth="20" Name="dropTextbox10" AllowDrop="True" Drop="LabelDrop" Grid.Column="5" Grid.Row="7" PreviewDrop="TboxPreviewDrop"/>
+        <TextBox Margin="10"  Text="" MinWidth="20" Name="dropTextbox1" AllowDrop="True" Drop="LabelDrop" Grid.Column="3"  Grid.Row="4" PreviewDrop="TboxPreviewDrop"  />
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropTextbox2"  AllowDrop="True" Drop="LabelDrop" Grid.Column="3"  Grid.Row="5" PreviewDrop="TboxPreviewDrop" />
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropTextbox3"  AllowDrop="True" Drop="LabelDrop" Grid.Column="3"  Grid.Row="6" PreviewDrop="TboxPreviewDrop" />
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropTextbox4"  AllowDrop="True" Drop="LabelDrop" Grid.Column="3"  Grid.Row="7" PreviewDrop="TboxPreviewDrop" />
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropTextbox5"  AllowDrop="True" Drop="LabelDrop" Grid.Column="3"  Grid.Row="8" PreviewDrop="TboxPreviewDrop" />
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropTextbox6"  AllowDrop="True" Drop="LabelDrop" Grid.Column="5" Grid.Row="4" PreviewDrop="TboxPreviewDrop"/>
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropTextbox7"  AllowDrop="True" Drop="LabelDrop" Grid.Column="5" Grid.Row="5" PreviewDrop="TboxPreviewDrop"/>
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropTextbox8"  AllowDrop="True" Drop="LabelDrop" Grid.Column="5" Grid.Row="6" PreviewDrop="TboxPreviewDrop"/>
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropTextbox9"  AllowDrop="True" Drop="LabelDrop" Grid.Column="5" Grid.Row="7" PreviewDrop="TboxPreviewDrop"/>
+        <TextBox Margin="10" Text="" MinWidth="20" Name="dropTextbox10" AllowDrop="True" Drop="LabelDrop" Grid.Column="5" Grid.Row="8" PreviewDrop="TboxPreviewDrop"/>
 
         <Grid Grid.Column="0" Grid.Row="0">
             <Grid.ColumnDefinitions>
