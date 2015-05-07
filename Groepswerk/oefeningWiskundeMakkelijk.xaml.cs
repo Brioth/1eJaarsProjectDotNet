@@ -313,7 +313,7 @@ namespace Groepswerk
                 {
                     dropTextbox10.Background = Brushes.Red;
                 }
-                Punten.Text = ("u heeft  " + oefeningPunten + " punten behaald. ");
+                Punten.Text = ("U heeft  " + oefeningPunten + " punten behaald. ");
                 Schrijfpunten();
 
                 verbeterButton.IsEnabled = false;
@@ -333,7 +333,7 @@ namespace Groepswerk
             // Als er letters worden ingegeven in plaats van cijfers worden deze als fout beschouwd.
             catch (FormatException)
             {
-                MessageBox.Show("zet 0 als je het antwoord niet weet");
+                MessageBox.Show("Zet 0 als je het antwoord niet weet");
             }
         }
 

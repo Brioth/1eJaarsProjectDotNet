@@ -22,7 +22,7 @@ namespace Groepswerk
     // De ingevoerde informatie uitschrijven in oefnWiskundeGemiddeld.txt en deze gebruiken als de nieuwe waarden in de oefening.
     public partial class OefWiskundeAanpassen : Page
     {
-        Gebruiker actieveGebruiker;
+       
 
         public OefWiskundeAanpassen(Gebruiker actieveGebruiker)
         {
@@ -38,7 +38,7 @@ namespace Groepswerk
                 if (Convert.ToInt32(bereikMin1.Text) < 0 | Convert.ToInt32(bereikMin2.Text) < 0 | Convert.ToInt32(bereikMin3.Text) < 0 |
                     Convert.ToInt32(bereikMax1.Text) < 0 | Convert.ToInt32(bereikMax2.Text) < 0 | Convert.ToInt32(bereikMax3.Text) < 0)
                 {
-                    MessageBox.Show("range mag niet kleiner zijn dan 0");
+                    MessageBox.Show("Range mag niet kleiner zijn dan 0");
 
                 }
                 else
@@ -56,7 +56,7 @@ namespace Groepswerk
                     }
                     writer.Close();
 
-                    MessageBox.Show("u heeft nu de moeilijkheid van de oefeningen aangepast");
+                    MessageBox.Show("U heeft nu de moeilijkheid van de oefeningen aangepast");
                 }
             }
             // Negatieve getallen getallen en letters worden niet aanvaard.
