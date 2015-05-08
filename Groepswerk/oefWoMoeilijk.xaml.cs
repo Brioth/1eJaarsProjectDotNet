@@ -153,7 +153,7 @@ namespace Groepswerk
             foreach (Gebruiker item in lijst)
             {
                 if (actieveGebruiker.Id.Equals(item.Id))
-                    actieveGebruiker.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);//gewonnen gametijd berekenen
+                    item.actieveGebruiker.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);//gewonnen gametijd berekenen
             }
             lijst.SchrijfLijst();
 
