@@ -103,6 +103,8 @@ namespace Groepswerk
             tijdGespendeerd.Stop();
             gespendeerdeTijd = Convert.ToInt32(tijdGespendeerd.ElapsedMilliseconds * 1000);
             oefCorrect = 0;
+            verbeterButton.IsEnabled = false;
+
             if (!(Convert.ToString(oplossing1.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[0]].correcteOplossing)))
             {
                 opgave1.Text = lijstOefeningen[oefeningNummerLijst[0]].juisteAntwoordCompleet;
@@ -157,18 +159,19 @@ namespace Groepswerk
                 oefCorrect++;
                 opgave5.Background = Brushes.Green;
             }
-            Punten.Text = Convert.ToString(oefCorrect) + "/5";
-
-
+            
             AlleGebruikersLijst lijst = new AlleGebruikersLijst();
             foreach (Gebruiker item in lijst)
             {
                 if (actieveGebruiker.Id.Equals(item.Id))
                     actieveGebruiker.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
             }
+
             lijst.SchrijfLijst();
 
             SchrijfPunten();
+
+            Punten.Text = Convert.ToString(oefCorrect) + "/5";
         }
 
         private void SchrijfPunten()
