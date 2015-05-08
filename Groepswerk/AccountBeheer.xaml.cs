@@ -113,6 +113,119 @@ namespace Groepswerk
         private void VerwijderGebruiker()
         {
             alleGebruikersLijst = new AlleGebruikersLijst();
+
+            ResultatenLijst lijstNedMak = new ResultatenLijst("OefNederlands1MakkelijkResultaten.txt");
+            List<Resultaat> dummieNedMak = new List<Resultaat>();
+            ResultatenLijst lijstNedMed = new ResultatenLijst("OefNederlands1GemiddeldResultaten.txt");
+            List<Resultaat> dummieNedMed = new List<Resultaat>();
+            ResultatenLijst lijstNedMoe = new ResultatenLijst("OefNederlands1MoeilijkResultaten.txt");
+            List<Resultaat> dummieNedMoe = new List<Resultaat>();
+            ResultatenLijst lijstWiskMak = new ResultatenLijst("OefResultatenWiskMak.txt");
+            List<Resultaat> dummieWiskMak = new List<Resultaat>();
+            ResultatenLijst lijstWiskMed = new ResultatenLijst("OefResultatenWiskGem.txt");
+            List<Resultaat> dummieWiskMed = new List<Resultaat>();
+            ResultatenLijst lijstWiskMoe = new ResultatenLijst("OefResultatenWiskMoe.txt");
+            List<Resultaat> dummieWiskMoe = new List<Resultaat>();
+            ResultatenLijst lijstWoMak = new ResultatenLijst("resultaatWoMakkelijk.txt");
+            List<Resultaat> dummieWoMak = new List<Resultaat>();
+            ResultatenLijst lijstWoMed = new ResultatenLijst("resultaatWoGemiddeld.txt");
+            List<Resultaat> dummieWoMed = new List<Resultaat>();
+            ResultatenLijst lijstWoMoe = new ResultatenLijst("resultaatWoMoeilijk.txt");
+            List<Resultaat> dummieWoMoe = new List<Resultaat>();
+
+            //Verwijder resultaten
+            foreach (Resultaat item in lijstNedMak)
+            {
+                if (!(item.Id.Equals(selectedGebruiker.Id)))
+                {
+                    dummieNedMak.Add(item);
+                }
+            }
+            foreach (Resultaat item in lijstNedMed)
+            {
+                if (!(item.Id.Equals(selectedGebruiker.Id)))
+                {
+                    dummieNedMed.Add(item);
+                }
+            }
+            foreach (Resultaat item in lijstNedMoe)
+            {
+                if (!(item.Id.Equals(selectedGebruiker.Id)))
+                {
+                    dummieNedMoe.Add(item);
+                }
+            }
+            foreach (Resultaat item in lijstWiskMak)
+            {
+                if (!(item.Id.Equals(selectedGebruiker.Id)))
+                {
+                    dummieWiskMak.Add(item);
+                }
+            }
+            foreach (Resultaat item in lijstWiskMed)
+            {
+                if (!(item.Id.Equals(selectedGebruiker.Id)))
+                {
+                    dummieWiskMed.Add(item);
+                }
+            }
+            foreach (Resultaat item in lijstWiskMoe)
+            {
+                if (!(item.Id.Equals(selectedGebruiker.Id)))
+                {
+                    dummieWiskMoe.Add(item);
+                }
+            }
+            foreach (Resultaat item in lijstWoMak)
+            {
+                if (!(item.Id.Equals(selectedGebruiker.Id)))
+                {
+                    dummieWoMak.Add(item);
+                }
+            }
+            foreach (Resultaat item in lijstWoMed)
+            {
+                if (!(item.Id.Equals(selectedGebruiker.Id)))
+                {
+                    dummieWoMed.Add(item);
+                }
+            }
+            foreach (Resultaat item in lijstWoMoe)
+            {
+                if (!(item.Id.Equals(selectedGebruiker.Id)))
+                {
+                    dummieWoMoe.Add(item);
+                }
+            }
+
+            ResultatenLijst nieuwNedMak = new ResultatenLijst(dummieNedMak);
+            nieuwNedMak.SchrijfLijst("OefNederlands1MakkelijkResultaten.txt");
+
+            ResultatenLijst nieuwNedMed = new ResultatenLijst(dummieNedMed);
+            nieuwNedMed.SchrijfLijst("OefNederlands1GemiddeldResultaten.txt");
+
+            ResultatenLijst nieuwNedMoe = new ResultatenLijst(dummieNedMoe);
+            nieuwNedMoe.SchrijfLijst("OefNederlands1MoeilijkResultaten.txt");
+
+            ResultatenLijst nieuwWiskMak = new ResultatenLijst(dummieWiskMak);
+            nieuwWiskMak.SchrijfLijst("OefResultatenWiskMak.txt");
+
+            ResultatenLijst nieuwWiskMed = new ResultatenLijst(dummieWiskMed);
+            nieuwNedMed.SchrijfLijst("OefResultatenWiskMed.txt");
+
+            ResultatenLijst nieuwWiskMoe = new ResultatenLijst(dummieWiskMoe);
+            nieuwNedMoe.SchrijfLijst("OefResultatenWiskMoe.txt");
+
+            ResultatenLijst nieuwWoMak = new ResultatenLijst(dummieWoMak);
+            nieuwWoMak.SchrijfLijst("resultaatWoMakkelijk.txt");
+
+            ResultatenLijst nieuwWoMed = new ResultatenLijst(dummieWoMak);
+            nieuwWoMed.SchrijfLijst("resultaatWoGemiddeld.txt");
+
+            ResultatenLijst nieuwWoMoe = new ResultatenLijst(dummieWoMoe);
+            nieuwWoMoe.SchrijfLijst("resultaatWoMoeilijk.txt");
+
+            //Verwijder uit alleGebruikerslijst
             for (int i = 0; i < alleGebruikersLijst.Count; i++)
             {
                 if (alleGebruikersLijst[i].Id == selectedGebruiker.Id)
