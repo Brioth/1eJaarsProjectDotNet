@@ -231,6 +231,7 @@ namespace Groepswerk
                 else
                 {
                     dropTextbox1.Background = Brushes.Red;
+                    juisteLabel1.Content = Convert.ToString(oplossingLijst[0]);
                 }
                 if ((oplossingLijst[1]) == Convert.ToInt32(dropTextbox2.Text.Trim()))
                 {
@@ -240,6 +241,7 @@ namespace Groepswerk
                 else
                 {
                     dropTextbox2.Background = Brushes.Red;
+                    juisteLabel2.Content = Convert.ToString(oplossingLijst[1]);
                 }
                 if ((oplossingLijst[2]) == Convert.ToInt32(dropTextbox3.Text.Trim()))
                 {
@@ -249,6 +251,7 @@ namespace Groepswerk
                 else
                 {
                     dropTextbox3.Background = Brushes.Red;
+                    juisteLabel3.Content = Convert.ToString(oplossingLijst[2]);
                 }
                 if ((oplossingLijst[3]) == Convert.ToInt32(dropTextbox4.Text.Trim()))
                 {
@@ -258,8 +261,10 @@ namespace Groepswerk
                 else
                 {
                     dropTextbox4.Background = Brushes.Red;
+                    juisteLabel4.Content = Convert.ToString(oplossingLijst[3]);
                 }
                 if ((oplossingLijst[4]) == Convert.ToInt32(dropTextbox5.Text.Trim()))
+                    
                 {
                     oefeningPunten++;
                     dropTextbox5.Background = Brushes.Green;
@@ -267,6 +272,7 @@ namespace Groepswerk
                 else
                 {
                     dropTextbox5.Background = Brushes.Red;
+                    juisteLabel5.Content = Convert.ToString(oplossingLijst[4]);
                 }
                 if ((oplossingLijst[5]) == Convert.ToInt32(dropTextbox6.Text.Trim()))
                 {
@@ -276,6 +282,7 @@ namespace Groepswerk
                 else
                 {
                     dropTextbox6.Background = Brushes.Red;
+                    juisteLabel6.Content = Convert.ToString(oplossingLijst[5]);
                 }
                 if ((oplossingLijst[6]) == Convert.ToInt32(dropTextbox7.Text.Trim()))
                 {
@@ -285,6 +292,7 @@ namespace Groepswerk
                 else
                 {
                     dropTextbox7.Background = Brushes.Red;
+                    juisteLabel7.Content = Convert.ToString(oplossingLijst[6]);
                 }
                 if ((oplossingLijst[7]) == Convert.ToInt32(dropTextbox8.Text.Trim()))
                 {
@@ -294,6 +302,7 @@ namespace Groepswerk
                 else
                 {
                     dropTextbox8.Background = Brushes.Red;
+                    juisteLabel8.Content = Convert.ToString(oplossingLijst[7]);
                 }
                 if ((oplossingLijst[8]) == Convert.ToInt32(dropTextbox9.Text.Trim()))
                 {
@@ -303,6 +312,7 @@ namespace Groepswerk
                 else
                 {
                     dropTextbox9.Background = Brushes.Red;
+                    juisteLabel9.Content = Convert.ToString(oplossingLijst[8]);
                 }
                 if ((oplossingLijst[9]) == Convert.ToInt32(dropTextbox10.Text.Trim()))
                 {
@@ -312,6 +322,7 @@ namespace Groepswerk
                 else
                 {
                     dropTextbox10.Background = Brushes.Red;
+                    juisteLabel10.Content = Convert.ToString(oplossingLijst[9]);
                 }
                 Punten.Text = ("U heeft " + oefeningPunten + " punt(en) behaald. ");
                 Schrijfpunten();
