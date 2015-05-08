@@ -222,7 +222,7 @@ namespace Groepswerk
                     switch (j)
                     {
                         case 0:
-                            lbl.Content = detailLijst[i].Datum;
+                            lbl.Content = detailLijst[i].Datum.ToString("dd/MM/yyyy");
                             break;
                         case 1:
                             lbl.Content = detailLijst[i].AantalOefeningen;

@@ -83,7 +83,8 @@
             <Label Name="lblAantal" Grid.Row="1" Grid.Column="2" Margin="20,10,20,10"/>
             <Label Name="lblTijd" Grid.Row="1" Grid.Column="1" Margin="20,10,20,10"/>
         </Grid>
-        <Grid Name="detailGrid" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="4" Margin="10" Background="#FFE5E5E5" ShowGridLines="True">
+        <ScrollViewer Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="4" Margin="10" MaxHeight="300">
+        <Grid Name="detailGrid" Background="#FFE5E5E5" ShowGridLines="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
@@ -97,6 +98,7 @@
             <Label Content="Aantal Oefeningen" Grid.Row="0" Grid.Column="1" Margin="20,10,20,10" FontWeight="SemiBold"/>
             <Label Content="Punten" Grid.Row="0" Grid.Column="2" Margin="20,10,20,10" FontWeight="SemiBold"/>
             <Label Content="Gespendeerde tijd" Grid.Row="0" Grid.Column="3" Margin="20,10,20,10" FontWeight="SemiBold"/>
-        </Grid>           
+        </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>
