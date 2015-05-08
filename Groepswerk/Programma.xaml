@@ -10,17 +10,16 @@
                 <MenuItem Header="Exit" Click="MnuStop_Click"/>
             </MenuItem>
             <MenuItem Name="mnuOefeningen" Header="Oefeningen" IsTabStop="False" >
-                <MenuItem Header="Rekenen">
-                <MenuItem Header ="Rekenen - Makkelijk" Click="MnuWiskundeMakkelijk_Click"/>
-                <MenuItem Header="Rekenen - Gemiddeld" Click="MnuWiskundeGemiddeld_Click"/>
-                <MenuItem Header="Rekenen - Moeilijk" Click="MnuWiskundeMoeilijk_Click"/>
-            </MenuItem>
-            <MenuItem Header="Taal">
+                <MenuItem Header="Taal">
                     <MenuItem Header ="Taal - Makkelijk" Click="MnuTaalMakkelijk_Click"/>
                     <MenuItem Header="Taal - Gemiddeld" Click="MnuTaalGemiddeld_Click"/>
                     <MenuItem Header="Taal - Moeilijk" Click="MnuTaalMoeilijk_Click"/>
-            </MenuItem>
-            
+                </MenuItem>
+                <MenuItem Header="Rekenen">
+                    <MenuItem Header ="Rekenen - Makkelijk" Click="MnuWiskundeMakkelijk_Click"/>
+                    <MenuItem Header="Rekenen - Gemiddeld" Click="MnuWiskundeGemiddeld_Click"/>
+                    <MenuItem Header="Rekenen - Moeilijk" Click="MnuWiskundeMoeilijk_Click"/>
+                </MenuItem>
                 <MenuItem Header="WO" >
                     <MenuItem Header ="Wo - Makkelijk" Click="MnuWoMakkelijk_Click"/>
                     <MenuItem Header="Wo - Gemiddeld" Click="MnuWoGemiddeld_Click"/>
@@ -28,13 +27,13 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Name="mnuOefBew" Header="Oefeningen Bewerken" IsTabStop="False" >
-                <MenuItem Header="Wiskunde" >
-                    <MenuItem Header="Wiskunde aanpassen" Click="WiskundeBewerken_Click"/>
-                </MenuItem>
                 <MenuItem Header="Taal">
                     <MenuItem Header="Taal - Gemakkelijk" Click="MnuBewerkenMakkelijk_Click"/>
                     <MenuItem Header="Taal - Gemiddeld" Click="MnuBewerkenGemiddeld_Click"/>
                     <MenuItem Header="Taal - Moeilijk" Click="MnuBewerkenMoeilijk_Click"/>
+                </MenuItem>
+                <MenuItem Header="Wiskunde" >
+                    <MenuItem Header="Wiskunde aanpassen" Click="WiskundeBewerken_Click"/>
                 </MenuItem>
                 <MenuItem Header="WO">
                     <MenuItem Header="Wo - Gemakkelijk" Click="MnuWoBewerkenMakkelijk_Click"/>
@@ -42,7 +41,7 @@
                     <MenuItem Header="Wo - Moeilijk" Click="MnuWoBewerkenMoeilijk_Click"/>
                 </MenuItem>
             </MenuItem>
-            
+
             <MenuItem Name="mnuStat" Header="Statistieken" IsTabStop="False">
                 <MenuItem Header="Individueel Overzicht" Click="MnuIndOv_Click"/>
                 <MenuItem Header="Klassikaal Overzicht" Click="MnuKlasOver_Click"/>
@@ -51,9 +50,9 @@
                 <MenuItem Header="Nieuwe Gebruiker" Click="MnuNieuweGebr_Click"/>
                 <MenuItem Header="Account Bewerken" Click="MnuAccBewerk_Click"/>
                 <MenuItem Header="Klaslijst Bewerken" Click="MnuKlaslijstBewerk_Click"/>
-            </MenuItem>  
+            </MenuItem>
             <MenuItem Name="mnuHighScores" Header="HighScores" Click="HighScores_Click" IsTabStop="False"/>
         </Menu>
-        <Frame Name="framePages" NavigationUIVisibility="Hidden" IsTabStop="False"/> 
+        <Frame Name="framePages" NavigationUIVisibility="Hidden" IsTabStop="False"/>
     </DockPanel>
 </Window>
