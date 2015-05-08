@@ -24,7 +24,7 @@ namespace Groepswerk
         private string[] tempOpgave, tempOplossing1, tempOplossing2, tempOplossing3;
         private Random oefeningenNummer = new Random();
         private int oefeningenNummerOpslag, oefCorrect, gespendeerdeTijd;
-        private const string moeilijkheidsgraad = "GEM";
+        private const string moeilijkheidsgraad = "MED";
         private List<string> oefLijst1, oefLijst2, oefLijst3, oefLijst4, oefLijst5;
         private List<int> oefeningNummerLijst;
         Gebruiker actieveGebruiker;
