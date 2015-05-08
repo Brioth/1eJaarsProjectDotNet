@@ -43,10 +43,17 @@ namespace Groepswerk
         }
         private void BtnNieuw_Click(object sender, RoutedEventArgs e)
         {
-            Oefening nieuwItem = new Oefening(txtbLand.Text, txtbHoofdstad.Text);
-            oeflijst.Add(nieuwItem);
-            oeflijst.SchrijfLijst(bestand);
-            UpdateLijst();
+            if (txtbLand.Text.Equals("") || txtbHoofdstad.Text.Equals(""))
+            {
+                MessageBox.Show("Gelieve alle velden in te vullen");
+            }
+            else
+            {
+                Oefening nieuwItem = new Oefening(txtbLand.Text, txtbHoofdstad.Text);
+                oeflijst.Add(nieuwItem);
+                oeflijst.SchrijfLijst(bestand);
+                UpdateLijst();
+            }
 
 
         }
@@ -60,12 +67,18 @@ namespace Groepswerk
 
         private void BtnPasAan_Click(object sender, RoutedEventArgs e)
         {
-
-            Oefening aangepasteOef = new Oefening(txtbLand.Text, txtbHoofdstad.Text);
-            oeflijst.Add(aangepasteOef);
-            oeflijst.Remove(oefening);
-            oeflijst.SchrijfLijst(bestand);
-            UpdateLijst();
+            if (txtbLand.Text.Equals("") || txtbHoofdstad.Text.Equals(""))
+            {
+                MessageBox.Show("Gelieve alle velden in te vullen");
+            }
+            else
+            {
+                Oefening aangepasteOef = new Oefening(txtbLand.Text, txtbHoofdstad.Text);
+                oeflijst.Add(aangepasteOef);
+                oeflijst.Remove(oefening);
+                oeflijst.SchrijfLijst(bestand);
+                UpdateLijst();
+            }
 
 
         }
