@@ -80,7 +80,7 @@ namespace Groepswerk
             }
             else
             {
-                MessageBox.Show("Je hebt momenteel geen speltijd, je kan deze verdienen door oefeningen te maken!")
+                MessageBox.Show("Je hebt momenteel geen speltijd, je kan deze verdienen door oefeningen te maken!");
             }                     
         }
 

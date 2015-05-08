@@ -173,16 +173,12 @@ namespace Groepswerk
             foreach (Gebruiker item in lijst)
             {
                 if (actieveGebruiker.Id.Equals(item.Id))
+                {
                     actieveGebruiker.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
+                }
             }
             lijst.SchrijfLijst();
-
             SchrijfPunten();
-        }
-
-        private void TerugKnop_Click(object sender, RoutedEventArgs e)
-        {
-
         }
         private void SchrijfPunten()
         {
