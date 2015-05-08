@@ -16,10 +16,11 @@ using System.Windows.Shapes;
 
 namespace Groepswerk
 {
-    //Author: Vincent Vandoninck
-    //Date: 06/05/2015
-    //aangepast op 8/05/2015 door Carmen Celen
+    // Author: Vincent Vandoninck
+    // Date: 06/05/2015
+    // Aangepast op 8/05/2015 door Carmen Celen
 
+    // De huidige waarden worden uit de file gelezen en zichtbaar gemaakt voor de leerkracht.
     // De ingevoerde informatie uitschrijven in oefnWiskundeGemiddeld.txt en deze gebruiken als de nieuwe waarden in de oefening.
     public partial class OefWiskundeAanpassen : Page
     {
@@ -33,7 +34,6 @@ namespace Groepswerk
 
         private void VulOrgineleWaarden()
         {
-            //Lees waarden uit file
             StreamReader lezer = File.OpenText(@"rangesWiskunde.txt");
             string regel = lezer.ReadLine();
             char[] scheiding = { ';' };
@@ -68,8 +68,8 @@ namespace Groepswerk
             bereikMax3.Text = rangesMulti[2, 1];
         }
 
-        // De wiskunde oefeningen zijn aanpasbaar.
-        // 
+        // De ingevulde gegvens worden in het txt-bestand geschreven.
+        // Bij fouten komt er een gepast venster tevoorschijn die erop wijst dat je bepaalde regels moet volgen bij het invullen van gegevens.
         private void AanpasKnop_Click(object sender, RoutedEventArgs e)
         {
             if (bereikMin1.Text.Equals("") || bereikMax1.Text.Equals("") || bereikMin2.Text.Equals("") || bereikMax2.Text.Equals("") || bereikMin3.Text.Equals("") || bereikMax3.Text.Equals(""))

@@ -21,9 +21,9 @@ namespace Groepswerk
      * Date: 03/05/2015
      * Op 28/04/2015 werd duidelijk dat de oefening niet ging werken in het project, dus ben opnieuw begonnen.
      *
-     *Random getallen genereren en gebruiken om oefeningen te berekenen. De uitkomst hiervan opslaan in een lijst.
-     *Deze lijst vergelijken met de ingevoerde antwoorden van de gebruiker en het aantal juiste antwoorden weergeven als punten.
-     *gespendeerde tijd wordt bijgehouden
+     * Random getallen genereren en gebruiken om oefeningen te berekenen. De uitkomst hiervan opslaan in een lijst.
+     * Deze lijst vergelijken met de ingevoerde antwoorden van de gebruiker en het aantal juiste antwoorden weergeven als punten.
+     * Gespendeerde tijd wordt bijgehouden
      */
     public partial class OefeningWiskundeGemiddeld : Page
     {
@@ -41,7 +41,10 @@ namespace Groepswerk
         private Stopwatch tijdTeller;
         private string moeilijkheidsgraad = "MED";
 
-        //constructors
+        // Constructors
+        // Eerst worden er random getallen gegenereerd, deze worden nadien gebruikt om de opgaves en oplossingen te berekenen die opgeslagen worden in een lijsten. 
+        // Het random gegenereerde getal "randomTeken1" bepaald of de berekening opgeteld of afgetrokken gaat worden.
+        
         public OefeningWiskundeGemiddeld(Gebruiker actieveGebruiker)
         {
 
@@ -88,7 +91,7 @@ namespace Groepswerk
                 opgaveblock10.Content = opgaveLijst[9];
             }
         }
-        //methodes
+        // Methodes
 
         // Het bereik van de oefening wordt hier berekend.
         private void VulRanges()
@@ -128,10 +131,10 @@ namespace Groepswerk
             lijst.SchrijfLijst("OefResultatenWiskGem.txt");
         }
 
-        //author: Vincent Vandoninck
-        //date: 28/04/2015
+        // Author: Vincent Vandoninck
+        // Date: 28/04/2015
 
-        //events
+        // Events
 
         // Punten worden eerst terug op 0 gezet, opnieuw berekend en toonbaar gemaakt. 
         // De ingegeven oplossingen worden vergelekekn met de oplossingen die in de lijst staan opgeslagen.
@@ -272,8 +275,8 @@ namespace Groepswerk
                 }
             
         }
-        //author: Vincent Vandoninck
-        //date: 04/05/2015
+        // Author: Vincent Vandoninck
+        // Date: 04/05/2015
 
         // Navigatie terug naar het leerlingenmenu.
         private void TerugButton_Click(object sender, RoutedEventArgs e)

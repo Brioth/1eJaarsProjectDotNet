@@ -23,14 +23,12 @@ namespace Groepswerk
      * 
      * Random getallen genereren en gebruiken om oefeningen te berekenen. De uitkomst hiervan opslaan in een lijst.
      * Deze lijst vergelijken met de ingevoerde antwoorden van de gebruiker en het aantal juiste antwoorden weergeven als punten.
-     * gespendeerde tijd wordt bijgehouden.
+     * Gespendeerde tijd wordt bijgehouden.
     */
-
-
 
     public partial class OefeningWiskundeMakkelijk : Page
     {
-        // lokale variabelen
+        // Lokale variabelen
         Gebruiker actieveGebruiker;
         private int oefeningPunten;
         private Random randomTest = new Random();
@@ -44,6 +42,9 @@ namespace Groepswerk
         private string moeilijkheidsgraad = "MAK";
 
         //Constructors
+        // Er worden random getallen gegenereerd, deze worden nadien gebruikt om de opgaves en oplossingen te berekenen die opgeslagen worden in een lijsten. 
+        
+
         public OefeningWiskundeMakkelijk(Gebruiker actieveGebruiker)
         {
 
@@ -59,8 +60,7 @@ namespace Groepswerk
                 randomGetal1 = randomTest.Next(beginBereik, eindBereik + 1);
                 randomGetal2 = randomTest.Next(beginBereik, eindBereik + 1);
 
-                // eerst uitkomst berekenen en die opslaan in labels
-                // uitkomst ingeven als gebruiker en testen met verbeterknop
+               
                 oplossingLijst[i] = randomGetal1 * randomGetal2;
                 randomLijst.Add(oplossingLijst[i]);
 
@@ -179,7 +179,7 @@ namespace Groepswerk
 
         //http://wpf.2000things.com/tag/drag-and-drop/
         //https://msdn.microsoft.com/en-us/library/ms742859(v=vs.110).aspx
-        // De inhoud van de bron (antwoordLabel[0-9]) wordt tjdelijk opgeslagen als data en naar het object (dropTextbox[0-9]) doorgegeven.
+        // De inhoud van de bron (antwoordLabel[0-9]) wordt tjdelijk opgeslagen als "data" en kan versleept worden.
         private void Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DataObject data = new DataObject(DataFormats.Text, ((Label)e.Source).Content);
@@ -187,12 +187,13 @@ namespace Groepswerk
             DragDrop.DoDragDrop((DependencyObject)e.Source, data, DragDropEffects.Move);
         }
 
+        // De tijdelijk opgeslagen data word hier naar het bijhorende "drop" object (dropTextbox[0-9]) doorgegeven.
         private void LabelDrop(object sender, DragEventArgs e)
         {
             ((Label)e.Source).Content = (string)e.Data.GetData(DataFormats.Text);
         }
 
-        // als je boven een object staat waar je kan op droppen veranderd je cursor.
+        // Als je boven een object staat waar je kan op droppen veranderd je cursor.
         private void LabelGiveFeedback(object sender, GiveFeedbackEventArgs e)
         {
             if (e.Effects == DragDropEffects.Move)
@@ -206,8 +207,8 @@ namespace Groepswerk
             e.Handled = true;
         }
 
-        //author: Vincent Vandoninck
-        //date: 28/04/2015
+        //Author: Vincent Vandoninck
+        //Date: 28/04/2015
 
         // Punten worden eerst terug op 0 gezet, opnieuw berekend en toonbaar gemaakt. 
         // De ingegeven oplossingen worden vergelekekn met de oplossingen die in de lijst staan opgeslagen.
@@ -340,7 +341,7 @@ namespace Groepswerk
                 lijst.SchrijfLijst();
             }
 
-                // Deze catch zorgt ervoor dat er altijd een antwoord moet ingevuld worden.
+            // Deze catch zorgt ervoor dat er altijd een antwoord moet ingevuld worden.
             // Als er letters worden ingegeven in plaats van cijfers worden deze als fout beschouwd.
             catch (FormatException)
             {
@@ -348,8 +349,8 @@ namespace Groepswerk
             }
         }
 
-        //author: Vincent Vandoninck
-        //date: 04/05/2015
+        //Author: Vincent Vandoninck
+        //Date: 04/05/2015
 
         // Navigatie terug naar het leerlingenmenu.
         private void TerugButton_Click(object sender, RoutedEventArgs e)

@@ -73,9 +73,9 @@ namespace Groepswerk
             HighScores paginaScores = new HighScores(ActieveGebruiker);
             framePages.Navigate(paginaScores);
         }        
-        //Author: Vincent Vandoninck
-        //Date: 04/05/2015
-        // navigatie events
+        // Author: Vincent Vandoninck
+        // Date: 04/05/2015
+        // Navigatie events
         private void MnuWiskundeMakkelijk_Click(object sender, RoutedEventArgs e)
         {
             OefeningWiskundeMakkelijk oefWiskundeMakkelijk = new OefeningWiskundeMakkelijk(ActieveGebruiker);
@@ -97,8 +97,8 @@ namespace Groepswerk
             framePages.Navigate(oefeningAanpassen);
         }
 
-        //Author: Thomas Cox
-        //Date: 22/04/2015
+        // Author: Thomas Cox
+        // Date: 22/04/2015
         private void MnuTaalMakkelijk_Click(object sender, RoutedEventArgs e)
         {
             OefNederlands1Makkelijk oefNederlandsMakkelijk = new OefNederlands1Makkelijk(actieveGebruiker);
@@ -115,8 +115,8 @@ namespace Groepswerk
             framePages.Navigate(oefNederlandsMoeilijk);
         }
 
-        //navigatie oefeningen
-        //Author: Seppe
+        // Navigatie oefeningen
+        // Author: Seppe
         private void MnuWoMakkelijk_Click(object sender, RoutedEventArgs e)
         {
             OefWoMakkelijk oefWoMakkelijk = new OefWoMakkelijk(ActieveGebruiker);
@@ -132,9 +132,9 @@ namespace Groepswerk
             OefWoMoeilijk oefWoMoeilijk = new OefWoMoeilijk(ActieveGebruiker);
             framePages.Navigate(oefWoMoeilijk);
         }
-        //aanpassen oefening
-        //Author: Thomas Cox
-        //Date: 22/04/2015
+        // Aanpassen oefening
+        // Author: Thomas Cox
+        // Date: 22/04/2015
         private void MnuBewerkenMakkelijk_Click(object sender, RoutedEventArgs e)
         {
             OefNederlands1AanpassenMakkelijk oefNederlandsAanpassenMakkelijk = new OefNederlands1AanpassenMakkelijk(actieveGebruiker);
@@ -151,8 +151,8 @@ namespace Groepswerk
             framePages.Navigate(nederlandsOefAanpassenMoeilijk);
         }
 
-        //author: seppe Vandezande
-        //date:04/05/2015
+        // Author: seppe Vandezande
+        // Date:04/05/2015
        
         private void MnuWoBewerkenMakkelijk_Click(object sender, RoutedEventArgs e)
         {
@@ -198,7 +198,7 @@ namespace Groepswerk
         }
 
         //Methods
-        private void PasBalkAan() //hier beschikbaarheid menu's aanpassen
+        private void PasBalkAan() //Hier beschikbaarheid menu's aanpassen
         {
             if (ActieveGebruiker != null)
             {

@@ -23,7 +23,7 @@ namespace Groepswerk
      * 
      * Random getallen genereren en gebruiken om oefeningen te berekenen. De uitkomst hiervan opslaan in een lijst.
      * Deze lijst vergelijken met de ingevoerde antwoorden van de gebruiker en het aantal juiste antwoorden weergeven als punten.
-     * gespendeerde tijd wordt bijgehouden.
+     * Gespendeerde tijd wordt bijgehouden.
      */
     public partial class OefeningWiskundeMoeilijk : Page
     {
@@ -42,15 +42,15 @@ namespace Groepswerk
         private string moeilijkheidsgraad = "MOE";
 
         //Constructors
+        // Eerst worden er random getallen gegenereerd, deze worden nadien gebruikt om de opgaves en oplossingen te berekenen die opgeslagen worden in een lijsten. 
+        // Het random gegenereerde getal "randomTeken1" bepaald of de berekening opgeteld of afgetrokken gaat worden.
+
         public OefeningWiskundeMoeilijk(Gebruiker actieveGebruiker)
         {       
             InitializeComponent();
             this.actieveGebruiker = actieveGebruiker;
             tijdTeller = new Stopwatch();
             tijdTeller.Start();
-
-            // of 2 random getallen tss 10 laten maken en die uitkomst ervan laten berekenen en opslaan in lijst (txt bestand)
-            // lijst vergelijken met de user input
 
             VulRanges();
 
@@ -62,9 +62,7 @@ namespace Groepswerk
                 randomGetal4 = RandomTest.Next(beginBereik, eindBereik + 1);
                 randomTeken1 = RandomTest.Next(0, 2);
 
-                // eerst uitkomst berekenen en die opslaan in labels
-                // uitkomst ingeven als gebruiker en testen met verbeterknop
-
+                
                 if (randomTeken1 == 1)
                 {
                     oplossingLijst[i] = randomGetal1 * randomGetal2 + randomGetal3 * randomGetal4;
@@ -130,7 +128,7 @@ namespace Groepswerk
             lijst.SchrijfLijst("OefResultatenWiskMoe.txt");
         }
 
-       /*Events
+       /* Events
 
         * Punten worden eerst terug op 0 gezet, opnieuw berekend en toonbaar gemaakt. 
         * De ingegeven oplossingen worden vergelekekn met de oplossingen die in de lijst staan opgeslagen.
@@ -263,7 +261,7 @@ namespace Groepswerk
 
             }
 
-                // Deze catch zorgt ervoor dat er altijd een antwoord moet ingevuld worden.
+            // Deze catch zorgt ervoor dat er altijd een antwoord moet ingevuld worden.
             // Als er letters worden ingegeven in plaats van cijfers worden deze als fout beschouwd.
             catch (FormatException)
             {
@@ -272,8 +270,8 @@ namespace Groepswerk
 
         }
 
-        //author: Vincent Vandoninck
-        //date: 04/05/2015
+        // Author: Vincent Vandoninck
+        // Date: 04/05/2015
 
         // Navigatie terug naar het leerlingenmenu.
         private void TerugButton_Click(object sender, RoutedEventArgs e)
