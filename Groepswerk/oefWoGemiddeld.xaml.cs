@@ -160,7 +160,7 @@ namespace Groepswerk
             }
             lijst.SchrijfLijst();
             SchrijfPunten();
-            Score.Content = oefCorrect + "/5";
+            Score.Content = Convert.ToString(oefCorrect) + "/5";
             }
 
         private void terugButton_Click(object sender, RoutedEventArgs e)//terugkeren naar hoofdmenu

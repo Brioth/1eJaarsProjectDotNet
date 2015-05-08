@@ -154,7 +154,7 @@ namespace Groepswerk
             }
             lijst.SchrijfLijst();
             SchrijfPunten();
-            Score.Content = oefCorrect + "/5";
+            Score.Content = Convert.ToString(oefCorrect) + "/5";
            
             }
         
