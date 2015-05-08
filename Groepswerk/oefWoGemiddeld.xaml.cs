@@ -156,7 +156,7 @@ namespace Groepswerk
             foreach(Gebruiker item in lijst)
             {
                 if(actieveGebruiker.Id.Equals(item.Id))
-                    item.actieveGebruiker.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
+                    item.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
             }
             lijst.SchrijfLijst();
             SchrijfPunten();
