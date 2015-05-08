@@ -104,7 +104,24 @@ namespace Groepswerk
             oplossing5.ItemsSource = oefLijst5;
 
         }
+        private void SchrijfPunten()
+        {
 
+            ResultatenLijst lijst = new ResultatenLijst("OefNederlands1MakkelijkResultaten.txt");
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect, gespendeerdeTijd, lijst);
+            if (nieuw.IndexOud == -1)
+            {
+                lijst.Add(nieuw);
+
+            } //end if
+            else
+            {
+                lijst.Add(nieuw);
+                lijst.RemoveAt(nieuw.IndexOud);
+            } // end else
+            lijst.SchrijfLijst("OefNederlands1MakkelijkResultaten.txt");
+
+        }
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
             tijdTeller.Stop();
@@ -174,30 +191,13 @@ namespace Groepswerk
             {
                 if (actieveGebruiker.Id.Equals(item.Id))
                 {
-                    actieveGebruiker.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
+                    item.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
                 }
             }
             lijst.SchrijfLijst();
             SchrijfPunten();
         }
-        private void SchrijfPunten()
-        {
-
-            ResultatenLijst lijst = new ResultatenLijst("OefNederlands1MakkelijkResultaten.txt");
-            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect, gespendeerdeTijd, lijst);
-            if (nieuw.IndexOud == -1)
-            {
-                lijst.Add(nieuw);
-
-            } //end if
-            else
-            {
-                lijst.Add(nieuw);
-                lijst.RemoveAt(nieuw.IndexOud);
-            } // end else
-            lijst.SchrijfLijst("OefNederlands1MakkelijkResultaten.txt");
-
-        }
+        
         private void terugButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het leerlingenmenu?", "Terug", MessageBoxButton.YesNo);

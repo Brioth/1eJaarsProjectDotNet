@@ -46,10 +46,10 @@ namespace Groepswerk
         public ZombieSpel(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
+            this.actieveGebruiker = actieveGebruiker;
 
             if (actieveGebruiker.GameTijdSec!=0)
             {
-                this.actieveGebruiker = actieveGebruiker;
                 Speler = new ZombieSpelSpeler();
                 Computer = new ZombieSpelComputer();
 

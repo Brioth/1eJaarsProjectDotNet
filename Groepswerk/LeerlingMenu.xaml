@@ -28,8 +28,8 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Name="lblBegroeting" FontWeight="SemiBold" Content="" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Margin="20,10,20,10"  HorizontalAlignment="Center"/>
-        <Label Content="Taal" FontWeight="SemiBold" Grid.Row="3" Grid.Column="1" Margin="20,10,20,10"/>
-        <Label Content="Rekenen" FontWeight="SemiBold" Grid.Row="4" Grid.Column="1" Margin="20,10,20,10"/>
+        <Label Content="Nederlands" FontWeight="SemiBold" Grid.Row="3" Grid.Column="1" Margin="20,10,20,10"/>
+        <Label Content="Wiskunde" FontWeight="SemiBold" Grid.Row="4" Grid.Column="1" Margin="20,10,20,10"/>
         <Label Content="Wereld Oriëntatie" FontWeight="SemiBold" Grid.Row="5" Grid.Column="1" Margin="20,10,20,10"/>
         <Button Name="btnTaalMak" Content="Makkelijk" Grid.Row="3" Grid.Column="2" Margin="5" TabIndex="1" Click="btnTaalMak_Click"/>
         <Button Name="btnTaalGem" Content="Gemiddeld" Grid.Row="3" Grid.Column="3" Margin="5" TabIndex="2" Click="btnTaalGem_Click"/>

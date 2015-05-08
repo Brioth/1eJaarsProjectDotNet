@@ -27,7 +27,7 @@ namespace Groepswerk
         private const string moeilijkheidsgraad = "MED";
         private List<string> oefLijst1, oefLijst2, oefLijst3, oefLijst4, oefLijst5;
         private List<int> oefeningNummerLijst;
-        Gebruiker actieveGebruiker;
+        private Gebruiker actieveGebruiker;
         private Stopwatch tijdGespendeerd;
         public OefNederlands1Gemiddeld(Gebruiker actieveGebruiker)
         {
@@ -97,12 +97,30 @@ namespace Groepswerk
             oplossing5.ItemsSource = oefLijst5;
             
         }
+        private void SchrijfPunten()
+        {
+            ResultatenLijst lijst = new ResultatenLijst("OefNederlands1GemiddeldResultaten.txt");
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect * 2, gespendeerdeTijd, lijst);
+
+            if (nieuw.IndexOud == -1)
+            {
+                lijst.Add(nieuw);
+            }
+            else
+            {
+                lijst.Add(nieuw);
+                lijst.RemoveAt(nieuw.IndexOud);
+            }
+            lijst.SchrijfLijst("OefNederlands1GemiddeldResultaten.txt");
+        }
 
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
             tijdGespendeerd.Stop();
             gespendeerdeTijd = Convert.ToInt32(tijdGespendeerd.ElapsedMilliseconds * 1000);
             oefCorrect = 0;
+            verbeterButton.IsEnabled = false;
+
             if (!(Convert.ToString(oplossing1.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[0]].correcteOplossing)))
             {
                 opgave1.Text = lijstOefeningen[oefeningNummerLijst[0]].juisteAntwoordCompleet;
@@ -122,7 +140,7 @@ namespace Groepswerk
             else
             {
                 oefCorrect++;
-                opgave1.Background = Brushes.Green;
+                opgave2.Background = Brushes.Green;
             }
 
             if (!(Convert.ToString(oplossing3.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[2]].correcteOplossing)))
@@ -157,36 +175,24 @@ namespace Groepswerk
                 oefCorrect++;
                 opgave5.Background = Brushes.Green;
             }
-            Punten.Text = Convert.ToString(oefCorrect) + "/5";
-
-
+            
             AlleGebruikersLijst lijst = new AlleGebruikersLijst();
             foreach (Gebruiker item in lijst)
             {
                 if (actieveGebruiker.Id.Equals(item.Id))
-                    actieveGebruiker.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
+                {
+                    item.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
+                }
             }
+
             lijst.SchrijfLijst();
 
             SchrijfPunten();
+
+            Punten.Text = Convert.ToString(oefCorrect) + "/5";
         }
 
-        private void SchrijfPunten()
-        {
-            ResultatenLijst lijst = new ResultatenLijst("resultaatNederlands1Gemiddeld.txt");
-            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect * 2, gespendeerdeTijd, lijst);
-
-            if (nieuw.IndexOud == -1)
-            {
-                lijst.Add(nieuw);
-            }
-            else
-            {
-                lijst.Add(nieuw);
-                lijst.RemoveAt(nieuw.IndexOud);
-            }
-            lijst.SchrijfLijst("resultaatNederlands1Gemiddeld.txt");
-        }
+        
 
         private void terugButton_Click(object sender, RoutedEventArgs e)
         {
