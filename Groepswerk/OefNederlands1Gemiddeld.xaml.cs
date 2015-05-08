@@ -122,7 +122,7 @@ namespace Groepswerk
             else
             {
                 oefCorrect++;
-                opgave1.Background = Brushes.Green;
+                opgave2.Background = Brushes.Green;
             }
 
             if (!(Convert.ToString(oplossing3.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[2]].correcteOplossing)))
