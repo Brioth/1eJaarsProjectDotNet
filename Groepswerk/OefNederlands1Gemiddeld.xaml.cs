@@ -27,7 +27,7 @@ namespace Groepswerk
         private const string moeilijkheidsgraad = "MED";
         private List<string> oefLijst1, oefLijst2, oefLijst3, oefLijst4, oefLijst5;
         private List<int> oefeningNummerLijst;
-        Gebruiker actieveGebruiker;
+        private Gebruiker actieveGebruiker;
         private Stopwatch tijdGespendeerd;
         public OefNederlands1Gemiddeld(Gebruiker actieveGebruiker)
         {
