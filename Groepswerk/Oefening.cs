@@ -22,6 +22,7 @@ namespace Groepswerk
             this.juisteAntwoordCompleet = juisteAntwoordCompleet;
         }
 
+        
         public Oefening(string opgave, string oplossing, string juisteAntwoordCompleet)
         {
             this.opgave = opgave;
@@ -29,6 +30,8 @@ namespace Groepswerk
             this.juisteAntwoordCompleet = juisteAntwoordCompleet;
             
         }
+        //author: Seppe Vandezande
+        //date: 16/04/2015
         public Oefening(string opgave, string oplossing)
         {
             this.opgave = opgave;
@@ -49,6 +52,8 @@ namespace Groepswerk
                 break;
             }
         }
+        //author: Seppe Vandezande
+        //date:04/05/2015
         public String SchrijfString()
         {
             return (opgave + ";" + oplossing);

@@ -65,7 +65,9 @@ namespace Groepswerk
                     }
                     bestandOefeningMoeilijk.Close();
                     break;
-
+                    //author: Seppe Vandezande
+                    //date: 05/005/2015
+                    // moeilijkheidsgraad controleren om te weten welk bestand in te lezen.
                 case ("WoMakkelijk"):
                      StreamReader bestandOefeningMakkelijkWo = File.OpenText(@"oefWoMakkelijk.txt");
                     string regelMakkelijkWo = bestandOefeningMakkelijkWo.ReadLine();
@@ -119,6 +121,8 @@ namespace Groepswerk
              
             }
         }
+        //author: Seppe Vandezande
+        //Date: 05/05/2015
         public void SchrijfLijst(string bestand)
         {
             File.WriteAllText(bestand, String.Empty);
@@ -129,7 +133,8 @@ namespace Groepswerk
             }
             schrijver.Close();
         }
-
+        //author: Thomas Cox
+        //date: 06/05/2015
         public void SchrijfLijstTaal(string bestand, string sleutelwoord)
         {
             File.WriteAllText(bestand, String.Empty);
