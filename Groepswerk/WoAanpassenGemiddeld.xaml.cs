@@ -21,30 +21,31 @@ namespace Groepswerk
     /// </summary>
     public partial class WoAanpassenGemiddeld : Page
     {
-      private OefeningLijst Oeflijst;
-        private Oefening Oefening;
+      private OefeningLijst oeflijst;
+        private Oefening oefening;
         private string bestand = "oefWoGemiddeld.txt";
+        private string moeilijkheid = "WoGemiddeld";
         public WoAanpassenGemiddeld()
         {
             InitializeComponent();
-            Oeflijst = new OefeningLijst("WoGemiddeld");
-            lboxItemsLijst.ItemsSource = Oeflijst;
+            oeflijst = new OefeningLijst(moeilijkheid);
+            lboxItemsLijst.ItemsSource = oeflijst;
             lboxItemsLijst.SelectedIndex = 0;
         }
         private void ItemsLijst_Changed(object sender, SelectionChangedEventArgs e)
         {
             if (lboxItemsLijst.SelectedIndex != -1)
             {
-                Oefening = (Oefening)lboxItemsLijst.SelectedItem;
-                txtbLand.Text = Oefening.opgave;
-                txtbHoofdstad.Text = Oefening.oplossing;
+                oefening = (Oefening)lboxItemsLijst.SelectedItem;
+                txtbLand.Text = oefening.opgave;
+                txtbHoofdstad.Text = oefening.oplossing;
             }
         }
         private void BtnNieuw_Click(object sender, RoutedEventArgs e)
         {
             Oefening nieuwItem = new Oefening(txtbLand.Text, txtbHoofdstad.Text);
-            Oeflijst.Add(nieuwItem);
-            Oeflijst.SchrijfLijst(bestand);
+            oeflijst.Add(nieuwItem);
+            oeflijst.SchrijfLijst(bestand);
             UpdateLijst();
 
 
@@ -52,8 +53,8 @@ namespace Groepswerk
 
         private void UpdateLijst()
         {
-            Oeflijst = new OefeningLijst("WoGemiddeld");
-            lboxItemsLijst.ItemsSource = Oeflijst;
+            oeflijst = new OefeningLijst(moeilijkheid);
+            lboxItemsLijst.ItemsSource = oeflijst;
             lboxItemsLijst.SelectedIndex = 0;
         }
 
@@ -61,9 +62,9 @@ namespace Groepswerk
         {
 
             Oefening aangepasteOef = new Oefening(txtbLand.Text, txtbHoofdstad.Text);
-            Oeflijst.Add(aangepasteOef);
-            Oeflijst.Remove(Oefening);
-            Oeflijst.SchrijfLijst(bestand);
+            oeflijst.Add(aangepasteOef);
+            oeflijst.Remove(oefening);
+            oeflijst.SchrijfLijst(bestand);
             UpdateLijst();
 
 
@@ -77,8 +78,8 @@ namespace Groepswerk
                 case MessageBoxResult.No:
                     break;
                 case MessageBoxResult.Yes:
-                    Oeflijst.Remove(Oefening);
-                    Oeflijst.SchrijfLijst(bestand);
+                    oeflijst.Remove(oefening);
+                    oeflijst.SchrijfLijst(bestand);
                     UpdateLijst();
                     break;
                 default:

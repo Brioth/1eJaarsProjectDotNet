@@ -20,7 +20,7 @@ namespace Groepswerk
     /// </summary>
     /// //author: Seppe Vandezande
     /// //Date:28/04/2015
-    public partial class oefWoMakkelijk : Page
+    public partial class OefWoMakkelijk : Page
     {
         private Gebruiker actieveGebruiker;
         private OefeningLijst lijstOefeningen;
@@ -34,7 +34,7 @@ namespace Groepswerk
         private int totaalTijd;
         private Stopwatch tijdTeller;
        
-        public oefWoMakkelijk( Gebruiker actieveGebruiker){
+        public OefWoMakkelijk( Gebruiker actieveGebruiker){
             
           InitializeComponent();
           tijdTeller = new Stopwatch();
@@ -84,7 +84,7 @@ namespace Groepswerk
             lijst.SchrijfLijst("resultaatWoMakkelijk.txt");
         }
         
-        private void controleer_Click(object sender, RoutedEventArgs e)
+        private void Controleer_Click(object sender, RoutedEventArgs e)
         {
             controleer.IsEnabled = false;
             tijdTeller.Stop();
@@ -161,7 +161,7 @@ namespace Groepswerk
             }
         
 
-        private void terugButton_Click(object sender, RoutedEventArgs e)
+        private void TerugButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het leerlingenmenu?", "Terug", MessageBoxButton.YesNo);
             switch (terug)
@@ -177,9 +177,9 @@ namespace Groepswerk
             }
         }
 
-        private void opnieuwButton_Click(object sender, RoutedEventArgs e)
+        private void OpnieuwButton_Click(object sender, RoutedEventArgs e)
         {
-            oefWoMakkelijk makkelijk = new oefWoMakkelijk(actieveGebruiker);
+            OefWoMakkelijk makkelijk = new OefWoMakkelijk(actieveGebruiker);
             this.NavigationService.Navigate(makkelijk);
         }
         }

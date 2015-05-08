@@ -18,7 +18,9 @@ namespace Groepswerk
     /// <summary>
     /// Interaction logic for oefWoGemiddeld.xaml
     /// </summary>
-    public partial class oefWoGemiddeld : Page
+    /// author: Seppe Vandezande
+    /// date: 24/04/2015
+    public partial class OefWoGemiddeld : Page
     {
         private Gebruiker actieveGebruiker;
         private OefeningLijst lijstOefeningen;
@@ -32,19 +34,21 @@ namespace Groepswerk
         private int totaalTijd;
         private Stopwatch tijdTeller;
 
-        public oefWoGemiddeld( Gebruiker actieveGebruiker){
+        public OefWoGemiddeld( Gebruiker actieveGebruiker){
           
           InitializeComponent();
+            //stopwatch initialiseren en starten, om gespeelde tijd te weten
           tijdTeller = new Stopwatch();
           tijdTeller.Start();
           this.actieveGebruiker = actieveGebruiker;
+            //lijst vullen met opgaven
             lijstOefeningen = new OefeningLijst("WoGemiddeld");
             oefeningNummerLijst = new List<int>();
 
             tempOpgave = new string[5];
             tempOplossing1 = new string[5];
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 5; i++)// 5 willekeurige opgaven kiezen
             {
                 oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count )));
 
@@ -67,7 +71,7 @@ namespace Groepswerk
 
         }
 
-        private void SchrijfPunten()
+        private void SchrijfPunten()//punten wegschrijven naar tekstfile
         {
             ResultatenLijst lijst = new ResultatenLijst("resultaatWoGemiddeld.txt");
             Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect*2, totaalTijd, lijst);
@@ -84,11 +88,14 @@ namespace Groepswerk
             lijst.SchrijfLijst("resultaatWoGemiddeld.txt");
         }
 
+
+        // hier worden de antwoorden gecontroleerd. Na controle worden achter de tekstvelden de correcte oplossingen getoond. Ook de tekstvakken worden gekleurd
+        // bij correct/foute oplossing. er is geen invoercontrole op hoofdletters aangezien Steden met een hoofdletter beginnen.
         private void controleer_Click(object sender, RoutedEventArgs e)
         {
             controleer.IsEnabled = false;
             tijdTeller.Stop();
-            totaalTijd = Convert.ToInt32(tijdTeller.ElapsedMilliseconds / 1000);
+            totaalTijd = Convert.ToInt32(tijdTeller.ElapsedMilliseconds / 1000);//timer stoppen en omzetten naar seconden.
 
 
             if (!((textbox1.Text).Equals (lijstOefeningen[oefeningNummerLijst[0]].oplossing)))
@@ -151,13 +158,12 @@ namespace Groepswerk
                 if(actieveGebruiker.Id.Equals(item.Id))
                  actieveGebruiker.SetGameTijd(oefCorrect*2,moeilijkheidsgraad);
             }
-           lijst.SchrijfLijst();
-           
+            lijst.SchrijfLijst();
             SchrijfPunten();
             Score.Content = oefCorrect + "/5";
             }
 
-        private void terugButton_Click(object sender, RoutedEventArgs e)
+        private void terugButton_Click(object sender, RoutedEventArgs e)//terugkeren naar hoofdmenu
         {
             MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het leerlingenmenu?", "Terug", MessageBoxButton.YesNo);
             switch (terug)
@@ -173,9 +179,9 @@ namespace Groepswerk
             }
         }
 
-        private void opnieuwButton_Click(object sender, RoutedEventArgs e)
+        private void opnieuwButton_Click(object sender, RoutedEventArgs e)//oefening herstarten
         {
-            oefWoGemiddeld gemiddeld = new oefWoGemiddeld(actieveGebruiker);
+            OefWoGemiddeld gemiddeld = new OefWoGemiddeld(actieveGebruiker);
             this.NavigationService.Navigate(gemiddeld);
         }
         }

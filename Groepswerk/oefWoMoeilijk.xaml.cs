@@ -18,7 +18,9 @@ namespace Groepswerk
     /// <summary>
     /// Interaction logic for oefWoMoeilijk.xaml
     /// </summary>
-    public partial class oefWoMoeilijk : Page
+    /// author: Seppe Vandezande
+    /// date: 26/04/2015
+    public partial class OefWoMoeilijk : Page
     {
         private Gebruiker actieveGebruiker;
         private string moeilijkheidsgraad = "MOE";
@@ -32,19 +34,20 @@ namespace Groepswerk
         private int totaalTijd;
         private Stopwatch tijdTeller;
 
-        public oefWoMoeilijk( Gebruiker actieveGebruiker){
+        public OefWoMoeilijk( Gebruiker actieveGebruiker){
             
           InitializeComponent();
           this.actieveGebruiker = actieveGebruiker;
+          //stopwatch initialiseren en starten, om gespeelde tijd te weten
           tijdTeller = new Stopwatch();
           tijdTeller.Start();
-            lijstOefeningen = new OefeningLijst("WoMoeilijk");
+            lijstOefeningen = new OefeningLijst("WoMoeilijk");//lijst vullen met alle oefeningen
             oefeningNummerLijst = new List<int>();
 
             tempOpgave = new string[5];
             tempOplossing1 = new string[5];
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 5; i++)//5 willekeurige oefeningen kiezen
             {
                 oefeningenNummerOpslag = Convert.ToInt32(oefeningenNummer.Next(0, (lijstOefeningen.Count )));
 
@@ -68,7 +71,7 @@ namespace Groepswerk
         }
 
        
-        private void SchrijfPunten() {
+        private void SchrijfPunten() {//punten wegschrijven naar tekstfile
            
             ResultatenLijst lijst = new ResultatenLijst("resultaatWoMoeilijk.txt");
             Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect*2, totaalTijd, lijst);
@@ -85,11 +88,11 @@ namespace Groepswerk
             lijst.SchrijfLijst("resultaatWoMoeilijk.txt");
         }
         
-        private void controleer_Click(object sender, RoutedEventArgs e)
+        private void controleer_Click(object sender, RoutedEventArgs e)//antwoorden controleren en score doorsturen
         {
             controleer.IsEnabled = false;
             tijdTeller.Stop();
-            totaalTijd = Convert.ToInt32(tijdTeller.ElapsedMilliseconds / 1000);
+            totaalTijd = Convert.ToInt32(tijdTeller.ElapsedMilliseconds / 1000);//timer stoppen en omzetten naar seconden.
 
             if (!((textbox1.Text).Equals (lijstOefeningen[oefeningNummerLijst[0]].oplossing)))
             {
@@ -150,7 +153,7 @@ namespace Groepswerk
             foreach (Gebruiker item in lijst)
             {
                 if (actieveGebruiker.Id.Equals(item.Id))
-                    actieveGebruiker.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
+                    actieveGebruiker.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);//gewonnen gametijd berekenen
             }
             lijst.SchrijfLijst();
 
@@ -158,7 +161,7 @@ namespace Groepswerk
             Score.Content = oefCorrect + "/5";
             }
 
-        private void terugButton_Click(object sender, RoutedEventArgs e)
+        private void TerugButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het leerlingenmenu?", "Terug", MessageBoxButton.YesNo);
             switch (terug)
@@ -174,9 +177,9 @@ namespace Groepswerk
             }
         }
 
-        private void opnieuwButton_Click(object sender, RoutedEventArgs e)
+        private void OpnieuwButton_Click(object sender, RoutedEventArgs e)
         {
-            oefWoMoeilijk moeilijk = new oefWoMoeilijk(actieveGebruiker);
+            OefWoMoeilijk moeilijk = new OefWoMoeilijk(actieveGebruiker);
             this.NavigationService.Navigate(moeilijk);
         }
         }

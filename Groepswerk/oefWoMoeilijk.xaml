@@ -1,4 +1,4 @@
-﻿<Page x:Class="Groepswerk.oefWoMoeilijk"
+﻿<Page x:Class="Groepswerk.OefWoMoeilijk"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       
@@ -56,8 +56,8 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-            <Button  Content="terug"  Margin="5"  Grid.Column="0" Grid.Row="0" Click="terugButton_Click"/>
-            <Button  Content="opnieuw"   Margin="5"   Grid.Column="1" Grid.Row="0" Click="opnieuwButton_Click"/>
+            <Button  Content="terug"  Margin="5"  Grid.Column="0" Grid.Row="0" Click="TerugButton_Click"/>
+            <Button  Content="opnieuw"   Margin="5"   Grid.Column="1" Grid.Row="0" Click="OpnieuwButton_Click"/>
         </Grid>
         <Label x:Name="Score" Grid.Column="5" HorizontalAlignment="Left" Margin="20,10,20,10" Grid.Row="2" VerticalAlignment="Top"/>
 

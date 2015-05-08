@@ -118,17 +118,17 @@ namespace Groepswerk
         //Author: Seppe
         private void MnuWoMakkelijk_Click(object sender, RoutedEventArgs e)
         {
-            oefWoMakkelijk oefWoMakkelijk = new oefWoMakkelijk(ActieveGebruiker);
+            OefWoMakkelijk oefWoMakkelijk = new OefWoMakkelijk(ActieveGebruiker);
             framePages.Navigate(oefWoMakkelijk);
         }
         private void MnuWoGemiddeld_Click(object sender, RoutedEventArgs e)
         {
-            oefWoGemiddeld oefWoGemiddeld = new oefWoGemiddeld(ActieveGebruiker);
+            OefWoGemiddeld oefWoGemiddeld = new OefWoGemiddeld(ActieveGebruiker);
             framePages.Navigate(oefWoGemiddeld);
         }
         private void MnuWoMoeilijk_Click(object sender, RoutedEventArgs e)
         {
-            oefWoMoeilijk oefWoMoeilijk = new oefWoMoeilijk(ActieveGebruiker);
+            OefWoMoeilijk oefWoMoeilijk = new OefWoMoeilijk(ActieveGebruiker);
             framePages.Navigate(oefWoMoeilijk);
         }
         //aanpassen oefening

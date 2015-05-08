@@ -69,17 +69,17 @@ namespace Groepswerk
         //Buttons Seppe
         private void btnWOMak_Click(object sender, RoutedEventArgs e)
         {
-            oefWoMakkelijk makkelijk = new oefWoMakkelijk(ActieveGebruiker);
+            OefWoMakkelijk makkelijk = new OefWoMakkelijk(ActieveGebruiker);
             this.NavigationService.Navigate(makkelijk);
         }
         private void btnWoGem_Click(object sender, RoutedEventArgs e)
         {
-            oefWoGemiddeld gemiddeld = new oefWoGemiddeld(ActieveGebruiker);
+            OefWoGemiddeld gemiddeld = new OefWoGemiddeld(ActieveGebruiker);
             this.NavigationService.Navigate(gemiddeld);
         }
         private void btnWoMoe_Click(object sender, RoutedEventArgs e)
         {
-            oefWoMoeilijk moeilijk = new oefWoMoeilijk(ActieveGebruiker);
+            OefWoMoeilijk moeilijk = new OefWoMoeilijk(ActieveGebruiker);
             this.NavigationService.Navigate(moeilijk);
         }
         //Buttons Thomas
