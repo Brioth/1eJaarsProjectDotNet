@@ -153,7 +153,7 @@ namespace Groepswerk
             {
                 if (actieveGebruiker.Id.Equals(item.Id))
                 {
-                    actieveGebruiker.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
+                    item.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
                 }
             }
             lijst.SchrijfLijst();
