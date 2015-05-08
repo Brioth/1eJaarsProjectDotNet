@@ -264,7 +264,7 @@ namespace Groepswerk
 
                 }
 
-                    // Deze catch zorgt ervoor dat er altijd een antwoord moet ingevuld worden.
+                // Deze catch zorgt ervoor dat er altijd een antwoord moet ingevuld worden.
                 // Als er letters worden ingegeven in plaats van cijfers worden deze als fout beschouwd.
                 catch (FormatException)
                 {
