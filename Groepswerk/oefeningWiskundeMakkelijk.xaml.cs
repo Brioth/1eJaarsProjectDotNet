@@ -164,7 +164,7 @@ namespace Groepswerk
         }
 
         /* Author: Vincent Vandoninck
-         * Date: 01/05/2015
+         * Date: 30/04/2015
          * Op 28/04/2015 werd duidelijk dat de oefening niet ging werken in het project, dus ben opnieuw begonnen.
         */
 
