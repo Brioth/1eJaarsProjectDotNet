@@ -23,8 +23,8 @@ namespace Groepswerk
         private OefeningLijst lijstOefeningen;
         private string[] tempOpgave, tempOplossing1, tempOplossing2, tempOplossing3;
         private Random oefeningenNummer = new Random();
-        private int oefeningenNummerOpslag, oefCorrect;
-        private long gespendeerdeTijd;
+        private int oefeningenNummerOpslag, oefCorrect, gespendeerdeTijd;
+        private const string moeilijkheidsgraad = "GEM";
         private List<string> oefLijst1, oefLijst2, oefLijst3, oefLijst4, oefLijst5;
         private List<int> oefeningNummerLijst;
         Gebruiker actieveGebruiker;
@@ -101,53 +101,91 @@ namespace Groepswerk
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
             tijdGespendeerd.Stop();
-            gespendeerdeTijd = tijdGespendeerd.ElapsedMilliseconds * 1000;
+            gespendeerdeTijd = Convert.ToInt32(tijdGespendeerd.ElapsedMilliseconds * 1000);
             oefCorrect = 0;
             if (!(Convert.ToString(oplossing1.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[0]].correcteOplossing)))
             {
                 opgave1.Text = lijstOefeningen[oefeningNummerLijst[0]].juisteAntwoordCompleet;
+                opgave1.Background = Brushes.Red;
             }
             else
             {
                 oefCorrect++;
+                opgave1.Background = Brushes.Green;
             }
 
             if (!(Convert.ToString(oplossing2.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[1]].correcteOplossing)))
             {
                 opgave2.Text = lijstOefeningen[oefeningNummerLijst[1]].juisteAntwoordCompleet;
+                opgave2.Background = Brushes.Red;
             }
             else
             {
                 oefCorrect++;
+                opgave1.Background = Brushes.Green;
             }
 
             if (!(Convert.ToString(oplossing3.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[2]].correcteOplossing)))
             {
                 opgave3.Text = lijstOefeningen[oefeningNummerLijst[2]].juisteAntwoordCompleet;
+                opgave3.Background = Brushes.Red;
             }
             else
             {
                 oefCorrect++;
+                opgave3.Background = Brushes.Green;
             }
 
             if (!(Convert.ToString(oplossing4.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[3]].correcteOplossing)))
             {
                 opgave4.Text = lijstOefeningen[oefeningNummerLijst[3]].juisteAntwoordCompleet;
+                opgave4.Background = Brushes.Red;
             }
             else
             {
                 oefCorrect++;
+                opgave4.Background = Brushes.Green;
             }
 
             if (!(Convert.ToString(oplossing5.SelectionBoxItem).Equals(lijstOefeningen[oefeningNummerLijst[4]].correcteOplossing)))
             {
-                opgave5.Text = lijstOefeningen[oefeningNummerLijst[4]].juisteAntwoordCompleet;
+                opgave5.Text = lijstOefeningen[oefeningNummerLijst[4]].juisteAntwoordCompleet; 
+                opgave5.Background = Brushes.Red;
             }
             else
             {
                 oefCorrect++;
+                opgave5.Background = Brushes.Green;
             }
             Punten.Text = Convert.ToString(oefCorrect) + "/5";
+
+
+            AlleGebruikersLijst lijst = new AlleGebruikersLijst();
+            foreach (Gebruiker item in lijst)
+            {
+                if (actieveGebruiker.Id.Equals(item.Id))
+                    actieveGebruiker.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
+            }
+            lijst.SchrijfLijst();
+
+            SchrijfPunten();
+        }
+
+        private void SchrijfPunten()
+        {
+            ResultatenLijst lijst = new ResultatenLijst("resultaatNederlands1Gemiddeld.txt");
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect * 2, gespendeerdeTijd, lijst);
+
+            if (nieuw.IndexOud == -1)
+            {
+                lijst.Add(nieuw);
+            }
+            else
+            {
+                lijst.Add(nieuw);
+                lijst.RemoveAt(nieuw.IndexOud);
+            }
+            lijst.SchrijfLijst("resultaatNederlands1Gemiddeld.txt");
         }
 
         private void terugButton_Click(object sender, RoutedEventArgs e)

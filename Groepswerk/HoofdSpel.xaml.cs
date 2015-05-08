@@ -20,7 +20,7 @@ namespace Groepswerk
 {
     /* --BolletjesSpel--
      * 2 tegenstanders met lijst pionnen worden aangemaakt
-     * Timers om bewegingen te controleren, nieuwe pionnen te spawnen om het spel te stoppen als je tijd op is, en de overgebleven tijd laat zien
+     * Timers om bewegingen te controleren, nieuwe pionnen te spawnen, timer om het spel te stoppen als je tijd op is en de overgebleven tijd laat zien
      * Basisverloop spel wordt hier gecontroleerd
      * User interaction: Je kan op je eigen kleur klikken en dan verplaatst je pion naar een andere random plaats
      * Score: (eigen bolletjes * 4 + eigen vierkantjes * ) - (computerbolletjes * 2 + computervierkantjes * 1)
@@ -31,7 +31,7 @@ namespace Groepswerk
     {
         //Lokale variabelen
         private Gebruiker actieveGebruiker;
-        private DispatcherTimer animationTimer, spawnTimer, speltijdTimer, aftelTimer;//Wnr alles beweegt
+        private DispatcherTimer animationTimer, spawnTimer, aftelTimer;//Wnr alles beweegt
         private int resterendeTijd;
 
         //Constructors
@@ -39,62 +39,52 @@ namespace Groepswerk
         {
             InitializeComponent();
 
-            this.actieveGebruiker = actieveGebruiker;
-            Speler = new HoofdspelSpeler();
-            Computer = new HoofdspelSpeler();
+            if (actieveGebruiker.GameTijdSec!=0)
+            {
+                this.actieveGebruiker = actieveGebruiker;
+                Speler = new HoofdspelSpeler();
+                Computer = new HoofdspelSpeler();
 
-            Binding BSpeler = new Binding("Bolletjes.Count");
-            BSpeler.Source = Speler;
-            txtbRoodB.SetBinding(TextBlock.TextProperty, BSpeler);
+                Binding BSpeler = new Binding("Bolletjes.Count");
+                BSpeler.Source = Speler;
+                txtbRoodB.SetBinding(TextBlock.TextProperty, BSpeler);
 
-            Binding VSpeler = new Binding("Vierkantjes.Count");
-            VSpeler.Source = Speler;
-            txtbRoodV.SetBinding(TextBlock.TextProperty, VSpeler);
+                Binding VSpeler = new Binding("Vierkantjes.Count");
+                VSpeler.Source = Speler;
+                txtbRoodV.SetBinding(TextBlock.TextProperty, VSpeler);
 
-            Binding BComputer = new Binding("Bolletjes.Count");
-            BComputer.Source = Computer;
-            txtbBlauwB.SetBinding(TextBlock.TextProperty, BComputer);
+                Binding BComputer = new Binding("Bolletjes.Count");
+                BComputer.Source = Computer;
+                txtbBlauwB.SetBinding(TextBlock.TextProperty, BComputer);
 
-            Binding VComputer = new Binding("Vierkantjes.Count");
-            VComputer.Source = Computer;
-            txtbBlauwV.SetBinding(TextBlock.TextProperty, VComputer);
+                Binding VComputer = new Binding("Vierkantjes.Count");
+                VComputer.Source = Computer;
+                txtbBlauwV.SetBinding(TextBlock.TextProperty, VComputer);
 
-            speltijdTimer = new DispatcherTimer();
-            speltijdTimer.Interval = TimeSpan.FromSeconds(this.actieveGebruiker.GameTijdSec);
-            speltijdTimer.Tick += EindeSpel_Tick;
-            speltijdTimer.Start();
+                resterendeTijd = this.actieveGebruiker.GameTijdSec;
 
-            animationTimer = new DispatcherTimer();
-            animationTimer.Interval = TimeSpan.FromMilliseconds(50);
-            animationTimer.Tick += AnimationTimer_Tick;
-            animationTimer.Start();
+                aftelTimer = new DispatcherTimer();
+                aftelTimer.Interval = TimeSpan.FromSeconds(1);
+                aftelTimer.Tick += Afteller_Tick;
+                aftelTimer.Start();
 
-            spawnTimer = new DispatcherTimer();
-            spawnTimer.Interval = TimeSpan.FromSeconds(2);
-            spawnTimer.Tick += Spawner_Tick;
-            spawnTimer.Start();
+                animationTimer = new DispatcherTimer();
+                animationTimer.Interval = TimeSpan.FromMilliseconds(50);
+                animationTimer.Tick += AnimationTimer_Tick;
+                animationTimer.Start();
 
-            resterendeTijd = this.actieveGebruiker.GameTijdSec;
-
-            aftelTimer = new DispatcherTimer();
-            aftelTimer.Interval = TimeSpan.FromSeconds(1);
-            aftelTimer.Tick += Afteller_Tick;
-            aftelTimer.Start();
+                spawnTimer = new DispatcherTimer();
+                spawnTimer.Interval = TimeSpan.FromSeconds(2);
+                spawnTimer.Tick += Spawner_Tick;
+                spawnTimer.Start();
+            }
+            else
+            {
+                MessageBox.Show("Je hebt momenteel geen speltijd, je kan deze verdienen door oefeningen te maken!");
+            }                     
         }
 
         //Events
-        private void EindeSpel_Tick(object sender, EventArgs e)
-        {
-            speltijdTimer.Stop();
-            aftelTimer.Stop();
-            animationTimer.Stop();
-            spawnTimer.Stop();
-            int score = BerekenScore();
-
-            MessageBox.Show("Proficiat, je score is " + score);
-            SchrijfScore(score);
-            TijdOp(); //Zet gameTijd op 0
-        }
         private void AnimationTimer_Tick(object sender, EventArgs e)
         {
             Speler.Beweeg(drawingCanvas);
@@ -119,7 +109,37 @@ namespace Groepswerk
         {
             TimeSpan t = TimeSpan.FromSeconds(resterendeTijd);
             lblTijd.Content = String.Format("{0:D2}m:{1:D2}s", t.Minutes, t.Seconds);
-            resterendeTijd--;
+            if (resterendeTijd==0)
+            {
+                aftelTimer.Stop();
+                animationTimer.Stop();
+                spawnTimer.Stop();               
+                int score = BerekenScore();
+
+                MessageBox.Show("Proficiat, je score is " + score);
+                SchrijfScore(score);
+                TijdOp(); //Zet gameTijd op 0
+            }
+            else
+            {
+                resterendeTijd--;
+            }
+        }
+
+        private void TerugButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het leerlingenmenu?", "Terug", MessageBoxButton.YesNo);
+            switch (terug)
+            {
+                case MessageBoxResult.No:
+                    break;
+                case MessageBoxResult.Yes:
+                    LeerlingMenu terugMenu = new LeerlingMenu(actieveGebruiker);
+                    this.NavigationService.Navigate(terugMenu);
+                    break;
+                default:
+                    break;
+            }
         }
 
         //Methods

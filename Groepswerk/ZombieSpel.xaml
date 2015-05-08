@@ -43,7 +43,7 @@
             <Ellipse Fill="Black" Height="11" Stroke="Black" Width="11" Grid.Column="0" Grid.Row="1" Margin="10" HorizontalAlignment="Right"/>
             <Rectangle Fill="Black" Height="11" Stroke="Black" Width="11" Grid.Column="0" Grid.Row="2" Margin="10" HorizontalAlignment="Right"/>
         </Grid>        
-        <Label Name="lblTijd" Grid.Column="1" Grid.Row="1" Margin="20,10,20,10" HorizontalAlignment="Center"/>
+        <Label Name="lblTijd" Content=" " Grid.Column="1" Grid.Row="1" Margin="20,10,20,10" HorizontalAlignment="Center"/>
         <Label Name="lblCooldown" Grid.Column="2" Grid.Row="1" Margin="20,10,20,10" HorizontalAlignment="Center"/>
         <Canvas Name="spelCanvas" Grid.Column="1" Grid.Row="2" Grid.RowSpan="3" ClipToBounds="True" Background="#FF83BD1C" Margin="10" Loaded="SpelCanvas_Loaded">
             <Image Name ="imgComputer" Source="bin/Debug/driehoekBlauw.png" Height="50" Width="50"/>
@@ -57,5 +57,18 @@
             <Button x:Name="btnSkill5" Content="Poison" Margin="5" Click="BtnSkill5_Click" ToolTip="Maak van 1 Computer mannetje een zombie"/>
             <Button x:Name="btnSkill6" Content="Bevries" Margin="5" Click="BtnSkill6_Click" ToolTip="Bevries de spawner van de computer"/>
         </StackPanel>
+
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Button  Content="terug"   Margin="5"   Grid.Column="0" Grid.Row="0" Click="TerugButton_Click"/>
+
+        </Grid>
+
     </Grid>
 </Page>

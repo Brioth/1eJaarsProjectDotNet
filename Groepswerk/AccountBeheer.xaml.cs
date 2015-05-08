@@ -87,13 +87,20 @@ namespace Groepswerk
         }
         private void BtnPasAan_Click(object sender, RoutedEventArgs e)
         {
-            selectedGebruiker.Voornaam = txtbVoornaam.Text;
-            selectedGebruiker.Achternaam = txtboxAchternaam.Text;
-            selectedGebruiker.Psw = pswBox.Text;
-            selectedGebruiker.Klas = (Klas)boxNieuweKlas.SelectedItem;
-            WisselGebruiker();
-            MessageBox.Show(String.Format("U hebt gebruiker {0} aangepast", selectedGebruiker));
-            UpdateListbox();
+            if (txtbVoornaam.Text.Equals("") || txtboxAchternaam.Text.Equals("") || pswBox.Text.Equals("") || boxNieuweKlas.SelectedIndex == -1)
+            {
+                MessageBox.Show("Gelieve alle velden in te vullen");
+            }
+            else
+            {
+                selectedGebruiker.Voornaam = txtbVoornaam.Text;
+                selectedGebruiker.Achternaam = txtboxAchternaam.Text;
+                selectedGebruiker.Psw = pswBox.Text;
+                selectedGebruiker.Klas = (Klas)boxNieuweKlas.SelectedItem;
+                WisselGebruiker();
+                MessageBox.Show(String.Format("U hebt gebruiker {0} aangepast", selectedGebruiker));
+                UpdateListbox();
+            }
         }
 
         //Methods

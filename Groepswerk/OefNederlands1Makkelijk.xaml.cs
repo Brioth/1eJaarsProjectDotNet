@@ -25,9 +25,8 @@ namespace Groepswerk
         private Random oefeningenNummer = new Random();
         private int oefeningenNummerOpslag, oefCorrect;
         private int gespendeerdeTijd;
+        private const string moeilijkheidsgraad = "MAK";
         private List<string> oefLijst1, oefLijst2, oefLijst3, oefLijst4, oefLijst5;
-        private Resultaat resultaat;
-        private ResultatenLijst resultatenlijst;
         private List<int> oefeningNummerLijst;
         private Gebruiker actieveGebruiker;
         private Stopwatch tijdTeller;
@@ -166,13 +165,20 @@ namespace Groepswerk
                 opgave5.Background = Brushes.Green;
             }
             Punten.Text = Convert.ToString(oefCorrect) + "/5";
-            SchrijfPunten();
+            
             verbeterButton.IsEnabled = false;
-        }
 
-        private void TerugKnop_Click(object sender, RoutedEventArgs e)
-        {
 
+            AlleGebruikersLijst lijst = new AlleGebruikersLijst();
+            foreach (Gebruiker item in lijst)
+            {
+                if (actieveGebruiker.Id.Equals(item.Id))
+                {
+                    actieveGebruiker.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
+                }
+            }
+            lijst.SchrijfLijst();
+            SchrijfPunten();
         }
         private void SchrijfPunten()
         {

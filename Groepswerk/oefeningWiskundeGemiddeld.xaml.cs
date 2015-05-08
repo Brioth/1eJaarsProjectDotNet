@@ -17,56 +17,47 @@ using System.Windows.Shapes;
 
 namespace Groepswerk
 {
-    //Author: Vincent Vandoninck
-    //Date: 03/05/2015
-
-    // Random getallen genereren en deze uitrekenen. De uitkomst hiervan opslaan in een lijst.
-    // Deze lijst vergelijken met de ingevoerde antwoorden van de gebruiker en het aantal juiste antwoorden weergeven als punten.
-    // 
-
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    /// 
-    public partial class oefeningWiskundeGemiddeld : Page
+    /* Author: Vincent Vandoninck
+     * Date: 03/05/2015
+     * Op 28/04/2015 werd duidelijk dat de oefening niet ging werken in het project, dus ben opnieuw begonnen.
+     *
+     *Random getallen genereren en gebruiken om oefeningen te berekenen. De uitkomst hiervan opslaan in een lijst.
+     *Deze lijst vergelijken met de ingevoerde antwoorden van de gebruiker en het aantal juiste antwoorden weergeven als punten.
+     *gespendeerde tijd wordt bijgehouden
+     */
+    public partial class OefeningWiskundeGemiddeld : Page
     {
         //Lokale variabelen
         Gebruiker actieveGebruiker;
         private int oefeningPunten;
-        private Random RandomTest = new Random();
+        private Random randomTest = new Random();
         private int randomGetal1, randomGetal2, randomGetal3;
         private int randomTeken1;
-        private String[] OpgaveLijst = new String[10];
+        private String[] opgaveLijst = new String[10];
         private int[] oplossingLijst = new int[10];
         private List<int> randomLijst = new List<int>();
-        private int begin, eind;
+        private int beginBereik, eindBereik;
         private int totaalTijd;
         private Stopwatch tijdTeller;
         private string moeilijkheidsgraad = "MED";
-        //private List<String> ranges = new List<String>;
-        //constructors
 
-        public oefeningWiskundeGemiddeld(Gebruiker actieveGebruiker)
+        //constructors
+        public OefeningWiskundeGemiddeld(Gebruiker actieveGebruiker)
         {
-           
+
             InitializeComponent();
             this.actieveGebruiker = actieveGebruiker;
             tijdTeller = new Stopwatch();
             tijdTeller.Start();
-            // of 2 random getallen tss 10 laten maken en die uitkomst ervan laten berekenen en opslaan in lijst (txt bestand)
-            // lijst vergelijken met de user input
 
             VulRanges();
 
             for (int i = 0; i < 10; i++)
             {
-                randomGetal1 = RandomTest.Next(begin, eind +1);
-                randomGetal2 = RandomTest.Next(begin, eind +1);
-                randomGetal3 = RandomTest.Next(begin, eind +1);
-                randomTeken1 = RandomTest.Next(0, 2);
-
-                // eerst uitkomst berekenen en die opslaan in labels
-                // uitkomst ingeven als gebruiker en testen met verbeterknop
+                randomGetal1 = randomTest.Next(beginBereik, eindBereik + 1);
+                randomGetal2 = randomTest.Next(beginBereik, eindBereik + 1);
+                randomGetal3 = randomTest.Next(beginBereik, eindBereik + 1);
+                randomTeken1 = randomTest.Next(0, 2);
 
                 if (randomTeken1 == 1)
                 {
@@ -74,7 +65,7 @@ namespace Groepswerk
                     randomLijst.Add(oplossingLijst[i]);
 
 
-                    OpgaveLijst[i] = (randomGetal1.ToString() + " x " + (randomGetal2.ToString()) + " + " + (randomGetal3.ToString()));
+                    opgaveLijst[i] = (randomGetal1.ToString() + " x " + (randomGetal2.ToString()) + " + " + (randomGetal3.ToString()));
 
                 }
                 else
@@ -82,23 +73,24 @@ namespace Groepswerk
                     oplossingLijst[i] = randomGetal1 * randomGetal2 - randomGetal3;
                     randomLijst.Add(oplossingLijst[i]);
 
-                    OpgaveLijst[i] = (randomGetal1.ToString() + " x " + (randomGetal2.ToString()) + " - " + randomGetal3.ToString());
+                    opgaveLijst[i] = (randomGetal1.ToString() + " x " + (randomGetal2.ToString()) + " - " + randomGetal3.ToString());
                 }
 
-                opgaveblock1.Content = OpgaveLijst[0];
-                opgaveblock2.Content = OpgaveLijst[1];
-                opgaveblock3.Content = OpgaveLijst[2];
-                opgaveblock4.Content = OpgaveLijst[3];
-                opgaveblock5.Content = OpgaveLijst[4];
-                opgaveblock6.Content = OpgaveLijst[5];
-                opgaveblock7.Content = OpgaveLijst[6];
-                opgaveblock8.Content = OpgaveLijst[7];
-                opgaveblock9.Content = OpgaveLijst[8];
-                opgaveblock10.Content = OpgaveLijst[9];
+                opgaveblock1.Content = opgaveLijst[0];
+                opgaveblock2.Content = opgaveLijst[1];
+                opgaveblock3.Content = opgaveLijst[2];
+                opgaveblock4.Content = opgaveLijst[3];
+                opgaveblock5.Content = opgaveLijst[4];
+                opgaveblock6.Content = opgaveLijst[5];
+                opgaveblock7.Content = opgaveLijst[6];
+                opgaveblock8.Content = opgaveLijst[7];
+                opgaveblock9.Content = opgaveLijst[8];
+                opgaveblock10.Content = opgaveLijst[9];
             }
         }
         //methodes
 
+        // Het bereik van de oefening wordt hier berekend.
         private void VulRanges()
         {
             StreamReader reader = File.OpenText(@"rangesWiskunde.txt");
@@ -110,15 +102,16 @@ namespace Groepswerk
                 string[] deel = gelezen.Split(scheiding);
                 if (deel[0].Equals("gemiddeld"))
                 {
-                    begin = Convert.ToInt32( deel[1]);
-                    eind = Convert.ToInt32(deel[2]);
-            }
+                    beginBereik = Convert.ToInt32(deel[1]);
+                    eindBereik = Convert.ToInt32(deel[2]);
+                }
                 gelezen = reader.ReadLine();
             }
             reader.Close();
         }
 
-        private void schrijfpunten()
+        // Gegevens over hoe goed de leerling de oefening gemaakt heeft worden hier weggeschreven naar .txt-bestand
+        private void Schrijfpunten()
         {
             ResultatenLijst lijst = new ResultatenLijst("OefResultatenWiskGem.txt");
             Resultaat behaaldResultaat = new Resultaat(actieveGebruiker.Id, oefeningPunten, totaalTijd, lijst);
@@ -139,15 +132,22 @@ namespace Groepswerk
         //date: 28/04/2015
 
         //events
-        private void verbeterButton_Click(object sender, RoutedEventArgs e)
+
+        // Punten worden eerst terug op 0 gezet, opnieuw berekend en toonbaar gemaakt. 
+        // De ingegeven oplossingen worden vergelekekn met de oplossingen die in de lijst staan opgeslagen.
+        // De achtergrond van de label's veranderd aan de hand of deze correct is of niet. 
+        // De behaalde punten en tijd wordt opgeslagen.
+
+        private void VerbeterButton_Click(object sender, RoutedEventArgs e)
         {
             oefeningPunten = 0;
             tijdTeller.Stop();
             totaalTijd = Convert.ToInt32(tijdTeller.ElapsedMilliseconds / 1000);
-            {
+
+            
                 try
                 {
-                    if ((oplossingLijst[0]).Equals(dropLabel1.Text.Trim()))
+                    if ((oplossingLijst[0]) == Convert.ToInt32(dropLabel1.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel1.Background = Brushes.Green;
@@ -156,7 +156,7 @@ namespace Groepswerk
                     {
                         dropLabel1.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[1]).Equals(dropLabel2.Text.Trim()))
+                    if ((oplossingLijst[1]) == Convert.ToInt32(dropLabel2.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel2.Background = Brushes.Green;
@@ -165,7 +165,7 @@ namespace Groepswerk
                     {
                         dropLabel2.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[2]).Equals(dropLabel3.Text.Trim()))
+                    if ((oplossingLijst[2]) == Convert.ToInt32(dropLabel3.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel3.Background = Brushes.Green;
@@ -174,7 +174,7 @@ namespace Groepswerk
                     {
                         dropLabel3.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[3]).Equals(dropLabel4.Text.Trim()))
+                    if ((oplossingLijst[3]) == Convert.ToInt32(dropLabel4.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel4.Background = Brushes.Green;
@@ -183,7 +183,7 @@ namespace Groepswerk
                     {
                         dropLabel4.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[4]).Equals(dropLabel5.Text.Trim()))
+                    if ((oplossingLijst[4]) == Convert.ToInt32(dropLabel5.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel5.Background = Brushes.Green;
@@ -192,7 +192,7 @@ namespace Groepswerk
                     {
                         dropLabel5.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[5]).Equals(dropLabel6.Text.Trim()))
+                    if ((oplossingLijst[5]) == Convert.ToInt32(dropLabel6.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel6.Background = Brushes.Green;
@@ -201,7 +201,7 @@ namespace Groepswerk
                     {
                         dropLabel6.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[6]).Equals(dropLabel7.Text.Trim()))
+                    if ((oplossingLijst[6]) == Convert.ToInt32(dropLabel7.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel7.Background = Brushes.Green;
@@ -210,7 +210,7 @@ namespace Groepswerk
                     {
                         dropLabel7.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[7]).Equals(dropLabel8.Text.Trim()))
+                    if ((oplossingLijst[7]) == Convert.ToInt32(dropLabel8.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel8.Background = Brushes.Green;
@@ -219,7 +219,7 @@ namespace Groepswerk
                     {
                         dropLabel8.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[8]).Equals(dropLabel9.Text.Trim()))
+                    if ((oplossingLijst[8]) == Convert.ToInt32(dropLabel9.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel9.Background = Brushes.Green;
@@ -229,7 +229,7 @@ namespace Groepswerk
                     {
                         dropLabel9.Background = Brushes.Red;
                     }
-                    if ((oplossingLijst[9]).Equals(dropLabel10.Text.Trim()))
+                    if ((oplossingLijst[9]) == Convert.ToInt32(dropLabel10.Text.Trim()))
                     {
                         oefeningPunten++;
                         dropLabel10.Background = Brushes.Green;
@@ -238,30 +238,35 @@ namespace Groepswerk
                     {
                         dropLabel10.Background = Brushes.Red;
                     }
-                    Punten.Text = ("u heeft  " + oefeningPunten + " punten behaald. ");
-                    schrijfpunten();
-                 
+                    Punten.Text = ("U heeft " + oefeningPunten + " punt(en) behaald. ");
+                    Schrijfpunten();
+
                     verbeterButton.IsEnabled = false;
                     AlleGebruikersLijst lijst = new AlleGebruikersLijst();
-                     foreach (Gebruiker item in lijst)
-                      {
+                    foreach (Gebruiker item in lijst)
+                    {
                         if (actieveGebruiker.Id.Equals(item.Id))
                         {
-                           item.SetGameTijd(oefeningPunten , moeilijkheidsgraad);
+                            item.SetGameTijd(oefeningPunten, moeilijkheidsgraad);
                         }
-                      }
+                    }
                     lijst.SchrijfLijst();
-                     
-                }
-                   
 
+                }
+
+                    // Deze catch zorgt ervoor dat er altijd een antwoord moet ingevuld worden.
+                // Als er letters worden ingegeven in plaats van cijfers worden deze als fout beschouwd.
                 catch (FormatException)
                 {
-                    MessageBox.Show("zet 0 als je het antwoord niet weet");
+                    MessageBox.Show("Zet 0 als je het antwoord niet weet en gebruik enkel cijfers");
                 }
-            }
+            
         }
-        private void terugButton_Click(object sender, RoutedEventArgs e)
+        //author: Vincent Vandoninck
+        //date: 04/05/2015
+
+        // Navigatie terug naar het leerlingenmenu.
+        private void TerugButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het leerlingenmenu?", "Terug", MessageBoxButton.YesNo);
             switch (terug)
@@ -270,15 +275,18 @@ namespace Groepswerk
                     break;
                 case MessageBoxResult.Yes:
                     LeerlingMenu terugMenu = new LeerlingMenu(actieveGebruiker);
-                this.NavigationService.Navigate(terugMenu);
+                    this.NavigationService.Navigate(terugMenu);
                     break;
                 default:
                     break;
             }
         }
-        private void opnieuwButton_Click(object sender, RoutedEventArgs e)
+
+        // Er wordt een nieuwe pagina geladen.
+        // De gebruiker merkt dit niet, deze merkt enkel dat de oefeningen veranderen.
+        private void OpnieuwButton_Click(object sender, RoutedEventArgs e)
         {
-            oefeningWiskundeGemiddeld oefWiskundeGemiddeldPagina = new oefeningWiskundeGemiddeld(actieveGebruiker);
+            OefeningWiskundeGemiddeld oefWiskundeGemiddeldPagina = new OefeningWiskundeGemiddeld(actieveGebruiker);
             this.NavigationService.Navigate(oefWiskundeGemiddeldPagina);
         }
     }

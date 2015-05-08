@@ -17,6 +17,7 @@ namespace Groepswerk
 {
     /* --BewerkKlasLijst--
      * Pagina om klassen aan te passen/verwijderen/toe te voegen
+     * Klas Leerkracht kan niet verwijderd worden en/of van naam veranderen
      * Author: Carmen Celen
      * Date: 20/04/015
      */
@@ -48,42 +49,81 @@ namespace Groepswerk
         }
         private void BtnNieuw_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (txtbOmschr.Text.Equals("") || txtbIndex.Text.Equals(""))
             {
-                int index = Convert.ToInt32(txtbIndex.Text) - 1;
-                if (index > klasLijst.Count)
-                {
-                    index = klasLijst.Count;
-                }
-                Klas nieuweKlas = new Klas(txtbOmschr.Text, Convert.ToBoolean(chboxZombie.IsChecked));
-                klasLijst.Insert(index, nieuweKlas);
-                klasLijst.SchrijfLijst();
-                UpdateLijst();
+                MessageBox.Show("Gelieve alle velden in te vullen");
             }
-            catch (FormatException)
+            else
             {
-                MessageBox.Show("De index moet een cijfer zijn");
+                foreach (Klas item in klasLijst)
+                {
+                    if (txtbOmschr.Text.Equals(item.Naam))
+                    {
+                        MessageBox.Show("Deze klas bestaat al");
+                        txtbIndex.Text = "";
+                        txtbOmschr.Text = "";
+                        chboxZombie.IsChecked = false;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            int index = Convert.ToInt32(txtbIndex.Text) - 1;
+                            if (index > klasLijst.Count)
+                            {
+                                index = klasLijst.Count;
+                            }
+                            Klas nieuweKlas = new Klas(txtbOmschr.Text, Convert.ToBoolean(chboxZombie.IsChecked));
+
+                            klasLijst.Insert(index, nieuweKlas);
+                            klasLijst.SchrijfLijst();
+                            UpdateLijst();
+                        }
+                        catch (FormatException)
+                        {
+                            MessageBox.Show("De index moet een cijfer zijn");
+                        }
+                    }
+                }
+
             }
         }
         private void BtnPasAan_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (txtbIndex.Text.Equals("") || txtbOmschr.Text.Equals(""))
             {
-                int index = Convert.ToInt32(txtbIndex.Text);
-                if (index > klasLijst.Count)
-                {
-                    index = klasLijst.Count;
-                }
-                Klas aangepasteKlas = new Klas(txtbOmschr.Text, Convert.ToBoolean(chboxZombie.IsChecked));
-                PasKlasGebruikersAan(aangepasteKlas);
-                klasLijst.Insert(index, aangepasteKlas);
-                klasLijst.Remove(selectedKlas);
-                klasLijst.SchrijfLijst();
-                UpdateLijst();
+                MessageBox.Show("Gelieve alle velden in te vullen");
             }
-            catch (FormatException)
+            else
             {
-                MessageBox.Show("De index moet een cijfer zijn");
+                foreach (Klas item in klasLijst)
+                {
+                    if (txtbOmschr.Text.Equals(item.Naam))
+                    {
+                        MessageBox.Show("Deze klas bestaat al");
+                    }
+                    else
+                    {
+                        try
+                        {
+                            int index = Convert.ToInt32(txtbIndex.Text);
+                            if (index > klasLijst.Count)
+                            {
+                                index = klasLijst.Count;
+                            }
+                            Klas aangepasteKlas = new Klas(txtbOmschr.Text, Convert.ToBoolean(chboxZombie.IsChecked));
+                            PasKlasGebruikersAan(aangepasteKlas);
+                            klasLijst.Insert(index, aangepasteKlas);
+                            klasLijst.Remove(selectedKlas);
+                            klasLijst.SchrijfLijst();
+                            UpdateLijst();
+                        }
+                        catch (FormatException)
+                        {
+                            MessageBox.Show("De index moet een cijfer zijn");
+                        }
+                    }
+                }
             }
         }
         private void PasKlasGebruikersAan(Klas nieuweKlas)
@@ -93,6 +133,12 @@ namespace Groepswerk
             {
                 if (gebruiker.Klas.Naam.Equals(selectedKlas.Naam))
                 {
+                    if (selectedKlas.Naam.Equals("Leerkracht") && txtbOmschr.Text != "Leerkracht")
+                    {
+                        txtbOmschr.Text = "Leerkracht";
+                        nieuweKlas.Naam = "Leerkracht";
+                        MessageBox.Show("U kan de klas Leerkracht niet van naam veranderen");
+                    }
                     gebruiker.Klas = nieuweKlas;
                 }
             }
@@ -100,9 +146,16 @@ namespace Groepswerk
         }
         private void BtnVerwijder_Click(object sender, RoutedEventArgs e)
         {
-            klasLijst.Remove(selectedKlas);
-            klasLijst.SchrijfLijst();
-            UpdateLijst();
+            if (!(selectedKlas.Naam.Equals("Leerkracht")))
+            {
+                klasLijst.Remove(selectedKlas);
+                klasLijst.SchrijfLijst();
+                UpdateLijst();
+            }
+            else
+            {
+                MessageBox.Show("U kan de klas Leerkracht niet verwijderen");
+            }
         }
 
         //Methods

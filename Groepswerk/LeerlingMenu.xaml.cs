@@ -31,7 +31,7 @@ namespace Groepswerk
         {
             InitializeComponent();
             UpdateGebruiker(actievegebruiker);
-            lblBegroeting.Content = String.Format("Dag {0}", ActieveGebruiker.Voornaam);
+            lblBegroeting.Content = String.Format("Dag {0}, je hebt {1} seconden speltijd", ActieveGebruiker.Voornaam, ActieveGebruiker.GameTijdSec);
             btnSpel.IsEnabled = false;
             btnZombie.Visibility = Visibility.Hidden;
             CheckButton();
@@ -52,17 +52,17 @@ namespace Groepswerk
         //Date: 04/05/2015
         private void btnRekenenMak_Click(object sender, RoutedEventArgs e)
         {
-            oefeningWiskundeMakkelijk oefWiskundeMakkelijkPagina = new oefeningWiskundeMakkelijk(ActieveGebruiker);
+            OefeningWiskundeMakkelijk oefWiskundeMakkelijkPagina = new OefeningWiskundeMakkelijk(ActieveGebruiker);
             this.NavigationService.Navigate(oefWiskundeMakkelijkPagina);
         }
         private void btnRekenenGem_Click(object sender, RoutedEventArgs e)
         {
-            oefeningWiskundeGemiddeld oefWiskundeGemiddeldPagina = new oefeningWiskundeGemiddeld(ActieveGebruiker);
+            OefeningWiskundeGemiddeld oefWiskundeGemiddeldPagina = new OefeningWiskundeGemiddeld(ActieveGebruiker);
             this.NavigationService.Navigate(oefWiskundeGemiddeldPagina);
         }
         private void btnRekenenMoe_Click(object sender, RoutedEventArgs e)
         {
-            oefeningWiskundeMoeilijk oefWiskundeMoeilijkPagina = new oefeningWiskundeMoeilijk(ActieveGebruiker);
+            OefeningWiskundeMoeilijk oefWiskundeMoeilijkPagina = new OefeningWiskundeMoeilijk(ActieveGebruiker);
             this.NavigationService.Navigate(oefWiskundeMoeilijkPagina);
         }
 

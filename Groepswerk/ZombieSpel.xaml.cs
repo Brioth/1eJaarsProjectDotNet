@@ -19,7 +19,7 @@ namespace Groepswerk
 {
     /* --ZombieSpel--
      * Timers:
-     * spelTijdTimer: hoe lang het spel duurt op basis van gewonnen seconden
+     * aftelTimer: telt tijd af en stopt het spel
      * spawnerSpeler/spawnerComputer: Hoe snel er nieuwe humans spawnen
      * animationTimer: timer bewegingen
      * minuutTimer: elke minuut increased de spawnsnelheid van de computer om het spel moeilijker te maken
@@ -34,7 +34,7 @@ namespace Groepswerk
     public partial class ZombieSpel : Page
     {
         //Lokale variabelen
-        private DispatcherTimer spelTijdTimer, spawnerSpeler, spawnerComputer, animationTimer, minuutTimer, vijfSecondenTimer, skill6Timer, cooldownTimer, aftelTimerSpel;
+        private DispatcherTimer spawnerSpeler, spawnerComputer, animationTimer, minuutTimer, vijfSecondenTimer, skill6Timer, cooldownTimer, aftelTimerSpel;
         private Gebruiker actieveGebruiker;
         private Point puntSpeler, puntComputer;
         private int skill1Aantal = 5;
@@ -47,70 +47,72 @@ namespace Groepswerk
         {
             InitializeComponent();
 
-            this.actieveGebruiker = actieveGebruiker;
-            Speler = new ZombieSpelSpeler();
-            Computer = new ZombieSpelComputer();
+            if (actieveGebruiker.GameTijdSec!=0)
+            {
+                this.actieveGebruiker = actieveGebruiker;
+                Speler = new ZombieSpelSpeler();
+                Computer = new ZombieSpelComputer();
 
-            Binding BSpeler = new Binding("HumansSpeler.Count");
-            BSpeler.Source = Speler;
-            txtbRoodB.SetBinding(TextBlock.TextProperty, BSpeler);
+                Binding BSpeler = new Binding("HumansSpeler.Count");
+                BSpeler.Source = Speler;
+                txtbRoodB.SetBinding(TextBlock.TextProperty, BSpeler);
 
-            Binding VSpeler = new Binding("ZombiesSpeler.Count");
-            VSpeler.Source = Speler;
-            txtbRoodV.SetBinding(TextBlock.TextProperty, VSpeler);
+                Binding VSpeler = new Binding("ZombiesSpeler.Count");
+                VSpeler.Source = Speler;
+                txtbRoodV.SetBinding(TextBlock.TextProperty, VSpeler);
 
-            Binding BComputer = new Binding("HumansComputer.Count");
-            BComputer.Source = Computer;
-            txtbBlauwB.SetBinding(TextBlock.TextProperty, BComputer);
+                Binding BComputer = new Binding("HumansComputer.Count");
+                BComputer.Source = Computer;
+                txtbBlauwB.SetBinding(TextBlock.TextProperty, BComputer);
 
-            Binding VComputer = new Binding("ZombiesComputer.Count");
-            VComputer.Source = Computer;
-            txtbBlauwV.SetBinding(TextBlock.TextProperty, VComputer);
+                Binding VComputer = new Binding("ZombiesComputer.Count");
+                VComputer.Source = Computer;
+                txtbBlauwV.SetBinding(TextBlock.TextProperty, VComputer);
 
-            spelTijdTimer = new DispatcherTimer();
-            spelTijdTimer.Interval = TimeSpan.FromSeconds(this.actieveGebruiker.GameTijdSec);
-            spelTijdTimer.Tick += EindeSpel_Tick;
-            spelTijdTimer.Start();
+                minuutTimer = new DispatcherTimer();
+                minuutTimer.Interval = TimeSpan.FromMinutes(1);
+                minuutTimer.Tick += MinuutTimer_Tick;
+                minuutTimer.Start();
 
-            minuutTimer = new DispatcherTimer();
-            minuutTimer.Interval = TimeSpan.FromMinutes(1);
-            minuutTimer.Tick += MinuutTimer_Tick;
-            minuutTimer.Start();
+                spawnerSpeler = new DispatcherTimer();
+                spawnerSpeler.Interval = TimeSpan.FromSeconds(1);
+                spawnerSpeler.Tick += SpawnSpeler_Tick;
+                spawnerSpeler.Start();
 
-            spawnerSpeler = new DispatcherTimer();
-            spawnerSpeler.Interval = TimeSpan.FromSeconds(1);
-            spawnerSpeler.Tick += SpawnSpeler_Tick;
-            spawnerSpeler.Start();
+                spawnerComputer = new DispatcherTimer();
+                spawnerComputer.Interval = TimeSpan.FromMilliseconds(3000);
+                spawnerComputer.Tick += SpawnComputer_Tick;
+                spawnerComputer.Start();
 
-            spawnerComputer = new DispatcherTimer();
-            spawnerComputer.Interval = TimeSpan.FromMilliseconds(3000);
-            spawnerComputer.Tick += SpawnComputer_Tick;
-            spawnerComputer.Start();
+                animationTimer = new DispatcherTimer();
+                animationTimer.Interval = TimeSpan.FromMilliseconds(50);
+                animationTimer.Tick += Animation_Tick;
+                animationTimer.Start();
 
-            animationTimer = new DispatcherTimer();
-            animationTimer.Interval = TimeSpan.FromMilliseconds(50);
-            animationTimer.Tick += Animation_Tick;
-            animationTimer.Start();
+                vijfSecondenTimer = new DispatcherTimer();
+                vijfSecondenTimer.Interval = TimeSpan.FromSeconds(5);
+                vijfSecondenTimer.Stop();
 
-            vijfSecondenTimer = new DispatcherTimer();
-            vijfSecondenTimer.Interval = TimeSpan.FromSeconds(5);
-            vijfSecondenTimer.Stop();
+                skill6Timer = new DispatcherTimer();
+                skill6Timer.Tick += Skill6_Tick;
+                skill6Timer.Stop();
 
-            skill6Timer = new DispatcherTimer();
-            skill6Timer.Tick += Skill6_Tick;
-            skill6Timer.Stop();
+                cooldownTimer = new DispatcherTimer();
+                cooldownTimer.Interval = TimeSpan.FromSeconds(10);
+                cooldownTimer.Tick += Cooldown_Tick;
+                cooldownTimer.Stop();
 
-            cooldownTimer = new DispatcherTimer();
-            cooldownTimer.Interval = TimeSpan.FromSeconds(10);
-            cooldownTimer.Tick += Cooldown_Tick;
-            cooldownTimer.Stop();
+                resterendeTijd = this.actieveGebruiker.GameTijdSec;
 
-            resterendeTijd = this.actieveGebruiker.GameTijdSec;
-
-            aftelTimerSpel = new DispatcherTimer();
-            aftelTimerSpel.Interval = TimeSpan.FromSeconds(1);
-            aftelTimerSpel.Tick += Afteller_Tick;
-            aftelTimerSpel.Start();
+                aftelTimerSpel = new DispatcherTimer();
+                aftelTimerSpel.Interval = TimeSpan.FromSeconds(1);
+                aftelTimerSpel.Tick += Afteller_Tick;
+                aftelTimerSpel.Start();
+            }
+            else
+            {
+                MessageBox.Show("Je hebt momenteel geen speltijd, je kan deze verdienen door oefeningen te maken!");
+            }            
         }
 
         //Events
@@ -239,7 +241,6 @@ namespace Groepswerk
         }
         private void EindeSpel_Tick(object sender, EventArgs e)
         {
-            spelTijdTimer.Stop();
             aftelTimerSpel.Stop();
             spawnerSpeler.Stop();
             spawnerComputer.Stop();
@@ -266,9 +267,43 @@ namespace Groepswerk
         {
             TimeSpan t = TimeSpan.FromSeconds(resterendeTijd);
             lblTijd.Content = String.Format("{0:D2}m:{1:D2}s", t.Minutes, t.Seconds);
-            resterendeTijd--;
+
+            if (resterendeTijd == 0)
+            {
+                aftelTimerSpel.Stop();
+                spawnerSpeler.Stop();
+                spawnerComputer.Stop();
+                animationTimer.Stop();
+                minuutTimer.Stop();
+                DisableSkills();
+                cooldownTimer.Stop();
+
+                int score = BerekenScore();
+                MessageBox.Show("Proficiat, je score is " + score);
+                SchrijfScore(score);
+                TijdOp(); //Zet gameTijd op 0
+            }
+            else
+            {
+                resterendeTijd--;
+            }
         }
 
+        private void TerugButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het leerlingenmenu?", "Terug", MessageBoxButton.YesNo);
+            switch (terug)
+            {
+                case MessageBoxResult.No:
+                    break;
+                case MessageBoxResult.Yes:
+                    LeerlingMenu terugMenu = new LeerlingMenu(actieveGebruiker);
+                    this.NavigationService.Navigate(terugMenu);
+                    break;
+                default:
+                    break;
+            }
+        }
         //Methods
         private void TijdOp() //Zet gameTijd op 0
         {

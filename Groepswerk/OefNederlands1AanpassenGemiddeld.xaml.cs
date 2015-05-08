@@ -55,13 +55,20 @@ namespace Groepswerk
             }//end if
             else
             {
+                if (!((correcteOplossingBox.Text.Equals(oplossing1Box.Text)) || (correcteOplossingBox.Text.Equals(oplossing2Box.Text)) || (correcteOplossingBox.Text.Equals(oplossing3Box.Text))))
+                {
+                    MessageBox.Show("Gelieve een correcte oplossing mee te geven bij de mogelijke oplossingen.");
+                }
+                else
+                {
                 Oefening nieuwItem = new Oefening(opgaveBox.Text, oplossing1Box.Text, oplossing2Box.Text, oplossing3Box.Text, correcteOplossingBox.Text, juisteAntwoordCompleetBox.Text);
                 lijstOefeningen.Add(nieuwItem);
                 lijstOefeningen.Remove(selectedOefening);
                 lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
                 UpdateLijst();
+                }//end else (geen correcte oplossing)
             }
-        }//end else
+        }//end else (contains ;)
             private void UpdateLijst()
         {
             lijstOefeningen = new OefeningLijst("gemiddeld");
@@ -73,12 +80,18 @@ namespace Groepswerk
 
          private void toevoegKnop_Click(object sender, RoutedEventArgs e)
         {
+            if (!((correcteOplossingBox.Text.Equals(oplossing1Box.Text)) || (correcteOplossingBox.Text.Equals(oplossing2Box.Text)) || (correcteOplossingBox.Text.Equals(oplossing3Box.Text))))
+            {
+                MessageBox.Show("Gelieve een correcte oplossing mee te geven bij de mogelijke oplossingen.");
+            }
+            else
+            {
             Oefening nieuwOefening = new Oefening(opgaveBox.Text, oplossing1Box.Text, oplossing2Box.Text, oplossing3Box.Text, correcteOplossingBox.Text, juisteAntwoordCompleetBox.Text);
             lijstOefeningen.Add(nieuwOefening);
             lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
             UpdateLijst();
         }
-
+         }
          private void verwijderKnop_Click(object sender, RoutedEventArgs e)
         {
 
