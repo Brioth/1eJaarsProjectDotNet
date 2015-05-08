@@ -38,10 +38,10 @@ namespace Groepswerk
         public HoofdSpel(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
+            this.actieveGebruiker = actieveGebruiker;
 
             if (actieveGebruiker.GameTijdSec!=0)
-            {
-                this.actieveGebruiker = actieveGebruiker;
+            {                
                 Speler = new HoofdspelSpeler();
                 Computer = new HoofdspelSpeler();
 
