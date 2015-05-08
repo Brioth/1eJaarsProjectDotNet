@@ -10,9 +10,9 @@
     <!--
     Author: Vincent Vandoninck
     Date: 28/04/2015
-    
     layout gemaakt op 04/05/2015
     -->
+    
     <Grid>
 
         <Grid.RowDefinitions>
@@ -34,54 +34,51 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition Width="0.5*"/>
-           
-            <ColumnDefinition Width="Auto"/>
-            
+            <ColumnDefinition Width="Auto"/>      
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="0.5*"/>
-            <ColumnDefinition Width="0.5*"/>
-          
-            
+            <ColumnDefinition Width="0.5*"/> 
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        
         <TextBlock  Text="Wiskunde oefening moeilijk"  Margin="11,10,9,10" FontWeight="SemiBold" FontSize="40" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="7"  />
         <TextBlock  Text=" Schrijf het juiste antwoord in het vakje naast de opgave."  Margin="11,10,9,10" FontWeight="SemiBold" FontSize="20" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="7"  />
         <TextBlock  Text=" Vul 0 in als je de oplossing niet weet."  Margin="10" FontWeight="SemiBold" FontSize="20" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="6"  />
 
-        <Label Name="opgaveblock1"  MinWidth="20" Margin="20,10,20,10" Content="opgave1"   Grid.Column="2" Grid.Row="4"  />
-        <Label   MinWidth="20" Name="opgaveblock2" Content="opgave2" Margin="20,10,20,10" Grid.Column="2" Grid.Row="5"/>
-        <Label   MinWidth="20" Name="opgaveblock3" Content="opgave3" Margin="20,10,20,10"  Grid.Column="2" Grid.Row="6" />
-        <Label   MinWidth="20" Name="opgaveblock4" Content="opgave4" Margin="20,10,20,10"  Grid.Column="2" Grid.Row="7"  />
-        <Label   MinWidth="20" Name="opgaveblock5" Content="opgave5" Margin="20,10,20,10" Grid.Column="2" Grid.Row="8"  />
-        <Label   MinWidth="20" Name="opgaveblock6" Content="opgave6" Margin="20,10,20,10"  Grid.Column="6" Grid.Row="4"/>
-        <Label   MinWidth="20" Name="opgaveblock7" Content="opgave7" Margin="20,10,20,10" Grid.Column="6" Grid.Row="5"  />
-        <Label   MinWidth="20" Name="opgaveblock8" Content="opgave8" Margin="20,10,20,10" Grid.Column="6" Grid.Row="6"  />
-        <Label  MinWidth="20" Name="opgaveblock9"  Content="opgave9" Margin="20,10,20,10" Grid.Column="6" Grid.Row="7" />
+        <Label   MinWidth="20" Name="opgaveblock1" Content="opgave1"  Margin="20,10,20,10" Grid.Column="2" Grid.Row="4"  />
+        <Label   MinWidth="20" Name="opgaveblock2" Content="opgave2"  Margin="20,10,20,10" Grid.Column="2" Grid.Row="5"/>
+        <Label   MinWidth="20" Name="opgaveblock3" Content="opgave3"  Margin="20,10,20,10" Grid.Column="2" Grid.Row="6" />
+        <Label   MinWidth="20" Name="opgaveblock4" Content="opgave4"  Margin="20,10,20,10" Grid.Column="2" Grid.Row="7"  />
+        <Label   MinWidth="20" Name="opgaveblock5" Content="opgave5"  Margin="20,10,20,10" Grid.Column="2" Grid.Row="8"  />
+        <Label   MinWidth="20" Name="opgaveblock6" Content="opgave6"  Margin="20,10,20,10" Grid.Column="6" Grid.Row="4"/>
+        <Label   MinWidth="20" Name="opgaveblock7" Content="opgave7"  Margin="20,10,20,10" Grid.Column="6" Grid.Row="5"  />
+        <Label   MinWidth="20" Name="opgaveblock8" Content="opgave8"  Margin="20,10,20,10" Grid.Column="6" Grid.Row="6"  />
+        <Label  MinWidth="20" Name="opgaveblock9"  Content="opgave9"  Margin="20,10,20,10" Grid.Column="6" Grid.Row="7" />
         <Label  MinWidth="20" Name="opgaveblock10" Content="opgave10" Margin="20,10,20,10" Grid.Column="6" Grid.Row="8"  />
 
         <Button Name="verbeterButton" Margin="5" Content="Verbeter"  Click="VerbeterButton_Click" Grid.Column="7" Grid.Row="9"/>
         <TextBlock Name="Punten" Text="" Margin="10"  Grid.ColumnSpan="4" Grid.Column="1" Grid.Row="9"/>
 
-        <Label  Margin="10" Content="" MinWidth="20" Name="juisteLabel1"   Grid.Column="4"  Grid.Row="4"  />
+        <Label  Margin="10" Content="" MinWidth="20" Name="juisteLabel1"  Grid.Column="4"  Grid.Row="4"  />
         <Label  Margin="10" Content="" MinWidth="20" Name="juisteLabel2"  Grid.Column="4"  Grid.Row="5" />
         <Label  Margin="10" Content="" MinWidth="20" Name="juisteLabel3"  Grid.Column="4"  Grid.Row="6"  />
         <Label  Margin="10" Content="" MinWidth="20" Name="juisteLabel4"  Grid.Column="4"  Grid.Row="7"  />
         <Label  Margin="10" Content="" MinWidth="20" Name="juisteLabel5"  Grid.Column="4"  Grid.Row="8"  />
-        <Label  Margin="10" Content="" MinWidth="20" Name="juisteLabel6"   Grid.Column="8"  Grid.Row="4"  />
+        <Label  Margin="10" Content="" MinWidth="20" Name="juisteLabel6"  Grid.Column="8"  Grid.Row="4"  />
         <Label  Margin="10" Content="" MinWidth="20" Name="juisteLabel7"  Grid.Column="8"  Grid.Row="5" />
         <Label  Margin="10" Content="" MinWidth="20" Name="juisteLabel8"  Grid.Column="8"  Grid.Row="6"  />
         <Label  Margin="10" Content="" MinWidth="20" Name="juisteLabel9"  Grid.Column="8"  Grid.Row="7"  />
-        <Label  Margin="10" Content="" MinWidth="20" Name="juisteLabel10"  Grid.Column="8"  Grid.Row="8"  />
+        <Label  Margin="10" Content="" MinWidth="20" Name="juisteLabel10" Grid.Column="8"  Grid.Row="8"  />
 
         <TextBox  Margin="10" Text="" MinWidth="20" Name="dropBox1"   Grid.Column="3"  Grid.Row="4"  />
-        <TextBox  Margin="10" Text="" MinWidth="20" Name="dropBox2"  Grid.Column="3"  Grid.Row="5" />
-        <TextBox  Margin="10" Text="" MinWidth="20" Name="dropBox3"  Grid.Column="3"  Grid.Row="6"  />
-        <TextBox  Margin="10" Text="" MinWidth="20" Name="dropBox4"  Grid.Column="3"  Grid.Row="7"  />
-        <TextBox  Margin="10" Text="" MinWidth="20" Name="dropBox5"  Grid.Column="3"  Grid.Row="8"  />
-        <TextBox  Margin="10" Text="" MinWidth="20" Name="dropBox6"  Grid.Column="7" Grid.Row="4"  />
-        <TextBox  Margin="10" Text="" MinWidth="20" Name="dropBox7"  Grid.Column="7"  Grid.Row="5"  />
-        <TextBox  Margin="10" Text="" MinWidth="20" Name="dropBox8"  Grid.Column="7"  Grid.Row="6"  />
-        <TextBox  Margin="10" Text="" MinWidth="20" Name="dropBox9"  Grid.Column="7"  Grid.Row="7"  />
+        <TextBox  Margin="10" Text="" MinWidth="20" Name="dropBox2"   Grid.Column="3"  Grid.Row="5" />
+        <TextBox  Margin="10" Text="" MinWidth="20" Name="dropBox3"   Grid.Column="3"  Grid.Row="6"  />
+        <TextBox  Margin="10" Text="" MinWidth="20" Name="dropBox4"   Grid.Column="3"  Grid.Row="7"  />
+        <TextBox  Margin="10" Text="" MinWidth="20" Name="dropBox5"   Grid.Column="3"  Grid.Row="8"  />
+        <TextBox  Margin="10" Text="" MinWidth="20" Name="dropBox6"   Grid.Column="7" Grid.Row="4"  />
+        <TextBox  Margin="10" Text="" MinWidth="20" Name="dropBox7"   Grid.Column="7"  Grid.Row="5"  />
+        <TextBox  Margin="10" Text="" MinWidth="20" Name="dropBox8"   Grid.Column="7"  Grid.Row="6"  />
+        <TextBox  Margin="10" Text="" MinWidth="20" Name="dropBox9"   Grid.Column="7"  Grid.Row="7"  />
         <TextBox  Margin="10" Text="" MinWidth="20" Name="dropBox10"  Grid.Column="7"  Grid.Row="8"  />
 
         <Grid Grid.Column="0" Grid.Row="0">
