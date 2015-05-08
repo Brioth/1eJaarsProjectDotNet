@@ -69,12 +69,29 @@ namespace Groepswerk
             opgave5.Text = tempOpgave[4];
             
         }
+        private void SchrijfPunten()
+        {
+            ResultatenLijst lijst = new ResultatenLijst("OefNederlands1MoeilijkResultaten.txt");
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect * 2, gespendeerdeTijd, lijst);
+
+            if (nieuw.IndexOud == -1)
+            {
+                lijst.Add(nieuw);
+            }
+            else
+            {
+                lijst.Add(nieuw);
+                lijst.RemoveAt(nieuw.IndexOud);
+            }
+            lijst.SchrijfLijst("OefNederlands1MoeilijkResultaten.txt");
+        }
 
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
             tijdGespendeerd.Stop();
             gespendeerdeTijd = Convert.ToInt32(tijdGespendeerd.ElapsedMilliseconds * 1000);
             oefCorrect = 0;
+            verbeterButton.IsEnabled = false;
             if (!(oplossing1.Text.Equals(lijstOefeningen[oefeningNummerLijst[0]].oplossing)))
             {
                 opgave1.Text = lijstOefeningen[oefeningNummerLijst[0]].juisteAntwoordCompleet;
@@ -135,29 +152,16 @@ namespace Groepswerk
             foreach (Gebruiker item in lijst)
             {
                 if (actieveGebruiker.Id.Equals(item.Id))
+                {
                     actieveGebruiker.SetGameTijd(oefCorrect * 2, moeilijkheidsgraad);
+                }
             }
             lijst.SchrijfLijst();
 
             SchrijfPunten();
         }
 
-        private void SchrijfPunten()
-        {
-            ResultatenLijst lijst = new ResultatenLijst("resultaatNederlands1Gemiddeld.txt");
-            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect * 2, gespendeerdeTijd, lijst);
-
-            if (nieuw.IndexOud == -1)
-            {
-                lijst.Add(nieuw);
-            }
-            else
-            {
-                lijst.Add(nieuw);
-                lijst.RemoveAt(nieuw.IndexOud);
-            }
-            lijst.SchrijfLijst("resultaatNederlands1Gemiddeld.txt");
-        }
+        
 
         private void terugButton_Click(object sender, RoutedEventArgs e)
         {
