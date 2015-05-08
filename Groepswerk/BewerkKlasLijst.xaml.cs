@@ -49,81 +49,83 @@ namespace Groepswerk
         }
         private void BtnNieuw_Click(object sender, RoutedEventArgs e)
         {
-            if (txtbOmschr.Text.Equals("") || txtbIndex.Text.Equals(""))
+            if (!(txtbOmschr.Text.Equals("") || txtbIndex.Text.Equals("")))
             {
-                MessageBox.Show("Gelieve alle velden in te vullen");
-            }
-            else
-            {
+                bool gelijk = false;
+
                 foreach (Klas item in klasLijst)
                 {
                     if (txtbOmschr.Text.Equals(item.Naam))
                     {
                         MessageBox.Show("Deze klas bestaat al");
-                        txtbIndex.Text = "";
-                        txtbOmschr.Text = "";
-                        chboxZombie.IsChecked = false;
-                    }
-                    else
-                    {
-                        try
-                        {
-                            int index = Convert.ToInt32(txtbIndex.Text) - 1;
-                            if (index > klasLijst.Count)
-                            {
-                                index = klasLijst.Count;
-                            }
-                            Klas nieuweKlas = new Klas(txtbOmschr.Text, Convert.ToBoolean(chboxZombie.IsChecked));
-
-                            klasLijst.Insert(index, nieuweKlas);
-                            klasLijst.SchrijfLijst();
-                            UpdateLijst();
-                        }
-                        catch (FormatException)
-                        {
-                            MessageBox.Show("De index moet een cijfer zijn");
-                        }
+                        gelijk = true;
                     }
                 }
+                if (!gelijk)
+                {
+                    try
+                    {
+                        int index = Convert.ToInt32(txtbIndex.Text) - 1;
+                        if (index > klasLijst.Count)
+                        {
+                            index = klasLijst.Count;
+                        }
+                        Klas nieuweKlas = new Klas(txtbOmschr.Text, Convert.ToBoolean(chboxZombie.IsChecked));
 
+                        klasLijst.Insert(index, nieuweKlas);
+                        klasLijst.SchrijfLijst();
+                        UpdateLijst();
+                    }
+                    catch (FormatException)
+                    {
+                        MessageBox.Show("De index moet een cijfer zijn");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Gelieve alle velden in te vullen");
             }
         }
         private void BtnPasAan_Click(object sender, RoutedEventArgs e)
         {
-            if (txtbIndex.Text.Equals("") || txtbOmschr.Text.Equals(""))
+            if (!(txtbIndex.Text.Equals("") || txtbOmschr.Text.Equals("")))
             {
-                MessageBox.Show("Gelieve alle velden in te vullen");
+                bool gelijk = false;
+
+                foreach (Klas item in klasLijst)
+                {
+                    if (txtbOmschr.Text.Equals(item.Naam) && (!(item.Naam.Equals(selectedKlas.Naam))))
+                    {
+                        MessageBox.Show("Deze klas bestaat al, selecteer de klas die u wilt bewerken");
+                        gelijk = true;
+                    }
+                }
+                if (!gelijk)
+                {
+                    try
+                    {
+                        int index = Convert.ToInt32(txtbIndex.Text);
+                        if (index > klasLijst.Count)
+                        {
+                            index = klasLijst.Count;
+                        }
+                        Klas aangepasteKlas = new Klas(txtbOmschr.Text, Convert.ToBoolean(chboxZombie.IsChecked));
+                        PasKlasGebruikersAan(aangepasteKlas);
+                        klasLijst.Insert(index, aangepasteKlas);
+                        klasLijst.Remove(selectedKlas);
+                        klasLijst.SchrijfLijst();
+                        UpdateLijst();
+                    }
+                    catch (FormatException)
+                    {
+                        MessageBox.Show("De index moet een cijfer zijn");
+                    }
+                }
             }
             else
             {
-                foreach (Klas item in klasLijst)
-                {
-                    if (txtbOmschr.Text.Equals(item.Naam))
-                    {
-                        MessageBox.Show("Deze klas bestaat al");
-                    }
-                    else
-                    {
-                        try
-                        {
-                            int index = Convert.ToInt32(txtbIndex.Text);
-                            if (index > klasLijst.Count)
-                            {
-                                index = klasLijst.Count;
-                            }
-                            Klas aangepasteKlas = new Klas(txtbOmschr.Text, Convert.ToBoolean(chboxZombie.IsChecked));
-                            PasKlasGebruikersAan(aangepasteKlas);
-                            klasLijst.Insert(index, aangepasteKlas);
-                            klasLijst.Remove(selectedKlas);
-                            klasLijst.SchrijfLijst();
-                            UpdateLijst();
-                        }
-                        catch (FormatException)
-                        {
-                            MessageBox.Show("De index moet een cijfer zijn");
-                        }
-                    }
-                }
+                MessageBox.Show("Gelieve alle velden in te vullen");
             }
         }
         private void PasKlasGebruikersAan(Klas nieuweKlas)
