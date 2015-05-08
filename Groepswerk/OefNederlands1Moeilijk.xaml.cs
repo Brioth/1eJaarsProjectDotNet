@@ -144,7 +144,7 @@ namespace Groepswerk
 
         private void SchrijfPunten()
         {
-            ResultatenLijst lijst = new ResultatenLijst("resultaatNederlands1Gemiddeld.txt");
+            ResultatenLijst lijst = new ResultatenLijst("OefNederlands1MoeilijkResultaten.txt");
             Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect * 2, gespendeerdeTijd, lijst);
 
             if (nieuw.IndexOud == -1)
@@ -156,7 +156,7 @@ namespace Groepswerk
                 lijst.Add(nieuw);
                 lijst.RemoveAt(nieuw.IndexOud);
             }
-            lijst.SchrijfLijst("resultaatNederlands1Gemiddeld.txt");
+            lijst.SchrijfLijst("OefNederlands1MoeilijkResultaten.txt");
         }
 
         private void terugButton_Click(object sender, RoutedEventArgs e)
