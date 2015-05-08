@@ -131,6 +131,7 @@ namespace Groepswerk
         private void PasKlasGebruikersAan(Klas nieuweKlas)
         {
             AlleGebruikersLijst lijst = new AlleGebruikersLijst();
+
             foreach (Gebruiker gebruiker in lijst)
             {
                 if (gebruiker.Klas.Naam.Equals(selectedKlas.Naam))
@@ -145,18 +146,37 @@ namespace Groepswerk
                 }
             }
             lijst.SchrijfLijst();
+
         }
         private void BtnVerwijder_Click(object sender, RoutedEventArgs e)
         {
-            if (!(selectedKlas.Naam.Equals("Leerkracht")))
+            AlleGebruikersLijst lijst = new AlleGebruikersLijst();
+            bool flagGebrInKlas = false;
+
+            foreach (Gebruiker item in lijst)
             {
-                klasLijst.Remove(selectedKlas);
-                klasLijst.SchrijfLijst();
-                UpdateLijst();
+                if (item.Klas.Naam.Equals(selectedKlas.Naam))
+                {
+                    flagGebrInKlas = true;
+                }
+            }
+
+            if (flagGebrInKlas)
+            {
+                MessageBox.Show("Er zitten nog leerlingen in deze klas, gelieve de klas eerst leeg te maken");
             }
             else
             {
-                MessageBox.Show("U kan de klas Leerkracht niet verwijderen");
+                if (!(selectedKlas.Naam.Equals("Leerkracht")))
+                {
+                    klasLijst.Remove(selectedKlas);
+                    klasLijst.SchrijfLijst();
+                    UpdateLijst();
+                }
+                else
+                {
+                    MessageBox.Show("U kan de klas Leerkracht niet verwijderen");
+                }
             }
         }
 
