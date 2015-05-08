@@ -51,6 +51,12 @@ namespace Groepswerk
             {
                 accountlijst.Clear();
             }
+
+            txtboxAchternaam.Text = "";
+            txtbVoornaam.Text = "";
+            pswBox.Text = "";
+            boxNieuweKlas.SelectedIndex = boxKlas.SelectedIndex;
+
             selectedKlas = (Klas)boxKlas.SelectedItem;
             accountlijst = new Accountlijst(selectedKlas);
             boxAccounts.ItemsSource = accountlijst;
