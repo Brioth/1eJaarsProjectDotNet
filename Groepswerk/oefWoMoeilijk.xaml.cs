@@ -161,7 +161,7 @@ namespace Groepswerk
             Score.Content = oefCorrect + "/5";
             }
 
-        private void TerugButton_Click(object sender, RoutedEventArgs e)
+        private void TerugButton_Click(object sender, RoutedEventArgs e)//terugkeren naar het llnmenu
         {
             MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het leerlingenmenu?", "Terug", MessageBoxButton.YesNo);
             switch (terug)
@@ -177,7 +177,7 @@ namespace Groepswerk
             }
         }
 
-        private void OpnieuwButton_Click(object sender, RoutedEventArgs e)
+        private void OpnieuwButton_Click(object sender, RoutedEventArgs e)//oefening herstarten
         {
             OefWoMoeilijk moeilijk = new OefWoMoeilijk(actieveGebruiker);
             this.NavigationService.Navigate(moeilijk);
