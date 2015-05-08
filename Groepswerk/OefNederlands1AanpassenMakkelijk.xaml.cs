@@ -62,13 +62,20 @@ namespace Groepswerk
                 }
                 else
                 {
-            Oefening nieuwItem = new Oefening(opgaveBox.Text, oplossing1Box.Text, oplossing2Box.Text, oplossing3Box.Text, correcteOplossingBox.Text, juisteAntwoordCompleetBox.Text);
-            lijstOefeningen.Add(nieuwItem);
-            lijstOefeningen.Remove(selectedOefening);
-            lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
-            UpdateLijst();
+                    if ((correcteOplossingBox.Text.Equals("")) || (oplossing1Box.Text.Equals("")) || (oplossing2Box.Text.Equals("")) || (oplossing3Box.Text.Equals("")) || (opgaveBox.Text.Equals(""))||(juisteAntwoordCompleetBox.Text.Equals("")))
+                    {
+                        MessageBox.Show("Gelieve geen lege oplossingen of opgave in te geven");
+                    }
+                    else
+                    {
+                        Oefening nieuwItem = new Oefening(opgaveBox.Text, oplossing1Box.Text, oplossing2Box.Text, oplossing3Box.Text, correcteOplossingBox.Text, juisteAntwoordCompleetBox.Text);
+                        lijstOefeningen.Add(nieuwItem);
+                        lijstOefeningen.Remove(selectedOefening);
+                        lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
+                        UpdateLijst();
+                    }//end else if(lege doosjes mogen niet)
                 }//end else if(geencorrecteoplossing)
-        }//end else if(contains ;)
+            }//end else if(contains ;)
         }
 
         private void UpdateLijst()

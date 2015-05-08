@@ -51,14 +51,21 @@ namespace Groepswerk
                 MessageBox.Show("Gelieve geen ';' in uw zinnen te zetten.");
             }//end if
             else
-            {
+            
+                if ((opgaveBox.Text.Equals(""))||(correcteOplossingBox.Text.Equals("")))
+                    {
+                        MessageBox.Show("Gelieve geen lege oplossingen of opgave in te geven");
+                    }
+                    else
+                    {
                 Oefening nieuwItem = new Oefening(opgaveBox.Text, correcteOplossingBox.Text, juisteAntwoordCompleetBox.Text);
                 lijstOefeningen.Add(nieuwItem);
                 lijstOefeningen.Remove(selectedOefening);
                 lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
                 UpdateLijst();
-            }
-        }
+                }
+    }
+            
 
         private void UpdateLijst()
         {
