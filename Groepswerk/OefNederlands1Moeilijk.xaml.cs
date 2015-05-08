@@ -69,6 +69,22 @@ namespace Groepswerk
             opgave5.Text = tempOpgave[4];
             
         }
+        private void SchrijfPunten()
+        {
+            ResultatenLijst lijst = new ResultatenLijst("OefNederlands1MoeilijkResultaten.txt");
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect * 2, gespendeerdeTijd, lijst);
+
+            if (nieuw.IndexOud == -1)
+            {
+                lijst.Add(nieuw);
+            }
+            else
+            {
+                lijst.Add(nieuw);
+                lijst.RemoveAt(nieuw.IndexOud);
+            }
+            lijst.SchrijfLijst("OefNederlands1MoeilijkResultaten.txt");
+        }
 
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
@@ -143,22 +159,7 @@ namespace Groepswerk
             SchrijfPunten();
         }
 
-        private void SchrijfPunten()
-        {
-            ResultatenLijst lijst = new ResultatenLijst("OefNederlands1MoeilijkResultaten.txt");
-            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect * 2, gespendeerdeTijd, lijst);
-
-            if (nieuw.IndexOud == -1)
-            {
-                lijst.Add(nieuw);
-            }
-            else
-            {
-                lijst.Add(nieuw);
-                lijst.RemoveAt(nieuw.IndexOud);
-            }
-            lijst.SchrijfLijst("OefNederlands1MoeilijkResultaten.txt");
-        }
+        
 
         private void terugButton_Click(object sender, RoutedEventArgs e)
         {

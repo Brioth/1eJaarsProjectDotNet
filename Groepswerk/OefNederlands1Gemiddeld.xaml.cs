@@ -97,6 +97,22 @@ namespace Groepswerk
             oplossing5.ItemsSource = oefLijst5;
             
         }
+        private void SchrijfPunten()
+        {
+            ResultatenLijst lijst = new ResultatenLijst("OefNederlands1GemiddeldResultaten.txt");
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect * 2, gespendeerdeTijd, lijst);
+
+            if (nieuw.IndexOud == -1)
+            {
+                lijst.Add(nieuw);
+            }
+            else
+            {
+                lijst.Add(nieuw);
+                lijst.RemoveAt(nieuw.IndexOud);
+            }
+            lijst.SchrijfLijst("OefNederlands1GemiddeldResultaten.txt");
+        }
 
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
@@ -174,22 +190,7 @@ namespace Groepswerk
             Punten.Text = Convert.ToString(oefCorrect) + "/5";
         }
 
-        private void SchrijfPunten()
-        {
-            ResultatenLijst lijst = new ResultatenLijst("OefNederlands1GemiddeldResultaten.txt");
-            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect * 2, gespendeerdeTijd, lijst);
-
-            if (nieuw.IndexOud == -1)
-            {
-                lijst.Add(nieuw);
-            }
-            else
-            {
-                lijst.Add(nieuw);
-                lijst.RemoveAt(nieuw.IndexOud);
-            }
-            lijst.SchrijfLijst("OefNederlands1GemiddeldResultaten.txt");
-        }
+        
 
         private void terugButton_Click(object sender, RoutedEventArgs e)
         {
