@@ -91,7 +91,7 @@ namespace Groepswerk
 
         // hier worden de antwoorden gecontroleerd. Na controle worden achter de tekstvelden de correcte oplossingen getoond. Ook de tekstvakken worden gekleurd
         // bij correct/foute oplossing. er is geen invoercontrole op hoofdletters aangezien Steden met een hoofdletter beginnen.
-        private void controleer_Click(object sender, RoutedEventArgs e)
+        private void Controleer_Click(object sender, RoutedEventArgs e)
         {
             controleer.IsEnabled = false;
             tijdTeller.Stop();
@@ -163,7 +163,7 @@ namespace Groepswerk
             Score.Content = Convert.ToString(oefCorrect) + "/5";
             }
 
-        private void terugButton_Click(object sender, RoutedEventArgs e)//terugkeren naar hoofdmenu
+        private void TerugButton_Click(object sender, RoutedEventArgs e)//terugkeren naar hoofdmenu
         {
             MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het leerlingenmenu?", "Terug", MessageBoxButton.YesNo);
             switch (terug)
@@ -179,7 +179,7 @@ namespace Groepswerk
             }
         }
 
-        private void opnieuwButton_Click(object sender, RoutedEventArgs e)//oefening herstarten
+        private void OpnieuwButton_Click(object sender, RoutedEventArgs e)//oefening herstarten
         {
             OefWoGemiddeld gemiddeld = new OefWoGemiddeld(actieveGebruiker);
             this.NavigationService.Navigate(gemiddeld);

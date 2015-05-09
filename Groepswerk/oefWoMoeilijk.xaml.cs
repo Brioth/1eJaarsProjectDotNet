@@ -88,7 +88,7 @@ namespace Groepswerk
             lijst.SchrijfLijst("resultaatWoMoeilijk.txt");
         }
         
-        private void controleer_Click(object sender, RoutedEventArgs e)//antwoorden controleren en score doorsturen
+        private void Controleer_Click(object sender, RoutedEventArgs e)//antwoorden controleren en score doorsturen
         {
             controleer.IsEnabled = false;
             tijdTeller.Stop();
