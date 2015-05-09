@@ -21,9 +21,9 @@ namespace Groepswerk
      * Date: 03/05/2015
      * Op 28/04/2015 werd duidelijk dat de oefening niet ging werken in het project, dus ben opnieuw begonnen.
      *
-     *Random getallen genereren en gebruiken om oefeningen te berekenen. De uitkomst hiervan opslaan in een lijst.
-     *Deze lijst vergelijken met de ingevoerde antwoorden van de gebruiker en het aantal juiste antwoorden weergeven als punten.
-     *gespendeerde tijd wordt bijgehouden
+     * Random getallen genereren en gebruiken om oefeningen te berekenen. De uitkomst hiervan opslaan in een lijst.
+     * Deze lijst vergelijken met de ingevoerde antwoorden van de gebruiker en het aantal juiste antwoorden weergeven als punten.
+     * Gespendeerde tijd wordt bijgehouden
      */
     public partial class OefeningWiskundeGemiddeld : Page
     {
@@ -41,7 +41,10 @@ namespace Groepswerk
         private Stopwatch tijdTeller;
         private string moeilijkheidsgraad = "MED";
 
-        //constructors
+        // Constructors
+        // Eerst worden er random getallen gegenereerd, deze worden nadien gebruikt om de opgaves en oplossingen te berekenen die opgeslagen worden in een lijsten. 
+        // Het random gegenereerde getal "randomTeken1" bepaald of de berekening opgeteld of afgetrokken gaat worden.
+        
         public OefeningWiskundeGemiddeld(Gebruiker actieveGebruiker)
         {
 
@@ -88,7 +91,7 @@ namespace Groepswerk
                 opgaveblock10.Content = opgaveLijst[9];
             }
         }
-        //methodes
+        // Methodes
 
         // Het bereik van de oefening wordt hier berekend.
         private void VulRanges()
@@ -128,10 +131,10 @@ namespace Groepswerk
             lijst.SchrijfLijst("OefResultatenWiskGem.txt");
         }
 
-        //author: Vincent Vandoninck
-        //date: 28/04/2015
+        // Author: Vincent Vandoninck
+        // Date: 28/04/2015
 
-        //events
+        // Events
 
         // Punten worden eerst terug op 0 gezet, opnieuw berekend en toonbaar gemaakt. 
         // De ingegeven oplossingen worden vergelekekn met de oplossingen die in de lijst staan opgeslagen.
@@ -147,96 +150,106 @@ namespace Groepswerk
             
                 try
                 {
-                    if ((oplossingLijst[0]) == Convert.ToInt32(dropLabel1.Text.Trim()))
+                    if ((oplossingLijst[0]) == Convert.ToInt32(dropBox1.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel1.Background = Brushes.Green;
+                        dropBox1.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel1.Background = Brushes.Red;
+                        dropBox1.Background = Brushes.Red;
+                        juisteLabel1.Content = Convert.ToString(oplossingLijst[0]);
                     }
-                    if ((oplossingLijst[1]) == Convert.ToInt32(dropLabel2.Text.Trim()))
+                    if ((oplossingLijst[1]) == Convert.ToInt32(dropBox2.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel2.Background = Brushes.Green;
+                        dropBox2.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel2.Background = Brushes.Red;
+                        dropBox2.Background = Brushes.Red;
+                        juisteLabel2.Content = Convert.ToString(oplossingLijst[1]);
                     }
-                    if ((oplossingLijst[2]) == Convert.ToInt32(dropLabel3.Text.Trim()))
+                    if ((oplossingLijst[2]) == Convert.ToInt32(dropBox3.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel3.Background = Brushes.Green;
+                        dropBox3.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel3.Background = Brushes.Red;
+                        dropBox3.Background = Brushes.Red;
+                        juisteLabel3.Content = Convert.ToString(oplossingLijst[2]);
                     }
-                    if ((oplossingLijst[3]) == Convert.ToInt32(dropLabel4.Text.Trim()))
+                    if ((oplossingLijst[3]) == Convert.ToInt32(dropBox4.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel4.Background = Brushes.Green;
+                        dropBox4.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel4.Background = Brushes.Red;
+                        dropBox4.Background = Brushes.Red;
+                        juisteLabel4.Content = Convert.ToString(oplossingLijst[3]);
                     }
-                    if ((oplossingLijst[4]) == Convert.ToInt32(dropLabel5.Text.Trim()))
+                    if ((oplossingLijst[4]) == Convert.ToInt32(dropBox5.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel5.Background = Brushes.Green;
+                        dropBox5.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel5.Background = Brushes.Red;
+                        dropBox5.Background = Brushes.Red;
+                        juisteLabel5.Content = Convert.ToString(oplossingLijst[4]);
                     }
-                    if ((oplossingLijst[5]) == Convert.ToInt32(dropLabel6.Text.Trim()))
+                    if ((oplossingLijst[5]) == Convert.ToInt32(dropBox6.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel6.Background = Brushes.Green;
+                        dropBox6.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel6.Background = Brushes.Red;
+                        dropBox6.Background = Brushes.Red;
+                        juisteLabel6.Content = Convert.ToString(oplossingLijst[5]);
                     }
-                    if ((oplossingLijst[6]) == Convert.ToInt32(dropLabel7.Text.Trim()))
+                    if ((oplossingLijst[6]) == Convert.ToInt32(dropBox7.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel7.Background = Brushes.Green;
+                        dropBox7.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel7.Background = Brushes.Red;
+                        dropBox7.Background = Brushes.Red;
+                        juisteLabel7.Content = Convert.ToString(oplossingLijst[6]);
                     }
-                    if ((oplossingLijst[7]) == Convert.ToInt32(dropLabel8.Text.Trim()))
+                    if ((oplossingLijst[7]) == Convert.ToInt32(dropBox8.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel8.Background = Brushes.Green;
+                        dropBox8.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel8.Background = Brushes.Red;
+                        dropBox8.Background = Brushes.Red;
+                        juisteLabel8.Content = Convert.ToString(oplossingLijst[7]);
                     }
-                    if ((oplossingLijst[8]) == Convert.ToInt32(dropLabel9.Text.Trim()))
+                    if ((oplossingLijst[8]) == Convert.ToInt32(dropBox9.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel9.Background = Brushes.Green;
+                        dropBox9.Background = Brushes.Green;
                     }
 
                     else
                     {
-                        dropLabel9.Background = Brushes.Red;
+                        dropBox9.Background = Brushes.Red;
+                        juisteLabel9.Content = Convert.ToString(oplossingLijst[8]);
                     }
-                    if ((oplossingLijst[9]) == Convert.ToInt32(dropLabel10.Text.Trim()))
+                    if ((oplossingLijst[9]) == Convert.ToInt32(dropBox10.Text.Trim()))
                     {
                         oefeningPunten++;
-                        dropLabel10.Background = Brushes.Green;
+                        dropBox10.Background = Brushes.Green;
                     }
                     else
                     {
-                        dropLabel10.Background = Brushes.Red;
+                        dropBox10.Background = Brushes.Red;
+                        juisteLabel10.Content = Convert.ToString(oplossingLijst[9]);
                     }
                     Punten.Text = ("U heeft " + oefeningPunten + " punt(en) behaald. ");
                     Schrijfpunten();
@@ -254,7 +267,7 @@ namespace Groepswerk
 
                 }
 
-                    // Deze catch zorgt ervoor dat er altijd een antwoord moet ingevuld worden.
+                // Deze catch zorgt ervoor dat er altijd een antwoord moet ingevuld worden.
                 // Als er letters worden ingegeven in plaats van cijfers worden deze als fout beschouwd.
                 catch (FormatException)
                 {
@@ -262,8 +275,8 @@ namespace Groepswerk
                 }
             
         }
-        //author: Vincent Vandoninck
-        //date: 04/05/2015
+        // Author: Vincent Vandoninck
+        // Date: 04/05/2015
 
         // Navigatie terug naar het leerlingenmenu.
         private void TerugButton_Click(object sender, RoutedEventArgs e)

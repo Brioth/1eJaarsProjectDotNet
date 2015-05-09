@@ -21,6 +21,7 @@ namespace Groepswerk
     /// </summary>
     public partial class OefNederlands1Moeilijk : Page
     {
+        //Lokale variabelen
         private OefeningLijst lijstOefeningen;
         private string[] tempOpgave;
         private const string moeilijkheidsgraad = "MOE";
@@ -30,6 +31,8 @@ namespace Groepswerk
         private IList<int> oefeningNummerLijst;
         Gebruiker actieveGebruiker;
         private Stopwatch tijdGespendeerd;
+
+        //Constructors
         public OefNederlands1Moeilijk(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
@@ -69,27 +72,13 @@ namespace Groepswerk
             opgave5.Text = tempOpgave[4];
             
         }
-        private void SchrijfPunten()
-        {
-            ResultatenLijst lijst = new ResultatenLijst("OefNederlands1MoeilijkResultaten.txt");
-            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect * 2, gespendeerdeTijd, lijst);
+        
 
-            if (nieuw.IndexOud == -1)
-            {
-                lijst.Add(nieuw);
-            }
-            else
-            {
-                lijst.Add(nieuw);
-                lijst.RemoveAt(nieuw.IndexOud);
-            }
-            lijst.SchrijfLijst("OefNederlands1MoeilijkResultaten.txt");
-        }
-
+        //Events
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
             tijdGespendeerd.Stop();
-            gespendeerdeTijd = Convert.ToInt32(tijdGespendeerd.ElapsedMilliseconds * 1000);
+            gespendeerdeTijd = Convert.ToInt32(tijdGespendeerd.ElapsedMilliseconds / 1000);
             oefCorrect = 0;
             verbeterButton.IsEnabled = false;
             if (!(oplossing1.Text.Equals(lijstOefeningen[oefeningNummerLijst[0]].oplossing)))
@@ -183,6 +172,24 @@ namespace Groepswerk
         {
             OefNederlands1Moeilijk moeilijk = new OefNederlands1Moeilijk(actieveGebruiker);
             this.NavigationService.Navigate(moeilijk);
+        }
+        
+        //Events
+        private void SchrijfPunten()
+        {
+            ResultatenLijst lijst = new ResultatenLijst("OefNederlands1MoeilijkResultaten.txt");
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect * 2, gespendeerdeTijd, lijst);
+
+            if (nieuw.IndexOud == -1)
+            {
+                lijst.Add(nieuw);
+            }
+            else
+            {
+                lijst.Add(nieuw);
+                lijst.RemoveAt(nieuw.IndexOud);
+            }
+            lijst.SchrijfLijst("OefNederlands1MoeilijkResultaten.txt");
         }
     }
 }

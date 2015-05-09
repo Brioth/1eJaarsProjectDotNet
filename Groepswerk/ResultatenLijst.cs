@@ -46,6 +46,14 @@ namespace Groepswerk
             }
         }
 
+        public ResultatenLijst(List<Resultaat> lijst)
+        {
+            foreach (Resultaat item in lijst)
+            {
+                this.Add(item);
+            }
+        }
+
         //Events
 
         //Methods

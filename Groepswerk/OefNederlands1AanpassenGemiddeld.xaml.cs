@@ -20,9 +20,13 @@ namespace Groepswerk
     // Date: 19/04/2015
     public partial class OefNederlands1AanpassenGemiddeld : Page
     {
+
+        //Lokale variabelen
         private OefeningLijst lijstOefeningen;
         private Oefening selectedOefening;
         private string bestand = "OefNederlands1Gemiddeld.txt";
+
+        //Constructors
         public OefNederlands1AanpassenGemiddeld(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
@@ -32,6 +36,7 @@ namespace Groepswerk
             OpgaveSelecteren.SelectedIndex = 0;
         }
 
+        //Events
         private void OpgaveSelecteren_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (OpgaveSelecteren.SelectedIndex != -1)
@@ -52,7 +57,7 @@ namespace Groepswerk
             if ((opgaveBox.Text.Contains(';')) || (oplossing1Box.Text.Contains(';')) || (oplossing2Box.Text.Contains(';')) || (oplossing3Box.Text.Contains(';')))
             {
                 MessageBox.Show("Gelieve geen ';' in uw zinnen te zetten.");
-            }//end if
+            }
             else
             {
                 if (!((correcteOplossingBox.Text.Equals(oplossing1Box.Text)) || (correcteOplossingBox.Text.Equals(oplossing2Box.Text)) || (correcteOplossingBox.Text.Equals(oplossing3Box.Text))))
@@ -61,14 +66,23 @@ namespace Groepswerk
                 }
                 else
                 {
+                    if ((correcteOplossingBox.Text.Equals("")) || (oplossing1Box.Text.Equals("")) || (oplossing2Box.Text.Equals("")) || (oplossing3Box.Text.Equals("")) || (opgaveBox.Text.Equals(""))||(juisteAntwoordCompleetBox.Text.Equals("")))
+                    {
+                        MessageBox.Show("Gelieve geen lege oplossingen of opgave in te geven");
+                    }
+                    else
+                    {
                 Oefening nieuwItem = new Oefening(opgaveBox.Text, oplossing1Box.Text, oplossing2Box.Text, oplossing3Box.Text, correcteOplossingBox.Text, juisteAntwoordCompleetBox.Text);
                 lijstOefeningen.Add(nieuwItem);
                 lijstOefeningen.Remove(selectedOefening);
                 lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
                 UpdateLijst();
-                }//end else (geen correcte oplossing)
+                    }
+                }
             }
-        }//end else (contains ;)
+        }
+
+        //Methods
             private void UpdateLijst()
         {
             lijstOefeningen = new OefeningLijst("gemiddeld");

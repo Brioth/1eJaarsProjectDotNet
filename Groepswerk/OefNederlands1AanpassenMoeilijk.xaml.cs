@@ -20,9 +20,12 @@ namespace Groepswerk
     // Date: 19/04/2015
     public partial class OefNederlands1AanpassenMoeilijk : Page
     {
+        //Lokale variabelen
         private OefeningLijst lijstOefeningen;
         private Oefening selectedOefening;
         private string bestand = "OefNederlands1Moeilijk.txt";
+
+        //Constructor
         public OefNederlands1AanpassenMoeilijk(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
@@ -32,6 +35,8 @@ namespace Groepswerk
             OpgaveSelecteren.SelectedIndex = 0;
 
         }
+
+        //Events
         private void OpgaveSelecteren_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (OpgaveSelecteren.SelectedIndex != -1)
@@ -49,26 +54,23 @@ namespace Groepswerk
             if ((opgaveBox.Text.Contains(';')) || (correcteOplossingBox.Text.Contains(';')) || (juisteAntwoordCompleetBox.Text.Contains(';')))
             {
                 MessageBox.Show("Gelieve geen ';' in uw zinnen te zetten.");
-            }//end if
+            }
             else
-            {
+            
+                if ((opgaveBox.Text.Equals(""))||(correcteOplossingBox.Text.Equals("")))
+                    {
+                        MessageBox.Show("Gelieve geen lege oplossingen of opgave in te geven");
+                    }
+                    else
+                    {
                 Oefening nieuwItem = new Oefening(opgaveBox.Text, correcteOplossingBox.Text, juisteAntwoordCompleetBox.Text);
                 lijstOefeningen.Add(nieuwItem);
                 lijstOefeningen.Remove(selectedOefening);
                 lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
                 UpdateLijst();
-            }
+                }
         }
-
-        private void UpdateLijst()
-        {
-            lijstOefeningen = new OefeningLijst("gemiddeld");
-            OpgaveSelecteren.ItemsSource = lijstOefeningen;
-            OpgaveSelecteren.SelectedIndex = -1;
-            OpgaveSelecteren.SelectedIndex = 0;
-        }
-
-
+            
         private void toevoegKnop_Click(object sender, RoutedEventArgs e)
         {
             Oefening nieuwOefening = new Oefening(opgaveBox.Text, correcteOplossingBox.Text, juisteAntwoordCompleetBox.Text);
@@ -94,10 +96,17 @@ namespace Groepswerk
                     break;
 
             }
-
-
+        }
+            //Methods
+        private void UpdateLijst()
+        {
+            lijstOefeningen = new OefeningLijst("gemiddeld");
+            OpgaveSelecteren.ItemsSource = lijstOefeningen;
+            OpgaveSelecteren.SelectedIndex = -1;
+            OpgaveSelecteren.SelectedIndex = 0;
+        }
 
         }
 
     }
-}
+

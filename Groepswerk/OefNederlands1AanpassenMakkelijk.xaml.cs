@@ -20,9 +20,12 @@ namespace Groepswerk
     //Date: 19/04/2015
     public partial class OefNederlands1AanpassenMakkelijk : Page
     {
+        //Lokale Variabelen
         private OefeningLijst lijstOefeningen;
         private Oefening selectedOefening;
         private string bestand = "OefNederlands1Makkelijk.txt";
+
+        //Constructors
         public OefNederlands1AanpassenMakkelijk(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
@@ -32,6 +35,8 @@ namespace Groepswerk
             OpgaveSelecteren.SelectedIndex = 0;
 
         }
+
+        //Events
         private void OpgaveSelecteren_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (OpgaveSelecteren.SelectedIndex != -1)
@@ -62,21 +67,20 @@ namespace Groepswerk
                 }
                 else
                 {
-            Oefening nieuwItem = new Oefening(opgaveBox.Text, oplossing1Box.Text, oplossing2Box.Text, oplossing3Box.Text, correcteOplossingBox.Text, juisteAntwoordCompleetBox.Text);
-            lijstOefeningen.Add(nieuwItem);
-            lijstOefeningen.Remove(selectedOefening);
-            lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
-            UpdateLijst();
-                }//end else if(geencorrecteoplossing)
-        }//end else if(contains ;)
-        }
-
-        private void UpdateLijst()
-        {
-            lijstOefeningen = new OefeningLijst("makkelijk");
-            OpgaveSelecteren.ItemsSource = lijstOefeningen;
-            OpgaveSelecteren.SelectedIndex = -1;
-            OpgaveSelecteren.SelectedIndex = 0;
+                    if ((correcteOplossingBox.Text.Equals("")) || (oplossing1Box.Text.Equals("")) || (oplossing2Box.Text.Equals("")) || (oplossing3Box.Text.Equals("")) || (opgaveBox.Text.Equals(""))||(juisteAntwoordCompleetBox.Text.Equals("")))
+                    {
+                        MessageBox.Show("Gelieve geen lege oplossingen of opgave in te geven");
+                    }
+                    else
+                    {
+                        Oefening nieuwItem = new Oefening(opgaveBox.Text, oplossing1Box.Text, oplossing2Box.Text, oplossing3Box.Text, correcteOplossingBox.Text, juisteAntwoordCompleetBox.Text);
+                        lijstOefeningen.Add(nieuwItem);
+                        lijstOefeningen.Remove(selectedOefening);
+                        lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
+                        UpdateLijst();
+                    }
+                }
+            }
         }
 
         private void verwijderKnop_Click(object sender, RoutedEventArgs e)
@@ -107,11 +111,22 @@ namespace Groepswerk
             }
             else
             {
-            Oefening nieuwOefening = new Oefening(opgaveBox.Text, oplossing1Box.Text, oplossing2Box.Text, oplossing3Box.Text, correcteOplossingBox.Text, juisteAntwoordCompleetBox.Text);
-            lijstOefeningen.Add(nieuwOefening);
-            lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
-            UpdateLijst();
+                Oefening nieuwOefening = new Oefening(opgaveBox.Text, oplossing1Box.Text, oplossing2Box.Text, oplossing3Box.Text, correcteOplossingBox.Text, juisteAntwoordCompleetBox.Text);
+                lijstOefeningen.Add(nieuwOefening);
+                lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
+                UpdateLijst();
             }
-       }
+        }
+
+        //Methods
+        private void UpdateLijst()
+        {
+            lijstOefeningen = new OefeningLijst("makkelijk");
+            OpgaveSelecteren.ItemsSource = lijstOefeningen;
+            OpgaveSelecteren.SelectedIndex = -1;
+            OpgaveSelecteren.SelectedIndex = 0;
+        }
+
+        
 }
 }

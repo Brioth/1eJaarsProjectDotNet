@@ -9,10 +9,7 @@
     <!--
     Author: Vincent Vandoninck
     Date: 06/05/2015
-    
-    layout gemaakt op 06/05/2015
     -->
-
 
     <Grid>
         <Grid.RowDefinitions>
@@ -31,7 +28,6 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
-
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
@@ -43,8 +39,6 @@
 
         <TextBlock Margin="10" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="8" FontWeight="SemiBold" FontSize="24" Text="Bij elke moelijkheidsgraad kan u een bereik zetten dat u wil aanpassen." />
         <TextBlock Margin="10" FontWeight="SemiBold" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="6" FontSize="24" Text="Druk hierna op de 'aanpassen' knop." />
-
-        <!--<ComboBox Name="OpgaveSelecteren" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,102,0,0" SelectionChanged="OpgaveSelecteren_SelectionChanged"/>-->
         <Button Margin="5" Name="AanpasKnop" Content="Aanpassen" Click="AanpasKnop_Click" Grid.Column="7" Grid.Row="7" />
 
         <TextBox Margin="10"  Name="bereikMin1" Grid.Column="2" Grid.Row="4"  />
