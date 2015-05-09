@@ -11,7 +11,10 @@ namespace Groepswerk
     //Date: 14/04/2015
     class OefeningLijst : List<Oefening> //alle oefeningen in een lijst gooien!
     {
+        //Lokale Variabelen
         private string moeilijkheid;
+
+        //Constructors
         public OefeningLijst(string moeilijkheid)
         {
             this.moeilijkheid = moeilijkheid;
@@ -121,6 +124,8 @@ namespace Groepswerk
              
             }
         }
+
+        //Methods
         //author: Seppe Vandezande
         //Date: 05/05/2015
         public void SchrijfLijst(string bestand)

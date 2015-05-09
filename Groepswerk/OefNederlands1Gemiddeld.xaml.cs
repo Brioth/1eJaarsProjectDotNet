@@ -20,6 +20,7 @@ namespace Groepswerk
     // Date: 18/04 
     public partial class OefNederlands1Gemiddeld : Page
     {
+        //Lokale variabelen
         private OefeningLijst lijstOefeningen;
         private string[] tempOpgave, tempOplossing1, tempOplossing2, tempOplossing3;
         private Random oefeningenNummer = new Random();
@@ -29,6 +30,8 @@ namespace Groepswerk
         private List<int> oefeningNummerLijst;
         private Gebruiker actieveGebruiker;
         private Stopwatch tijdGespendeerd;
+
+        //Constructors
         public OefNederlands1Gemiddeld(Gebruiker actieveGebruiker)
         {
             this.actieveGebruiker = actieveGebruiker;
@@ -97,23 +100,8 @@ namespace Groepswerk
             oplossing5.ItemsSource = oefLijst5;
             
         }
-        private void SchrijfPunten()
-        {
-            ResultatenLijst lijst = new ResultatenLijst("OefNederlands1GemiddeldResultaten.txt");
-            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect * 2, gespendeerdeTijd, lijst);
 
-            if (nieuw.IndexOud == -1)
-            {
-                lijst.Add(nieuw);
-            }
-            else
-            {
-                lijst.Add(nieuw);
-                lijst.RemoveAt(nieuw.IndexOud);
-            }
-            lijst.SchrijfLijst("OefNederlands1GemiddeldResultaten.txt");
-        }
-
+        //Events
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
             tijdGespendeerd.Stop();
@@ -216,7 +204,23 @@ namespace Groepswerk
             this.NavigationService.Navigate(gemiddeld);
         }
 
+//Methods
+        private void SchrijfPunten()
+        {
+            ResultatenLijst lijst = new ResultatenLijst("OefNederlands1GemiddeldResultaten.txt");
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect * 2, gespendeerdeTijd, lijst);
 
+            if (nieuw.IndexOud == -1)
+            {
+                lijst.Add(nieuw);
+            }
+            else
+            {
+                lijst.Add(nieuw);
+                lijst.RemoveAt(nieuw.IndexOud);
+            }
+            lijst.SchrijfLijst("OefNederlands1GemiddeldResultaten.txt");
+        }
         }
     
 }

@@ -20,9 +20,13 @@ namespace Groepswerk
     // Date: 19/04/2015
     public partial class OefNederlands1AanpassenGemiddeld : Page
     {
+
+        //Lokale variabelen
         private OefeningLijst lijstOefeningen;
         private Oefening selectedOefening;
         private string bestand = "OefNederlands1Gemiddeld.txt";
+
+        //Constructors
         public OefNederlands1AanpassenGemiddeld(Gebruiker actieveGebruiker)
         {
             InitializeComponent();
@@ -32,6 +36,7 @@ namespace Groepswerk
             OpgaveSelecteren.SelectedIndex = 0;
         }
 
+        //Events
         private void OpgaveSelecteren_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (OpgaveSelecteren.SelectedIndex != -1)
@@ -76,6 +81,8 @@ namespace Groepswerk
                 }//end else (geen correcte oplossing)
             }
         }//end else (contains ;)
+
+        //Methods
             private void UpdateLijst()
         {
             lijstOefeningen = new OefeningLijst("gemiddeld");

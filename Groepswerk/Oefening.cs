@@ -11,7 +11,7 @@ namespace Groepswerk
         //author: Thomas Cox
         //date: 14/04/2015
 
-
+        //Constructors
         public Oefening(string opgave, string oplossing1, string oplossing2, string oplossing3, string correcteOplossing, string juisteAntwoordCompleet)
         {
             this.opgave = opgave;
@@ -37,6 +37,7 @@ namespace Groepswerk
             this.opgave = opgave;
             this.oplossing = oplossing;
         }
+        //Methods
         public String SchrijfStringTaal(string sleutelwoord)
         {
             switch (sleutelwoord) 
@@ -63,7 +64,8 @@ namespace Groepswerk
         {
             return opgave;
         }
-      
+
+        //Properties
         public string opgave { get; set; }
         public string oplossing { get; set; }
         public string oplossing1 { get; set; }

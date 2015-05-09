@@ -20,6 +20,7 @@ namespace Groepswerk
     //Date: 14/05/2015
     public partial class OefNederlands1Makkelijk : Page
     {
+        //Lokale variabelen
         private OefeningLijst lijstOefeningen;
         private string[] tempOpgave, tempOplossing1, tempOplossing2, tempOplossing3;
         private Random oefeningenNummer = new Random();
@@ -30,6 +31,8 @@ namespace Groepswerk
         private List<int> oefeningNummerLijst;
         private Gebruiker actieveGebruiker;
         private Stopwatch tijdTeller;
+
+        //Constructor
         public OefNederlands1Makkelijk(Gebruiker actieveGebruiker)
         {
 
@@ -104,24 +107,9 @@ namespace Groepswerk
             oplossing5.ItemsSource = oefLijst5;
 
         }
-        private void SchrijfPunten()
-        {
 
-            ResultatenLijst lijst = new ResultatenLijst("OefNederlands1MakkelijkResultaten.txt");
-            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect, gespendeerdeTijd, lijst);
-            if (nieuw.IndexOud == -1)
-            {
-                lijst.Add(nieuw);
 
-            } //end if
-            else
-            {
-                lijst.Add(nieuw);
-                lijst.RemoveAt(nieuw.IndexOud);
-            } // end else
-            lijst.SchrijfLijst("OefNederlands1MakkelijkResultaten.txt");
 
-        }
         private void verbeterButton_Click(object sender, RoutedEventArgs e)
         {
             tijdTeller.Stop();
@@ -182,7 +170,7 @@ namespace Groepswerk
                 opgave5.Background = Brushes.Green;
             }
             Punten.Text = Convert.ToString(oefCorrect) + "/5";
-            
+
             verbeterButton.IsEnabled = false;
 
 
@@ -197,7 +185,7 @@ namespace Groepswerk
             lijst.SchrijfLijst();
             SchrijfPunten();
         }
-        
+
         private void terugButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult terug = MessageBox.Show("Ben je zeker dat je terug wilt naar het leerlingenmenu?", "Terug", MessageBoxButton.YesNo);
@@ -219,6 +207,24 @@ namespace Groepswerk
             OefNederlands1Makkelijk makkelijk = new OefNederlands1Makkelijk(actieveGebruiker);
             this.NavigationService.Navigate(makkelijk);
         }
+
+        //Methods
+        private void SchrijfPunten()
+        {
+
+            ResultatenLijst lijst = new ResultatenLijst("OefNederlands1MakkelijkResultaten.txt");
+            Resultaat nieuw = new Resultaat(actieveGebruiker.Id, oefCorrect, gespendeerdeTijd, lijst);
+            if (nieuw.IndexOud == -1)
+            {
+                lijst.Add(nieuw);
+
+            } //end if
+            else
+            {
+                lijst.Add(nieuw);
+                lijst.RemoveAt(nieuw.IndexOud);
+            } // end else
+            lijst.SchrijfLijst("OefNederlands1MakkelijkResultaten.txt");
+        }
     }
 }
-
