@@ -57,7 +57,7 @@ namespace Groepswerk
             if ((opgaveBox.Text.Contains(';')) || (oplossing1Box.Text.Contains(';')) || (oplossing2Box.Text.Contains(';')) || (oplossing3Box.Text.Contains(';')))
             {
                 MessageBox.Show("Gelieve geen ';' in uw zinnen te zetten.");
-            }//end if
+            }
             else
             {
                 if (!((correcteOplossingBox.Text.Equals(oplossing1Box.Text)) || (correcteOplossingBox.Text.Equals(oplossing2Box.Text)) || (correcteOplossingBox.Text.Equals(oplossing3Box.Text))))
@@ -78,9 +78,9 @@ namespace Groepswerk
                 lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
                 UpdateLijst();
                     }
-                }//end else (geen correcte oplossing)
+                }
             }
-        }//end else (contains ;)
+        }
 
         //Methods
             private void UpdateLijst()

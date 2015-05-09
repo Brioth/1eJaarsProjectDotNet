@@ -78,9 +78,9 @@ namespace Groepswerk
                         lijstOefeningen.Remove(selectedOefening);
                         lijstOefeningen.SchrijfLijstTaal(bestand, "taal1");
                         UpdateLijst();
-                    }//end else if(lege doosjes mogen niet)
-                }//end else if(geencorrecteoplossing)
-            }//end else if(contains ;)
+                    }
+                }
+            }
         }
 
         private void verwijderKnop_Click(object sender, RoutedEventArgs e)

@@ -54,7 +54,7 @@ namespace Groepswerk
             if ((opgaveBox.Text.Contains(';')) || (correcteOplossingBox.Text.Contains(';')) || (juisteAntwoordCompleetBox.Text.Contains(';')))
             {
                 MessageBox.Show("Gelieve geen ';' in uw zinnen te zetten.");
-            }//end if
+            }
             else
             
                 if ((opgaveBox.Text.Equals(""))||(correcteOplossingBox.Text.Equals("")))

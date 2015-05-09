@@ -218,12 +218,12 @@ namespace Groepswerk
             {
                 lijst.Add(nieuw);
 
-            } //end if
+            } 
             else
             {
                 lijst.Add(nieuw);
                 lijst.RemoveAt(nieuw.IndexOud);
-            } // end else
+            }
             lijst.SchrijfLijst("OefNederlands1MakkelijkResultaten.txt");
         }
     }

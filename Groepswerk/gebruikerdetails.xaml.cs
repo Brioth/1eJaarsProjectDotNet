@@ -26,6 +26,7 @@ namespace Groepswerk
      */
     public partial class Gebruikerdetails : Page
     {
+        
         //Lokale Variabelen
         private List<Gebruiker> accountLijst;
         private List<Klas> klasLijst;
@@ -37,7 +38,7 @@ namespace Groepswerk
         //Constructors
         public Gebruikerdetails()
         {
-            InitializeComponent(); // laad u formulier
+            InitializeComponent(); // laad uw formulier
             klasLijst = new Klaslijst();
             labels = new List<Label>();
             klasKeuze.ItemsSource = klasLijst;
@@ -57,9 +58,9 @@ namespace Groepswerk
             accountLijst = new Accountlijst(selectedKlas);
 
             boxLln.ItemsSource = accountLijst;
-            // elke student in de lijst is nu zchtbaar want de hele lijst is de source
+            // elke student in de lijst is nu zichtbaar want de hele lijst is de source
             boxLln.SelectedIndex = 0;
-            // om het netjes te houden begin je bij de eerste al als geselecteerde waarde
+            // om het netjes te houden begin je bij de eerste als geselecteerde waarde
         }
         private void boxLln_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
